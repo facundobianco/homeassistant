@@ -1,0 +1,15 @@
+.HA_VERSION
+.storage
+.sonoff.json
+*.db
+*.json
+*.py
+*.log
+*.2020*
+http.yaml
+secrets.yaml
+custom_components/
+deps/
+themes/
+tts/
+www/
