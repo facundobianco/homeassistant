@@ -1,0 +1,157 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+http:
+  server_host: 127.0.0.1
+  base_url: !secret http_base_url
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1
+    - !secret rspi_ip
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include_dir_merge_named scripts/
+sensor: !include sensors.yaml
+scene: !include scenes.yaml
+
+homeassistant:
+  time_zone: America/Argentina/Buenos_Aires
+  unit_system: metric
+  latitude: !secret ha_lat
+  longitude: !secret ha_lon
+  elevation: 20
+
+hacs:
+  token: !secret hacs_token
+  sidepanel_icon: mdi:alpha-c-box
+
+
+ambient_station:
+  api_key: !secret ambient_station_api_key
+  app_key: !secret ambient_station_app_key
+
+sonoff:
+  username: !secret sonoff_username
+  password: !secret sonoff_password
+  reload: always
+
+remote:
+  - platform: broadlink
+    host: !secret living_rm2_ip
+    mac: !secret living_rm2_mac
+    name: living
+  - platform: broadlink
+    host: !secret dormitorio_rm2_ip
+    mac: !secret dormitorio_rm2_mac
+    name: dormitorio
+
+switch:
+  - platform: broadlink
+    type: rm2_pro_plus
+    host: !secret living_rm2_ip
+    mac: !secret living_rm2_mac
+    friendly_name: living_rm2
+  - platform: broadlink
+    type: rm2_pro_plus
+    host: !secret dormitorio_rm2_ip
+    mac: !secret dormitorio_rm2_mac
+    friendly_name: dormitorio_rm2
+
+climate:
+  - platform: smartir
+    name: Living
+    unique_id: living_ac
+    device_code: 2000
+    controller_data: !secret living_rm2_ip
+    temperature_sensor: sensor.lu7and_inside_temp
+    humidity_sensor: sensor.lu7and_humidity_in
+    power_sensor: binary_sensor.ac_power
+  - platform: smartir
+    name: Dormitorio
+    unique_id: dormitorio_ac
+    device_code: 1400
+    controller_data: !secret dormitorio_rm2_ip
+    temperature_sensor: sensor.dormitorio_temperatura
+    humidity_sensor: sensor.dormitorio_humidity
+    power_sensor: binary_sensor.ac_power
+
+shell_command:
+  pihole_enable:  curl -X GET 'http://127.0.0.1:8080/admin/api.php?enable&auth={{ !secret pihole_token }}'
+  pihole_disable: curl -X GET 'http://127.0.0.1:8080/admin/api.php?disable={{ states.input_select.pihole_time.state }}&auth={{ !secret pihole_token }}'
+
+automation:
+  alias: Reset PiHole Disable Time
+  trigger:
+    - platform: state
+      entity_id: script.enable_pihole
+    - platform: state
+      entity_id: sensor.pi_hole_status
+      from: 'disabled'
+      to: 'enabled'
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.pihole_time
+      option: Select Time
+
+group:
+  pihole:
+    name: Pi Hole Status
+    entities:
+      - sensor.pihole_status
+      - script.enable_pihole
+      - input_select.pihole_time
+      - sensor.pihole_ads_blocked_today
+      - sensor.pihole_ads_percentage_blocked_today
+      - sensor.pihole_dns_queries_cached
+      - sensor.pihole_dns_queries_forwarded
+      - sensor.pihole_dns_queries_today
+      - sensor.pihole_dns_unique_clients
+      - sensor.pihole_dns_unique_domains
+      - sensor.pihole_domains_blocked
+
+input_select:
+  ac_location:
+    name: AC Location
+    options:
+      - Living
+      - Dormitorio
+      - Ventilador
+    initial: Living
+    icon: mdi:air-conditioner
+  tv_location:
+    name: TV Location
+    options:
+      - Living
+      - Dormitorio
+      - Bluray
+    initial: Living
+    icon: mdi:television-classic
+  pihole_time:
+    name: Disable Time (seconds)
+    options:
+      - Select Time
+      - 10
+      - 30
+      - 60
+      - 300
+      - 600
+      - 900
+      - 1800
+      - 3600
+    initial: Select Time
+
+browser_mod:
+
+vacuum:
+  - platform: xiaomi_miio
+    host: !secret vacuum_ip
+    token: !secret vacuum_token
