@@ -32,3 +32,10 @@
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) }}'
+
+- platform: template
+  sensors:
+    living_rm2_ip:
+      value_template: !secret living_rm2_ip
+    dormitorio_rm2_ip:
+      value_template: !secret dormitorio_rm2_ip
