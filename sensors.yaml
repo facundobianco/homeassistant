@@ -31,7 +31,7 @@
   name: CPU Temperature
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   unit_of_measurement: "°C"
-  value_template: '{{ value | multiply(0.001) }}'
+  value_template: '{{ value | multiply(0.001) | round(1) }}'
 
 - platform: template
   sensors:
@@ -39,3 +39,8 @@
       value_template: !secret living_rm2_ip
     dormitorio_rm2_ip:
       value_template: !secret dormitorio_rm2_ip
+
+- platform: template
+  sensors:
+    pihole_token:
+      value_template: !secret pihole_token

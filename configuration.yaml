@@ -84,8 +84,8 @@ climate:
     power_sensor: binary_sensor.ac_power
 
 shell_command:
-  pihole_enable:  curl -X GET 'http://127.0.0.1:8080/admin/api.php?enable&auth={{ !secret pihole_token }}'
-  pihole_disable: curl -X GET 'http://127.0.0.1:8080/admin/api.php?disable={{ states.input_select.pihole_time.state }}&auth={{ !secret pihole_token }}'
+  pihole_enable:  curl -X GET 'http://127.0.0.1:8080/admin/api.php?enable&auth={{ states.sensor.pihole_token.state }}'
+  pihole_disable: curl -X GET 'http://127.0.0.1:8080/admin/api.php?disable={{ states.input_select.pihole_time.state }}&auth={{ states.sensor.pihole_token.state }}'
 
 automation:
   alias: Reset PiHole Disable Time
@@ -150,8 +150,3 @@ input_select:
     initial: Select Time
 
 browser_mod:
-
-vacuum:
-  - platform: xiaomi_miio
-    host: !secret vacuum_ip
-    token: !secret vacuum_token
