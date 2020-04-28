@@ -28,4 +28,4 @@ views:
   - !include lovelace/views/lights.yaml
   - !include lovelace/views/ac.yaml
   - !include lovelace/views/tv.yaml
-  #- !include lovelace/views/graph.yaml
+  - !include lovelace/views/graph.yaml
