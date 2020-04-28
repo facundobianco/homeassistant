@@ -2,7 +2,7 @@
 
 My personal home assistant configuration.
 
-![AC](https://i.ibb.co/NsZ8nSB/799-CD769-28-E9-4-FC0-8-C16-889-A30-C9-E94-A.png)
+<img src="https://i.ibb.co/pjd54qZ/5763-C956-0017-46-D3-92-DB-D12-FFBFF50-E2.jpg" width="209.95" height="363.35">
 
 ## Integrations
 
