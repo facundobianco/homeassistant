@@ -1,0 +1,64 @@
+---
+title: Home
+icon: 'mdi:home'
+panel: false
+path: home
+badges: []
+cards:
+
+  # Default info
+  - type: entities
+    entities:
+      - entity: sensor.lu7and_temp
+        name: Temperatura
+      - entity: sensor.lu7and_humidity
+        name: Humedad
+      - entity: sensor.lu7and_solar_rad
+        icon: 'mdi:white-balance-sunny'
+        name: Radiacion
+      - entity: climate.living_ac
+      - entity: climate.dormitorio_ac
+      - entity: sensor.cpu_temperature
+
+  # Heat tank
+  - type: entities
+    title: Termotanque
+    show_header_toggle: false
+    entities:
+      - entity: sensor.termotanque_temperatura
+        name: Temperatura
+      - entity: switch.sonoff_10008508fb
+        name: On/Off
+
+  # PiHole info
+  - type: entities
+    title: Pi-Hole
+    show_header_toggle: false
+    entities:
+      - entity: sensor.pihole_status
+      - entity: script.enable_pihole
+      - entity: input_select.pihole_time
+
+  # HA quick commands
+  - type: glance
+    show_name: true
+    show_state: false
+    entities:
+      - entity: zone.home
+        icon: 'mdi:restart'
+        name: Lovelace
+        tap_action:
+          action: call-service
+          service: frontend.reload_themes
+      - entity: zone.home
+        icon: 'mdi:restart'
+        name: Home Assistant
+        tap_action:
+          action: call-service
+          service: homeassistant.restart
+      - entity: zone.home
+        icon: 'mdi:restart'
+        name: Server
+        tap_action:
+          action: call-service
+          service: hassio.host_reboot

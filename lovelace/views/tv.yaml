@@ -1,0 +1,234 @@
+---
+title: TV
+icon: 'mdi:television-classic'
+panel: false
+path: tv
+badges: []
+cards:
+  - type: vertical-stack
+    show_name: false
+    cards:
+
+      # |  INPUT  |  EXIT  |  POWER  |
+      - type: horizontal-stack
+        cards:
+          - action: script
+            icon: 'mdi:exit-to-app'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: input
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:close-circle-outline'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: exit
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:power'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: power
+            type: 'custom:button-card'
+
+      # |  VOLUME HIGH  |  NULL  |  CHANNEL NEXT  |
+      - type: horizontal-stack
+        cards:
+          - action: script
+            icon: 'mdi:volume-high'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: volume_up
+            type: 'custom:button-card'
+          - color_type: blank-card
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:arrow-up'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: channel_next
+            type: 'custom:button-card'
+
+      # |  MUTE  |  HOME  |  CHANNEL JUMP  |
+      - type: horizontal-stack
+        cards:
+          - action: script
+            icon: 'mdi:volume-variant-off'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: mute
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:home'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: home
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:cached'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: channel_jump
+            type: 'custom:button-card'
+
+      # |  VOLUME MINUS  |  DOTS  |  CHANNEL PREV  |
+      - type: horizontal-stack
+        cards:
+          - action: script
+            icon: 'mdi:volume-medium'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: volume_minus
+            type: 'custom:button-card'
+          - icon: 'mdi:dots-horizontal'
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:arrow-down'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: channel_prev
+            type: 'custom:button-card'
+
+      # |  NULL  |  UP  |  NULL  |
+      - type: horizontal-stack
+        cards:
+          - color_type: blank-card
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:arrow-up-drop-circle'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: up
+            type: 'custom:button-card'
+          - color_type: blank-card
+            type: 'custom:button-card'
+
+      # |  LEFT  |  OK  |  RIGHT  |
+      - type: horizontal-stack
+        cards:
+          - action: script
+            icon: 'mdi:arrow-left-drop-circle'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: left
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:circle-slice-8'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: ok
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:arrow-right-drop-circle'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: right
+            type: 'custom:button-card'
+
+      # |  NUMBERS  |  DOWN  |  FAVORITES  |
+      - type: horizontal-stack
+        cards:
+          - icon: 'mdi:numeric'
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:arrow-down-drop-circle'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: down
+            type: 'custom:button-card'
+          - icon: 'mdi:heart'
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                card:
+                  entities:
+                    - entity: script.tv_fav_america
+                      icon: 'mdi:television'
+                      name: America
+                    - entity: script.tv_fav_a24
+                      icon: 'mdi:television'
+                      name: A24
+                    - entity: script.tv_fav_volver
+                      icon: 'mdi:television'
+                      name: Volver
+                  type: entities
+                deviceID: this
+                title: Favorites
+            type: 'custom:button-card'
+
+      # |  YOUTUBE  |  RETURN  |  NETFLIX  |
+      - type: horizontal-stack
+        cards:
+          - action: script
+            icon: 'mdi:youtube'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: youtube
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:keyboard-return'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: return
+            type: 'custom:button-card'
+          - action: script
+            icon: 'mdi:netflix'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                room: living
+                run: netflix
+            type: 'custom:button-card'

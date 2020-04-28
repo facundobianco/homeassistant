@@ -1,0 +1,14 @@
+---
+# Custom header configuration
+# https://maykar.github.io/custom-header/#configuration/main
+
+compact_mode: true
+hide_help: true
+exceptions:
+  - conditions:
+      user_agent: Mobile
+    config:
+      disable_sidebar: true
+      footer_mode: true
+      hide_config: true
+      options_hide: true
