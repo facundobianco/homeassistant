@@ -1,5 +1,18 @@
 title: Home
-custom_header: !include lovelace/cards/custom_header.yaml
+
+# Custom header configuration
+# https://maykar.github.io/custom-header/#configuration/main
+custom_header:
+  compact_mode: true
+  hide_help: true
+  exceptions:
+    - conditions:
+        user_agent: Mobile
+      config:
+        disable_sidebar: true
+        footer_mode: true
+        hide_config: true
+        options_hide: true
 
 resources:
   - type: module
@@ -24,8 +37,8 @@ resources:
     url: /hacsfiles/lovelace-state-switch/state-switch.js
 
 views:
-  - !include lovelace/views/home.yaml
-  - !include lovelace/views/lights.yaml
-  - !include lovelace/views/ac.yaml
-  - !include lovelace/views/tv.yaml
-  - !include lovelace/views/graph.yaml
+  - !include lovelace/home.yaml
+  - !include lovelace/lights.yaml
+  - !include lovelace/ac.yaml
+  - !include lovelace/tv.yaml
+  - !include lovelace/graph.yaml
