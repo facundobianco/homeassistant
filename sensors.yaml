@@ -1,3 +1,26 @@
+# RSPi status
+# https://www.home-assistant.io/integrations/systemmonitor/
+- platform: systemmonitor
+  resources:
+    - type: last_boot
+    - type: processor_use
+    - type: memory_use_percent
+    - type: disk_use_percent
+      arg: /
+    - type: disk_use_percent
+      arg: /var/log
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0
+
+- platform: command_line
+  name: CPU Temperature
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) | round(1) }}'
+
+# eWeLink Sonoff TH16
 - platform: template
   sensors:
     dormitorio_temperatura:
@@ -21,26 +44,19 @@
       unit_of_measurement: '%'
       value_template: "{{ state_attr('switch.sonoff_10008508fb', 'humidity') | float}}"
 
+# PiHole
 - platform: command_line
   name: PiHole Status
   command: curl -X GET 'http://127.0.0.1:8080/admin/api.php?status'
   value_template: >
     {{ value_json.status }}
 
-- platform: command_line
-  name: CPU Temperature
-  command: "cat /sys/class/thermal/thermal_zone0/temp"
-  unit_of_measurement: "°C"
-  value_template: '{{ value | multiply(0.001) | round(1) }}'
-
+# Tokens as sensor
 - platform: template
   sensors:
     living_rm2_ip:
       value_template: !secret living_rm2_ip
     dormitorio_rm2_ip:
       value_template: !secret dormitorio_rm2_ip
-
-- platform: template
-  sensors:
     pihole_token:
       value_template: !secret pihole_token

@@ -6,19 +6,27 @@ path: home
 badges: []
 cards:
 
-  # Default info
+  # RSPi info
   - type: entities
+    title: RSPi
+    show_header_toggle: false
     entities:
-      - entity: sensor.lu7and_temp
-        name: Temperatura
-      - entity: sensor.lu7and_humidity
-        name: Humedad
-      - entity: sensor.lu7and_solar_rad
-        icon: 'mdi:white-balance-sunny'
-        name: Radiacion
-      - entity: climate.living_ac
-      - entity: climate.dormitorio_ac
+      - entity: sensor.disk_use_percent
+        icon: 'mdi:harddisk'
+        name: /
+      - entity: sensor.disk_use_percent_var_log
+        icon: 'mdi:harddisk'
+        name: /var/log
+      - entity: sensor.processor_use
+        name: Processor
+      - entity: sensor.memory_use_percent
+        name: RAM
       - entity: sensor.cpu_temperature
+        name: Temperature
+      - entity: sensor.network_in_eth0
+        name: eth0 inbound (MiB)
+      - entity: sensor.network_out_eth0
+        name: eth0 outbound (MiB)
 
   # Heat tank
   - type: entities
