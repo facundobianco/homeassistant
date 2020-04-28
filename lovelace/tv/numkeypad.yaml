@@ -1,0 +1,139 @@
+type: vertical-stack
+show_name: false
+cards:
+
+  # |  1  |  2  |  3  |
+  - type: horizontal-stack
+    cards:
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:numeric-1'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: "1"
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:numeric-2'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: "2"
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:numeric-3'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: "3"
+
+  # |  4  |  5  |  6  |
+  - type: horizontal-stack
+    cards:
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:numeric-4'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: "4"
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:numeric-5'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: "5"
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:numeric-6'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: "6"
+
+  # |  7  |  8  |  9  |
+  - type: horizontal-stack
+    cards:
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:numeric-7'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: "7"
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:numeric-8'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: "8"
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:numeric-9'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: "9"
+
+  # |  DOT  |  0  |  DISPLAY  |
+  - type: horizontal-stack
+    cards:
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:circle-small'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: dot
+
+      - type: 'custom:button-card'
+        action: script
+        icon: 'mdi:numeric-0'
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: "0"
+
+      - type: 'custom:button-card'
+        action: script
+        name: DISPLAY
+        tap_action:
+          action: call-service
+          service: script.tv
+          service_data:
+            room: living
+            run: display

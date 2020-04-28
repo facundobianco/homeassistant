@@ -40,5 +40,5 @@ views:
   - !include lovelace/home.yaml
   - !include lovelace/lights.yaml
   - !include lovelace/ac.yaml
-  - !include lovelace/tv.yaml
+  - !include lovelace/tv/main.yaml
   - !include lovelace/graph.yaml

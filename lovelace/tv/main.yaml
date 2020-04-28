@@ -172,6 +172,13 @@ cards:
         cards:
           - icon: 'mdi:numeric'
             type: 'custom:button-card'
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                card: !include numkeypad.yaml
+                deviceID: this
+                title: Number keypad
           - action: script
             icon: 'mdi:arrow-down-drop-circle'
             tap_action:
@@ -186,18 +193,7 @@ cards:
               action: call-service
               service: browser_mod.popup
               service_data:
-                card:
-                  entities:
-                    - entity: script.tv_fav_america
-                      icon: 'mdi:television'
-                      name: America
-                    - entity: script.tv_fav_a24
-                      icon: 'mdi:television'
-                      name: A24
-                    - entity: script.tv_fav_volver
-                      icon: 'mdi:television'
-                      name: Volver
-                  type: entities
+                card: !include favorites.yaml
                 deviceID: this
                 title: Favorites
             type: 'custom:button-card'
