@@ -2,6 +2,8 @@
 .storage
 .sonoff.json
 *.db
+*.db-shm
+*.db-wal
 *.json
 *.py
 *.log
