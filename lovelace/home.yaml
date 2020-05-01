@@ -12,10 +12,10 @@ cards:
     show_header_toggle: false
     entities:
       - entity: sensor.disk_use_percent
-        icon: 'mdi:harddisk'
+        icon: 'mdi:micro-sd'
         name: /
       - entity: sensor.disk_use_percent_var_log
-        icon: 'mdi:harddisk'
+        icon: 'mdi:micro-sd'
         name: /var/log
       - entity: sensor.processor_use
         name: Processor
