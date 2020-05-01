@@ -1,4 +1,5 @@
 ---
+
 title: TV
 icon: 'mdi:television-classic'
 panel: false
@@ -9,6 +10,11 @@ cards:
     show_name: false
     cards:
 
+      # INPUT
+      - type: entities
+        entities:
+          - input_select.tv_location
+
       # |  INPUT  |  EXIT  |  POWER  |
       - type: horizontal-stack
         cards:
@@ -18,7 +24,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: input
             type: 'custom:button-card'
           - action: script
@@ -27,7 +32,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: exit
             type: 'custom:button-card'
           - action: script
@@ -36,7 +40,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: power
             type: 'custom:button-card'
 
@@ -49,7 +52,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: volume_up
             type: 'custom:button-card'
           - color_type: blank-card
@@ -60,7 +62,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: channel_next
             type: 'custom:button-card'
 
@@ -73,7 +74,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: mute
             type: 'custom:button-card'
           - action: script
@@ -82,7 +82,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: home
             type: 'custom:button-card'
           - action: script
@@ -91,7 +90,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: channel_jump
             type: 'custom:button-card'
 
@@ -104,7 +102,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: volume_minus
             type: 'custom:button-card'
           - icon: 'mdi:dots-horizontal'
@@ -115,7 +112,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: channel_prev
             type: 'custom:button-card'
 
@@ -130,7 +126,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: up
             type: 'custom:button-card'
           - color_type: blank-card
@@ -145,7 +140,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: left
             type: 'custom:button-card'
           - action: script
@@ -154,7 +148,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: ok
             type: 'custom:button-card'
           - action: script
@@ -163,7 +156,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: right
             type: 'custom:button-card'
 
@@ -185,7 +177,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: down
             type: 'custom:button-card'
           - icon: 'mdi:heart'
@@ -207,7 +198,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: youtube
             type: 'custom:button-card'
           - action: script
@@ -216,7 +206,6 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: return
             type: 'custom:button-card'
           - action: script
@@ -225,6 +214,5 @@ cards:
               action: call-service
               service: script.tv
               service_data:
-                room: living
                 run: netflix
             type: 'custom:button-card'

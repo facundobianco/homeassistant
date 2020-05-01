@@ -13,7 +13,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: "1"
 
       - type: 'custom:button-card'
@@ -23,7 +22,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: "2"
 
       - type: 'custom:button-card'
@@ -33,7 +31,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: "3"
 
   # |  4  |  5  |  6  |
@@ -47,7 +44,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: "4"
 
       - type: 'custom:button-card'
@@ -57,7 +53,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: "5"
 
       - type: 'custom:button-card'
@@ -67,7 +62,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: "6"
 
   # |  7  |  8  |  9  |
@@ -81,7 +75,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: "7"
 
       - type: 'custom:button-card'
@@ -91,7 +84,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: "8"
 
       - type: 'custom:button-card'
@@ -101,7 +93,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: "9"
 
   # |  DOT  |  0  |  DISPLAY  |
@@ -115,7 +106,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: dot
 
       - type: 'custom:button-card'
@@ -125,7 +115,6 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: "0"
 
       - type: 'custom:button-card'
@@ -135,5 +124,4 @@ cards:
           action: call-service
           service: script.tv
           service_data:
-            room: living
             run: display

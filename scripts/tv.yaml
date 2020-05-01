@@ -4,8 +4,8 @@ tv:
     - service: broadlink.send
       data_template:
         host: >
-          {% if room == "living" %}{{ states.sensor.living_rm2_ip.state }}
-          {% elif room == "dormitorio" %}{{ states.sensor.dormitorio_rm2_ip.state }}
+          {% if is_state("input_select.tv_location", "Living") %}{{ states.sensor.living_rm2_ip.state }}
+          {% elif is_state("input_select.tv_location", "Dormitorio") %}{{ states.sensor.dormitorio_rm2_ip.state }}
           {% endif %}
         packet: >-
           {% if run == "input" %}
