@@ -14,6 +14,20 @@ custom_header:
         hide_config: true
         options_hide: true
 
+# Button Card Templates configuration
+# https://github.com/custom-cards/button-card#configuration
+button_card_templates:
+  rounded:
+    styles:
+      card:
+       - border-radius: 100px
+      icon:
+       - width: 40%
+  divider:
+    styles:
+      card:
+        - height: 40px
+
 resources:
   - type: module
     url: /community_plugin/custom-header/custom-header.js

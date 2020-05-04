@@ -15,7 +15,8 @@ cards:
         entities:
           - input_select.tv_location
 
-      # |  INPUT  |  EXIT  |  POWER  |
+
+      # |  INPUT  |  EXIT  |  NULL  |  POWER  |
       - type: horizontal-stack
         cards:
           - action: script
@@ -26,6 +27,7 @@ cards:
               service_data:
                 run: input
             type: 'custom:button-card'
+            template: rounded
           - action: script
             icon: 'mdi:close-circle-outline'
             tap_action:
@@ -34,6 +36,10 @@ cards:
               service_data:
                 run: exit
             type: 'custom:button-card'
+            template: rounded
+          - color_type: blank-card
+            type: 'custom:button-card'
+            template: rounded
           - action: script
             icon: 'mdi:power'
             tap_action:
@@ -42,8 +48,17 @@ cards:
               service_data:
                 run: power
             type: 'custom:button-card'
+            template: rounded
 
-      # |  VOLUME HIGH  |  NULL  |  CHANNEL NEXT  |
+      # |  DIVIDER  |
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: divider
+            color_type: blank-card
+
+
+      # |  VOLUME HIGH  |  CHANNEL JUMP  |  CHANNEL NEXT  |  QUICK  ACCESS  |
       - type: horizontal-stack
         cards:
           - action: script
@@ -54,36 +69,7 @@ cards:
               service_data:
                 run: volume_up
             type: 'custom:button-card'
-          - color_type: blank-card
-            type: 'custom:button-card'
-          - action: script
-            icon: 'mdi:arrow-up'
-            tap_action:
-              action: call-service
-              service: script.tv
-              service_data:
-                run: channel_next
-            type: 'custom:button-card'
-
-      # |  MUTE  |  HOME  |  CHANNEL JUMP  |
-      - type: horizontal-stack
-        cards:
-          - action: script
-            icon: 'mdi:volume-variant-off'
-            tap_action:
-              action: call-service
-              service: script.tv
-              service_data:
-                run: mute
-            type: 'custom:button-card'
-          - action: script
-            icon: 'mdi:home'
-            tap_action:
-              action: call-service
-              service: script.tv
-              service_data:
-                run: home
-            type: 'custom:button-card'
+            template: rounded
           - action: script
             icon: 'mdi:cached'
             tap_action:
@@ -92,8 +78,22 @@ cards:
               service_data:
                 run: channel_jump
             type: 'custom:button-card'
+            template: rounded
+          - action: script
+            icon: 'mdi:arrow-up'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                run: channel_next
+            type: 'custom:button-card'
+            template: rounded
+          - type: 'custom:button-card'
+            icon: 'mdi:run-fast'
+            template: rounded
 
-      # |  VOLUME MINUS  |  DOTS  |  CHANNEL PREV  |
+
+      # |  VOLUME MINUS  |  MUTE  |  CHANNEL PREV  |  NULL  |
       - type: horizontal-stack
         cards:
           - action: script
@@ -104,8 +104,16 @@ cards:
               service_data:
                 run: volume_minus
             type: 'custom:button-card'
-          - icon: 'mdi:dots-horizontal'
+            template: rounded
+          - action: script
+            icon: 'mdi:volume-variant-off'
+            tap_action:
+              action: call-service
+              service: script.tv
+              service_data:
+                run: mute
             type: 'custom:button-card'
+            template: rounded
           - action: script
             icon: 'mdi:arrow-down'
             tap_action:
@@ -114,12 +122,25 @@ cards:
               service_data:
                 run: channel_prev
             type: 'custom:button-card'
+            template: rounded
+          - color_type: blank-card
+            type: 'custom:button-card'
+            template: rounded
 
-      # |  NULL  |  UP  |  NULL  |
+      # |  DIVIDER  |
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: divider
+            color_type: blank-card
+
+
+      # |  NULL  |  UP  |  NULL  |  NULL  |
       - type: horizontal-stack
         cards:
           - color_type: blank-card
             type: 'custom:button-card'
+            template: rounded
           - action: script
             icon: 'mdi:arrow-up-drop-circle'
             tap_action:
@@ -128,10 +149,16 @@ cards:
               service_data:
                 run: up
             type: 'custom:button-card'
+            template: rounded
           - color_type: blank-card
             type: 'custom:button-card'
+            template: rounded
+          - color_type: blank-card
+            type: 'custom:button-card'
+            template: rounded
 
-      # |  LEFT  |  OK  |  RIGHT  |
+
+      # |  LEFT  |  OK  |  RIGHT  |  NUMBER KEYPAD  |
       - type: horizontal-stack
         cards:
           - action: script
@@ -142,6 +169,7 @@ cards:
               service_data:
                 run: left
             type: 'custom:button-card'
+            template: rounded
           - action: script
             icon: 'mdi:circle-slice-8'
             tap_action:
@@ -150,6 +178,7 @@ cards:
               service_data:
                 run: ok
             type: 'custom:button-card'
+            template: rounded
           - action: script
             icon: 'mdi:arrow-right-drop-circle'
             tap_action:
@@ -158,12 +187,10 @@ cards:
               service_data:
                 run: right
             type: 'custom:button-card'
-
-      # |  NUMBERS  |  DOWN  |  FAVORITES  |
-      - type: horizontal-stack
-        cards:
+            template: rounded
           - icon: 'mdi:numeric'
             type: 'custom:button-card'
+            template: rounded
             tap_action:
               action: call-service
               service: browser_mod.popup
@@ -171,6 +198,14 @@ cards:
                 card: !include numkeypad.yaml
                 deviceID: this
                 title: Number keypad
+
+
+      # |  NULL  |  DOWN  |  NULL  |  FAVORITES  |
+      - type: horizontal-stack
+        cards:
+          - color_type: blank-card
+            type: 'custom:button-card'
+            template: rounded
           - action: script
             icon: 'mdi:arrow-down-drop-circle'
             tap_action:
@@ -179,6 +214,10 @@ cards:
               service_data:
                 run: down
             type: 'custom:button-card'
+            template: rounded
+          - color_type: blank-card
+            type: 'custom:button-card'
+            template: rounded
           - icon: 'mdi:heart'
             tap_action:
               action: call-service
@@ -188,8 +227,10 @@ cards:
                 deviceID: this
                 title: Favorites
             type: 'custom:button-card'
+            template: rounded
 
-      # |  YOUTUBE  |  RETURN  |  NETFLIX  |
+
+      # |  YOUTUBE  |  RETURN  |  NETFLIX  |  DOTS  |
       - type: horizontal-stack
         cards:
           - action: script
@@ -200,6 +241,7 @@ cards:
               service_data:
                 run: youtube
             type: 'custom:button-card'
+            template: rounded
           - action: script
             icon: 'mdi:keyboard-return'
             tap_action:
@@ -208,6 +250,7 @@ cards:
               service_data:
                 run: return
             type: 'custom:button-card'
+            template: rounded
           - action: script
             icon: 'mdi:netflix'
             tap_action:
@@ -216,3 +259,7 @@ cards:
               service_data:
                 run: netflix
             type: 'custom:button-card'
+            template: rounded
+          - icon: 'mdi:dots-horizontal'
+            type: 'custom:button-card'
+            template: rounded

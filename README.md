@@ -2,7 +2,7 @@
 
 My personal home assistant configuration.
 
-<img src="https://i.ibb.co/pjd54qZ/5763-C956-0017-46-D3-92-DB-D12-FFBFF50-E2.jpg" width="209.95" height="363.35">
+<img src="https://i.ibb.co/pjd54qZ/5763-C956-0017-46-D3-92-DB-D12-FFBFF50-E2.jpg" width="209.95" height="363.35">&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/4Sd9xHy/IMG-2800.jpg" width="209.95" height="363.35">
 
 ## Integrations
 
