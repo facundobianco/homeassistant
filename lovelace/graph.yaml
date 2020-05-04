@@ -15,11 +15,15 @@ cards:
         name: Living
       - entity: sensor.dormitorio_temperatura
         name: Dormitorio
+      - entity: sensor.deposito_temperatura
+        name: Deposito
       - entity: sensor.lu7and_humidity
         name: Outdoor
       - entity: sensor.lu7and_humidity_in
         name: Living
       - entity: sensor.dormitorio_humedad
         name: Dormitorio
+      - entity: sensor.deposito_humedad
+        name: Deposito
       - entity: sensor.lu7and_solar_rad
         name: Solar
