@@ -25,3 +25,7 @@ My personal home assistant configuration.
 ## Themes
 
 * Dark Teal
+
+## Recommended links
+
+* [Atom IDE: Edit remote files using SSH/FTP](https://atom.io/packages/remote-edit-ni)
