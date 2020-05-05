@@ -66,7 +66,7 @@ dark_teal:
   switch-checked-track-color: 'var(--border-color)'
 
   # Custom Header
-  ch-background: 'rgba(69, 74, 83, 0.8)'
+  ch-background: 'rgba(69, 74, 83, 1)'
   ch-active-tab-color: 'var(--accent-color)'
   ch-notification-dot-color: 'var(--accent-color)'
   ch-all-tabs-color: 'var(--sidebar-icon-color)'
