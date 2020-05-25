@@ -41,7 +41,7 @@ cards:
             entities:
               - entity: sensor.dormitorio_temperatura
                 name: Temperatura
-              - type: 'fan-control-entity-row'
+              - type: 'custom:fan-control-entity-row'
                 entity: fan.sonoff_1000954850
                 name: Ventilador Dormitorio
                 customIsOffColor: 'rgb(32, 169, 139)'
