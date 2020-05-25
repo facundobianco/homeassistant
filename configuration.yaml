@@ -68,6 +68,8 @@ switch:
     mac: !secret dormitorio_rm2_mac
     friendly_name: dormitorio_rm2
 
+smartir:
+
 climate:
   - platform: smartir
     name: Living
