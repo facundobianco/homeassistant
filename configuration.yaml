@@ -4,7 +4,6 @@ default_config:
 
 http:
   server_host: 127.0.0.1
-  base_url: !secret http_base_url
   use_x_forwarded_for: true
   trusted_proxies: !secret http_trusted_proxies
   ip_ban_enabled: true
@@ -26,6 +25,7 @@ sensor: !include sensors.yaml
 scene: !include scenes.yaml
 
 homeassistant:
+  external_url: !secret http_base_url
   time_zone: America/Argentina/Buenos_Aires
   unit_system: metric
   latitude: !secret ha_lat
