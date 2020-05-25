@@ -26,6 +26,16 @@ My personal home assistant configuration.
 
 * Dark Teal
 
+## Troubleshooting
+
+### HACS: Warning about community_plugin
+
+For version >= 0.107 you will find this warning message:
+
+> WARNING (MainThread) [hacs.deprecated] The '/community_plugin/*' is deprecated and will be removed in an upcomming version of HACS, it has been replaced by '/hacsfiles/*'
+
+To solve it, [edit plugins location](https://community.home-assistant.io/t/0-107-warning-about-community-plugin/179511/2) and do not forget to remove `custom:` in elements installed in HACS.
+
 ## Recommended links
 
 * [Atom IDE: Edit remote files using SSH/FTP](https://atom.io/packages/remote-edit-ni)

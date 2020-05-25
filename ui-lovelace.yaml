@@ -30,15 +30,15 @@ button_card_templates:
 
 resources:
   - type: module
-    url: /community_plugin/custom-header/custom-header.js
+    url: /hacsfiles/custom-header/custom-header.js
   - type: js
-    url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+    url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
   - type: module
-    url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+    url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
   - type: module
-    url: /community_plugin/circle-sensor-card/circle-sensor-card.js
+    url: /hacsfiles/circle-sensor-card/circle-sensor-card.js
   - type: js
-    url: /community_plugin/fan-control-entity-row/fan-control-entity-row.js
+    url: /hacsfiles/fan-control-entity-row/fan-control-entity-row.js
   - type: module
     url: /hacsfiles/lovelace-layout-card/layout-card.js
   - type: module
