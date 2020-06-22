@@ -6,8 +6,8 @@ path: graph
 badges: []
 cards:
   - type: history-graph
-    hours_to_show: 24
-    refresh_interval: 0
+    hours_to_show: 8
+    refresh_interval: 60
     entities:
       - entity: sensor.lu7and_temp
         name: Outdoor
@@ -29,5 +29,5 @@ cards:
         name: Dormitorio
       - entity: sensor.deposito_humedad
         name: Deposito
-      - entity: sensor.lu7and_solar_rad
-        name: Solar
+      - entity: sensor.lu7and_solar_rad_lx
+        name: Solar Lux
