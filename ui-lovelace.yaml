@@ -28,28 +28,6 @@ button_card_templates:
       card:
         - height: 40px
 
-resources:
-  - type: module
-    url: /hacsfiles/custom-header/custom-header.js
-  - type: js
-    url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
-  - type: module
-    url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
-  - type: module
-    url: /hacsfiles/circle-sensor-card/circle-sensor-card.js
-  - type: js
-    url: /hacsfiles/fan-control-entity-row/fan-control-entity-row.js
-  - type: module
-    url: /hacsfiles/lovelace-layout-card/layout-card.js
-  - type: module
-    url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
-  - type: module
-    url: /hacsfiles/button-card/button-card.js
-  - type: module
-    url: /hacsfiles/lovelace-card-mod/card-mod.js
-  - type: module
-    url: /hacsfiles/lovelace-state-switch/state-switch.js
-
 views:
   - !include lovelace/home.yaml
   - !include lovelace/lights.yaml
