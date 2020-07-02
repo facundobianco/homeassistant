@@ -160,3 +160,6 @@ input_select:
     initial: Select Time
 
 browser_mod:
+
+logger:
+  default: info
