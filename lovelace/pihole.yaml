@@ -1,0 +1,15 @@
+---
+title: Pi-hole
+icon: 'mdi:pi-hole'
+panel: false
+path: pihole
+badges: []
+cards:
+
+  - type: entities
+    title: Pi-Hole
+    show_header_toggle: false
+    entities:
+      - entity: sensor.pihole_status
+      - entity: script.enable_pihole
+      - entity: input_select.pihole_time

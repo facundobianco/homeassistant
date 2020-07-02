@@ -40,15 +40,6 @@ cards:
       - entity: switch.sonoff_10008508fb
         name: On/Off
 
-  # PiHole info
-  - type: entities
-    title: Pi-Hole
-    show_header_toggle: false
-    entities:
-      - entity: sensor.pihole_status
-      - entity: script.enable_pihole
-      - entity: input_select.pihole_time
-
   # HA quick commands
   - type: glance
     show_name: true

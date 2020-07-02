@@ -34,3 +34,4 @@ views:
   - !include lovelace/ac.yaml
   - !include lovelace/tv/main.yaml
   - !include lovelace/graph.yaml
+  - !include lovelace/pihole.yaml
