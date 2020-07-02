@@ -11,6 +11,8 @@ cards:
     title: RSPi
     show_header_toggle: false
     entities:
+      - entity: sensor.last_boot
+        icon: 'mdi:clock-outline'
       - entity: sensor.disk_use_percent
         icon: 'mdi:micro-sd'
         name: /
