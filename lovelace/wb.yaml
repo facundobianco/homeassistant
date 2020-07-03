@@ -1,0 +1,17 @@
+---
+title: Electric Water Boiler
+icon: 'mdi:water-boiler'
+panel: false
+path: wb
+badges: []
+cards:
+
+  - type: entities
+    title: Termotanque
+    show_header_toggle: false
+    entities:
+      - entity: sensor.termotanque_temperatura
+        name: Temperatura
+      - entity: switch.sonoff_10008508fb
+        name: On/Off
+

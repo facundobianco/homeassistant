@@ -30,16 +30,6 @@ cards:
       - entity: sensor.network_out_eth0
         name: eth0 outbound (MiB)
 
-  # Heat tank
-  - type: entities
-    title: Termotanque
-    show_header_toggle: false
-    entities:
-      - entity: sensor.termotanque_temperatura
-        name: Temperatura
-      - entity: switch.sonoff_10008508fb
-        name: On/Off
-
   # HA quick commands
   - type: glance
     show_name: true
