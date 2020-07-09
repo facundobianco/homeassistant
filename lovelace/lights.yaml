@@ -48,7 +48,7 @@ cards:
         type: glance
       - columns: 3
         entities:
-          - entity: light.sonoff_1000954850
+          - entity: light.sonoff_1000954850_1
             icon: 'mdi:ceiling-light'
             name: Dormitorio
             tap_action:
