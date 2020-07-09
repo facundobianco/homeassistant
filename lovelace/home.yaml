@@ -6,11 +6,11 @@ path: home
 badges: []
 cards:
 
-  # RSPi info
   - type: entities
     title: RSPi
     show_header_toggle: false
     entities:
+      # RSPi info
       - entity: sensor.last_boot
         icon: 'mdi:clock-outline'
       - entity: sensor.disk_use_percent
@@ -29,27 +29,10 @@ cards:
         name: eth0 inbound (MiB)
       - entity: sensor.network_out_eth0
         name: eth0 outbound (MiB)
-
-  # HA quick commands
-  - type: glance
-    show_name: true
-    show_state: false
-    entities:
+      # Restart HA
       - entity: zone.home
         icon: 'mdi:restart'
-        name: Lovelace
-        tap_action:
-          action: call-service
-          service: frontend.reload_themes
-      - entity: zone.home
-        icon: 'mdi:restart'
-        name: Home Assistant
+        name: Restart HA
         tap_action:
           action: call-service
           service: homeassistant.restart
-      - entity: zone.home
-        icon: 'mdi:restart'
-        name: Server
-        tap_action:
-          action: call-service
-          service: hassio.host_reboot
