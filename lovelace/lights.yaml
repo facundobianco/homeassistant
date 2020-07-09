@@ -5,8 +5,7 @@ panel: false
 path: lights
 badges: []
 cards:
-  - title: Luces
-    type: 'custom:vertical-stack-in-card'
+  - type: 'custom:vertical-stack-in-card'
     cards:
       - columns: 3
         entities:
