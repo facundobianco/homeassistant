@@ -28,6 +28,19 @@ My personal home assistant configuration.
 
 ## Troubleshooting
 
+### Custom Header exception in iOS
+
+In HA >= 0.111 *Custom Header* component ignores the user agent exception for iOS application.
+
+Solution is
+
+```
+- conditions:
+    media_query: "(max-width: 375px)"
+```
+
+To get your iOS width, visit [whatismyscreenresolution.net](http://whatismyscreenresolution.net).
+
 ### HACS: Warning about community_plugin
 
 For version >= 0.107 you will find this warning message:

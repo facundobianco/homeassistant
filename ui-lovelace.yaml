@@ -7,7 +7,7 @@ custom_header:
   hide_help: true
   exceptions:
     - conditions:
-        user_agent: Mobile
+        media_query: "(max-width: 375px)"
       config:
         disable_sidebar: true
         footer_mode: true
