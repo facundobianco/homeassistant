@@ -5,35 +5,24 @@ panel: false
 path: ac
 badges: []
 cards:
-  - type: 'custom:layout-card'
-    layout: vertical
-    cards:
 
-      # Outdoor temperature & humidity
-      - type: entities
-        entities:
-          - entity: sensor.lu7and_temp
-            name: Outdor temperature
-          - entity: sensor.lu7and_humidity
-            name: Outdoor humidity
-
+  - type: entities
+    entities:
       # Entities selection
-      - type: entities
-        entities:
-          - input_select.ac_location
-      
+      - input_select.ac_location
+      # Entities displayed
       - type: 'custom:state-switch'
         entity: input_select.ac_location
         states:
-          # Bedroom's AC
-          Dormitorio:
-            type: thermostat
-            entity: climate.dormitorio_ac
-            name: ' '
           # Living's AC
           Living:
             type: thermostat
             entity: climate.living_ac
+            name: ' '
+          # Bedroom's AC
+          Dormitorio:
+            type: thermostat
+            entity: climate.dormitorio_ac
             name: ' '
           # Bedroom's fan (with indoor temperature)
           Ventilador:
