@@ -14,6 +14,9 @@ cards:
         icon: 'mdi:clock-outline'
       - entity: sensor.system_updates
         icon: 'mdi:package-variant-closed'
+      - entity: sensor.hacs
+        name: 'HACS updates'
+        icon: 'mdi:alpha-c-box'
       - entity: sensor.disk_use_percent
         icon: 'mdi:micro-sd'
         name: /
