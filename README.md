@@ -2,7 +2,13 @@
 
 My personal home assistant configuration.
 
-<img src="https://i.ibb.co/pjd54qZ/5763-C956-0017-46-D3-92-DB-D12-FFBFF50-E2.jpg" width="209.95" height="363.35">&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/4Sd9xHy/IMG-2800.jpg" width="209.95" height="363.35">
+<img src="https://i.ibb.co/XSJvXv3/IMG-4976.png" width="209.95" height="363.35">&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/tM1wwbZ/IMG-4977.png" width="209.95" height="363.35">&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/k9vG75C/IMG-4978.png" width="209.95" height="363.35">
+
+Images stored in [imgbb <img src="https://simgbb.com/images/favicon.png" width="16" height="16">](https://imgbb.com)
+
+## Required external packages
+
+* [monitoring-plugins-basic](https://packages.debian.org/buster/monitoring-plugins-basic) (plugins for Nagios compatible monitoring systems)
 
 ## Integrations
 
@@ -10,7 +16,7 @@ My personal home assistant configuration.
 * HACS
 * Sonoff LAN
 
-## Plugins
+## Pluginsx
 
 * Circle Sensord Card
 * Custom header

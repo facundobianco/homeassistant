@@ -12,6 +12,8 @@ cards:
       # RSPi info
       - entity: sensor.last_boot
         icon: 'mdi:clock-outline'
+      - entity: sensor.system_updates
+        icon: 'mdi:package-variant-closed'
       - entity: sensor.disk_use_percent
         icon: 'mdi:micro-sd'
         name: /

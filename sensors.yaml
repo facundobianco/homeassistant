@@ -20,6 +20,11 @@
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 
+- platform: command_line
+  name: System Updates
+  scan_interval: 900
+  command: "/usr/lib/nagios/plugins/check_apt | sed -n 's/.*=\\([^;]*\\);.*=\\([^;]*\\);.*$/Available: \\1, Critical: \\2/p'"
+
 # eWeLink Sonoff TH16
 - platform: template
   sensors:
