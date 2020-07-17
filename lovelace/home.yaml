@@ -10,13 +10,10 @@ cards:
     show_header_toggle: false
     entities:
       # RSPi info
-      - entity: sensor.last_boot
+      - entity: sensor.uptime
         icon: 'mdi:clock-outline'
-      - entity: sensor.system_updates
+      - entity: sensor.pending_updates
         icon: 'mdi:package-variant-closed'
-      - entity: sensor.hacs
-        name: 'HACS updates'
-        icon: 'mdi:alpha-c-box'
       - entity: sensor.disk_use_percent
         icon: 'mdi:micro-sd'
         name: /
@@ -29,13 +26,20 @@ cards:
         name: RAM
       - entity: sensor.cpu_temperature
         name: Temperature
+      - type: divider
+      # Networking
       - entity: sensor.network_in_eth0
-        name: eth0 inbound (MiB)
+        name: Networking traffic IN
       - entity: sensor.network_out_eth0
-        name: eth0 outbound (MiB)
+        name: Networking traffic OUT
+      - entity: sensor.packets_in_eth0
+        name: Networking packages RX
+      - entity: sensor.packets_out_eth0
+        name: Networking packages TX
       - entity: sensor.speedtest_ping
       - entity: sensor.speedtest_upload
       - entity: sensor.speedtest_download
+      - type: divider
       # Restart HA
       - entity: zone.home
         icon: 'mdi:restart'
