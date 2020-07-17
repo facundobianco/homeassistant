@@ -161,5 +161,11 @@ input_select:
 
 browser_mod:
 
+# Speedtest.net against Movistar
+speedtestdotnet:
+  server_id: 7696
+  scan_interval:
+    minutes: 120
+
 logger:
   default: info

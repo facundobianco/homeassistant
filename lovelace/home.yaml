@@ -33,6 +33,9 @@ cards:
         name: eth0 inbound (MiB)
       - entity: sensor.network_out_eth0
         name: eth0 outbound (MiB)
+      - entity: sensor.speedtest_ping
+      - entity: sensor.speedtest_upload
+      - entity: sensor.speedtest_download
       # Restart HA
       - entity: zone.home
         icon: 'mdi:restart'
