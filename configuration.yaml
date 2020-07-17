@@ -165,7 +165,7 @@ browser_mod:
 speedtestdotnet:
   server_id: 7696
   scan_interval:
-    minutes: 120
+    minutes: 75
 
 logger:
   default: info
