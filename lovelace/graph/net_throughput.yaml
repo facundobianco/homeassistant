@@ -1,0 +1,8 @@
+type: history-graph
+hours_to_show: 8
+refresh_interval: 5
+entities:
+  - entity: sensor.network_throughput_in_eth0
+    name: IN
+  - entity: sensor.network_throughput_out_eth0
+    name: OUT

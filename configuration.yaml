@@ -159,6 +159,12 @@ input_select:
       - 3600
     initial: Select Time
 
+input_boolean:
+  blank:
+    icon: 'mdi:'
+  blank_chart:
+    icon: 'mdi:chart-line'
+
 browser_mod:
 
 # Speedtest.net against Movistar

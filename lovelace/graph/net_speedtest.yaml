@@ -1,0 +1,8 @@
+type: history-graph
+hours_to_show: 8
+refresh_interval: 5
+entities:
+  - entity: sensor.speedtest_upload
+    name: Upload
+  - entity: sensor.speedtest_download
+    name: Download
