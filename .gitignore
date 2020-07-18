@@ -8,6 +8,7 @@
 *.py
 *.log
 *.2020*
+*.swp
 http.yaml
 secrets.yaml
 custom_components/
