@@ -13,7 +13,10 @@ cards:
           # RSPi info
           - entity: sensor.uptime
             icon: 'mdi:clock-outline'
-          - entity: sensor.pending_updates
+          - entity: sensor.raspbian_packages
+            icon: 'mdi:package-variant-closed'
+          - entity: sensor.hacs
+            name: "HACS packages"
             icon: 'mdi:package-variant-closed'
           - entity: sensor.disk_use_percent
             icon: 'mdi:micro-sd'

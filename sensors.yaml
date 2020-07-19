@@ -37,15 +37,10 @@
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 
 - platform: command_line
-  name: System Updates
+  name: Raspbian packages
   scan_interval: 900
   command: "/usr/lib/nagios/plugins/check_apt | sed -n 's/.*upgrades=\\([^;]*\\);.*/\\1/p'"
-
-- platform: template
-  sensors:
-    pending_updates:
-      friendly_name: Pending updates
-      value_template: "Raspbian: {{ states.sensor.system_updates.state }}, HACS: {{ states.sensor.hacs.state}}"
+  unit_of_measurement: "pending update(s)"
 
 # eWeLink Sonoff TH16
 - platform: template
@@ -119,14 +114,17 @@
 - platform: template
   sensors:
     pihole_core_update:
-      friendly_name: Pi-Hole core update
-      value_template: "{% if states.sensor.pihole_versions.attributes['core_update'] == true %}1{% else %}0{% endif %} pending"
+      friendly_name: Pi-Hole core
+      unit_of_measurement: "pending update"
+      value_template: "{% if states.sensor.pihole_versions.attributes['core_update'] == true %}1{% else %}0{% endif %}"
     pihole_web_update:
-      friendly_name: Pi-Hole web update
-      value_template: "{% if states.sensor.pihole_versions.attributes['web_update'] == true %}1{% else %}0{% endif %} pending"
+      friendly_name: Web interface
+      unit_of_measurement: "pending update"
+      value_template: "{% if states.sensor.pihole_versions.attributes['web_update'] == true %}1{% else %}0{% endif %}"
     pihole_ftl_update:
-      friendly_name: Pi-Hole FTL update
-      value_template: "{% if states.sensor.pihole_versions.attributes['FTL_update'] == true %}1{% else %}0{% endif %} pending"
+      friendly_name: FTL
+      unit_of_measurement: "pending update"
+      value_template: "{% if states.sensor.pihole_versions.attributes['FTL_update'] == true %}1{% else %}0{% endif %}"
 
 # Tokens as sensor
 - platform: template
