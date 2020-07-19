@@ -47,36 +47,20 @@ cards:
           - entity: input_boolean.blank_chart
             name: Traffic
             tap_action:
-              action: call-service
-              service: browser_mod.popup
-              service_data:
-                card: !include graph/net_traffic.yaml
-                deviceID: this
-                title: Networking traffic
+              action: navigate
+              navigation_path: /lovelace/graph_net_traffic
           - entity: input_boolean.blank_chart
             name: Throughput
             tap_action:
-              action: call-service
-              service: browser_mod.popup
-              service_data:
-                card: !include graph/net_throughput.yaml
-                deviceID: this
-                title: Networking throughput
+              action: navigate
+              navigation_path: /lovelace/graph_net_throughput
           - entity: input_boolean.blank_chart
             name: Packets
             tap_action:
-              action: call-service
-              service: browser_mod.popup
-              service_data:
-                card: !include graph/net_packets.yaml
-                deviceID: this
-                title: Networking packets
+              action: navigate
+              navigation_path: /lovelace/graph_net_packets
           - entity: input_boolean.blank_chart
             name: Speedtest
             tap_action:
-              action: call-service
-              service: browser_mod.popup
-              service_data:
-                card: !include graph/net_speedtest.yaml
-                deviceID: this
-                title: Networking Speedtest
+              action: navigate
+              navigation_path: /lovelace/graph_net_speedtest

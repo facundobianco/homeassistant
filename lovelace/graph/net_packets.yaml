@@ -1,8 +1,18 @@
-type: history-graph
-hours_to_show: 8
-refresh_interval: 5
-entities:
-  - entity: sensor.packets_in_eth0
-    name: RX
-  - entity: sensor.packets_out_eth0
-    name: TX
+---
+
+panel: false
+path: graph_net_packets
+visible: false
+badges: []
+cards:
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: history-graph
+        title: Networking packets
+        hours_to_show: 8
+        refresh_interval: 5
+        entities:
+          - entity: sensor.packets_in_eth0
+            name: RX
+          - entity: sensor.packets_out_eth0
+            name: TX

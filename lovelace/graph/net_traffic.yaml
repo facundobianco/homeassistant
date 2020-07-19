@@ -1,8 +1,18 @@
-type: history-graph
-hours_to_show: 8
-refresh_interval: 5
-entities:
-  - entity: sensor.network_in_eth0
-    name: IN
-  - entity: sensor.network_out_eth0
-    name: OUT
+---
+
+panel: false
+path: graph_net_traffic
+visible: false
+badges: []
+cards:
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: history-graph
+        title: Networking traffic
+        hours_to_show: 8
+        refresh_interval: 5
+        entities:
+          - entity: sensor.network_in_eth0
+            name: IN
+          - entity: sensor.network_out_eth0
+            name: OUT

@@ -36,3 +36,8 @@ views:
   - !include lovelace/wb.yaml
   - !include lovelace/graph.yaml
   - !include lovelace/pihole.yaml
+  # Graphs
+  - !include lovelace/graph/net_traffic.yaml
+  - !include lovelace/graph/net_throughput.yaml
+  - !include lovelace/graph/net_packets.yaml
+  - !include lovelace/graph/net_speedtest.yaml
