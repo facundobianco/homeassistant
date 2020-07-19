@@ -34,9 +34,10 @@ views:
   - !include lovelace/ac.yaml
   - !include lovelace/tv/main.yaml
   - !include lovelace/wb.yaml
-  - !include lovelace/graph.yaml
   - !include lovelace/pihole.yaml
   # Graphs
+  - !include lovelace/graph/ws_temp.yaml
+  - !include lovelace/graph/ws_humidity.yaml
   - !include lovelace/graph/net_traffic.yaml
   - !include lovelace/graph/net_throughput.yaml
   - !include lovelace/graph/net_packets.yaml

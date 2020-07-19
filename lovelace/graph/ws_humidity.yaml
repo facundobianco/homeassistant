@@ -1,0 +1,24 @@
+---
+
+panel: false
+path: graph_ws_humidity
+visible: false
+badges: []
+cards:
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: history-graph
+        title: Humidity
+        hours_to_show: 8
+        refresh_interval: 60
+        entities:
+          - entity: sensor.lu7and_humidity
+            name: Outdoor
+          - entity: sensor.lu7and_humidity_in
+            name: Living
+          - entity: sensor.cocina_humedad
+            name: Cocina
+          - entity: sensor.dormitorio_humedad
+            name: Dormitorio
+          - entity: sensor.deposito_humedad
+            name: Deposito
