@@ -92,11 +92,41 @@
       value_template: "{{ state_attr('switch.sonoff_100085069c', 'humidity') | float}}"
 
 # PiHole
-- platform: command_line
-  name: PiHole Status
-  command: curl -X GET 'http://127.0.0.1:8080/admin/api.php?status'
+# https://github.com/pi-hole/AdminLTE/blob/master/api.php
+- platform: rest
+  name: PiHole status
+  resource: "http://127.0.0.1:8080/admin/api.php?status"
   value_template: >
     {{ value_json.status }}
+
+- platform: rest
+  name: PiHole versions
+  resource: "http://127.0.0.1:8080/admin/api.php?versions"
+  json_attributes:
+    - core_branch
+    - core_current
+    - core_latest
+    - core_update
+    - web_branch
+    - web_current
+    - web_latest
+    - web_update
+    - FTL_branch
+    - FTL_current
+    - FTL_latest
+    - FTL_update
+  value_template: "OK"
+- platform: template
+  sensors:
+    pihole_core_update:
+      friendly_name: Pi-Hole core update
+      value_template: "{% if states.sensor.pihole_versions.attributes['core_update'] == true %}1{% else %}0{% endif %} pending"
+    pihole_web_update:
+      friendly_name: Pi-Hole web update
+      value_template: "{% if states.sensor.pihole_versions.attributes['web_update'] == true %}1{% else %}0{% endif %} pending"
+    pihole_ftl_update:
+      friendly_name: Pi-Hole FTL update
+      value_template: "{% if states.sensor.pihole_versions.attributes['FTL_update'] == true %}1{% else %}0{% endif %} pending"
 
 # Tokens as sensor
 - platform: template
@@ -105,5 +135,3 @@
       value_template: !secret living_rm2_ip
     dormitorio_rm2_ip:
       value_template: !secret dormitorio_rm2_ip
-    pihole_token:
-      value_template: !secret pihole_token

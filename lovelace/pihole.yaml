@@ -10,5 +10,18 @@ cards:
     show_header_toggle: false
     entities:
       - entity: sensor.pihole_status
-      - entity: script.enable_pihole
       - entity: input_select.pihole_time
+      - entity: sensor.pihole_ads_blocked_today
+      - entity: sensor.pihole_ads_percentage_blocked_today
+      - entity: sensor.pihole_dns_queries_cached
+      - entity: sensor.pihole_dns_queries_forwarded
+      - entity: sensor.pihole_dns_queries_today
+      - entity: sensor.pihole_dns_unique_clients
+      - entity: sensor.pihole_dns_unique_domains
+      - entity: sensor.pihole_domains_blocked
+      - entity: sensor.pihole_core_update
+        icon: 'mdi:package-variant-closed'
+      - entity: sensor.pihole_web_update
+        icon: 'mdi:package-variant-closed'
+      - entity: sensor.pihole_ftl_update
+        icon: 'mdi:package-variant-closed'
