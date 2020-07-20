@@ -23,6 +23,8 @@
     - type: packets_out
       arg: eth0
     - type: process
+      arg: lighttpd
+    - type: process
       arg: pihole-FTL
 
 - platform: command_line
