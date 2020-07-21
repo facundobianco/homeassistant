@@ -36,6 +36,7 @@ views:
   - !include lovelace/wb.yaml
   - !include lovelace/pihole.yaml
   # Graphs
+  - !include lovelace/graph/rspi_memory.yaml
   - !include lovelace/graph/ws_temp.yaml
   - !include lovelace/graph/ws_humidity.yaml
   - !include lovelace/graph/net_traffic.yaml

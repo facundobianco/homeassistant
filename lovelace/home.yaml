@@ -8,9 +8,9 @@ cards:
 
   - type: 'custom:vertical-stack-in-card'
     cards:
+      # RSPi info
       - type: entities
         entities:
-          # RSPi info
           - entity: sensor.uptime
             icon: 'mdi:clock-outline'
           - entity: sensor.raspbian_packages
@@ -30,8 +30,18 @@ cards:
             name: RAM
           - entity: sensor.cpu_temperature
             name: Temperature
-          - type: divider
-          # Networking
+      - type: glance
+        show_state: false
+        columns: 4
+        entities:
+          - entity: input_boolean.blank_chart
+            name: Memory
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/graph_rspi_memory
+      # Networking
+      - type: entities
+        entities:
           - entity: sensor.network_in_eth0
             name: Networking traffic IN
           - entity: sensor.network_out_eth0
