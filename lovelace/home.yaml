@@ -6,74 +6,87 @@ path: home
 badges: []
 cards:
 
-  - type: 'custom:vertical-stack-in-card'
-    cards:
-      # RSPi info
-      - type: entities
-        entities:
-          - entity: sensor.uptime
-            icon: 'mdi:clock-outline'
-          - entity: sensor.raspbian_packages
-            icon: 'mdi:package-variant-closed'
-          - entity: sensor.hacs
-            name: "HACS packages"
-            icon: 'mdi:package-variant-closed'
-          - entity: sensor.disk_use_percent
-            icon: 'mdi:micro-sd'
-            name: /
-          - entity: sensor.disk_use_percent_var_log
-            icon: 'mdi:micro-sd'
-            name: /var/log
-          - entity: sensor.processor_use
-            name: Processor
-          - entity: sensor.memory_use_percent
-            name: RAM
-          - entity: sensor.cpu_temperature
-            name: Temperature
-      - type: glance
-        show_state: false
-        columns: 4
-        entities:
-          - entity: input_boolean.blank_chart
-            name: Memory
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/graph_rspi_memory
-      # Networking
-      - type: entities
-        entities:
-          - entity: sensor.network_in_eth0
-            name: Networking traffic IN
-          - entity: sensor.network_out_eth0
-            name: Networking traffic OUT
-          - entity: sensor.packets_in_eth0
-            name: Networking packages RX
-          - entity: sensor.packets_out_eth0
-            name: Networking packages TX
-          - entity: sensor.speedtest_ping
-          - entity: sensor.speedtest_upload
-          - entity: sensor.speedtest_download
-      - type: glance
-        show_state: false
-        columns: 4
-        entities:
-          - entity: input_boolean.blank_chart
-            name: Traffic
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/graph_net_traffic
-          - entity: input_boolean.blank_chart
-            name: Throughput
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/graph_net_throughput
-          - entity: input_boolean.blank_chart
-            name: Packets
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/graph_net_packets
-          - entity: input_boolean.blank_chart
-            name: Speedtest
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/graph_net_speedtest
+  - type: entities
+    entities:
+      # Entities selection
+      - input_select.home
+      # Internal views
+      - type: 'custom:state-switch'
+        entity: input_select.home
+        states:
+          RSPi:
+            type: 'custom:vertical-stack-in-card'
+            cards:
+              - type: entities
+                entities:
+                  - entity: sensor.uptime
+                    icon: 'mdi:clock-outline'
+                  - entity: sensor.disk_use_percent
+                    icon: 'mdi:micro-sd'
+                    name: /
+                  - entity: sensor.disk_use_percent_var_log
+                    icon: 'mdi:micro-sd'
+                    name: /var/log
+                  - entity: sensor.processor_use
+                    name: Processor
+                  - entity: sensor.memory_use_percent
+                    name: RAM
+                  - entity: sensor.cpu_temperature
+                    name: Temperature
+              - type: glance
+                show_state: false
+                columns: 4
+                entities:
+                  - entity: input_boolean.blank_chart
+                    name: Memory
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/graph_rspi_memory
+          Networking:
+            type: 'custom:vertical-stack-in-card'
+            cards:
+              - type: entities
+                entities:
+                  - entity: sensor.network_in_eth0
+                    name: Networking traffic IN
+                  - entity: sensor.network_out_eth0
+                    name: Networking traffic OUT
+                  - entity: sensor.packets_in_eth0
+                    name: Networking packages RX
+                  - entity: sensor.packets_out_eth0
+                    name: Networking packages TX
+                  - entity: sensor.speedtest_ping
+                  - entity: sensor.speedtest_upload
+                  - entity: sensor.speedtest_download
+              - type: glance
+                show_state: false
+                columns: 4
+                entities:
+                  - entity: input_boolean.blank_chart
+                    name: Traffic
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/graph_net_traffic
+                  - entity: input_boolean.blank_chart
+                    name: Throughput
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/graph_net_throughput
+                  - entity: input_boolean.blank_chart
+                    name: Packets
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/graph_net_packets
+                  - entity: input_boolean.blank_chart
+                    name: Speedtest
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/graph_net_speedtest
+          Available updates:
+            type: entities
+            entities:
+              - entity: sensor.raspbian_packages
+                icon: 'mdi:package-variant-closed'
+              - entity: sensor.hacs
+                name: "HACS packages"
+                icon: 'mdi:package-variant-closed'

@@ -128,6 +128,13 @@ automation:
       option: Select Time
 
 input_select:
+  home:
+    name: Select view
+    options:
+      - RSPi
+      - Networking
+      - Available updates
+    initial: RSPi
   ac_location:
     name: AC Location
     options:
@@ -144,6 +151,13 @@ input_select:
       - Bluray
     initial: Living
     icon: mdi:television-classic
+  pihole:
+    name: Select view
+    options:
+      - Status
+      - Query log
+      - Available updates
+    initial: Status
   pihole_time:
     name: Disable Time (seconds)
     options:
@@ -157,6 +171,7 @@ input_select:
       - 1800
       - 3600
     initial: Select Time
+    icon: 'mdi:counter'
 
 input_boolean:
   blank:
