@@ -44,6 +44,14 @@
   command: "/usr/lib/nagios/plugins/check_apt | sed -n 's/.*upgrades=\\([^;]*\\);.*/\\1/p'"
   unit_of_measurement: "pending update(s)"
 
+# HA
+- platform: version
+  name: Current
+  source: pypi
+
+- platform: cert_expiry
+  host: !secret host
+
 # eWeLink Sonoff TH16
 - platform: template
   sensors:
@@ -127,6 +135,16 @@
       friendly_name: FTL
       unit_of_measurement: "pending update"
       value_template: "{% if states.sensor.pihole_versions.attributes['FTL_update'] == true %}1{% else %}0{% endif %}"
+
+# Github
+- platform: github
+  access_token: !secret hacs_token
+  repositories:
+    - path: 'home-assistant/core'
+      name: 'HA core'
+    - path: 'RetroPie/RetroPie-Setup'
+    - path: 'anthonycaccese/es-theme-art-book'
+      name: 'RetroPie Art-Book theme'
 
 # Tokens as sensor
 - platform: template
