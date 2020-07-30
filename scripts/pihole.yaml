@@ -1,4 +1,0 @@
-enable_pihole:
-  alias: Enable PiHole
-  sequence:
-    service: shell_command.pihole_enable

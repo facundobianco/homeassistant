@@ -32,6 +32,9 @@ lovelace:
       url: /hacsfiles/lovelace-card-mod/card-mod.js
     - type: module
       url: /hacsfiles/lovelace-state-switch/state-switch.js
+    - type: module
+      url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+
 
 frontend:
   themes: !include_dir_merge_named themes
@@ -113,19 +116,50 @@ climate:
     power_sensor: binary_sensor.ac_power
 
 automation:
-  alias: Reset PiHole Disable Time
-  trigger:
-    - platform: state
-      entity_id: script.enable_pihole
-    - platform: state
-      entity_id: sensor.pi_hole_status
-      from: 'disabled'
-      to: 'enabled'
-  action:
-    service: input_select.select_option
-    data:
-      entity_id: input_select.pihole_time
-      option: Select Time
+  - alias: Enable Pihole
+    trigger:
+      - platform: state
+        entity_id: input_select.pihole_time
+        to: 'Enabled'
+    action:
+      - service: pi_hole.enable
+  - alias: Disable Pihole
+    trigger:
+      - platform: state
+        entity_id: input_select.pihole_time
+        to: 'Disabled'
+    action:
+      - service: pi_hole.disable
+        data:
+          duration: '00:00:00'
+  - alias: Disable Pihole for 15 seconds
+    trigger:
+      - platform: state
+        entity_id: input_select.pihole_time
+        to: '0.15'
+    action:
+      - service: pi_hole.disable
+        data:
+          duration: '00:00:15'
+  - alias: Disable Pihole for 1 minute
+    trigger:
+      - platform: state
+        entity_id: input_select.pihole_time
+        to: '1'
+    action:
+      - service: pi_hole.disable
+        data:
+          duration: '00:01:00'
+  - alias: Disable Pihole for 5 minutes
+    trigger:
+      - platform: state
+        entity_id: input_select.pihole_time
+        to: '5'
+    action:
+      - service: pi_hole.disable
+        data:
+          duration: '00:05:00'
+
 
 input_select:
   home:
@@ -159,18 +193,14 @@ input_select:
       - Available updates
     initial: Status
   pihole_time:
-    name: Disable Time (seconds)
+    name: Duration (minutes)
     options:
-      - Select Time
-      - 10
-      - 30
-      - 60
-      - 300
-      - 600
-      - 900
-      - 1800
-      - 3600
-    initial: Select Time
+      - Enabled
+      - 0.15
+      - 1
+      - 5
+      - Disabled
+    initial: Enabled
     icon: 'mdi:counter'
 
 input_boolean:
