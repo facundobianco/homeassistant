@@ -83,18 +83,6 @@ remote:
     mac: !secret dormitorio_rm2_mac
     name: dormitorio
 
-switch:
-  - platform: broadlink
-    type: rm2_pro_plus
-    host: !secret living_rm2_ip
-    mac: !secret living_rm2_mac
-    friendly_name: living_rm2
-  - platform: broadlink
-    type: rm2_pro_plus
-    host: !secret dormitorio_rm2_ip
-    mac: !secret dormitorio_rm2_mac
-    friendly_name: dormitorio_rm2
-
 smartir:
 
 climate:
@@ -182,7 +170,6 @@ input_select:
     options:
       - Living
       - Dormitorio
-      - Bluray
     initial: Living
     icon: mdi:television-classic
 
