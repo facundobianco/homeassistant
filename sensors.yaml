@@ -101,6 +101,7 @@
 - platform: rest
   name: PiHole status
   resource: "http://127.0.0.1:8080/admin/api.php?status"
+  scan_interval: 3
   value_template: >
     {{ value_json.status }}
 

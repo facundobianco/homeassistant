@@ -185,23 +185,6 @@ input_select:
       - Bluray
     initial: Living
     icon: mdi:television-classic
-  pihole:
-    name: Select view
-    options:
-      - Status
-      - Query log
-      - Available updates
-    initial: Status
-  pihole_time:
-    name: Duration (minutes)
-    options:
-      - Enabled
-      - 0.15
-      - 1
-      - 5
-      - Disabled
-    initial: Enabled
-    icon: 'mdi:counter'
 
 input_boolean:
   blank:
