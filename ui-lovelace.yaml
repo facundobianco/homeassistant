@@ -26,6 +26,13 @@ button_card_templates:
        - box-shadow: none
       icon:
        - width: 60%
+  custom_icon_name:
+    layout: icon_name
+    styles:
+      card:
+      - font-size: 100%
+      icon:
+       - width: 35%
   divider:
     styles:
       card:
