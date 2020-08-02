@@ -117,6 +117,14 @@ climate:
     power_sensor: binary_sensor.ac_power
 
 automation:
+  - alias: Set theme at startup
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      service: frontend.set_theme
+      data:
+        name: dark_teal
   - alias: Enable Pihole
     trigger:
       - platform: state
