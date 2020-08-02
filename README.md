@@ -2,35 +2,31 @@
 
 My personal home assistant configuration.
 
-<img src="https://i.ibb.co/XSJvXv3/IMG-4976.png" width="209.95" height="363.35">&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/tM1wwbZ/IMG-4977.png" width="209.95" height="363.35">&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/k9vG75C/IMG-4978.png" width="209.95" height="363.35">
+<img src="https://i.ibb.co/4sGsH3X/IMG-5341.png" width="209.95" height="363.35">&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/8Y71kxw/IMG-5342.png" width="209.95" height="363.35">&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/X8qvsS2/IMG-5340.png" width="209.95" height="363.35">
 
 Images stored in [imgbb <img src="https://simgbb.com/images/favicon.png" width="16" height="16">](https://imgbb.com)
 
-## Required external packages
-
-* [monitoring-plugins-basic](https://packages.debian.org/buster/monitoring-plugins-basic) (plugins for Nagios compatible monitoring systems)
-
 ## Integrations
 
-* Browser mod
-* HACS
-* Sonoff LAN
+* [HACS](https://hacs.xyz)
+* [Sonoff LAN](https://github.com/AlexxIT/SonoffLAN)
+* [browser_mod](https://github.com/thomasloven/hass-browser_mod)
 
-## Pluginsx
+## Plugins
 
-* Circle Sensord Card
-* Custom header
-* Fan controller entity row
-* Mini Graph card
-* Mini Media Player
-* button-card
-* card-mod
-* layout-card
-* state-switch
+* [Custom header](https://github.com/maykar/custom-header)
+* [Fan control entity row](https://github.com/finity69x2/fan-control-entity-row)
+* [Button Card](https://github.com/custom-cards/button-card)
+* [state-switch](https://github.com/thomasloven/lovelace-state-switch)
+* [multiple-entity-row](https://github.com/benct/lovelace-multiple-entity-row)
 
 ## Themes
 
 * Dark Teal
+
+## Required external packages
+
+* [monitoring-plugins-basic](https://packages.debian.org/buster/monitoring-plugins-basic) (plugins for Nagios compatible monitoring systems)
 
 ## Troubleshooting
 
