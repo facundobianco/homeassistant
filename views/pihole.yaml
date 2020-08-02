@@ -6,51 +6,76 @@ path: pihole
 badges: []
 cards:
 
-  - type: custom:vertical-stack-in-card
-    cards:
-
-      - type: entities
+  - type: entities
+    entities:
+      - entity: sensor.pihole_status
+        icon: 'mdi:pi-hole'
+      # Networking
+      - type: custom:multiple-entity-row
+        entity: sensor.network_out_eth0
+        name: Networking
+        state_header: TX
         entities:
-          - entity: sensor.pihole_status
-            icon: 'mdi:pi-hole'
-          - entity: sensor.pihole_dns_queries_today
-            name: Total queries
-          - entity: sensor.pihole_ads_blocked_today
-            name: Queries blocked
+          - entity: sensor.network_in_eth0
+            name: RX
+      # Pi-hole queries
+      - entity: sensor.pihole_dns_queries_today
+        name: Total queries
+      - type: custom:multiple-entity-row
+        entity: sensor.pihole_ads_blocked_today
+        name: Queries blocked
+        entities:
           - entity: sensor.pihole_ads_percentage_blocked_today
-            name: Pct. blocked
-          - entity: sensor.pihole_dns_unique_domains
-            name: Unique domains
+            name: false
+      - entity: sensor.pihole_dns_unique_domains
+        name: Unique domains
+      # Speedtest
+      - type: custom:multiple-entity-row
+        entity: sensor.speedtest_download
+        name: Speedtest
+        secondary_info:
+          entity: sensor.speedtest_ping
+          name: false
+        state_header: TX
+        entities:
+          - entity: sensor.speedtest_upload
+            name: RX
 
-      - type: horizontal-stack
-        cards:
-          - type: button
-            name: Enable
-            icon: 'mdi:play-circle-outline'
-            tap_action:
-              action: call-service
-              service: pi_hole.enable
-          - type: button
-            name: Dis. 1 min
-            icon: 'mdi:clock-outline'
-            tap_action:
-              action: call-service
-              service: pi_hole.disable
-              service_data:
-                duration: '00:00:15'
-          - type: button
-            name: Dis. 5 min
-            icon: 'mdi:clock-outline'
-            tap_action:
-              action: call-service
-              service: pi_hole.disable
-              service_data:
-                duration: '00:05:00'
-          - type: button
-            name: Disable
-            icon: 'mdi:stop-circle-outline'
-            tap_action:
-              action: call-service
-              service: pi_hole.disable
-              service_data:
-                duration: '00:00:00'
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Enable
+        icon: 'mdi:play-circle-outline'
+        tap_action:
+          action: call-service
+          service: pi_hole.enable
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Disable
+        icon: 'mdi:stop-circle-outline'
+        tap_action:
+          action: call-service
+          service: pi_hole.disable
+          service_data:
+            duration: '00:00:00'
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Disable 30 sec
+        icon: 'mdi:clock-outline'
+        tap_action:
+          action: call-service
+          service: pi_hole.disable
+          service_data:
+            duration: '00:00:30'
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Disable 5 min
+        icon: 'mdi:clock-outline'
+        tap_action:
+          action: call-service
+          service: pi_hole.disable
+          service_data:
+            duration: '00:05:00'

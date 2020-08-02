@@ -167,7 +167,6 @@ input_select:
     name: Select view
     options:
       - RSPi
-      - Networking
       - Available updates
     initial: RSPi
   ac_location:
