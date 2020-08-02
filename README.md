@@ -22,7 +22,7 @@ Images stored in [imgbb <img src="https://simgbb.com/images/favicon.png" width="
 
 ## Themes
 
-* Dark Teal
+* [Dark Teal](https://github.com/aFFekopp/dark_teal)
 
 ## Required external packages
 
@@ -50,6 +50,10 @@ For version >= 0.107 you will find this warning message:
 > WARNING (MainThread) [hacs.deprecated] The '/community_plugin/*' is deprecated and will be removed in an upcomming version of HACS, it has been replaced by '/hacsfiles/*'
 
 To solve it, [edit plugins location](https://community.home-assistant.io/t/0-107-warning-about-community-plugin/179511/2).
+
+### Custom element doesn't exist
+
+If you get the *red card* with the message "Custom element doesn't exist: foo.", just delete cookies, website data and refresh a few times. Source: [HA Community](https://community.home-assistant.io/t/custom-element-doesnt-exist/91942/6).
 
 ## Recommended links
 
