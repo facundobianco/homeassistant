@@ -6,15 +6,34 @@ panel: false
 path: tv
 badges: []
 cards:
+
+  - type: horizontal-stack
+    cards:
+      # INPUT
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Living
+        icon: 'mdi:television-classic'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.tv_location
+            options: Living
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Dormitorio
+        icon: 'mdi:television-classic'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.tv_location
+            options: Dormitorio
+
   - type: vertical-stack
     show_name: false
     cards:
-
-      # INPUT
-      - type: entities
-        entities:
-          - input_select.tv_location
-
 
       # |  INPUT  |  EXIT  |  NULL  |  POWER  |
       - type: horizontal-stack
