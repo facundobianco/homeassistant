@@ -20,6 +20,21 @@ cards:
           service_data:
             entity_id: input_select.tv_location
             options: Living
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.tv_location'].state == 'Living')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.tv_location'].state == 'Living')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
       - type: custom:button-card
         template: custom_icon_name
         name: Dormitorio
@@ -30,6 +45,21 @@ cards:
           service_data:
             entity_id: input_select.tv_location
             options: Dormitorio
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.tv_location'].state == 'Dormitorio')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.tv_location'].state == 'Dormitorio')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
 
   - type: vertical-stack
     show_name: false
