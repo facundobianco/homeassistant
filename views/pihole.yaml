@@ -19,6 +19,8 @@ cards:
           - entity: sensor.network_in_eth0
             name: RX
       # Pi-hole queries
+      - entity: sensor.pihole_seen_clients
+        name: Seen clients
       - entity: sensor.pihole_dns_queries_today
         name: Total queries
       - type: custom:multiple-entity-row
@@ -31,14 +33,14 @@ cards:
         name: Unique domains
       # Speedtest
       - type: custom:multiple-entity-row
-        entity: sensor.speedtest_download
+        entity: sensor.speedtest_upload
         name: Speedtest
         secondary_info:
           entity: sensor.speedtest_ping
           name: false
         state_header: TX
         entities:
-          - entity: sensor.speedtest_upload
+          - entity: sensor.speedtest_download
             name: RX
 
   - type: horizontal-stack
