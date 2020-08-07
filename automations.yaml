@@ -8,6 +8,26 @@
     data:
       name: dark_teal
 
+# Sunrise
+- alias: Sunrise
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '+00:00:00'
+  action:
+    service: light.turn_off
+    entity_id: switch.sonoff_1000950368_2
+
+# Sunset
+- alias: Sunset
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:45:00"
+  action:
+    service: light.turn_on
+    entity_id: group.sunset_lights
+
 # PiHole
 - alias: Enable Pihole
   trigger:

@@ -1,16 +1,10 @@
 ---
 
-pihole:
-  name: Pi Hole Status
+sunset_lights:
+  name: Lights to turn on when sunset
+  icon: 'mdi:lightbulb-multiple'
   entities:
-    - sensor.pihole_status
-    - script.enable_pihole
-    - input_select.pihole_time
-    - sensor.pihole_ads_blocked_today
-    - sensor.pihole_ads_percentage_blocked_today
-    - sensor.pihole_dns_queries_cached
-    - sensor.pihole_dns_queries_forwarded
-    - sensor.pihole_dns_queries_today
-    - sensor.pihole_dns_unique_clients
-    - sensor.pihole_dns_unique_domains
-    - sensor.pihole_domains_blocked
+    - switch.sonoff_1000950368_2
+    - switch.sonoff_1000766c93
+    - switch.sonoff_10008504ad
+    - switch.sonoff_1000770cc7
