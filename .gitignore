@@ -15,7 +15,6 @@ custom_components/
 deps/
 tts/
 www/
-automations.yaml
 scenes.yaml
 views/foo/
 views/testing.yaml
