@@ -68,6 +68,28 @@ sonoff:
   username: !secret sonoff_username
   password: !secret sonoff_password
   reload: always
+  devices:
+    1000766c93:
+      device_class: light
+      name: Lampara pie
+    1000770cc7:
+      device_class: light
+      name: Lampara mesa de luz
+    10008504ad:
+      device_class: light
+      name: Luz pasillo
+    1000950368:
+      device_class: [ light, light ]
+      name: Living
+    100094ff53:
+      device_class: [ light, light ]
+      name: Cocina
+    1000951aac:
+      device_class: light
+      name: Bano
+    1000951b70:
+      device_class: light
+      name: Deposito
 
 pi_hole:
   - host: '127.0.0.1:8080'
