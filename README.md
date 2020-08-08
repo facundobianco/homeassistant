@@ -10,7 +10,6 @@ Images stored in [imgbb <img src="https://simgbb.com/images/favicon.png" width="
 
 * [HACS](https://hacs.xyz)
 * [Sonoff LAN](https://github.com/AlexxIT/SonoffLAN)
-* [browser_mod](https://github.com/thomasloven/hass-browser_mod)
 
 ## Plugins
 
