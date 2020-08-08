@@ -4,7 +4,7 @@ sunset_lights:
   name: Lights to turn on when sunset
   icon: 'mdi:lightbulb-multiple'
   entities:
-    - switch.sonoff_1000950368_2
-    - switch.sonoff_1000766c93
-    - switch.sonoff_10008504ad
-    - switch.sonoff_1000770cc7
+    - light.sonoff_1000950368_2
+    - light.sonoff_1000766c93
+    - light.sonoff_10008504ad
+    - light.sonoff_1000770cc7
