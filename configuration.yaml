@@ -164,6 +164,15 @@ input_boolean:
     name: Ignore auto trigger
     initial: off
 
+# Easy way to query secrets from template
+input_text:
+  latitude:
+    initial: !secret ha_lat
+  longitude:
+    initial: !secret ha_lon
+  utc_offset:
+    initial: !secret offset
+
 # Speedtest.net against Movistar
 speedtestdotnet:
   server_id: 7696

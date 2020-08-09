@@ -154,3 +154,20 @@
       value_template: !secret living_rm2_ip
     dormitorio_rm2_ip:
       value_template: !secret dormitorio_rm2_ip
+
+# Date
+# Sunrise & Moonrise API: https://api.met.no/weatherapi/sunrise/2.0/documentation
+- platform: moon
+
+- platform: template
+  sensors:
+    sun_elevation:
+      friendly_name: Sun elevation
+      unit_of_measurement: "deg"
+      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+
+- platform: rest
+  name: Moon elevation
+  resource_template: "https://api.met.no/weatherapi/sunrise/2.0/.json?lat={{ states('input_text.latitude') }}&lon={{ states('input_text.longitude') }}&date={{ now().strftime('%Y-%m-%d') }}&offset={{ states('input_text.utc_offset') }}"
+  unit_of_measurement: "deg"
+  value_template: "{{ value_json.location.time[0].moonposition.elevation | round(2) }}"
