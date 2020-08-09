@@ -160,6 +160,9 @@ input_boolean:
     icon: 'mdi:'
   blank_chart:
     icon: 'mdi:chart-line'
+  wb_ignore_trigger:
+    name: Ignore auto trigger
+    initial: off
 
 # Speedtest.net against Movistar
 speedtestdotnet:

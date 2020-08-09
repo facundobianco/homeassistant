@@ -9,8 +9,18 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
+      - type: custom:multiple-entity-row
+        entity: switch.sonoff_10008508fb
+        name: Termotanque
+        icon: 'mdi:water-boiler'
+        toggle: true
+        entities:
+          - entity: sensor.termotanque_temperatura
+            name: Temperatura
+      - entity: input_boolean.wb_ignore_trigger
+  - type: history-graph
+    hours_to_show: 8
+    refresh_interval: 5
+    entities:
       - entity: sensor.termotanque_temperatura
-        name: Temperatura
-      - entity: switch.sonoff_10008508fb
-        name: On/Off
-
+        name: 'Temperatura'

@@ -28,6 +28,42 @@
     service: light.turn_on
     entity_id: group.sunset_lights
 
+# Water boiler
+- alias: Turn on water boiler
+  trigger:
+    - platform: time
+      at: '06:00:00'
+    - platform: time
+      at: '19:00:00'
+    - platform: state
+      entity_id: input_boolean.wb_ignore_trigger
+      to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.sonoff_10008508fb
+
+- alias: Turn off water boiler
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.termotanque_temperatura
+      above: 29
+    - platform: state
+      entity_id: switch.sonoff_10008508fb
+      to: 'on'
+    - platform: state
+      entity_id: input_boolean.wb_ignore_trigger
+      to: 'off'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.termotanque_temperatura
+      above: 29
+    - condition: state
+      entity_id: input_boolean.wb_ignore_trigger
+      state: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.sonoff_10008508fb
+
 # PiHole
 - alias: Enable Pihole
   trigger:
