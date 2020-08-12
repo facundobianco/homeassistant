@@ -59,42 +59,42 @@
       friendly_name: Temperatura dormitorio
       device_class: temperature
       unit_of_measurement: '°C'
-      value_template: "{{ state_attr('light.sonoff_10008504ad', 'temperature') | float }}"
+      value_template: "{{ state_attr('light.sonoff_10008504ad', 'temperature') | round(1) }}"
     dormitorio_humedad:
       friendly_name: Humedad dormitorio
       device_class: humidity
       unit_of_measurement: '%'
-      value_template: "{{ state_attr('light.sonoff_10008504ad', 'humidity') | float }}"
+      value_template: "{{ state_attr('light.sonoff_10008504ad', 'humidity') }}"
     cocina_temperatura:
       friendly_name: Temperatura cocina
       device_class: temperature
       unit_of_measurement: '°C'
-      value_template: "{{ state_attr('switch.sonoff_100085067c', 'temperature') | float }}"
+      value_template: "{{ state_attr('switch.sonoff_100085067c', 'temperature') | round(1) }}"
     cocina_humedad:
       friendly_name: Humedad cocina
       device_class: humidity
       unit_of_measurement: '%'
-      value_template: "{{ state_attr('switch.sonoff_100085067c', 'humidity') | float }}"
+      value_template: "{{ state_attr('switch.sonoff_100085067c', 'humidity') }}"
     termotanque_temperatura:
       friendly_name: Temperatura termotanque
       device_class: temperature
       unit_of_measurement: '°C'
-      value_template: "{{ state_attr('switch.sonoff_10008508fb', 'temperature') | float }}"
+      value_template: "{{ state_attr('switch.sonoff_10008508fb', 'temperature') | round(1) }}"
     termotanque_humedad:
       friendly_name: Humedad termotanque
       device_class: humidity
       unit_of_measurement: '%'
-      value_template: "{{ state_attr('switch.sonoff_10008508fb', 'humidity') | float}}"
+      value_template: "{{ state_attr('switch.sonoff_10008508fb', 'humidity') }}"
     deposito_temperatura:
       friendly_name: Temperatura deposito
       device_class: temperature
       unit_of_measurement: '°C'
-      value_template: "{{ state_attr('switch.sonoff_100085069c', 'temperature') | float }}"
+      value_template: "{{ state_attr('switch.sonoff_100085069c', 'temperature') | round(1) }}"
     deposito_humedad:
       friendly_name: Humedad deposito
       device_class: humidity
       unit_of_measurement: '%'
-      value_template: "{{ state_attr('switch.sonoff_100085069c', 'humidity') | float}}"
+      value_template: "{{ state_attr('switch.sonoff_100085069c', 'humidity') }}"
 
 # PiHole
 # https://github.com/pi-hole/AdminLTE/blob/master/api.php

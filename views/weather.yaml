@@ -10,37 +10,37 @@ cards:
     entities:
 
       - type: custom:multiple-entity-row
-        entity: sensor.lu7and_temp
+        entity: sensor.lu7and_humidity
         name: Outdoor
-        state_header: Temp
+        state_header: RH
         entities:
-          - entity: sensor.lu7and_humidity
-            name: RH
+          - entity: sensor.lu7and_temp
+            name: Temp
       - type: custom:multiple-entity-row
-        entity: sensor.lu7and_inside_temp
+        entity: sensor.lu7and_humidity_in
         name: Living
-        state_header: Temp
+        state_header: RH
         entities:
-          - entity: sensor.lu7and_humidity_in
-            name: RH
+          - entity: sensor.lu7and_inside_temp
+            name: Temp
       - type: custom:multiple-entity-row
-        entity: sensor.dormitorio_temperatura
+        entity: sensor.dormitorio_humedad
         name: Dormitorio
-        state_header: Temp
+        state_header: RH
         entities:
-          - entity: sensor.dormitorio_humedad
-            name: RH
+          - entity: sensor.dormitorio_temperatura
+            name: Temp
       - type: custom:multiple-entity-row
-        entity: sensor.cocina_temperatura
+        entity: sensor.cocina_humedad
         name: Cocina
-        state_header: Temp
+        state_header: RH
         entities:
-          - entity: sensor.cocina_humedad
-            name: RH
+          - entity: sensor.cocina_temperatura
+            name: Temp
       - type: custom:multiple-entity-row
-        entity: sensor.deposito_temperatura
+        entity: sensor.deposito_humedad
         name: Deposito
-        state_header: Temp
+        state_header: RH
         entities:
-          - entity: sensor.deposito_humedad
-            name: RH
+          - entity: sensor.deposito_temperatura
+            name: Temp
