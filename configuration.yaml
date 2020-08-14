@@ -145,6 +145,7 @@ input_select:
       - Living
       - Dormitorio
       - Ventilador
+      - Stockroom
     initial: Living
     icon: mdi:air-conditioner
   tv_location:

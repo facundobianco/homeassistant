@@ -39,3 +39,12 @@ cards:
                 customIsOnLowColor: 'rgb(32, 169, 139)'
                 customIsOnMedColor: 'rgb(32, 169, 139)'
                 customTheme: true
+          # Stockroom's AC (with indoor temperature)
+          Stockroom:
+            type: entities
+            entities:
+              - entity: sensor.deposito_temperatura
+                name: Temperature
+              - entity: switch.sonoff_100085069c
+                name: Stockroom's AC
+                icon: mdi:air-conditioner
