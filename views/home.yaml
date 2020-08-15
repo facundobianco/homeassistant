@@ -33,15 +33,6 @@ cards:
                     name: RAM
                   - entity: sensor.cpu_temperature
                     name: Temperature
-              - type: glance
-                show_state: false
-                columns: 4
-                entities:
-                  - entity: input_boolean.blank_chart
-                    name: Memory
-                    tap_action:
-                      action: navigate
-                      navigation_path: /lovelace/graph_rspi_memory
           Available updates:
             type: entities
             entities:
