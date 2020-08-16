@@ -129,17 +129,17 @@
 - platform: template
   sensors:
     pihole_core_current:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'core_current') }}"
+      value_template: "{{ state_attr('sensor.pihole_versions', 'core_current') | replace('v','') }}"
     pihole_core_latest:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'core_latest') }}"
+      value_template: "{{ state_attr('sensor.pihole_versions', 'core_latest') | replace('v','') }}"
     pihole_web_current:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'web_current') }}"
+      value_template: "{{ state_attr('sensor.pihole_versions', 'web_current') | replace('v','') }}"
     pihole_web_latest:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'web_latest') }}"
+      value_template: "{{ state_attr('sensor.pihole_versions', 'web_latest') | replace('v','') }}"
     pihole_ftl_current:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'FTL_current') }}"
+      value_template: "{{ state_attr('sensor.pihole_versions', 'FTL_current') | replace('v','') }}"
     pihole_ftl_latest:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'FTL_latest') }}"
+      value_template: "{{ state_attr('sensor.pihole_versions', 'FTL_latest') | replace('v','') }}"
 
 # Github
 - platform: github
