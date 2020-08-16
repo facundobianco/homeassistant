@@ -112,3 +112,49 @@
     - service: pi_hole.disable
       data:
         duration: '00:05:00'
+
+# AC's Condensate Pump
+- alias: Turn on condensate pump
+  trigger:
+    - platform: state
+      entity_id: climate.living_ac
+      to:
+        - 'cool'
+        - 'heat'
+        - 'dry'
+    - platform: state
+      entity_id: climate.dormitorio_ac
+      to:
+        - 'cool'
+        - 'heat'
+        - 'heat_cool'
+        - 'dry'
+  action:
+    service: switch.turn_on
+    entity_id: switch.sonoff_1000854c6a
+
+- alias: Turn off condensate pump living
+  trigger:
+    - platform: state
+      entity_id: climate.living_ac
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: climate.dormitorio_ac
+      state: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.sonoff_1000854c6a
+
+- alias: Turn off condensate pump dormitorio
+  trigger:
+    - platform: state
+      entity_id: climate.dormitorio_ac
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: climate.living_ac
+      state: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.sonoff_1000854c6a
