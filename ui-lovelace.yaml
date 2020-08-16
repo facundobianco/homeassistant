@@ -45,5 +45,4 @@ views:
   - !include views/ac.yaml
   - !include views/tv/main.yaml
   - !include views/wb.yaml
-  - !include views/pihole.yaml
-  - !include views/pkgs.yaml
+  - !include views/sys.yaml

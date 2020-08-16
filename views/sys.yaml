@@ -1,0 +1,205 @@
+---
+title: System
+icon: 'mdi:chip'
+panel: false
+path: sys
+badges: []
+cards:
+
+  # Input
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_icon_name
+        name: RSPi
+        icon: 'mdi:raspberry-pi'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.sys_view
+            options: rspi
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.sys_view'].state == 'rspi')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.sys_view'].state == 'rspi')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Pi-hole
+        icon: 'mdi:pi-hole'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.sys_view
+            options: pihole
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.sys_view'].state == 'pihole')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.sys_view'].state == 'pihole')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Packages
+        icon: 'mdi:package-variant-closed'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.sys_view
+            options: pkgs
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.sys_view'].state == 'pkgs')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.sys_view'].state == 'pkgs')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+
+  # Views
+  - type: 'custom:state-switch'
+    entity: input_select.sys_view
+    states:
+
+      rspi:
+        type: entities
+        entities:
+          - entity: sensor.uptime
+            icon: 'mdi:clock-outline'
+          - entity: sensor.disk_use_percent
+            icon: 'mdi:micro-sd'
+            name: /
+          - entity: sensor.disk_use_percent_var_log
+            icon: 'mdi:micro-sd'
+            name: /var/log
+          - entity: sensor.processor_use
+            name: Processor
+          - entity: sensor.memory_use_percent
+            name: RAM
+          - entity: sensor.cpu_temperature
+            name: Temperature
+          # Networking
+          - type: custom:multiple-entity-row
+            entity: sensor.network_out_eth0
+            name: Networking
+            state_header: TX
+            entities:
+              - entity: sensor.network_in_eth0
+                name: RX
+          # Speedtest
+          - type: custom:multiple-entity-row
+            entity: sensor.speedtest_upload
+            name: Speedtest
+            secondary_info:
+              entity: sensor.speedtest_ping
+              name: false
+            state_header: TX
+            entities:
+              - entity: sensor.speedtest_download
+                name: RX
+
+      pihole:
+        type: entities
+        entities:
+          # Pi-hole management
+          - entity: switch.pihole
+            name: Pi-hole
+          - type: call-service
+            name: Disable 30 sec
+            icon: 'mdi:clock-outline'
+            service: pi_hole.disable
+            service_data:
+              entity_id: switch.pihole
+              duration: '00:00:30'
+          - type: call-service
+            name: Disable 5 min
+            icon: 'mdi:clock-outline'
+            service: pi_hole.disable
+            service_data:
+              entity_id: switch.pihole
+              duration: '00:05:00'
+          # Pi-hole queries
+          - entity: sensor.pihole_seen_clients
+            name: Seen clients
+          - entity: sensor.pihole_dns_queries_today
+            name: Total queries
+          - type: custom:multiple-entity-row
+            entity: sensor.pihole_ads_blocked_today
+            name: Queries blocked
+            entities:
+              - entity: sensor.pihole_ads_percentage_blocked_today
+                name: false
+          - entity: sensor.pihole_dns_unique_domains
+            name: Unique domains
+
+      pkgs:
+        type: entities
+        entities:
+          - entity: sensor.raspbian_packages
+            name: "Raspbian"
+            icon: 'mdi:package-variant-closed'
+          - type: custom:multiple-entity-row
+            entity: sensor.current
+            name: Home Assistant
+            icon: 'mdi:home-assistant'
+            state_header: Current
+            entities:
+              - entity: sensor.latest
+                name: Latest
+          - entity: sensor.hacs
+            name: "HACS"
+          - type: custom:multiple-entity-row
+            entity: sensor.pihole_core_current
+            name: Pi-hole core
+            icon: 'mdi:pi-hole'
+            state_header: Current
+            entities:
+              - entity: sensor.pihole_core_latest
+                name: Latest
+          - type: custom:multiple-entity-row
+            entity: sensor.pihole_web_current
+            name: Pi-hole web
+            icon: 'mdi:pi-hole'
+            state_header: Current
+            entities:
+              - entity: sensor.pihole_web_latest
+                name: Latest
+          - type: custom:multiple-entity-row
+            entity: sensor.pihole_ftl_current
+            name: Pi-hole FTL
+            icon: 'mdi:pi-hole'
+            state_header: Current
+            entities:
+              - entity: sensor.pihole_ftl_latest
+                name: Latest
+          - entity: sensor.retropie_setup_latest
+            icon: 'mdi:space-invaders'

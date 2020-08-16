@@ -161,6 +161,12 @@ input_select:
       - Dormitorio
     initial: Living
     icon: mdi:television-classic
+  sys_view:
+    options:
+      - rspi
+      - pihole
+      - pkgs
+    initial: rspi
 
 input_boolean:
   blank:
