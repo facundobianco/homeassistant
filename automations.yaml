@@ -32,9 +32,9 @@
 - alias: Turn on water boiler
   trigger:
     - platform: time
-      at: '06:00:00'
-    - platform: time
-      at: '19:00:00'
+      at:
+        - '06:00:00'
+        - '19:00:00'
     - platform: state
       entity_id: input_boolean.wb_ignore_trigger
       to: 'on'
