@@ -44,3 +44,4 @@ cards:
         entities:
           - entity: sensor.deposito_temperatura
             name: Temp
+      - entity: sensor.sun_next_action
