@@ -65,53 +65,18 @@
     entity_id: switch.sonoff_10008508fb
 
 # PiHole
-- alias: Enable Pihole
+- alias: Enable Pihole again
   trigger:
     - platform: state
-      entity_id: input_select.pihole_time
+      entity_id: sensor.pihole_status
       to: 'Enabled'
+  condition:
+    - condition: state
+      entity_id: switch.pihole
+      state: 'off'
   action:
-    - service: pi_hole.enable
-
-- alias: Disable Pihole
-  trigger:
-    - platform: state
-      entity_id: input_select.pihole_time
-      to: 'Disabled'
-  action:
-    - service: pi_hole.disable
-      data:
-        duration: '00:00:00'
-
-- alias: Disable Pihole for 15 seconds
-  trigger:
-    - platform: state
-      entity_id: input_select.pihole_time
-      to: '0.15'
-  action:
-    - service: pi_hole.disable
-      data:
-        duration: '00:00:15'
-
-- alias: Disable Pihole for 1 minute
-  trigger:
-    - platform: state
-      entity_id: input_select.pihole_time
-      to: '1'
-  action:
-    - service: pi_hole.disable
-      data:
-        duration: '00:01:00'
-
-- alias: Disable Pihole for 5 minutes
-  trigger:
-    - platform: state
-      entity_id: input_select.pihole_time
-      to: '5'
-  action:
-    - service: pi_hole.disable
-      data:
-        duration: '00:05:00'
+    service: switch.turn_on
+    entity_id: switch.pihole
 
 # AC's Condensate Pump
 - alias: Turn on condensate pump
