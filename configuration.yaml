@@ -58,6 +58,12 @@ ambient_station:
   api_key: !secret ambient_station_api_key
   app_key: !secret ambient_station_app_key
 
+accuweather:
+  api_key: !secret accuweather_api_key
+  latitude: !secret ha_lat
+  longitude: !secret ha_lon
+  name: Home
+
 sonoff:
   username: !secret sonoff_username
   password: !secret sonoff_password
