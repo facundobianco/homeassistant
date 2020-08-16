@@ -133,12 +133,6 @@ climate:
     power_sensor: binary_sensor.ac_power
 
 input_select:
-  home:
-    name: Select view
-    options:
-      - RSPi
-      - Available updates
-    initial: RSPi
   ac_location:
     name: AC Location
     options:

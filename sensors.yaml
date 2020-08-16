@@ -47,6 +47,10 @@
 # HA
 - platform: version
   name: Current
+  source: local
+
+- platform: version
+  name: Latest
   source: pypi
 
 - platform: cert_expiry
@@ -124,28 +128,30 @@
   value_template: "OK"
 - platform: template
   sensors:
-    pihole_core_update:
-      friendly_name: Pi-Hole core
-      unit_of_measurement: "pending update"
-      value_template: "{% if states.sensor.pihole_versions.attributes['core_update'] == true %}1{% else %}0{% endif %}"
-    pihole_web_update:
-      friendly_name: Web interface
-      unit_of_measurement: "pending update"
-      value_template: "{% if states.sensor.pihole_versions.attributes['web_update'] == true %}1{% else %}0{% endif %}"
-    pihole_ftl_update:
-      friendly_name: FTL
-      unit_of_measurement: "pending update"
-      value_template: "{% if states.sensor.pihole_versions.attributes['FTL_update'] == true %}1{% else %}0{% endif %}"
+    pihole_core_current:
+      value_template: "{{ state_attr('sensor.pihole_versions', 'core_current') }}"
+    pihole_core_latest:
+      value_template: "{{ state_attr('sensor.pihole_versions', 'core_latest') }}"
+    pihole_web_current:
+      value_template: "{{ state_attr('sensor.pihole_versions', 'web_current') }}"
+    pihole_web_latest:
+      value_template: "{{ state_attr('sensor.pihole_versions', 'web_latest') }}"
+    pihole_ftl_current:
+      value_template: "{{ state_attr('sensor.pihole_versions', 'FTL_current') }}"
+    pihole_ftl_latest:
+      value_template: "{{ state_attr('sensor.pihole_versions', 'FTL_latest') }}"
 
 # Github
 - platform: github
   access_token: !secret hacs_token
   repositories:
-    - path: 'home-assistant/core'
-      name: 'HA core'
     - path: 'RetroPie/RetroPie-Setup'
-    - path: 'anthonycaccese/es-theme-art-book'
-      name: 'RetroPie Art-Book theme'
+
+- platform: template
+  sensors:
+    retropie_setup_latest:
+      friendly_name: RetroPie
+      value_template: "{{ state_attr('sensor.retropie_setup', 'latest_release_tag') }}"
 
 # Tokens as sensor
 - platform: template

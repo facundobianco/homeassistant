@@ -8,36 +8,17 @@ cards:
 
   - type: entities
     entities:
-      # Entities selection
-      - input_select.home
-      # Internal views
-      - type: 'custom:state-switch'
-        entity: input_select.home
-        states:
-          RSPi:
-            type: 'custom:vertical-stack-in-card'
-            cards:
-              - type: entities
-                entities:
-                  - entity: sensor.uptime
-                    icon: 'mdi:clock-outline'
-                  - entity: sensor.disk_use_percent
-                    icon: 'mdi:micro-sd'
-                    name: /
-                  - entity: sensor.disk_use_percent_var_log
-                    icon: 'mdi:micro-sd'
-                    name: /var/log
-                  - entity: sensor.processor_use
-                    name: Processor
-                  - entity: sensor.memory_use_percent
-                    name: RAM
-                  - entity: sensor.cpu_temperature
-                    name: Temperature
-          Available updates:
-            type: entities
-            entities:
-              - entity: sensor.raspbian_packages
-                icon: 'mdi:package-variant-closed'
-              - entity: sensor.hacs
-                name: "HACS packages"
-                icon: 'mdi:package-variant-closed'
+      - entity: sensor.uptime
+        icon: 'mdi:clock-outline'
+      - entity: sensor.disk_use_percent
+        icon: 'mdi:micro-sd'
+        name: /
+      - entity: sensor.disk_use_percent_var_log
+        icon: 'mdi:micro-sd'
+        name: /var/log
+      - entity: sensor.processor_use
+        name: Processor
+      - entity: sensor.memory_use_percent
+        name: RAM
+      - entity: sensor.cpu_temperature
+        name: Temperature
