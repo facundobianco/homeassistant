@@ -9,18 +9,20 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-      - type: custom:multiple-entity-row
-        entity: switch.sonoff_10008508fb
+      - entity: switch.sonoff_10008508fb
         name: Termotanque
         icon: 'mdi:water-boiler'
-        toggle: true
-        entities:
-          - entity: sensor.termotanque_temperatura
-            name: Temperatura
       - entity: input_boolean.wb_ignore_trigger
-  - type: history-graph
+  - type: custom:mini-graph-card
+    line_width: 3
     hours_to_show: 8
-    refresh_interval: 5
+    hour24: true
+    points_per_hour: 3
+    name: Temperature
+    align_header: left
+    align_icon: left
     entities:
-      - entity: sensor.termotanque_temperatura
-        name: 'Temperatura'
+      - sensor.termotanque_temperatura
+    show:
+      fill: false
+      extrema: true
