@@ -12,6 +12,7 @@ cards:
       - type: custom:multiple-entity-row
         entity: sensor.lu7and_humidity
         name: Outdoor
+        icon: mdi:thermometer
         state_header: RH
         entities:
           - entity: sensor.lu7and_temp
@@ -19,29 +20,34 @@ cards:
       - type: custom:multiple-entity-row
         entity: sensor.lu7and_humidity_in
         name: Living
+        icon: mdi:thermometer
         state_header: RH
         entities:
           - entity: sensor.lu7and_inside_temp
             name: Temp
       - type: custom:multiple-entity-row
         entity: sensor.dormitorio_humedad
-        name: Dormitorio
+        name: Bedroom
+        icon: mdi:thermometer
         state_header: RH
         entities:
           - entity: sensor.dormitorio_temperatura
             name: Temp
       - type: custom:multiple-entity-row
         entity: sensor.cocina_humedad
-        name: Cocina
+        name: Kitchen
+        icon: mdi:thermometer
         state_header: RH
         entities:
           - entity: sensor.cocina_temperatura
             name: Temp
       - type: custom:multiple-entity-row
         entity: sensor.deposito_humedad
-        name: Deposito
+        name: Stockroom
+        icon: mdi:thermometer
         state_header: RH
         entities:
           - entity: sensor.deposito_temperatura
             name: Temp
       - entity: sensor.sun_next_action
+      - entity: sensor.moon
