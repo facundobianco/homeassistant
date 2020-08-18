@@ -6,48 +6,162 @@ path: weather
 badges: []
 cards:
 
-  - type: entities
-    entities:
+  # Input
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Local
+        icon: 'mdi:thermometer'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.weather_view
+            options: local
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.weather_view'].state == 'local')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.weather_view'].state == 'local')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Sun & Moon
+        icon: 'mdi:theme-light-dark'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.weather_view
+            options: sun-n-moon
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.weather_view'].state == 'sun-n-moon')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.weather_view'].state == 'sun-n-moon')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Forecast
+        icon: 'mdi:weather-pouring'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.weather_view
+            options: forecast
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.weather_view'].state == 'forecast')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.weather_view'].state == 'forecast')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
 
-      - type: custom:multiple-entity-row
-        entity: sensor.lu7and_humidity
-        name: Outdoor
-        icon: mdi:thermometer
-        state_header: RH
+  # Views
+  - type: 'custom:state-switch'
+    entity: input_select.weather_view
+    states:
+
+      local:
+        type: entities
         entities:
-          - entity: sensor.lu7and_temp
-            name: Temp
-      - type: custom:multiple-entity-row
-        entity: sensor.lu7and_humidity_in
-        name: Living
-        icon: mdi:thermometer
-        state_header: RH
+          - type: custom:multiple-entity-row
+            entity: sensor.lu7and_humidity
+            name: Outdoor
+            icon: mdi:thermometer
+            state_header: RH
+            entities:
+              - entity: sensor.lu7and_temp
+                name: Temp
+          - type: custom:multiple-entity-row
+            entity: sensor.lu7and_humidity_in
+            name: Living
+            icon: mdi:thermometer
+            state_header: RH
+            entities:
+              - entity: sensor.lu7and_inside_temp
+                name: Temp
+          - type: custom:multiple-entity-row
+            entity: sensor.dormitorio_humedad
+            name: Bedroom
+            icon: mdi:thermometer
+            state_header: RH
+            entities:
+              - entity: sensor.dormitorio_temperatura
+                name: Temp
+          - type: custom:multiple-entity-row
+            entity: sensor.cocina_humedad
+            name: Kitchen
+            icon: mdi:thermometer
+            state_header: RH
+            entities:
+              - entity: sensor.cocina_temperatura
+                name: Temp
+          - type: custom:multiple-entity-row
+            entity: sensor.deposito_humedad
+            name: Stockroom
+            icon: mdi:thermometer
+            state_header: RH
+            entities:
+              - entity: sensor.deposito_temperatura
+                name: Temp
+
+      sun-n-moon:
+        type: entities
         entities:
-          - entity: sensor.lu7and_inside_temp
-            name: Temp
-      - type: custom:multiple-entity-row
-        entity: sensor.dormitorio_humedad
-        name: Bedroom
-        icon: mdi:thermometer
-        state_header: RH
+          - entity: sun.sun
+          - entity: sensor.moon
+          - entity: sensor.sun_next_action
+          - entity: sensor.day_length
+          - type: custom:mini-graph-card
+            name: Sun & Moon elevation
+            icon: mdi:swap-vertical
+            line_width: 3
+            hours_to_show: 24
+            hour24: true
+            points_per_hour: 0.5
+            align_header: left
+            align_icon: left
+            entities:
+              - entity: sensor.sun_elevation
+                name: Sun
+              - entity: sensor.moon_elevation
+                name: Moon
+                show_state: true
+                show_legend: true
+            show:
+              fill: false
+
+
+      forecast:
+        type: entities
         entities:
-          - entity: sensor.dormitorio_temperatura
-            name: Temp
-      - type: custom:multiple-entity-row
-        entity: sensor.cocina_humedad
-        name: Kitchen
-        icon: mdi:thermometer
-        state_header: RH
-        entities:
-          - entity: sensor.cocina_temperatura
-            name: Temp
-      - type: custom:multiple-entity-row
-        entity: sensor.deposito_humedad
-        name: Stockroom
-        icon: mdi:thermometer
-        state_header: RH
-        entities:
-          - entity: sensor.deposito_temperatura
-            name: Temp
-      - entity: sensor.sun_next_action
-      - entity: sensor.moon
+          - entity: weather.home

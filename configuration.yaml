@@ -146,6 +146,17 @@ climate:
     power_sensor: binary_sensor.ac_power
 
 input_select:
+  weather_view:
+    options:
+      - local
+      - sun-n-moon
+      - forecast
+    initial: local
+  cal_view:
+    options:
+      - google
+      - aleph
+    initial: google
   ac_location:
     name: AC Location
     options:
@@ -186,6 +197,8 @@ input_text:
     initial: !secret ha_lon
   utc_offset:
     initial: !secret offset
+  ipgeolocation_token:
+    initial: !secret ipgeolocation_token
 
 # Speedtest.net against Movistar
 speedtestdotnet:
