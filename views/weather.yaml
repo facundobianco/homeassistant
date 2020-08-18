@@ -135,31 +135,29 @@ cards:
                 name: Temp
 
       sun-n-moon:
-        type: entities
-        entities:
-          - entity: sun.sun
-          - entity: sensor.moon
-          - entity: sensor.sun_next_action
-          - entity: sensor.day_length
-          - type: custom:mini-graph-card
-            name: Sun & Moon elevation
-            icon: mdi:swap-vertical
-            line_width: 3
-            hours_to_show: 24
-            hour24: true
-            points_per_hour: 0.5
-            align_header: left
-            align_icon: left
+        type: 'custom:vertical-stack-in-card'
+        cards:
+          - type: entities
             entities:
-              - entity: sensor.sun_elevation
+              - type: custom:multiple-entity-row
+                entity: sensor.sun_elevation
                 name: Sun
-              - entity: sensor.moon_elevation
+                entities:
+                  - entity: sun.sun
+                    name: false
+              - type: custom:multiple-entity-row
+                entity: sensor.moon_elevation
                 name: Moon
-                show_state: true
-                show_legend: true
-            show:
-              fill: false
-
+                entities:
+                  - entity: sensor.moon
+                    name: false
+              - sensor.sun_next_action
+              - sensor.day_length
+          - type: history-graph
+            hours_to_show: 48
+            entities:
+              - sensor.sun_elevation
+              - sensor.moon_elevation
 
       forecast:
         type: entities
