@@ -140,19 +140,26 @@ cards:
           - type: entities
             entities:
               - type: custom:multiple-entity-row
-                entity: sensor.sun_elevation
+                entity: sun.sun
                 name: Sun
                 entities:
-                  - entity: sun.sun
+                  - entity: sensor.sun_elevation
                     name: false
               - type: custom:multiple-entity-row
-                entity: sensor.moon_elevation
+                entity: sensor.moon
                 name: Moon
                 entities:
-                  - entity: sensor.moon
+                  - entity: sensor.moon_elevation
                     name: false
-              - sensor.sun_next_action
               - sensor.day_length
+              - sensor.sun_next_action
+              - type: custom:multiple-entity-row
+                entity: sensor.moonset
+                name: Moon actions
+                icon: mdi:moon-waning-crescent
+                state_header: Moonset
+                entities:
+                  - entity: sensor.moonrise
           - type: history-graph
             hours_to_show: 48
             entities:
