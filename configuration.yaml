@@ -146,6 +146,12 @@ climate:
     power_sensor: binary_sensor.ac_power
 
 input_select:
+  home_view:
+    options:
+      - lights
+      - ac
+      - wb
+    initial: lights
   weather_view:
     options:
       - local
