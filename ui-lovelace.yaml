@@ -41,7 +41,6 @@ button_card_templates:
 
 views:
   - !include views/home.yaml
-  - !include views/lights.yaml
   - !include views/weather.yaml
   - !include views/ac.yaml
   - !include views/tv/main.yaml

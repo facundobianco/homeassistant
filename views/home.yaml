@@ -6,6 +6,55 @@ path: home
 badges: []
 cards:
 
-  - type: markdown
-    content: >
-      empty.
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: light.sonoff_1000950368_1
+      - type: custom:button-card
+        entity: light.sonoff_1000766c93
+        icon: 'mdi:floor-lamp'
+      - type: custom:button-card
+        entity: light.sonoff_1000950368_2
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: light.sonoff_100094ff53_1
+        name: Cocina 1
+      - type: custom:button-card
+        entity: light.sonoff_100094ff53_2
+        name: Cocina 2
+      - type: 'custom:button-card'
+        color_type: blank-card
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: light.sonoff_1000954850_1
+        name: Dormitorio
+      - type: custom:button-card
+        entity: light.sonoff_1000770cc7
+        name: Mesa de luz
+        icon: 'mdi:lamp'
+      - type: 'custom:button-card'
+        color_type: blank-card
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: light.sonoff_10008504ad
+      - type: custom:button-card
+        entity: light.sonoff_1000951aac
+        name: WC
+      - type: 'custom:button-card'
+        color_type: blank-card
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: light.sonoff_1000951b70
+      - type: 'custom:button-card'
+        color_type: blank-card
+      - type: 'custom:button-card'
+        color_type: blank-card
