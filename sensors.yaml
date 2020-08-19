@@ -126,6 +126,7 @@
     - FTL_latest
     - FTL_update
   value_template: "OK"
+  scan_interval: 3600
 - platform: template
   sensors:
     pihole_core_current:
@@ -203,6 +204,7 @@
     - moonset
     - moon_altitude
   value_template: "OK"
+  scan_interval: 90
 - platform: template
   sensors:
     day_length:
