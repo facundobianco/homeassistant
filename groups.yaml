@@ -8,3 +8,17 @@ sunset_lights:
     - light.sonoff_1000766c93
     - light.sonoff_10008504ad
     - light.sonoff_1000770cc7
+
+turn_off_but_outside:
+  name: Turn off all but outside light
+  icon: mdi:lightbulb-multiple-off
+  entities:
+    - light.sonoff_1000950368_1
+    - light.sonoff_1000766c93
+    - light.sonoff_100094ff53_1
+    - light.sonoff_100094ff53_2
+    - light.sonoff_1000954850_1
+    - light.sonoff_1000770cc7
+    - light.sonoff_10008504ad
+    - light.sonoff_1000951aac
+    - light.sonoff_1000951b70
