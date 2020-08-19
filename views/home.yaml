@@ -61,6 +61,31 @@ cards:
                 ]]]
       - type: custom:button-card
         template: custom_icon_name
+        name: Plugs
+        icon: mdi:power-socket-au
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.home_view
+            options: plugs
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.home_view'].state == 'plugs')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.home_view'].state == 'plugs')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+      - type: custom:button-card
+        template: custom_icon_name
         name: EWH
         icon: mdi:water-boiler
         tap_action:
@@ -161,6 +186,17 @@ cards:
                   - entity: switch.sonoff_100085069c
                     name: Stockroom's AC
                     icon: mdi:air-conditioner
+
+      plugs:
+        type: entities
+        show_header_toggle: false
+        entities:
+          - entity: switch.160505002cf432c53e7b
+            name: Air Fryer
+            icon: mdi:power-socket-au
+          - entity: switch.160505002cf432c569cb
+            name: Misc
+            icon: mdi:power-socket-au
 
       wb:
         type: entities

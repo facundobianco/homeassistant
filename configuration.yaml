@@ -150,6 +150,7 @@ input_select:
     options:
       - lights
       - ac
+      - plugs
       - wb
     initial: lights
   weather_view:
