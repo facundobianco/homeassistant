@@ -135,3 +135,4 @@
     entity_id:
       - light.sonoff_1000950368_1
       - light.sonoff_100094ff53_2
+      - light.sonoff_1000951aac
