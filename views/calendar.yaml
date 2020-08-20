@@ -59,3 +59,17 @@ cards:
                       return '#00b59d';
                     return 'white';
                   ]]]
+
+    # Views
+    - type: 'custom:state-switch'
+      entity: input_select.cal_view
+      states:
+
+        aleph:
+          type: entities
+          entities:
+            - sensor.jewish_calendar_date
+            - entity: sensor.jewish_calendar_parshat_hashavua
+              name: Parshat Hashavua
+            - sensor.local_upcoming_candle_lighting
+            - sensor.local_upcoming_havdalah

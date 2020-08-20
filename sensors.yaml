@@ -223,3 +223,15 @@
       unit_of_measurement: "deg"
       icon_template: mdi:moon-waning-crescent
       value_template: "{{ state_attr('sensor.astronomy_api', 'moon_altitude') | round(2) }}"
+
+# UTC to localtime
+- platform: template
+  sensors:
+    local_upcoming_candle_lighting:
+      friendly_name: Upcoming Candle Lighting
+      icon_template: mdi:candle
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_upcoming_candle_lighting')) | timestamp_custom('%a %d, %H:%M') }}"
+    local_upcoming_havdalah:
+      friendly_name: Upcoming Havdalah
+      icon_template: mdi:weather-night
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_upcoming_havdalah')) | timestamp_custom('%a %d, %H:%M') }}"

@@ -123,3 +123,15 @@
   action:
     service: switch.turn_off
     entity_id: switch.sonoff_1000854c6a
+
+# Calendar
+- alias: Turn on lights at Shabbat veIom Tov
+  trigger:
+    platform: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    to: 'on'
+  action:
+    service: light.turn_on
+    entity_id:
+      - light.sonoff_1000950368_1
+      - light.sonoff_100094ff53_2

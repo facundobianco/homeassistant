@@ -51,6 +51,11 @@ homeassistant:
   auth_mfa_modules:
     - type: totp
 
+jewish_calendar:
+  language: english
+  diaspora: true
+  havdalah_minutes_after_sunset: 50
+
 hacs:
   token: !secret hacs_token
   sidepanel_icon: mdi:alpha-c-box
