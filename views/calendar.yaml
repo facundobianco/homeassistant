@@ -71,5 +71,8 @@ cards:
             - sensor.jewish_calendar_date
             - entity: sensor.jewish_calendar_parshat_hashavua
               name: Parshat Hashavua
+            - sensor.local_alot_hashachar
+            - sensor.local_plag_hamincha
             - sensor.local_upcoming_candle_lighting
+            - sensor.local_tzeit_hakochavim
             - sensor.local_upcoming_havdalah

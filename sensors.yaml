@@ -227,10 +227,22 @@
 # UTC to localtime
 - platform: template
   sensors:
+    local_alot_hashachar:
+      friendly_name: Alot Hashachar
+      icon_template: mdi:weather-sunset-up
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_alot_hashachar')) | timestamp_custom('%a %d, %H:%M') }}"
+    local_plag_hamincha:
+      friendly_name: Plag Hamincha
+      icon_template: mdi:weather-sunset-down
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_plag_hamincha')) | timestamp_custom('%a %d, %H:%M') }}"
     local_upcoming_candle_lighting:
       friendly_name: Upcoming Candle Lighting
       icon_template: mdi:candle
       value_template: "{{ as_timestamp(states('sensor.jewish_calendar_upcoming_candle_lighting')) | timestamp_custom('%a %d, %H:%M') }}"
+    local_tzeit_hakochavim:
+      friendly_name: Tzeit Hakochavim (Three stars)
+      icon_template: mdi:weather-night
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_t_set_hakochavim')) | timestamp_custom('%a %d, %H:%M') }}"
     local_upcoming_havdalah:
       friendly_name: Upcoming Havdalah
       icon_template: mdi:weather-night
