@@ -194,6 +194,16 @@
       unit_of_measurement: "deg"
       icon_template: mdi:white-balance-sunny
       value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    sun_elevation_wo_neg:
+      friendly_name: Sun
+      unit_of_measurement: "deg"
+      value_template: >-
+        {% set sun_elevation = state_attr('sun.sun', 'elevation') %}
+        {% if sun_elevation >= 1 %}
+          {{ sun_elevation }}
+        {% else %}
+          0
+        {% endif %}
 
 - platform: rest
   name: Astronomy API
@@ -223,6 +233,16 @@
       unit_of_measurement: "deg"
       icon_template: mdi:moon-waning-crescent
       value_template: "{{ state_attr('sensor.astronomy_api', 'moon_altitude') | round(2) }}"
+    moon_elevation_wo_neg:
+      friendly_name: Moon
+      unit_of_measurement: "deg"
+      value_template: >-
+        {% set moon_elevation = state_attr('sensor.astronomy_api', 'moon_altitude') %}
+        {% if moon_elevation >= 1 %}
+          {{ moon_elevation }}
+        {% else %}
+          0
+        {% endif %}
 
 # UTC to localtime
 - platform: template

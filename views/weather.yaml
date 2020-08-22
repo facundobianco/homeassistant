@@ -164,11 +164,21 @@ cards:
                 state_header: Moonset
                 entities:
                   - entity: sensor.moonrise
-          - type: history-graph
-            hours_to_show: 48
-            entities:
-              - sensor.sun_elevation
-              - sensor.moon_elevation
+              - type: custom:mini-graph-card
+                line_width: 3
+                hours_to_show: 48
+                hour24: true
+                points_per_hour: 0.5
+                name: Elevation
+                icon: mdi:swap-vertical
+                align_header: left
+                align_icon: left
+                entities:
+                  - sensor.sun_elevation_wo_neg
+                  - sensor.moon_elevation_wo_neg
+                show:
+                  state: false
+                  fill: false
 
       forecast:
         type: entities
