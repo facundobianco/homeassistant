@@ -230,11 +230,27 @@
     local_alot_hashachar:
       friendly_name: Alot Hashachar
       icon_template: mdi:weather-sunset-up
-      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_alot_hashachar')) | timestamp_custom('%a %d, %H:%M') }}"
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_alot_hashachar')) | timestamp_custom('%H:%M') }}"
+    local_latest_shema:
+      friendly_name: Latest time for Shema (MG"A)
+      icon_template: mdi:calendar-clock
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_latest_time_for_shma_mg_a')) | timestamp_custom('%H:%M') }}"
+    local_latest_shacharit:
+      friendly_name: Latest time for Shacharit (MG"A)
+      icon_template: mdi:calendar-clock
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_latest_time_for_tefilla_mg_a')) | timestamp_custom('%H:%M') }}"
+    local_mincha_gedola:
+      friendly_name: Mincha Gedola
+      icon_template: mdi:calendar-clock
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_mincha_gedola')) | timestamp_custom('%H:%M') }}"
+    local_mincha_ketana:
+      friendly_name: Mincha Ketana
+      icon_template: mdi:calendar-clock
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_mincha_ketana')) | timestamp_custom('%H:%M') }}"
     local_plag_hamincha:
       friendly_name: Plag Hamincha
       icon_template: mdi:weather-sunset-down
-      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_plag_hamincha')) | timestamp_custom('%a %d, %H:%M') }}"
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_plag_hamincha')) | timestamp_custom('%H:%M') }}"
     local_upcoming_candle_lighting:
       friendly_name: Upcoming Candle Lighting
       icon_template: mdi:candle
@@ -242,7 +258,7 @@
     local_tzeit_hakochavim:
       friendly_name: Tzeit Hakochavim (Three stars)
       icon_template: mdi:weather-night
-      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_t_set_hakochavim')) | timestamp_custom('%a %d, %H:%M') }}"
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_t_set_hakochavim')) | timestamp_custom('%H:%M') }}"
     local_upcoming_havdalah:
       friendly_name: Upcoming Havdalah
       icon_template: mdi:weather-night
