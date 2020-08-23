@@ -90,6 +90,14 @@ cards:
       entity: input_select.cal_view
       states:
 
+        google:
+          type: entities
+          entities:
+            - type: 'custom:atomic-calendar-revive'
+              entities:
+                - calendar.personal
+                - calendar.holidays_in_argentina
+
         aleph:
           type: entities
           entities:

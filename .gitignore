@@ -1,6 +1,8 @@
 .HA_VERSION
 .storage
 .sonoff.json
+.google.token
+google_calendars.yaml
 *.db
 *.db-shm
 *.db-wal
