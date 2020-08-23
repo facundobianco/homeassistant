@@ -200,6 +200,9 @@ input_boolean:
   wb_ignore_trigger:
     name: Ignore auto trigger
     initial: off
+  wb_ignore_melaja:
+    name: Ignore melaja sensor
+    initial: off
 
 # Easy way to query secrets from template
 input_text:

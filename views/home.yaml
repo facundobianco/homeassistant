@@ -206,6 +206,7 @@ cards:
             name: Termotanque
             icon: 'mdi:water-boiler'
           - entity: input_boolean.wb_ignore_trigger
+          - entity: input_boolean.wb_ignore_melaja
           - type: custom:mini-graph-card
             line_width: 3
             hours_to_show: 8

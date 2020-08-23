@@ -38,6 +38,18 @@
     - platform: state
       entity_id: input_boolean.wb_ignore_trigger
       to: 'on'
+    - platform: state
+      entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.wb_ignore_melaja
+        state: 'off'
   action:
     service: switch.turn_on
     entity_id: switch.sonoff_10008508fb
