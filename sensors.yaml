@@ -237,7 +237,7 @@
       friendly_name: Moon
       unit_of_measurement: "deg"
       value_template: >-
-        {% set moon_elevation = state_attr('sensor.astronomy_api', 'moon_altitude') %}
+        {% set moon_elevation = state_attr('sensor.astronomy_api', 'moon_altitude') | round(2) %}
         {% if moon_elevation >= 1 %}
           {{ moon_elevation }}
         {% else %}
