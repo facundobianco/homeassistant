@@ -36,31 +36,6 @@ cards:
                 ]]]
       - type: custom:button-card
         template: custom_icon_name
-        name: Sun & Moon
-        icon: 'mdi:theme-light-dark'
-        tap_action:
-          action: call-service
-          service: input_select.set_options
-          service_data:
-            entity_id: input_select.weather_view
-            options: sun-n-moon
-        styles:
-          card:
-            - color: >
-                [[[
-                  if (states['input_select.weather_view'].state == 'sun-n-moon')
-                    return '#00b59d';
-                  return 'white';
-                ]]]
-          icon:
-            - color: >
-                [[[
-                  if (states['input_select.weather_view'].state == 'sun-n-moon')
-                    return '#00b59d';
-                  return 'white';
-                ]]]
-      - type: custom:button-card
-        template: custom_icon_name
         name: Forecast
         icon: 'mdi:weather-pouring'
         tap_action:
@@ -133,52 +108,6 @@ cards:
             entities:
               - entity: sensor.deposito_temperatura
                 name: Temp
-
-      sun-n-moon:
-        type: 'custom:vertical-stack-in-card'
-        cards:
-          - type: entities
-            entities:
-              - type: custom:multiple-entity-row
-                entity: sun.sun
-                name: Sun
-                entities:
-                  - entity: sensor.sun_elevation
-                    name: false
-              - type: custom:multiple-entity-row
-                entity: sensor.moon
-                name: Moon
-                entities:
-                  - entity: sensor.moon_elevation
-                    name: false
-              - sensor.day_length
-              - entity: sensor.lu7and_solar_rad
-                name: Solar Rad
-              - entity: sensor.lu7and_uv
-                name: Solar UV
-              - sensor.sun_next_action
-              - type: custom:multiple-entity-row
-                entity: sensor.moonset
-                name: Moon actions
-                icon: mdi:moon-waning-crescent
-                state_header: Moonset
-                entities:
-                  - entity: sensor.moonrise
-              - type: custom:mini-graph-card
-                line_width: 3
-                hours_to_show: 48
-                hour24: true
-                points_per_hour: 0.5
-                name: Elevation
-                icon: mdi:swap-vertical
-                align_header: left
-                align_icon: left
-                entities:
-                  - sensor.sun_elevation_wo_neg
-                  - sensor.moon_elevation_wo_neg
-                show:
-                  state: false
-                  fill: false
 
       forecast:
         type: entities

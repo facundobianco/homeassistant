@@ -161,13 +161,13 @@ input_select:
   weather_view:
     options:
       - local
-      - sun-n-moon
       - forecast
     initial: local
   cal_view:
     options:
       - google
       - aleph
+      - sun-n-moon
     initial: google
   ac_location:
     name: AC Location
