@@ -110,8 +110,8 @@ cards:
             - sensor.local_mincha_gedola
             - sensor.local_mincha_ketana
             - sensor.local_plag_hamincha
-            - sensor.local_upcoming_candle_lighting
             - sensor.local_tzeit_hakochavim
+            - sensor.local_upcoming_candle_lighting
             - sensor.local_upcoming_havdalah
 
         sun-n-moon:
@@ -136,14 +136,24 @@ cards:
                   name: Solar Rad
                 - entity: sensor.lu7and_uv
                   name: Solar UV
-                - sensor.sun_next_action
                 - type: custom:multiple-entity-row
-                  entity: sensor.moonset
-                  name: Moon actions
-                  icon: mdi:moon-waning-crescent
-                  state_header: Moonset
+                  entity: sensor.sun_status
+                  show_state: false
                   entities:
-                    - entity: sensor.moonrise
+                    - attribute: sunrise
+                      name: Sunrise
+                    - attribute: noon
+                      name: Noon
+                    - attribute: sunset
+                      name: Sunset
+                - type: custom:multiple-entity-row
+                  entity: sensor.moon_status
+                  show_state: false
+                  entities:
+                    - attribute: moonrise
+                      name: Moonrise
+                    - attribute: moonset
+                      name: Moonset
                 - type: custom:mini-graph-card
                   line_width: 3
                   hours_to_show: 48
