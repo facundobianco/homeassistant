@@ -110,6 +110,5 @@ cards:
                 name: Temp
 
       forecast:
-        type: entities
-        entities:
-          - entity: weather.home
+        type: weather-forecast
+        entity: weather.home
