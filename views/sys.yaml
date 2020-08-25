@@ -93,8 +93,7 @@ cards:
       rspi:
         type: entities
         entities:
-          - entity: sensor.uptime
-            icon: 'mdi:clock-outline'
+          - sensor.uptime
           - entity: sensor.disk_use_percent
             icon: 'mdi:micro-sd'
             name: /

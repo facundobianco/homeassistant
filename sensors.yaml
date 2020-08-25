@@ -22,15 +22,17 @@
       arg: eth0
     - type: packets_out
       arg: eth0
-    - type: process
-      arg: lighttpd
-    - type: process
-      arg: pihole-FTL
 
-- platform: command_line
-  name: Uptime
-  command: "uptime | sed -n 's/.*up \\([^,]*\\),.*/\\1/p'"
-  scan_interval: 43200
+- platform: template
+  sensors:
+    uptime:
+      friendly_name: Uptime
+      icon_template: mdi:clock-outline
+      unit_of_measurement: days
+      value_template: >-
+        {% set last_boot = as_timestamp(states('sensor.last_boot')) %}
+        {% set now = as_timestamp(now()) %}
+        {{ ((now - last_boot) / 86400) | round(0) }}
 
 - platform: command_line
   name: CPU Temperature
