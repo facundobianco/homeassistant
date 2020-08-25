@@ -94,6 +94,13 @@ cards:
         type: entities
         entities:
           - sensor.uptime
+          - type: custom:multiple-entity-row
+            entity: sensor.cert_expiry
+            name: SSL Cert expiry
+            state_header: In
+            entities:
+              - entity: sensor.cert_expiry_timestamp_custom
+                name: When
           - entity: sensor.disk_use_percent
             icon: 'mdi:micro-sd'
             name: /

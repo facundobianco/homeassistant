@@ -33,6 +33,10 @@
         {% set last_boot = as_timestamp(states('sensor.last_boot')) %}
         {% set now = as_timestamp(now()) %}
         {{ ((now - last_boot) / 86400) | round(0) }}
+    cert_expiry_timestamp_custom:
+      friendly_name: Cert Expiry Timestamp Custom
+      icon_template: 'mdi:certificate'
+      value_template: "{{ as_timestamp(states('sensor.cert_expiry_timestamp')) | timestamp_custom('%a %b %d') }}"
 
 - platform: command_line
   name: CPU Temperature
