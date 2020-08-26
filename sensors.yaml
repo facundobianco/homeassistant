@@ -282,3 +282,37 @@
       friendly_name: Upcoming Havdalah
       icon_template: mdi:weather-night
       value_template: "{{ as_timestamp(states('sensor.jewish_calendar_upcoming_havdalah')) | timestamp_custom('%a %d, %H:%M') }}"
+
+# Weather
+- platform: template
+  sensors:
+    wind_speed:
+      friendly_name: Wind speed
+      icon_template: mdi:weather-windy
+      unit_of_measurement: "km/h"
+      value_template: "{{ (states('sensor.lu7and_wind_speed') | float * 1.609) | round(2) }}"
+    wind_gust:
+      friendly_name: Wind gust
+      icon_template: mdi:weather-windy
+      unit_of_measurement: "km/h"
+      value_template: "{{ (states('sensor.lu7and_wind_gust') | float * 1.609) | round(2) }}"
+    wind_dir:
+      friendly_name: Wind direction
+      icon_template: >-
+        {% set direction = ['up', 'top-right', 'right', 'botton-right', 'down', 'botton-left', 'left', 'top-left' ] %}
+        {% set deg = float(states('sensor.lu7and_wind_dir')) %}
+        {% set div = 45 %}
+        {% for i in range(0, 16) %}
+          {% if deg >= (div * i) and deg <= (div * ( i + 1 ) - 0.1) %}
+            mdi:arrow-{{ direction[i] }}
+          {% endif %}
+        {% endfor %}
+      value_template: >-
+        {% set cardinal = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'] %}
+        {% set deg = float(states('sensor.lu7and_wind_dir')) %}
+        {% set div = 22.5 %}
+        {% for i in range(0, 16) %}
+          {% if deg >= (div * i) and deg <= (div * ( i + 1 ) - 0.1) %}
+            {{ cardinal[i] }}
+          {% endif %}
+        {% endfor %}

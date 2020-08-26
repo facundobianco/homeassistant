@@ -108,6 +108,27 @@ cards:
             entities:
               - entity: sensor.deposito_temperatura
                 name: Temp
+          - type: custom:multiple-entity-row
+            entity: sensor.lu7and_solar_rad
+            name: Sun
+            icon: mdi:white-balance-sunny
+            state_header: Rad
+            entities:
+              - entity: sensor.lu7and_uv
+                name: UV
+          - entity: sensor.lu7and_rel_pressure
+            name: Real pressure
+          - type: custom:multiple-entity-row
+            entity: sensor.wind_speed
+            state_header: Speed
+            entities:
+              - entity: sensor.wind_gust
+                name: Gust
+          - type: custom:multiple-entity-row
+            entity: sensor.wind_dir
+            entities:
+              - entity: sensor.lu7and_wind_dir
+                name: false
 
       forecast:
         type: weather-forecast
