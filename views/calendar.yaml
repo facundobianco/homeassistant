@@ -119,23 +119,9 @@ cards:
           cards:
             - type: entities
               entities:
-                - type: custom:multiple-entity-row
-                  entity: sun.sun
-                  name: Sun
-                  entities:
-                    - entity: sensor.sun_elevation
-                      name: false
-                - type: custom:multiple-entity-row
-                  entity: sensor.moon
-                  name: Moon
-                  entities:
-                    - entity: sensor.moon_elevation
-                      name: false
+                - sun.sun
+                - sensor.moon
                 - sensor.day_length
-                - entity: sensor.lu7and_solar_rad
-                  name: Solar Rad
-                - entity: sensor.lu7and_uv
-                  name: Solar UV
                 - type: custom:multiple-entity-row
                   entity: sensor.sun_status
                   show_state: false
@@ -154,18 +140,26 @@ cards:
                       name: Moonrise
                     - attribute: moonset
                       name: Moonset
+                - type: custom:multiple-entity-row
+                  entity: sensor.moon_elevation
+                  name: Elevation
+                  icon: mdi:swap-vertical
+                  state_header: Moon
+                  entities:
+                    - entity: sensor.sun_elevation
+                      name: Sun
                 - type: custom:mini-graph-card
                   line_width: 3
                   hours_to_show: 48
                   hour24: true
                   points_per_hour: 0.5
-                  name: Elevation
-                  icon: mdi:swap-vertical
                   align_header: left
                   align_icon: left
                   entities:
                     - sensor.sun_elevation_wo_neg
                     - sensor.moon_elevation_wo_neg
                   show:
+                    name: false
+                    icon: false
                     state: false
                     fill: false
