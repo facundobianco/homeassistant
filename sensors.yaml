@@ -286,6 +286,13 @@
 # Weather
 - platform: template
   sensors:
+    rel_pressure:
+      friendly_name: Relative pressure
+      unit_of_measurement: hPa
+      device_class: pressure
+      value_template: >-
+        {% set val = float(states('sensor.lu7and_rel_pressure')) %}
+        {{ (val / 0.029529983071445) | round(2) }}
     wind_speed:
       friendly_name: Wind speed
       icon_template: mdi:weather-windy

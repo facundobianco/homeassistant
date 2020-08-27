@@ -116,8 +116,7 @@ cards:
             entities:
               - entity: sensor.lu7and_uv
                 name: UV
-          - entity: sensor.lu7and_rel_pressure
-            name: Real pressure
+          - sensor.rel_pressure
           - type: custom:multiple-entity-row
             entity: sensor.wind_speed
             state_header: Speed
