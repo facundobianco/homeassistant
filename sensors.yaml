@@ -302,7 +302,7 @@
         {% set direction = ['up', 'top-right', 'right', 'botton-right', 'down', 'botton-left', 'left', 'top-left' ] %}
         {% set deg = float(states('sensor.lu7and_wind_dir')) %}
         {% set div = 45 %}
-        {% for i in range(0, 16) %}
+        {% for i in range(0, 8) %}
           {% if deg >= (div * i) and deg <= (div * ( i + 1 ) - 0.1) %}
             mdi:arrow-{{ direction[i] }}
           {% endif %}
