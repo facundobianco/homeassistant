@@ -111,6 +111,7 @@ cards:
             - sensor.local_mincha_ketana
             - sensor.local_plag_hamincha
             - sensor.local_tzeit_hakochavim
+            - sensor.kiddush_levanah
             - sensor.local_upcoming_candle_lighting
             - sensor.local_upcoming_havdalah
 

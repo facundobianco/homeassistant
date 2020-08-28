@@ -173,14 +173,6 @@
 
 - platform: template
   sensors:
-    sun_status:
-      friendly_name: Sun status
-      icon_template: mdi:weather-sunny
-      value_template: "OK"
-      attribute_templates:
-        sunrise: "{{ as_timestamp(state_attr('sun.sun', 'next_rising')) | timestamp_custom('%H:%M') }}"
-        noon: "{{ as_timestamp(state_attr('sun.sun', 'next_noon')) | timestamp_custom('%H:%M') }}"
-        sunset: "{{ as_timestamp(state_attr('sun.sun', 'next_setting')) | timestamp_custom('%H:%M') }}"
     sun_elevation:
       friendly_name: Sun elevation
       unit_of_measurement: "deg"
@@ -201,6 +193,9 @@
   name: Astronomy API
   resource_template: "https://api.ipgeolocation.io/astronomy?apiKey={{ states('input_text.ipgeolocation_token') }}&lat={{ states('input_text.latitude') }}&long={{ states('input_text.longitude') }}"
   json_attributes:
+    - sunrise
+    - sunset
+    - solar_noon
     - day_length
     - moonrise
     - moonset
@@ -209,6 +204,14 @@
   scan_interval: 90
 - platform: template
   sensors:
+    sun_status:
+      friendly_name: Sun status
+      icon_template: mdi:weather-sunny
+      value_template: "OK"
+      attribute_templates:
+        sunrise: "{{ state_attr('sensor.astronomy_api', 'sunrise') }}"
+        noon: "{{ state_attr('sensor.astronomy_api', 'solar_noon') }}"
+        sunset: "{{ state_attr('sensor.astronomy_api', 'sunset') }}"
     day_length:
       friendly_name: Day length
       unit_of_measurement: "hours"
@@ -282,6 +285,20 @@
       friendly_name: Upcoming Havdalah
       icon_template: mdi:weather-night
       value_template: "{{ as_timestamp(states('sensor.jewish_calendar_upcoming_havdalah')) | timestamp_custom('%a %d, %H:%M') }}"
+    kiddush_levanah:
+      friendly_name: Kiddush Levanah
+      icon_template: >-
+        {% if is_state('sensor.moon', 'waxing_gibbous') or  is_state('sensor.moon', 'full_moon') %}
+          mdi:eye-outline
+        {% else %}
+          mdi:eye-off-outline
+        {% endif %}
+      value_template: >-
+        {% if is_state('sensor.moon', 'waxing_gibbous') or  is_state('sensor.moon', 'full_moon') %}
+          Yes
+        {% else %}
+          Not yet
+        {% endif %}
 
 # Weather
 - platform: template
