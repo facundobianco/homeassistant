@@ -307,12 +307,16 @@
       friendly_name: Relative pressure
       unit_of_measurement: hPa
       device_class: pressure
-      value_template: {{ (states('sensor.lu7and_rel_pressure') | float / 0.029529983071445) | round(2) }}
+      value_template: >-
+        {% set val = float(states('sensor.lu7and_rel_pressure')) %}
+        {{ (val / 0.029529983071445) | round(2) }}
     daily_rain:
       friendly_name: Daily rain
       icon_template: mdi:weather-rainy
       unit_of_measurement: mm
-      value_template: {{ (states('sensor.lu7and_daily_rain') | float * 25.4) | round(2) }}
+      value_template: >-
+        {% set val = float(states('sensor.lu7and_daily_rain')) %}
+        {{ (val * 25.4)  | round(2) }}
     wind_speed:
       friendly_name: Wind speed
       icon_template: mdi:weather-windy
@@ -326,7 +330,7 @@
     wind_dir:
       friendly_name: Wind direction
       icon_template: >-
-        {% set direction = ['up', 'top-right', 'right', 'botton-right', 'down', 'botton-left', 'left', 'top-left' ] %}
+        {% set direction = ['up', 'top-right', 'right', 'bottom-right', 'down', 'bottom-left', 'left', 'top-left' ] %}
         {% set deg = float(states('sensor.lu7and_wind_dir')) %}
         {% set div = 45 %}
         {% for i in range(0, 8) %}
