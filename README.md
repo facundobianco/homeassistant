@@ -6,6 +6,36 @@ My personal home assistant configuration.
 
 Images stored in [imgbb <img src="https://simgbb.com/images/favicon.png" width="16" height="16">](https://imgbb.com)
 
+## Custom components this configuration has
+
+There are many HA configuration repositories and the mayor difference is the theme and views/cards arrangement. Here are the custom components that you only will see in my personal configuration -- hope you like them!
+
+### Real uptime
+
+If you want to count the days [since the last boot](https://www.home-assistant.io/integrations/systemmonitor/), take a look at "*Uptime*" sensor (in *sensors.yaml*).
+
+### Pihole integration
+
+Pihole switch was added in [release 0.114](https://www.home-assistant.io/blog/2020/08/12/release-114/#breaking-changes) but isn't *smart* when you disable the service for a given time. After the given time is reached the switch appears as *off*.
+
+To fix it, take a look at "*PiHole status*" sensor (in *sensors.yaml*) and "*Enable Pihole again*" automation (in *automations.yaml*).
+
+Also, you will find "*Pihole versions*" sensor (in *sensors.yaml*) to get the installed and latest version of each Pihole component (Core, Web UI and FTL). 
+
+### Astronomy API
+
+I use [IPGeolocation's Astronomy API](https://ipgeolocation.io/documentation/astronomy-api.html) to get the location-based rise and set times for the Sun and the Moon and day length. Take a look at "*Astronomy API*" sensor (in *sensors.yaml*).
+
+Do not forget to use "*scan_interval: 90*" if you will use the free plan, it will do 960 requests/day to avoid 1K daily limit.
+
+### Wind direction compass
+
+If you have a weather station, I made a sensor to convert wind direction's degree in cardinal direction and also it changes the icon based on direction.
+
+<img src="https://i.ibb.co/4RmpKyG/Screen-Shot-2020-08-29-at-15-52-13.png" alt="Screen-Shot-2020-08-29-at-15-52-13" height="7%" />
+
+Take a look at "*Wind direction*" sensor (in *sensors.yaml*) and entity configuration in *views/weather.yaml*.
+
 ## Integrations
 
 * [HACS](https://hacs.xyz)
@@ -26,6 +56,49 @@ Images stored in [imgbb <img src="https://simgbb.com/images/favicon.png" width="
 ## Required external packages
 
 * [monitoring-plugins-basic](https://packages.debian.org/buster/monitoring-plugins-basic) (plugins for Nagios compatible monitoring systems)
+
+## Tips
+
+### Use metric system
+
+If one of your sensors doesn't use the metrics system, create a custom one and add a math formula in *value_template*.
+
+To convert inHg (*inch of mercury*) to hPa (*hectopascal*):
+
+```
+value_template: >-
+  {% set val = float(states('sensor.pressure')) %}
+  {{ (val / 0.029529983071445) | round(2) }}
+```
+
+To convert inches to millimeters:
+
+```
+value_template: >-
+  {% set val = float(states('sensor.inches')) %}
+  {{ (val * 25.4)  | round(2) }}
+```
+
+To convert mi/h (*miles per hour*) to km/h (*kilometers per hour*)
+
+```
+value_template: "{{ (states('sensor.speed') | float * 1.609) | round(2) }}"
+```
+
+### Edit remote files
+
+I recommend Atom IDE with package [remote-edit-ini](https://atom.io/packages/remote-edit-ni).
+
+In *status-bar* you will see the long, long temporary file's path and it's annoying because hides the cursor position. To avoid that, add in *styles.less* configuration file
+
+```
+// Hide path in status-bar
+status-bar {
+  .current-path {
+    display: None;
+  }
+}
+```
 
 ## Troubleshooting
 
@@ -53,7 +126,3 @@ To solve it, [edit plugins location](https://community.home-assistant.io/t/0-107
 ### Custom element doesn't exist
 
 If you get the *red card* with the message "Custom element doesn't exist: foo.", just delete cookies, website data and refresh a few times. Source: [HA Community](https://community.home-assistant.io/t/custom-element-doesnt-exist/91942/6).
-
-## Recommended links
-
-* [Atom IDE: Edit remote files using SSH/FTP](https://atom.io/packages/remote-edit-ni)
