@@ -20,13 +20,19 @@ Pihole switch was added in [release 0.114](https://www.home-assistant.io/blog/20
 
 To fix it, take a look at "*PiHole status*" sensor (in *sensors.yaml*) and "*Enable Pihole again*" automation (in *automations.yaml*).
 
-Also, you will find "*Pihole versions*" sensor (in *sensors.yaml*) to get the installed and latest version of each Pihole component (Core, Web UI and FTL). 
+Also, you will find "*Pihole versions*" sensor (in *sensors.yaml*) to get the installed and latest version of each Pihole component (Core, Web UI and FTL).
 
 ### Astronomy API
 
 I use [IPGeolocation's Astronomy API](https://ipgeolocation.io/documentation/astronomy-api.html) to get the location-based rise and set times for the Sun and the Moon and day length. Take a look at "*Astronomy API*" sensor (in *sensors.yaml*).
 
 Do not forget to use "*scan_interval: 90*" if you will use the free plan, it will do 960 requests/day to avoid 1K daily limit.
+
+### Broadlink send command
+
+If you have two or more Broadlink RM device, you can reuse the learned commands for all devices. Take a look at "*broadlink_send_command*" script (in *script.yaml*) and "*broadlink_codes*" sensor (in *sensors.yaml*).
+
+This solution is based in [a comment from HA Community's](https://community.home-assistant.io/t/41792/9).
 
 ### Wind direction compass
 
@@ -58,6 +64,37 @@ Take a look at "*Wind direction*" sensor (in *sensors.yaml*) and entity configur
 * [monitoring-plugins-basic](https://packages.debian.org/buster/monitoring-plugins-basic) (plugins for Nagios compatible monitoring systems)
 
 ## Tips
+
+### Load secrets as sensors
+
+There are two ways to load secrets in YAML and/or Jinja2 lines.
+
+The simplest one is using *input_text*
+
+```
+input_text:
+  foo:
+    initial: !secret foo
+```
+
+Other way is storage secrets as sensor's attribute, then can be loaded based in a *input_select*'s value. Add a new template sensor as
+
+```
+- platform: template
+  sensors:
+    foo:
+      value_template: "OK"
+      attribute_templates:
+        item1: !secret foo_secret1
+        item2: !secret foo_secret2
+        itemN: !secret foo_secretN
+```
+
+And load them as
+
+```
+{{ state_attr('sensor.foo', input_select_item) }}
+```
 
 ### Use metric system
 
