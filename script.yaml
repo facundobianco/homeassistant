@@ -3,6 +3,7 @@ broadlink_send_command:
     - service: broadlink.send
       data_template:
         host: >
-          {{ host }}
+          {% set location = states('input_select.tv_location') %}
+          {{ state_attr('sensor.broadlink_ip', location) }}
         packet: >
           {{ state_attr('sensor.broadlink_codes', device)[command] }}

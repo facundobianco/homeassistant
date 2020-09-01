@@ -163,10 +163,11 @@
 # Tokens as sensor
 - platform: template
   sensors:
-    living_rm2_ip:
-      value_template: !secret living_rm2_ip
-    dormitorio_rm2_ip:
-      value_template: !secret dormitorio_rm2_ip
+    broadlink_ip:
+      value_template: "OK"
+      attribute_templates:
+        Living: !secret living_rm2_ip
+        Bedroom: !secret dormitorio_rm2_ip
 
 # Date
 - platform: moon

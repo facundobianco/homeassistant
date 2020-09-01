@@ -184,13 +184,18 @@ input_select:
       - Stockroom
     initial: Living
     icon: mdi:air-conditioner
+  tv_buttons:
+    options:
+      - main
+      - favs
+      - numeric
+      - bluray
   tv_location:
     name: TV Location
     options:
-      - living
-      - bedroom
-      - bluray
-    initial: living
+      - Living
+      - Bedroom
+    initial: Living
     icon: mdi:television-classic
   sys_view:
     options:
