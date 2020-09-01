@@ -202,7 +202,7 @@
     - moonset
     - moon_altitude
   value_template: "OK"
-  scan_interval: 90
+  scan_interval: 180
 - platform: template
   sensors:
     sun_status:
