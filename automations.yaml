@@ -148,3 +148,27 @@
       - light.sonoff_1000950368_1
       - light.sonoff_100094ff53_2
       - light.sonoff_1000951aac
+
+- alias: Turn on pending Kiddush Levanah
+  trigger:
+    platform: state
+    entity_id: sensor.moon
+    to:
+      - 'waxing_gibbous'
+      - 'full_moon'
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.pending_kiddush_levana
+
+- alias: Turn off pending Kiddush Levanah
+  trigger:
+    platform: state
+    entity_id: sensor.moon
+    to: 'waning_gibbous'
+  condition:
+    - condition: state
+      entity_id: input_boolean.pending_kiddush_levana
+      state: 'on'
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.pending_kiddush_levana
