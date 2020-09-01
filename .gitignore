@@ -6,7 +6,6 @@ google_calendars.yaml
 *.db
 *.db-shm
 *.db-wal
-*.json
 *.py
 *.log
 *.2020*
