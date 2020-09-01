@@ -1,0 +1,8 @@
+broadlink_send_command:
+  sequence:
+    - service: broadlink.send
+      data_template:
+        host: >
+          {{ host }}
+        packet: >
+          {{ state_attr('sensor.broadlink_codes', device)[command] }}

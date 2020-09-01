@@ -347,3 +347,13 @@
             {{ cardinal[i] }}
           {% endif %}
         {% endfor %}
+
+# Broadlink codes
+- platform: command_line
+  name: broadlink_codes
+  command: 'cat ~/.homeassistant/utils/broadlink_codes.json'
+  value_template: '{{ states("sensor.date_time") }}'
+  scan_interval: 86400
+  json_attributes:
+    - bluray
+    - television

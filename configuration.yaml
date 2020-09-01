@@ -39,9 +39,9 @@ tts:
 
 group: !include groups.yaml
 automation: !include automations.yaml
-script: !include_dir_merge_named scripts/
 sensor: !include sensors.yaml
 scene: !include scenes.yaml
+script: !include script.yaml
 
 homeassistant:
   external_url: !secret http_base_url
@@ -187,9 +187,10 @@ input_select:
   tv_location:
     name: TV Location
     options:
-      - Living
-      - Dormitorio
-    initial: Living
+      - living
+      - bedroom
+      - bluray
+    initial: living
     icon: mdi:television-classic
   sys_view:
     options:
@@ -209,6 +210,9 @@ input_boolean:
   wb_ignore_melaja:
     name: Ignore melaja sensor
     initial: off
+  pending_kiddush_levanah:
+    name: Pending Kiddush Levanah
+    icon: mdi:moon-waning-gibbous
 
 # Easy way to query secrets from template
 input_text:

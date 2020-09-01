@@ -1,0 +1,95 @@
+---
+
+title: TV
+icon: 'mdi:television-classic'
+panel: false
+path: tv
+badges: []
+cards:
+
+  - type: horizontal-stack
+    cards:
+      # INPUT
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Living
+        icon: 'mdi:television-classic'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.tv_location
+            options: living
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.tv_location'].state == 'living')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.tv_location'].state == 'living')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Bedroom
+        icon: 'mdi:television-classic'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.tv_location
+            options: bedroom
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.tv_location'].state == 'bedroom')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.tv_location'].state == 'bedroom')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Bluray
+        icon: 'mdi:disc-player'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.tv_location
+            options: bluray
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.tv_location'].state == 'bluray')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.tv_location'].state == 'bluray')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+
+  - type: vertical-stack
+    show_name: false
+    cards:
+
+      - type: markdown
+        content: empty.
