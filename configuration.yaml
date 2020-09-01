@@ -9,6 +9,10 @@ http:
   ip_ban_enabled: true
   login_attempts_threshold: 5
 
+mobile_app:
+discovery:
+ios:
+
 lovelace:
   mode: yaml
   resources:

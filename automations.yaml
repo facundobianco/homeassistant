@@ -172,3 +172,14 @@
   action:
     service: input_boolean.turn_off
     entity_id: input_boolean.pending_kiddush_levana
+
+# iOS actions
+- alias: turn_off_but_outside
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: turn_off_but_outside
+  action:
+    service: script.turn_on
+    entity_id: script.turn_off_but_outside
