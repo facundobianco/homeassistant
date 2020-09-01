@@ -41,7 +41,7 @@ group: !include groups.yaml
 automation: !include automations.yaml
 sensor: !include sensors.yaml
 scene: !include scenes.yaml
-script: !include script.yaml
+script: !include scripts.yaml
 
 homeassistant:
   external_url: !secret http_base_url
