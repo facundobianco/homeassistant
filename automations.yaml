@@ -115,20 +115,13 @@
     - platform: state
       entity_id: climate.living_ac
       to: 'off'
-  condition:
-    - condition: state
-      entity_id: climate.dormitorio_ac
-      state: 'off'
-  action:
-    service: switch.turn_off
-    entity_id: switch.sonoff_1000854c6a
-
-- alias: Turn off condensate pump dormitorio
-  trigger:
     - platform: state
       entity_id: climate.dormitorio_ac
       to: 'off'
   condition:
+    - condition: state
+      entity_id: climate.dormitorio_ac
+      state: 'off'
     - condition: state
       entity_id: climate.living_ac
       state: 'off'
