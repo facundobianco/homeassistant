@@ -22,3 +22,8 @@ turn_off_but_outside:
     - light.sonoff_10008504ad
     - light.sonoff_1000951aac
     - light.sonoff_1000951b70
+
+basic_lights:
+  entities:
+    - light.sonoff_1000766c93
+    - light.sonoff_10008504ad
