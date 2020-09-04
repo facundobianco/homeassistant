@@ -226,3 +226,35 @@
   action:
     service: switch.toggle
     entity_id: switch.sonoff_100085069c
+
+- alias: toggle_living_tv
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: toggle_living_tv
+  action:
+    - service: input_select.set_options
+      data:
+        entity_id: input_select.tv_location
+        options: 'Living'
+    - service: script.broadlink_send_command
+      data:
+        device: 'television'
+        command: 'power'
+
+- alias: toggle_bedroom_tv
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: toggle_bedroom_tv
+  action:
+    - service: input_select.set_options
+      data:
+        entity_id: input_select.tv_location
+        options: 'Bedroom'
+    - service: script.broadlink_send_command
+      data:
+        device: 'television'
+        command: 'power'
