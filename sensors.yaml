@@ -318,6 +318,13 @@
       value_template: >-
         {% set val = float(states('sensor.lu7and_daily_rain')) %}
         {{ (val * 25.4)  | round(2) }}
+    hourly_rain:
+      friendly_name: Hourly rain
+      icon_template: mdi:weather-rainy
+      unit_of_measurement: mm
+      value_template: >-
+        {% set val = float(states('sensor.lu7and_hourly_rain_rate')) %}
+        {{ (val * 25.4)  | round(2) }}
     wind_speed:
       friendly_name: Wind speed
       icon_template: mdi:weather-windy

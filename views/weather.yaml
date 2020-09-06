@@ -108,6 +108,15 @@ cards:
             entities:
               - entity: sensor.deposito_temperatura
                 name: Temp
+          - type: divider
+          - type: custom:multiple-entity-row
+            entity: sensor.lu7and_dew_point
+            name: Outdoor dets
+            state_header: Dew point
+            entities:
+              - entity: sensor.lu7and_feels_like
+                name: Feels like
+          - sensor.rel_pressure
           - type: custom:multiple-entity-row
             entity: sensor.lu7and_solar_rad
             name: Sun
@@ -116,7 +125,6 @@ cards:
             entities:
               - entity: sensor.lu7and_uv
                 name: UV
-          - sensor.rel_pressure
           - type: custom:multiple-entity-row
             entity: sensor.wind_speed
             state_header: Speed
@@ -128,7 +136,13 @@ cards:
             entities:
               - entity: sensor.lu7and_wind_dir
                 name: false
-          - sensor.daily_rain
+          - type: custom:multiple-entity-row
+            entity: sensor.daily_rain
+            name: Rain
+            state_header: Daily
+            entities:
+              - entity: sensor.hourly_rain
+                name: Hourly
 
       forecast:
         type: weather-forecast
