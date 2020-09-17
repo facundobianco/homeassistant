@@ -32,7 +32,7 @@ Do not forget to use "*scan_interval: 90*" if you will use the free plan, it wil
 
 If you have two or more Broadlink RM device, you can reuse the learned commands for all devices. Take a look at "*broadlink_send_command*" script (in *script.yaml*) and "*broadlink_codes*" sensor (in *sensors.yaml*).
 
-This solution is based in [a comment from HA Community's](https://community.home-assistant.io/t/41792/9).
+This solution is based on [a comment from HA Community's](https://community.home-assistant.io/t/41792/9).
 
 ### Wind direction compass
 
@@ -41,6 +41,14 @@ If you have a weather station, I made a sensor to convert wind direction's degre
 <img src="https://i.ibb.co/4RmpKyG/Screen-Shot-2020-08-29-at-15-52-13.png" alt="Screen-Shot-2020-08-29-at-15-52-13" height="7%" />
 
 Take a look at "*Wind direction*" sensor (in *sensors.yaml*) and entity configuration in *views/weather.yaml*.
+
+### Radio on Google Chromecast / Home
+
+Listen to your favorite radio in one or all of your Google speakers.
+
+It uses many components, take a look at names that contain "speakers" or "radio" (in *configuration.yaml*, *automations.yaml*, *input_select.yaml* and *scripts.yaml*).
+
+This solution is based on [Chromecast Radio with station and player selection](https://community.home-assistant.io/t//12732)
 
 ## Integrations
 
