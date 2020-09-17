@@ -15,3 +15,33 @@ broadlink_send_command:
           {{ state_attr('sensor.broadlink_ip', location) }}
         packet: >
           {{ state_attr('sensor.broadlink_codes', device)[command] }}
+
+radio_station:
+  sequence:
+    - service: media_player.play_media
+      data_template:
+        entity_id: >
+          {% if is_state('input_select.speakers', 'Living') %} media_player.living
+          {% elif is_state('input_select.speakers', 'Chromecast') %} media_player.chromecast
+          {% elif is_state('input_select.speakers', 'Kitchen') %} media_player.cocina
+          {% elif is_state('input_select.speakers', 'Bedroom') %} media_player.dormitorio
+          {% elif is_state('input_select.speakers', 'Everywhere') %} group.everywhere_speakers
+          {% endif %}
+        media_content_id: >
+          {% if is_state('input_select.radio_station', 'Rivadavia') %} https://playerservices.streamtheworld.com/api/livestream-redirect/RIVADAVIAAAC.aac
+          {% elif is_state('input_select.radio_station', 'Mitre') %} http://retransmisorasenelpais.cienradios.com.ar/Mitre790_Main.aac
+          {% elif is_state('input_select.radio_station', 'Radio 10') %} http://reseller01.shockmedia.com.ar:9480/stream
+          {% endif %}
+        media_content_type: 'audio/mp4'
+
+stop_speaker:
+  sequence:
+    - service: media_player.media_stop
+      data_template:
+        entity_id: >
+          {% if is_state('input_select.speakers', 'Living') %} media_player.living
+          {% elif is_state('input_select.speakers', 'Chromecast') %} media_player.chromecast
+          {% elif is_state('input_select.speakers', 'Kitchen') %} media_player.cocina
+          {% elif is_state('input_select.speakers', 'Bedroom') %} media_player.dormitorio
+          {% elif is_state('input_select.speakers', 'Everywhere') %} group.everywhere_speakers
+          {% endif %}

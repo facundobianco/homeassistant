@@ -1,0 +1,71 @@
+home_view:
+  options:
+    - lights
+    - ac
+    - plugs
+    - wb
+  initial: lights
+
+weather_view:
+  options:
+    - local
+    - forecast
+  initial: local
+
+cal_view:
+  options:
+    - google
+    - aleph
+    - sun-n-moon
+  initial: google
+
+ac_location:
+  name: AC Location
+  options:
+    - Living
+    - Dormitorio
+    - Ventilador
+    - Stockroom
+  initial: Living
+  icon: mdi:air-conditioner
+
+tv_buttons:
+  options:
+    - main
+    - favs
+    - numeric
+    - bluray
+
+tv_location:
+  name: TV Location
+  options:
+    - Living
+    - Bedroom
+  initial: Living
+  icon: mdi:television-classic
+
+sys_view:
+  options:
+    - rspi
+    - pihole
+    - pkgs
+  initial: rspi
+
+radio_station:
+  name: 'Select Radio Station:'
+  options:
+    - Rivadavia
+    - Mitre
+    - Radio 10
+  icon: mdi:radio
+
+speakers:
+  name: 'Select Speakers:'
+  options:
+    - Living
+    - Chromecast
+    - Kitchen
+    - Bedroom
+    - Everywhere
+  initial: Living
+  icon: mdi:speaker-wireless

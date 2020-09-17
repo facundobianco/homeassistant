@@ -27,3 +27,10 @@ basic_lights:
   entities:
     - light.sonoff_1000766c93
     - light.sonoff_10008504ad
+
+everywhere_speakers:
+  entities:
+    - media_player.living
+    - media_player.chromecast
+    - media_player.cocina
+    - media_player.dormitorio

@@ -1,0 +1,19 @@
+---
+title: Radio
+icon: 'mdi:radio'
+panel: false
+path: radio
+badges: []
+cards:
+
+  - type: entities
+    entities:
+      - input_select.speakers
+      - input_select.radio_station
+      - entity: script.radio_station
+        name: Start playing
+        icon: 'mdi:play'
+      - entity: script.stop_speaker
+        name: Stop
+        icon: 'mdi:stop'
+      - input_number.volume_speaker

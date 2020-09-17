@@ -46,6 +46,7 @@ automation: !include automations.yaml
 sensor: !include sensors.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
+input_select: !include input_select.yaml
 
 homeassistant:
   external_url: !secret http_base_url
@@ -160,54 +161,6 @@ climate:
     humidity_sensor: sensor.dormitorio_humidity
     power_sensor: binary_sensor.ac_power
 
-input_select:
-  home_view:
-    options:
-      - lights
-      - ac
-      - plugs
-      - wb
-    initial: lights
-  weather_view:
-    options:
-      - local
-      - forecast
-    initial: local
-  cal_view:
-    options:
-      - google
-      - aleph
-      - sun-n-moon
-    initial: google
-  ac_location:
-    name: AC Location
-    options:
-      - Living
-      - Dormitorio
-      - Ventilador
-      - Stockroom
-    initial: Living
-    icon: mdi:air-conditioner
-  tv_buttons:
-    options:
-      - main
-      - favs
-      - numeric
-      - bluray
-  tv_location:
-    name: TV Location
-    options:
-      - Living
-      - Bedroom
-    initial: Living
-    icon: mdi:television-classic
-  sys_view:
-    options:
-      - rspi
-      - pihole
-      - pkgs
-    initial: rspi
-
 input_boolean:
   blank:
     icon: 'mdi:'
@@ -222,6 +175,15 @@ input_boolean:
   pending_kiddush_levanah:
     name: Pending Kiddush Levanah
     icon: mdi:moon-waning-gibbous
+
+input_number:
+  volume_speaker:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0
+    max: 1
+    step: 0.05
+    initial: 0.45
 
 # Easy way to query secrets from template
 input_text:

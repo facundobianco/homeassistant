@@ -44,4 +44,5 @@ views:
   - !include views/weather.yaml
   - !include views/calendar.yaml
   - !include views/tv.yaml
+  - !include views/radio.yaml
   - !include views/sys.yaml
