@@ -56,7 +56,9 @@ radio_station:
   options:
     - Rivadavia
     - Mitre
+    - CNN Argentina
     - Radio 10
+    - BBC World News
   icon: mdi:radio
 
 speakers:

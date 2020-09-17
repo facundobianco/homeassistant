@@ -29,8 +29,10 @@ radio_station:
           {% endif %}
         media_content_id: >
           {% if is_state('input_select.radio_station', 'Rivadavia') %} https://playerservices.streamtheworld.com/api/livestream-redirect/RIVADAVIAAAC.aac
-          {% elif is_state('input_select.radio_station', 'Mitre') %} http://retransmisorasenelpais.cienradios.com.ar/Mitre790_Main.aac
-          {% elif is_state('input_select.radio_station', 'Radio 10') %} http://reseller01.shockmedia.com.ar:9480/stream
+          {% elif is_state('input_select.radio_station', 'Mitre') %} http://buecrplb01.cienradios.com.ar/Mitre790.aac
+          {% elif is_state('input_select.radio_station', 'CNN Argentina') %} http://estudio.cnnradioargentina.com.ar:8000/stream
+          {% elif is_state('input_select.radio_station', 'Radio 10') %} https://s6.stweb.tv/radio10/live/playlist.m3u8
+          {% elif is_state('input_select.radio_station', 'BBC World News') %} http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws
           {% endif %}
         media_content_type: 'audio/mp4'
 
