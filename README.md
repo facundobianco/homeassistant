@@ -66,12 +66,13 @@ This solution is based on [Chromecast Radio with station and player selection](h
 ## Hardware
 
 * [Raspberry Pi 3 Model B+](https://static.raspberrypi.org/files/product-briefs/200206+Raspberry+Pi+3+Model+B+plus+Product+Brief+PRINT&DIGITAL.pdf)
-* [Sonoff Basic 2](https://sonoff.tech/product/wifi-diy-smart-switches/basicr2)
+* [Sonoff Basic R2](https://sonoff.tech/product/wifi-diy-smart-switches/basicr2)
 * [Sonoff POW R2](https://sonoff.tech/product/wifi-diy-smart-switches/powr2)
 * [Sonoff TH16](https://sonoff.tech/product/wifi-diy-smart-switches/th10-th16)
 * [Sonoff TX series](https://sonoff.tech/product/wifi-smart-wall-swithes/tx-series)
 * [Sonoff iFan03](https://sonoff.tech/product/wifi-diy-smart-switches/ifan03)
-* [Broadlink RM Pro+](https://www.banggood.com/Broadlink-RM-Pro-Smart-Home-Automation-Phone-Wireless-Remote-Universal-Controller-EU-Plug-p-942667.html)  (discontinued)
+* [Ambient Weather WS-2902A](https://www.lifewire.com/ambient-weather-ws-2902a-osprey-review-4766784) (discontinued)
+* [Broadlink RM Pro+](https://www.banggood.com/Broadlink-RM-Pro-Smart-Home-Automation-Phone-Wireless-Remote-Universal-Controller-EU-Plug-p-942667.html) (discontinued)
 * [Tuya smart plug](https://cnshinelite.en.made-in-china.com/product/IdiQrUOYhakB/China-Tuya-APP-Au-Type-Electrical-Smart-Plug-for-Smart-Home.html) (in South America sold by Nex/Cencosud S.A. brand)
 
 ## Integrations
@@ -80,7 +81,7 @@ This solution is based on [Chromecast Radio with station and player selection](h
 * [Sonoff LAN](https://github.com/AlexxIT/SonoffLAN)
 * [SmartIR](https://github.com/smartHomeHub/SmartIR)
 
-## Plugins
+## Addons
 
 * [Custom header](https://github.com/maykar/custom-header)
 * [Fan control entity row](https://github.com/finity69x2/fan-control-entity-row)
@@ -94,11 +95,13 @@ This solution is based on [Chromecast Radio with station and player selection](h
 
 ## Required external packages
 
+Will be replaced by script (ASAP).
+
 * [monitoring-plugins-basic](https://packages.debian.org/buster/monitoring-plugins-basic) (plugins for Nagios compatible monitoring systems)
 
 ## Tips
 
-### Load secrets as sensors
+### Load secrets
 
 There are two ways to load secrets in YAML and/or Jinja2 lines.
 
