@@ -56,6 +56,17 @@ It uses many components, take a look at names that contain "speakers" or "radio"
 
 This solution is based on [Chromecast Radio with station and player selection](https://community.home-assistant.io/t//12732)
 
+## Hardware
+
+* [Raspberry Pi 3 Model B+](https://static.raspberrypi.org/files/product-briefs/200206+Raspberry+Pi+3+Model+B+plus+Product+Brief+PRINT&DIGITAL.pdf)
+* [Sonoff Basic 2](https://sonoff.tech/product/wifi-diy-smart-switches/basicr2)
+* [Sonoff POW R2](https://sonoff.tech/product/wifi-diy-smart-switches/powr2)
+* [Sonoff TH16](https://sonoff.tech/product/wifi-diy-smart-switches/th10-th16)
+* [Sonoff TX series](https://sonoff.tech/product/wifi-smart-wall-swithes/tx-series)
+* [Sonoff iFan03](https://sonoff.tech/product/wifi-diy-smart-switches/ifan03)
+* [Broadlink RM Pro+](https://www.banggood.com/Broadlink-RM-Pro-Smart-Home-Automation-Phone-Wireless-Remote-Universal-Controller-EU-Plug-p-942667.html)  (discontinued)
+* [Tuya smart plug](https://cnshinelite.en.made-in-china.com/product/IdiQrUOYhakB/China-Tuya-APP-Au-Type-Electrical-Smart-Plug-for-Smart-Home.html) (in South America sold by Nex/Cencosud S.A. brand)
+
 ## Integrations
 
 * [HACS](https://hacs.xyz)
