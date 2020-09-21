@@ -259,6 +259,18 @@
         device: 'television'
         command: 'power'
 
+- alias: pihole_disable_30s
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: pihole_disable_30s
+  action:
+    - service: pi_hole.disable
+      data:
+        entity_id: switch.pihole
+        duration: '00:00:30'
+
 # Speakers
 - alias: volume_speaker
   trigger:
