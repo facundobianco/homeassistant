@@ -2,7 +2,7 @@
 
 My personal home assistant configuration.
 
-<img src="https://i.ibb.co/4sGsH3X/IMG-5341.png" width="209.95" height="363.35">&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/8Y71kxw/IMG-5342.png" width="209.95" height="363.35">&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/X8qvsS2/IMG-5340.png" width="209.95" height="363.35">
+<img src="https://i.ibb.co/4sGsH3X/IMG-5341.png"  width="40%" >&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/8Y71kxw/IMG-5342.png"  width="40%" >&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/X8qvsS2/IMG-5340.png" width="40%" >
 
 Images stored in [imgbb <img src="https://simgbb.com/images/favicon.png" width="16" height="16">](https://imgbb.com)
 
@@ -38,7 +38,7 @@ This solution is based on [a comment from HA Community's](https://community.home
 
 If you have a weather station, I made a sensor to convert wind direction's degree in cardinal direction and also it changes the icon based on direction.
 
-<img src="https://i.ibb.co/4RmpKyG/Screen-Shot-2020-08-29-at-15-52-13.png" alt="Screen-Shot-2020-08-29-at-15-52-13" height="7%" />
+<img src="https://i.ibb.co/4RmpKyG/Screen-Shot-2020-08-29-at-15-52-13.png" alt="Screen-Shot-2020-08-29-at-15-52-13"  width="50%" />
 
 Take a look at "*Wind direction*" sensor (in *sensors.yaml*) and entity configuration in *views/weather.yaml*.
 
@@ -46,7 +46,7 @@ Take a look at "*Wind direction*" sensor (in *sensors.yaml*) and entity configur
 
 Listen to your favorite radio in one or all of your Google speakers.
 
-<img src="https://i.ibb.co/hHn3x04/Screen-Shot-2020-09-20-at-21-17-50.png" />
+<img src="https://i.ibb.co/hHn3x04/Screen-Shot-2020-09-20-at-21-17-50.png"  width="50%" />
 
 It uses many components, take a look at names that contain "speakers" or "radio" (in *configuration.yaml*, *automations.yaml*, *input_select.yaml* and *scripts.yaml*).
 
