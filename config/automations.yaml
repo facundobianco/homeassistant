@@ -259,6 +259,17 @@
         device: 'television'
         command: 'power'
 
+- alias: wb_ignore_trigger
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: wb_ignore_trigger
+  action:
+    - service: input_boolean.toggle
+      data:
+        entity_id: input_boolean.wb_ignore_trigger
+
 - alias: pihole_disable_30s
   trigger:
     - platform: event

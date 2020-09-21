@@ -49,6 +49,13 @@
   icon:
     icon: air-conditioner
 
+- name: wb_ignore_trigger
+  background_color: "#b58900"
+  label:
+    text: "Auto trigger"
+  icon:
+    icon: water-boiler
+
 - name: pihole_disable_30s
   background_color: "#6c71c4"
   label:
