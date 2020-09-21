@@ -2,7 +2,7 @@
 
 My personal home assistant configuration.
 
-<img src="https://i.ibb.co/4sGsH3X/IMG-5341.png"  width="40%" >&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/8Y71kxw/IMG-5342.png"  width="40%" >&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/X8qvsS2/IMG-5340.png" width="40%" >
+<img src="https://i.ibb.co/4sGsH3X/IMG-5341.png"  width="30%" >&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/8Y71kxw/IMG-5342.png"  width="30%" >&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/X8qvsS2/IMG-5340.png" width="30%" >
 
 Images stored in [imgbb <img src="https://simgbb.com/images/favicon.png" width="16" height="16">](https://imgbb.com)
 
