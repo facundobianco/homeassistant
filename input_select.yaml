@@ -45,6 +45,11 @@ tv_location:
   initial: Living
   icon: mdi:television-classic
 
+audio_location:
+  options:
+    - radio
+    - spotify
+
 sys_view:
   options:
     - rspi

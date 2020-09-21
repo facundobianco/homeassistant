@@ -118,6 +118,10 @@ pi_hole:
   - host: '127.0.0.1:8080'
     api_key: !secret pihole_token
 
+spotify:
+  client_id: !secret spotify_client
+  client_secret: !secret spotify_secret
+
 remote:
   - platform: broadlink
     host: !secret living_rm2_ip
