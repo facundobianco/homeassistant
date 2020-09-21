@@ -33,6 +33,7 @@ tv_buttons:
   options:
     - main
     - favs
+    - quick
     - numeric
     - bluray
 
