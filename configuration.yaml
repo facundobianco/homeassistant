@@ -37,16 +37,15 @@ frontend:
 tts:
   - platform: google_translate
 
-group: !include groups.yaml
-automation: !include automations.yaml
-sensor: !include sensors.yaml
-scene: !include scenes.yaml
-script: !include scripts.yaml
-input_select: !include input_select.yaml
+group: !include config/groups.yaml
+automation: !include config/automations.yaml
+sensor: !include config/sensors.yaml
+script: !include config/scripts.yaml
+input_select: !include config/input_select.yaml
 
 mobile_app:
 ios:
-  actions: !include ios_actions.yaml
+  actions: !include config/ios_actions.yaml
 
 homeassistant:
   external_url: !secret http_base_url
