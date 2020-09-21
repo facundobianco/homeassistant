@@ -122,18 +122,7 @@ spotify:
   client_id: !secret spotify_client
   client_secret: !secret spotify_secret
 
-remote:
-  - platform: broadlink
-    host: !secret living_rm2_ip
-    mac: !secret living_rm2_mac
-    name: living
-  - platform: broadlink
-    host: !secret dormitorio_rm2_ip
-    mac: !secret dormitorio_rm2_mac
-    name: dormitorio
-
 smartir:
-
 climate:
   - platform: smartir
     name: Living
