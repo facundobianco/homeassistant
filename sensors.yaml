@@ -160,15 +160,6 @@
       friendly_name: RetroPie
       value_template: "{{ state_attr('sensor.retropie_setup', 'latest_release_tag') }}"
 
-# Tokens as sensor
-- platform: template
-  sensors:
-    broadlink_ip:
-      value_template: "OK"
-      attribute_templates:
-        Living: !secret living_rm2_ip
-        Bedroom: !secret dormitorio_rm2_ip
-
 # Date
 - platform: moon
 
