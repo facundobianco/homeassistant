@@ -46,6 +46,8 @@ Take a look at "*Wind direction*" sensor (in *sensors.yaml*) and entity configur
 
 Listen to your favorite radio in one or all of your Google speakers.
 
+<img src="https://i.ibb.co/hHn3x04/Screen-Shot-2020-09-20-at-21-17-50.png" />
+
 It uses many components, take a look at names that contain "speakers" or "radio" (in *configuration.yaml*, *automations.yaml*, *input_select.yaml* and *scripts.yaml*).
 
 This solution is based on [Chromecast Radio with station and player selection](https://community.home-assistant.io/t//12732)
