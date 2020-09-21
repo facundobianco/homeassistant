@@ -14,9 +14,13 @@ There are many HA configuration repositories and the mayor difference is the the
 
 If you want to count the days [since the last boot](https://www.home-assistant.io/integrations/systemmonitor/), take a look at "*Uptime*" sensor (in *sensors.yaml*).
 
+<img src="https://i.ibb.co/0jchZpg/Screen-Shot-2020-09-20-at-21-30-02.png" width="50%" />
+
 ### Pihole integration
 
 Pihole switch was added in [release 0.114](https://www.home-assistant.io/blog/2020/08/12/release-114/#breaking-changes) but isn't *smart* when you disable the service for a given time. After the given time is reached the switch appears as *off*.
+
+<img src="https://i.ibb.co/0rxWtCW/Screen-Shot-2020-09-20-at-21-26-37.png" width="50%"  />
 
 To fix it, take a look at "*PiHole status*" sensor (in *sensors.yaml*) and "*Enable Pihole again*" automation (in *automations.yaml*).
 
