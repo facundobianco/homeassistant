@@ -298,3 +298,22 @@
         {% elif is_state('input_select.speakers', 'Everywhere') %} group.everywhere_speakers
         {% endif %}
       volume_level: "{{ states('input_number.volume_speaker')  }}"
+
+- alias: night_notification
+  trigger:
+    - platform: time
+      at:
+        - '22:00:00'
+        - '23:00:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id: all
+        volume_level: 0.5
+    - delay: 5
+    - service: tts.google_say
+      data_template:
+        entity_id: all
+        language: es
+        message: >
+          "Son las {{ as_timestamp(now()) |  timestamp_custom("%I") }} en punto"

@@ -36,6 +36,10 @@ frontend:
 
 tts:
   - platform: google_translate
+    cache: true
+    cache_dir: /tmp/tts
+    base_url: !secret http_base_url
+    service_name: google_say
 
 group: !include config/groups.yaml
 automation: !include config/automations.yaml
