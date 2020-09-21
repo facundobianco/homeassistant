@@ -9,10 +9,6 @@ http:
   ip_ban_enabled: true
   login_attempts_threshold: 5
 
-mobile_app:
-discovery:
-ios:
-
 lovelace:
   mode: yaml
   resources:
@@ -47,6 +43,10 @@ sensor: !include sensors.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
 input_select: !include input_select.yaml
+
+mobile_app:
+ios:
+  actions: !include ios_actions.yaml
 
 homeassistant:
   external_url: !secret http_base_url

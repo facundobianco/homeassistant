@@ -1,0 +1,66 @@
+# http://www.zovirl.com/2011/07/22/solarized_cheat_sheet/
+
+- name: hello_world
+  background_color: "#000000"
+  label:
+    text: "Hello, World"
+    color: "#ff0000"
+  icon:
+    icon: earth
+    color: "#ffffff"
+
+- name: turn_off_but_outside
+  background_color: "#586e75"
+  label:
+    text: "Turn off all"
+  icon:
+    icon: lightbulb-off-outline
+
+- name: toggle_basic_lights
+  background_color: "#586e75"
+  label:
+    text: "Basic lights"
+  icon:
+    icon: lightbulb-multiple-outline
+
+- name: toggle_living_ac
+  background_color: "#268bd2"
+  label:
+    text: "Living AC"
+  icon:
+    icon: air-conditioner
+
+- name: toggle_living_tv
+  background_color: "#2aa198"
+  label:
+    text: "Living TV"
+  icon:
+    icon: television-classic
+
+- name: toggle_bedroom_ac
+  background_color: "#268bd2"
+  label:
+    text: "Bedroom AC"
+  icon:
+    icon: air-conditioner
+
+- name: toggle_bedroom_tv
+  background_color: "#2aa198"
+  label:
+    text: "Bedroom TV"
+  icon:
+    icon: television-classic
+
+- name: toggle_stcokroom_ac
+  background_color: "#268bd2"
+  label:
+    text: "Stockroom AC"
+  icon:
+    icon: air-conditioner
+
+- name: pihole_disable_30s
+  background_color: "#6c71c4"
+  label:
+    text: "Pihole disable"
+  icon:
+    icon: raspberry-pi
