@@ -8,13 +8,14 @@ turn_off_but_outside:
 
 broadlink_send_command:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data_template:
-        host: >
-          {% set location = states('input_select.tv_location') %}
-          {{ state_attr('sensor.broadlink_ip', location) }}
-        packet: >
-          {{ state_attr('sensor.broadlink_codes', device)[command] }}
+        entity_id: >
+          {% if is_state('input_select.tv_location', 'Living') %} remote.living_remote
+          {% else %} remote.bedroom_remote
+          {% endif %}
+        command: >
+          b64:{{ state_attr('sensor.broadlink_codes', device)[command] }}
 
 radio_station:
   sequence:

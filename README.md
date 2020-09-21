@@ -1,14 +1,18 @@
 # Home Assistant
 
-My personal home assistant configuration.
+My personal Home Assistant (HA) configuration.
 
-<img src="https://i.ibb.co/4sGsH3X/IMG-5341.png"  width="30%" >&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/8Y71kxw/IMG-5342.png"  width="30%" >&nbsp;&nbsp;&nbsp;<img src="https://i.ibb.co/X8qvsS2/IMG-5340.png" width="30%" >
+HA version: 0.115 ([details](https://www.home-assistant.io/blog/2020/09/17/release-115/))
 
-Images stored in [imgbb <img src="https://simgbb.com/images/favicon.png" width="16" height="16">](https://imgbb.com)
+<img src="https://media1.tenor.com/images/f2fb267ad09005a703a2347e3521fa70/tenor.gif?itemid=7288512" />
+
+Each time I upgrade HA feels like last act of *The Good, the Bad and the Ugly*...
 
 ## Custom components this configuration has
 
 There are many HA configuration repositories and the mayor difference is the theme and views/cards arrangement. Here are the custom components that you only will see in my personal configuration -- hope you like them!
+
+I recommend [imgbb](https://imgbb.com) to save screenshots.
 
 ### Real uptime
 
@@ -71,6 +75,7 @@ This solution is based on [Chromecast Radio with station and player selection](h
 
 * [HACS](https://hacs.xyz)
 * [Sonoff LAN](https://github.com/AlexxIT/SonoffLAN)
+* [SmartIR](https://github.com/smartHomeHub/SmartIR)
 
 ## Plugins
 
@@ -188,3 +193,15 @@ To solve it, [edit plugins location](https://community.home-assistant.io/t/0-107
 ### Custom element doesn't exist
 
 If you get the *red card* with the message "Custom element doesn't exist: foo.", just delete cookies, website data and refresh a few times. Source: [HA Community](https://community.home-assistant.io/t/custom-element-doesnt-exist/91942/6).
+
+### Unable to import libopenjp2.so.7
+
+If you get the error message
+
+> ERROR (MainThread) [homeassistant.setup] Setup failed for image: Unable to import component: libopenjp2.so.7: cannot open shared object file: No such file or directory
+
+run
+
+```
+apt install -y libopenjp2-7
+```
