@@ -100,6 +100,7 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:video-input-hdmi
                 tap_action:
                   action: call-service
@@ -108,6 +109,7 @@ cards:
                     device: television
                     command: input
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:cancel
                 tap_action:
                   action: call-service
@@ -116,6 +118,7 @@ cards:
                     device: television
                     command: exit
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:power
                 tap_action:
                   action: call-service
@@ -127,6 +130,7 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:volume-high
                 tap_action:
                   action: call-service
@@ -135,6 +139,7 @@ cards:
                     device: television
                     command: vol_up
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:undo
                 tap_action:
                   action: call-service
@@ -143,6 +148,7 @@ cards:
                     device: television
                     command: jump
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:arrow-up
                 tap_action:
                   action: call-service
@@ -154,6 +160,7 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:volume-medium
                 tap_action:
                   action: call-service
@@ -162,6 +169,7 @@ cards:
                     device: television
                     command: vol_down
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:volume-off
                 tap_action:
                   action: call-service
@@ -170,6 +178,7 @@ cards:
                     device: television
                     command: mute
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:arrow-down
                 tap_action:
                   action: call-service
@@ -181,8 +190,10 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 color_type: blank-card
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:arrow-up-drop-circle-outline
                 tap_action:
                   action: call-service
@@ -191,11 +202,13 @@ cards:
                     device: television
                     command: up
               - type: custom:button-card
+                template: custom_tv_button
                 color_type: blank-card
           # Line 5
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:arrow-left-drop-circle-outline
                 tap_action:
                   action: call-service
@@ -204,6 +217,7 @@ cards:
                     device: television
                     command: left
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:circle-double
                 tap_action:
                   action: call-service
@@ -212,6 +226,7 @@ cards:
                     device: television
                     command: ok
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:arrow-right-drop-circle-outline
                 tap_action:
                   action: call-service
@@ -223,8 +238,10 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 color_type: blank-card
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:arrow-down-drop-circle-outline
                 tap_action:
                   action: call-service
@@ -233,11 +250,13 @@ cards:
                     device: television
                     command: down
               - type: custom:button-card
+                template: custom_tv_button
                 color_type: blank-card
           # Line 7
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:keyboard-return
                 tap_action:
                   action: call-service
@@ -246,6 +265,7 @@ cards:
                     device: television
                     command: return
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:script-text-outline
                 tap_action:
                   action: call-service
@@ -254,6 +274,7 @@ cards:
                     entity_id: input_select.media_view
                     options: tv_quick
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:heart
                 tap_action:
                   action: call-service
@@ -265,6 +286,7 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:numeric
                 tap_action:
                   action: call-service
@@ -273,8 +295,10 @@ cards:
                     entity_id: input_select.media_view
                     options: tv_numeric
               - type: custom:button-card
+                template: custom_tv_button
                 color_type: blank-card
               - type: custom:button-card
+                template: custom_tv_button
                 icon: >
                   [[[
                     if (states['input_select.tv_location'].state == 'Bedroom')
@@ -298,6 +322,7 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:arrow-left
                 tap_action:
                   action: call-service
@@ -305,6 +330,12 @@ cards:
                   service_data:
                     entity_id: input_select.media_view
                     options: tv
+              - type: custom:button-card
+                template: custom_tv_button
+                color_type: blank-card
+              - type: custom:button-card
+                template: custom_tv_button
+                color_type: blank-card
 
       tv_quick:
         type: vertical-stack
@@ -313,6 +344,7 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:arrow-left
                 tap_action:
                   action: call-service
@@ -320,6 +352,12 @@ cards:
                   service_data:
                     entity_id: input_select.media_view
                     options: tv
+              - type: custom:button-card
+                template: custom_tv_button
+                color_type: blank-card
+              - type: custom:button-card
+                template: custom_tv_button
+                color_type: blank-card
 
       tv_numeric:
         type: vertical-stack
@@ -328,6 +366,7 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: custom_tv_button
                 icon: mdi:arrow-left
                 tap_action:
                   action: call-service
@@ -335,6 +374,12 @@ cards:
                   service_data:
                     entity_id: input_select.media_view
                     options: tv
+              - type: custom:button-card
+                template: custom_tv_button
+                color_type: blank-card
+              - type: custom:button-card
+                template: custom_tv_button
+                color_type: blank-card
 
       bluray:
         type: markdown

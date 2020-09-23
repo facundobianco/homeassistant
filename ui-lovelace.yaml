@@ -34,6 +34,10 @@ button_card_templates:
       - height: 45px
       icon:
        - width: 50%
+  custom_tv_button:
+    styles:
+      card:
+        - height: 59px
   divider:
     styles:
       card:
