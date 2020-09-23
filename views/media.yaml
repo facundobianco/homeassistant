@@ -138,6 +138,7 @@ cards:
                   service_data:
                     device: television
                     command: vol_up
+                    num_repeats: 3
               - type: custom:button-card
                 template: custom_tv_button
                 icon: mdi:undo
@@ -168,6 +169,7 @@ cards:
                   service_data:
                     device: television
                     command: vol_down
+                    num_repeats: 3
               - type: custom:button-card
                 template: custom_tv_button
                 icon: mdi:volume-off
@@ -266,13 +268,7 @@ cards:
                     command: return
               - type: custom:button-card
                 template: custom_tv_button
-                icon: mdi:script-text-outline
-                tap_action:
-                  action: call-service
-                  service: input_select.set_options
-                  service_data:
-                    entity_id: input_select.media_view
-                    options: tv_quick
+                color_type: blank-card
               - type: custom:button-card
                 template: custom_tv_button
                 icon: mdi:heart
@@ -316,28 +312,6 @@ cards:
 
 
       tv_favs:
-        type: vertical-stack
-        show_name: false
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: custom_tv_button
-                icon: mdi:arrow-left
-                tap_action:
-                  action: call-service
-                  service: input_select.set_options
-                  service_data:
-                    entity_id: input_select.media_view
-                    options: tv
-              - type: custom:button-card
-                template: custom_tv_button
-                color_type: blank-card
-              - type: custom:button-card
-                template: custom_tv_button
-                color_type: blank-card
-
-      tv_quick:
         type: vertical-stack
         show_name: false
         cards:

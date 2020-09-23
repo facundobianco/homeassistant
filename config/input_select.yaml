@@ -40,7 +40,6 @@ media_view:
   options:
     - tv
     - tv_favs
-    - tv_quick
     - tv_numeric
     - bluray
     - radio

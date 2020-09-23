@@ -14,6 +14,8 @@ broadlink_send_command:
           {% endif %}
         command: >
           b64:{{ state_attr('sensor.broadlink_codes', device)[command] }}
+        num_repeats: >
+          {% if num_repeats %} {{ num_repeats }} {% else %} 1 {% endif %}
 
 radio_station:
   sequence:
