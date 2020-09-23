@@ -29,26 +29,23 @@ ac_location:
   initial: Living
   icon: mdi:air-conditioner
 
-tv_buttons:
-  options:
-    - main
-    - favs
-    - quick
-    - numeric
-    - bluray
-
 tv_location:
-  name: TV Location
   options:
     - Living
     - Bedroom
   initial: Living
   icon: mdi:television-classic
 
-audio_location:
+media_view:
   options:
+    - tv
+    - tv_favs
+    - tv_quick
+    - tv_numeric
+    - bluray
     - radio
     - spotify
+  initial: tv
 
 sys_view:
   options:

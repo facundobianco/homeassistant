@@ -1,9 +1,9 @@
 ---
 
-title: TV
-icon: 'mdi:television-classic'
+title: Media
+icon: mdi:head-outline
 panel: false
-path: tv
+path: media
 badges: []
 cards:
 
@@ -12,67 +12,108 @@ cards:
     cards:
       - type: custom:button-card
         template: custom_icon_name
-        name: Living
-        icon: 'mdi:television-classic'
+        name: TV
+        icon: mdi:television-classic
         tap_action:
           action: call-service
           service: input_select.set_options
           service_data:
-            entity_id: input_select.tv_location
-            options: Living
+            entity_id: input_select.media_view
+            options: tv
         styles:
           card:
             - color: >
                 [[[
-                  if (states['input_select.tv_location'].state == 'Living')
+                  if (states['input_select.media_view'].state == 'tv')
                     return '#00b59d';
                   return 'white';
                 ]]]
           icon:
             - color: >
                 [[[
-                  if (states['input_select.tv_location'].state == 'Living')
+                  if (states['input_select.media_view'].state == 'tv')
                     return '#00b59d';
                   return 'white';
                 ]]]
       - type: custom:button-card
         template: custom_icon_name
-        name: Bedroom
-        icon: 'mdi:television-classic'
+        name: Radio
+        icon: mdi:radio
         tap_action:
           action: call-service
           service: input_select.set_options
           service_data:
-            entity_id: input_select.tv_location
-            options: Bedroom
+            entity_id: input_select.media_view
+            options: radio
         styles:
           card:
             - color: >
                 [[[
-                  if (states['input_select.tv_location'].state == 'Bedroom')
+                  if (states['input_select.media_view'].state == 'radio')
                     return '#00b59d';
                   return 'white';
                 ]]]
           icon:
             - color: >
                 [[[
-                  if (states['input_select.tv_location'].state == 'Bedroom')
+                  if (states['input_select.media_view'].state == 'radio')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Spotify
+        icon: mdi:spotify
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.media_view
+            options: spotify
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.media_view'].state == 'spotify')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.media_view'].state == 'spotify')
                     return '#00b59d';
                   return 'white';
                 ]]]
 
+
   # Views
   - type: 'custom:state-switch'
-    entity: input_select.tv_buttons
+    entity: input_select.media_view
     states:
 
-      main:
+      tv:
         type: vertical-stack
         show_name: false
         cards:
           # Line 1
           - type: horizontal-stack
             cards:
+              - type: custom:button-card
+                icon: >
+                  [[[
+                    if (states['input_select.tv_location'].state == 'Bedroom')
+                      return 'mdi:alpha-b-circle-outline';
+                    return 'mdi:alpha-l-circle-outline';
+                  ]]]
+                tap_action:
+                  action: call-service
+                  service: input_select.select_next
+                  service_data:
+                    entity_id: input_select.tv_location
+                styles:
+                  icon:
+                    - color: '#00b59d'
               - type: custom:button-card
                 icon: mdi:video-input-hdmi
                 tap_action:
@@ -90,8 +131,6 @@ cards:
                     device: television
                     command: exit
               - type: custom:button-card
-                color_type: blank-card
-              - type: custom:button-card
                 icon: mdi:power
                 tap_action:
                   action: call-service
@@ -108,8 +147,8 @@ cards:
                   action: call-service
                   service: input_select.set_options
                   service_data:
-                    entity_id: input_select.tv_buttons
-                    options: favs
+                    entity_id: input_select.media_view
+                    options: tv_favs
               - type: custom:button-card
                 icon: mdi:volume-high
                 tap_action:
@@ -143,8 +182,8 @@ cards:
                   action: call-service
                   service: input_select.set_options
                   service_data:
-                    entity_id: input_select.tv_buttons
-                    options: quick
+                    entity_id: input_select.media_view
+                    options: tv_quick
               - type: custom:button-card
                 icon: mdi:volume-medium
                 tap_action:
@@ -178,8 +217,8 @@ cards:
                   action: call-service
                   service: input_select.set_options
                   service_data:
-                    entity_id: input_select.tv_buttons
-                    options: numeric
+                    entity_id: input_select.media_view
+                    options: tv_numeric
               - type: custom:button-card
                 color_type: blank-card
               - type: custom:button-card
@@ -246,7 +285,7 @@ cards:
                 color_type: blank-card
 
 
-      favs:
+      tv_favs:
         type: vertical-stack
         show_name: false
         cards:
@@ -258,10 +297,10 @@ cards:
                   action: call-service
                   service: input_select.set_options
                   service_data:
-                    entity_id: input_select.tv_buttons
-                    options: main
+                    entity_id: input_select.media_view
+                    options: tv
 
-      quick:
+      tv_quick:
         type: vertical-stack
         show_name: false
         cards:
@@ -273,10 +312,10 @@ cards:
                   action: call-service
                   service: input_select.set_options
                   service_data:
-                    entity_id: input_select.tv_buttons
-                    options: main
+                    entity_id: input_select.media_view
+                    options: tv
 
-      numeric:
+      tv_numeric:
         type: vertical-stack
         show_name: false
         cards:
@@ -288,9 +327,27 @@ cards:
                   action: call-service
                   service: input_select.set_options
                   service_data:
-                    entity_id: input_select.tv_buttons
-                    options: main
+                    entity_id: input_select.media_view
+                    options: tv
 
       bluray:
         type: markdown
         content: bluray
+
+      radio:
+        type: entities
+        entities:
+          - input_select.speakers
+          - input_select.radio_station
+          - entity: script.radio_station
+            name: Start playing
+            icon: 'mdi:play'
+          - entity: script.stop_speaker
+            name: Stop
+            icon: 'mdi:stop'
+          - input_number.volume_speaker
+
+      spotify:
+        type: entities
+        entities:
+          - media_player.spotify
