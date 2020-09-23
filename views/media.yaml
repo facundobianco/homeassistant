@@ -100,21 +100,6 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                icon: >
-                  [[[
-                    if (states['input_select.tv_location'].state == 'Bedroom')
-                      return 'mdi:alpha-b-circle-outline';
-                    return 'mdi:alpha-l-circle-outline';
-                  ]]]
-                tap_action:
-                  action: call-service
-                  service: input_select.select_next
-                  service_data:
-                    entity_id: input_select.tv_location
-                styles:
-                  icon:
-                    - color: '#00b59d'
-              - type: custom:button-card
                 icon: mdi:video-input-hdmi
                 tap_action:
                   action: call-service
@@ -141,14 +126,6 @@ cards:
           # Line 2
           - type: horizontal-stack
             cards:
-              - type: custom:button-card
-                icon: mdi:heart
-                tap_action:
-                  action: call-service
-                  service: input_select.set_options
-                  service_data:
-                    entity_id: input_select.media_view
-                    options: tv_favs
               - type: custom:button-card
                 icon: mdi:volume-high
                 tap_action:
@@ -177,14 +154,6 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                icon: mdi:script-text-outline
-                tap_action:
-                  action: call-service
-                  service: input_select.set_options
-                  service_data:
-                    entity_id: input_select.media_view
-                    options: tv_quick
-              - type: custom:button-card
                 icon: mdi:volume-medium
                 tap_action:
                   action: call-service
@@ -212,14 +181,6 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                icon: mdi:numeric
-                tap_action:
-                  action: call-service
-                  service: input_select.set_options
-                  service_data:
-                    entity_id: input_select.media_view
-                    options: tv_numeric
-              - type: custom:button-card
                 color_type: blank-card
               - type: custom:button-card
                 icon: mdi:arrow-up-drop-circle-outline
@@ -234,8 +195,6 @@ cards:
           # Line 5
           - type: horizontal-stack
             cards:
-              - type: custom:button-card
-                color_type: blank-card
               - type: custom:button-card
                 icon: mdi:arrow-left-drop-circle-outline
                 tap_action:
@@ -264,14 +223,6 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                icon: mdi:keyboard-return
-                tap_action:
-                  action: call-service
-                  service: script.broadlink_send_command
-                  service_data:
-                    device: television
-                    command: return
-              - type: custom:button-card
                 color_type: blank-card
               - type: custom:button-card
                 icon: mdi:arrow-down-drop-circle-outline
@@ -283,6 +234,61 @@ cards:
                     command: down
               - type: custom:button-card
                 color_type: blank-card
+          # Line 7
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                icon: mdi:keyboard-return
+                tap_action:
+                  action: call-service
+                  service: script.broadlink_send_command
+                  service_data:
+                    device: television
+                    command: return
+              - type: custom:button-card
+                icon: mdi:script-text-outline
+                tap_action:
+                  action: call-service
+                  service: input_select.set_options
+                  service_data:
+                    entity_id: input_select.media_view
+                    options: tv_quick
+              - type: custom:button-card
+                icon: mdi:heart
+                tap_action:
+                  action: call-service
+                  service: input_select.set_options
+                  service_data:
+                    entity_id: input_select.media_view
+                    options: tv_favs
+          # Line 8
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                icon: mdi:numeric
+                tap_action:
+                  action: call-service
+                  service: input_select.set_options
+                  service_data:
+                    entity_id: input_select.media_view
+                    options: tv_numeric
+              - type: custom:button-card
+                color_type: blank-card
+              - type: custom:button-card
+                icon: >
+                  [[[
+                    if (states['input_select.tv_location'].state == 'Bedroom')
+                      return 'mdi:alpha-b-circle-outline';
+                    return 'mdi:alpha-l-circle-outline';
+                  ]]]
+                tap_action:
+                  action: call-service
+                  service: input_select.select_next
+                  service_data:
+                    entity_id: input_select.tv_location
+                styles:
+                  icon:
+                    - color: '#00b59d'
 
 
       tv_favs:
