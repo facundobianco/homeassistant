@@ -68,7 +68,7 @@
   condition:
     - condition: numeric_state
       entity_id: sensor.termotanque_temperatura
-      above: 28
+      above: 62
     - condition: state
       entity_id: input_boolean.wb_ignore_trigger
       state: 'off'
