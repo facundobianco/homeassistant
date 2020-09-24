@@ -58,7 +58,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.termotanque_temperatura
-      above: 28
+      above: 62
     - platform: state
       entity_id: switch.sonoff_10008508fb
       to: 'on'
