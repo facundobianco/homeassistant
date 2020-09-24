@@ -310,28 +310,26 @@ cards:
                   icon:
                     - color: '#00b59d'
 
-
       tv_favs:
-        type: vertical-stack
-        show_name: false
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: custom_tv_button
-                icon: mdi:arrow-left
-                tap_action:
-                  action: call-service
-                  service: input_select.set_options
-                  service_data:
-                    entity_id: input_select.media_view
-                    options: tv
-              - type: custom:button-card
-                template: custom_tv_button
-                color_type: blank-card
-              - type: custom:button-card
-                template: custom_tv_button
-                color_type: blank-card
+        type: entities
+        show_header_toggle: false
+        entities:
+          - type: call-service
+            name: America
+            icon: mdi:heart
+            service: script.broadlink_fav_america
+          - type: call-service
+            name: Canal 9
+            icon: mdi:heart
+            service: script.broadlink_fav_canal9
+          - type: call-service
+            name: A24
+            icon: mdi:heart
+            service: script.broadlink_fav_a24
+          - type: call-service
+            name: Volver
+            icon: mdi:heart
+            service: script.broadlink_fav_volver
 
       tv_numeric:
         type: vertical-stack
