@@ -71,9 +71,16 @@ This solution is based on [Chromecast Radio with station and player selection](h
 * [Sonoff TH16](https://sonoff.tech/product/wifi-diy-smart-switches/th10-th16)
 * [Sonoff TX series](https://sonoff.tech/product/wifi-smart-wall-swithes/tx-series)
 * [Sonoff iFan03](https://sonoff.tech/product/wifi-diy-smart-switches/ifan03)
+* [Google Home Mini (1st Gen)](https://store.google.com/us/product/google_home_mini_first_gen?hl=en-US)
+* [Google Chromecast Audio](https://www.pcmag.com/reviews/google-chromecast-audio) (discontinued)
 * [Ambient Weather WS-2902A](https://www.lifewire.com/ambient-weather-ws-2902a-osprey-review-4766784) (discontinued)
 * [Broadlink RM Pro+](https://www.banggood.com/Broadlink-RM-Pro-Smart-Home-Automation-Phone-Wireless-Remote-Universal-Controller-EU-Plug-p-942667.html) (discontinued)
 * [Tuya smart plug](https://cnshinelite.en.made-in-china.com/product/IdiQrUOYhakB/China-Tuya-APP-Au-Type-Electrical-Smart-Plug-for-Smart-Home.html) (in South America sold by Nex/Cencosud S.A. brand)
+
+Will be added:
+
+* [Xiaomi MiJia vacuum cleaner](https://xiaomi-mi.com/cleaning-gear/xiaomi-mijia-roborock-robot-vacuum-cleaner-white/)
+* [ARILUX SL-LC 04 LED controller](https://www.banggood.com/ARILUX-SL-LC-04-Super-Mini-LED-WIFI-APP-Controller-+-Remote-Control-For-RGBW-LED-Strip-DC-9-12V-p-1060231.html)
 
 ## Integrations
 
