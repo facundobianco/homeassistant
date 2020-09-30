@@ -4,13 +4,9 @@ blank:
 blank_chart:
   icon: 'mdi:chart-line'
 
-wb_ignore_trigger:
-  name: Ignore auto trigger
-  initial: off
-
-wb_ignore_melaja:
-  name: Ignore melaja sensor
-  initial: off
+wb_auto_trigger:
+  name: Auto trigger
+  initial: on
 
 pending_kiddush_levanah:
   name: Pending Kiddush Levanah

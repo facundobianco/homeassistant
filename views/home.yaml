@@ -205,8 +205,7 @@ cards:
           - entity: switch.sonoff_10008508fb
             name: Termotanque
             icon: 'mdi:water-boiler'
-          - entity: input_boolean.wb_ignore_trigger
-          - entity: input_boolean.wb_ignore_melaja
+          - entity: input_boolean.wb_auto_trigger
           - type: custom:mini-graph-card
             line_width: 3
             hours_to_show: 8

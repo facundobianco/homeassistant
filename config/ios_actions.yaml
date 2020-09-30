@@ -49,7 +49,7 @@
   icon:
     icon: air-conditioner
 
-- name: wb_ignore_trigger
+- name: wb_auto_trigger
   background_color: "#b58900"
   label:
     text: "Auto trigger"
