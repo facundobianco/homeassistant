@@ -100,28 +100,7 @@ sonoff:
   password: !secret sonoff_password
   reload: always
   scan_interval: '00:01:00'
-  devices:
-    1000766c93:
-      device_class: light
-      name: Lampara pie
-    1000770cc7:
-      device_class: light
-      name: Mesa de luz
-    10008504ad:
-      device_class: light
-      name: Luz pasillo
-    1000950368:
-      device_class: [ light, light ]
-      name: Living
-    100094ff53:
-      device_class: [ light, light ]
-      name: Cocina
-    1000951aac:
-      device_class: light
-      name: Bano
-    1000951b70:
-      device_class: light
-      name: Deposito
+  devices: !include config/sonoff_devices.yaml
 
 tuya:
   username: !secret tuya_username
