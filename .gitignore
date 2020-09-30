@@ -3,6 +3,7 @@
 .sonoff.json
 .google.token
 google_calendars.yaml
+google_service_account.json
 *.db
 *.db-shm
 *.db-wal

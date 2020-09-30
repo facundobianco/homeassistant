@@ -34,6 +34,17 @@ lovelace:
 frontend:
   themes: !include_dir_merge_named themes
 
+google_assistant:
+  project_id: !secret google_projectid
+  service_account: !include google_service_account.json
+  report_state: true
+  exposed_domains:
+    - switch
+    - light
+    - climate
+    - fan
+  entity_config: !include config/google_assistant_entities.yaml
+
 tts:
   - platform: google_translate
     cache: true
@@ -88,13 +99,14 @@ sonoff:
   username: !secret sonoff_username
   password: !secret sonoff_password
   reload: always
+  scan_interval: '00:01:00'
   devices:
     1000766c93:
       device_class: light
       name: Lampara pie
     1000770cc7:
       device_class: light
-      name: Lampara mesa de luz
+      name: Mesa de luz
     10008504ad:
       device_class: light
       name: Luz pasillo

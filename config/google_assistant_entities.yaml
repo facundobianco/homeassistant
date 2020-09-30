@@ -1,0 +1,134 @@
+# https://www.home-assistant.io/integrations/google_assistant/#configuration
+
+# Ignore
+fan.bedroom_fan:
+  expose: false
+fan.dormitorio:
+  expose: false
+# POW
+switch.sonoff_1000854c6a:
+  expose: false
+# TH16 kitchen
+switch.sonoff_100085067c:
+  expose: false
+# Dual 1/2
+switch.sonoff_100091d007_1:
+  expose: false
+# Dual 2/2
+switch.sonoff_100091d007_2:
+  expose: false
+# Basic R2 (C3)
+switch.sonoff_100076dd3e:
+  expose: false
+switch.pihole:
+  expose: false
+
+# Living
+light.sonoff_1000950368_1:
+  name: "Living"
+  aliases:
+    - "Luz living"
+  room: Living
+
+light.sonoff_1000766c93:
+  name: "Lámpara de pie"
+  aliases:
+    - "Lámpara living"
+    - "Lámpara pie"
+  room: Living
+
+climate.living_ac:
+  name: "Living"
+  aliases:
+    - "Aire"
+    - "Aire acondicionado"
+  room: Living
+
+# Kitchen
+light.sonoff_100094ff53_1:
+  name: "Cocina"
+  aliases:
+    - "Luz cocina"
+    - "Luz principal"
+  room: Cocina
+
+light.sonoff_100094ff53_2:
+  name: "Luz secundaria"
+  room: Cocina
+
+switch.sonoff_10008508fb:
+  name: "Termotanque"
+  room: Cocina
+
+input_boolean.wb_ignore_trigger:
+  name: "Ignorar corte automático"
+  aliases:
+    - "Ignorar auto trigger"
+  room: Cocina
+
+sensor.cocina_temperatura:
+  name: "Cocina"
+  aliases:
+    - "Temperatura cocina"
+  room: Cocina
+
+# Bedroom
+light.sonoff_1000954850_1:
+  name: "Dormitorio"
+  aliases:
+    - "Luz dormitorio"
+  room: Dormitorio
+
+light.sonoff_1000770cc7:
+  name: "Mesa de luz"
+  aliases:
+    - "Lámpara dormitorio"
+  room: Dormitorio
+
+climate.dormitorio_ac:
+  name: "Dormitorio"
+  aliases:
+    - "Aire dormitorio"
+    - "Aire pieza"
+    - "Aire acondicionado"
+    - "Aire acondicionado pieza"
+  room: Dormitorio
+
+fan.sonoff_1000954850:
+  name: "Dormitorio"
+  aliases:
+    - "Ventilador"
+    - "Ventilador pieza"
+  room: Dormitorio
+
+# WC
+light.sonoff_1000951aac:
+  name: "Baño"
+  room: WC
+
+# Stockroom
+light.sonoff_1000951b70:
+  name: "Depósito"
+  aliases:
+    - "Luz depósito"
+  room: Stockroom
+
+switch.sonoff_100085069c:
+  name: "Depósito"
+  aliases:
+    - "Aire depósito"
+    - "Aire acondicionado depósito"
+  room: Stockroom
+
+# Others
+light.sonoff_1000950368_2:
+  name: "Exterior"
+  aliases:
+    - "Luz exterior"
+  room: Outside
+
+light.sonoff_10008504ad:
+  name: "Pasillo"
+  aliases:
+    - "Luz pasillo"
+  room: Hallway
