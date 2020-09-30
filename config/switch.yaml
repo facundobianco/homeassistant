@@ -1,0 +1,13 @@
+- platform: template
+  switches:
+    pihole_google_entity:
+      value_template: "{{ is_state('sensor.pihole_status', 'Enabled') }}"
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.pihole_google_entity
+      turn_off:
+        service: pi_hole.disable
+        data:
+          entity_id: switch.pihole
+          duration: '00:00:30'

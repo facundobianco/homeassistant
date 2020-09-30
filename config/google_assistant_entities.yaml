@@ -60,10 +60,10 @@ switch.sonoff_10008508fb:
   name: "Termotanque"
   room: Cocina
 
-input_boolean.wb_ignore_trigger:
-  name: "Ignorar corte automático"
+input_boolean.wb_auto_trigger:
+  name: "Corte automático"
   aliases:
-    - "Ignorar auto trigger"
+    - "Auto trigger"
   room: Cocina
 
 sensor.cocina_temperatura:
@@ -120,7 +120,7 @@ switch.sonoff_100085069c:
     - "Aire acondicionado depósito"
   room: Stockroom
 
-# Others
+# Misc
 light.sonoff_1000950368_2:
   name: "Exterior"
   aliases:
@@ -132,3 +132,8 @@ light.sonoff_10008504ad:
   aliases:
     - "Luz pasillo"
   room: Hallway
+
+# Others
+switch.pihole_google_entity:
+  name: "Pihole"
+  room: Others
