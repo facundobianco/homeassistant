@@ -1,0 +1,13 @@
+# Easy way to query secrets from template
+
+latitude:
+  initial: !secret ha_lat
+
+longitude:
+  initial: !secret ha_lon
+
+utc_offset:
+  initial: !secret offset
+
+ipgeolocation_token:
+  initial: !secret ipgeolocation_token

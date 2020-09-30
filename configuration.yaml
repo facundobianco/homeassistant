@@ -57,6 +57,9 @@ automation: !include config/automations.yaml
 sensor: !include config/sensors.yaml
 script: !include config/scripts.yaml
 input_select: !include config/input_select.yaml
+input_text: !include config/input_text.yaml
+input_number: !include config/input_number.yaml
+input_boolean: !include config/input_boolean.yaml
 
 mobile_app:
 ios:
@@ -134,41 +137,6 @@ climate:
     temperature_sensor: sensor.dormitorio_temperatura
     humidity_sensor: sensor.dormitorio_humidity
     power_sensor: binary_sensor.ac_power
-
-input_boolean:
-  blank:
-    icon: 'mdi:'
-  blank_chart:
-    icon: 'mdi:chart-line'
-  wb_ignore_trigger:
-    name: Ignore auto trigger
-    initial: off
-  wb_ignore_melaja:
-    name: Ignore melaja sensor
-    initial: off
-  pending_kiddush_levanah:
-    name: Pending Kiddush Levanah
-    icon: mdi:moon-waning-gibbous
-
-input_number:
-  volume_speaker:
-    name: Volume
-    icon: mdi:volume-high
-    min: 0
-    max: 1
-    step: 0.05
-    initial: 0.45
-
-# Easy way to query secrets from template
-input_text:
-  latitude:
-    initial: !secret ha_lat
-  longitude:
-    initial: !secret ha_lon
-  utc_offset:
-    initial: !secret offset
-  ipgeolocation_token:
-    initial: !secret ipgeolocation_token
 
 # Speedtest.net against Movistar
 speedtestdotnet:
