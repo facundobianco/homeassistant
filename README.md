@@ -63,6 +63,23 @@ It uses many components, take a look at names that contain "speakers" or "radio"
 
 This solution is based on [Chromecast Radio with station and player selection](https://community.home-assistant.io/t//12732)
 
+### Raspbian upgradeable packages sensor
+
+Based on [HACS' pending updates sensor](https://hacs.xyz/docs/basic/sensor) I made a sensor to list upgradeable packages candidates for Raspbian OS.
+
+![](https://i.ibb.co/6FMz26P/1601517839.png")
+
+Take a look at "*Raspbian*" sensor (in *sensors.yaml*).
+
+Command has many backslash to scape characters in YAML, if you want to reuse it and/or try in your shell, run
+
+```
+apt list --upgradeable | \
+sed -e 1d | \
+sed -n 's!^\([^/]*\)/[^0-9]*\([^ ]*\) [a-z].*: \([^]]*\)]!{ "name": "\1", "installed_version": "\3", "available_version": "\2" },!p' | \
+sed -e '1s/^/{ "packages": [/' -e '$s/},/}] }/'
+```
+
 ## Hardware
 
 * [Raspberry Pi 3 Model B+](https://static.raspberrypi.org/files/product-briefs/200206+Raspberry+Pi+3+Model+B+plus+Product+Brief+PRINT&DIGITAL.pdf)
@@ -99,12 +116,6 @@ Will be added:
 ## Themes
 
 * [Dark Teal](https://github.com/aFFekopp/dark_teal)
-
-## Required external packages
-
-Will be replaced by script (ASAP).
-
-* [monitoring-plugins-basic](https://packages.debian.org/buster/monitoring-plugins-basic) (plugins for Nagios compatible monitoring systems)
 
 ## Extra notes
 

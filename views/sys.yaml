@@ -170,8 +170,7 @@ cards:
       pkgs:
         type: entities
         entities:
-          - entity: sensor.raspbian_packages
-            name: "Raspbian"
+          - entity: sensor.raspbian
             icon: 'mdi:package-variant-closed'
           - type: custom:multiple-entity-row
             entity: sensor.current

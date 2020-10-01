@@ -45,10 +45,13 @@
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 
 - platform: command_line
-  name: Raspbian packages
+  name: Raspbian
   scan_interval: 900
-  command: "/usr/lib/nagios/plugins/check_apt | sed -n 's/.*upgrades=\\([^;]*\\);.*/\\1/p'"
+  command: "apt list --upgradeable | sed -e 1d | sed -n 's!^\\([^/]*\\)/[^0-9]*\\([^ ]*\\) [a-z].*: \\([^]]*\\)]!{ \"name\": \"\\1\", \"installed_version\": \"\\3\", \"available_version\": \"\\2\" },!p' | sed -e '1s/^/{ \"packages\": [/' -e '$s/},/}] }/'"
   unit_of_measurement: "pending update(s)"
+  value_template: "{{ value_json.packages | count }}"
+  json_attributes:
+    - packages
 
 # HA
 - platform: version
