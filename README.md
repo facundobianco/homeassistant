@@ -7,7 +7,7 @@ My personal Home Assistant (HA) configuration.
 * HA: 0.115 ([details](https://www.home-assistant.io/blog/2020/09/17/release-115/))
 * Companion App (iOS): 2020.6 ([details](https://github.com/home-assistant/iOS/releases/tag/testflight%2F2020.6%2F15))
 
-<img src="https://media1.tenor.com/images/f2fb267ad09005a703a2347e3521fa70/tenor.gif?itemid=7288512" />
+![](https://media1.tenor.com/images/f2fb267ad09005a703a2347e3521fa70/tenor.gif?itemid=7288512)
 
 Each time I upgrade HA feels like last act of *The Good, the Bad and the Ugly*...
 
@@ -21,13 +21,13 @@ I recommend [imgbb](https://imgbb.com) to save screenshots.
 
 If you want to count the days [since the last boot](https://www.home-assistant.io/integrations/systemmonitor/), take a look at "*Uptime*" sensor (in *sensors.yaml*).
 
-<img src="https://i.ibb.co/0jchZpg/Screen-Shot-2020-09-20-at-21-30-02.png" width="50%" />
+![](https://i.ibb.co/g7m9jLB/Screen-Shot-2020-09-20-at-21-30-02.png)
 
 ### Pihole integration
 
 Pihole switch was added in [release 0.114](https://www.home-assistant.io/blog/2020/08/12/release-114/#breaking-changes) but isn't *smart* when you disable the service for a given time. After the given time is reached the switch appears as *off*.
 
-<img src="https://i.ibb.co/0rxWtCW/Screen-Shot-2020-09-20-at-21-26-37.png" width="50%"  />
+![](https://i.ibb.co/vxmD0BC/Screen-Shot-2020-09-20-at-21-26-37.png)
 
 To fix it, take a look at "*PiHole status*" sensor (in *sensors.yaml*) and "*Enable Pihole again*" automation (in *automations.yaml*).
 
@@ -49,7 +49,7 @@ This solution is based on [a comment from HA Community's](https://community.home
 
 If you have a weather station, I made a sensor to convert wind direction's degree in cardinal direction and also it changes the icon based on direction.
 
-<img src="https://i.ibb.co/4RmpKyG/Screen-Shot-2020-08-29-at-15-52-13.png" alt="Screen-Shot-2020-08-29-at-15-52-13"  width="50%" />
+![](https://i.ibb.co/LrqkkhH/Screen-Shot-2020-08-29-at-15-52-13.png)
 
 Take a look at "*Wind direction*" sensor (in *sensors.yaml*) and entity configuration in *views/weather.yaml*.
 
@@ -57,7 +57,7 @@ Take a look at "*Wind direction*" sensor (in *sensors.yaml*) and entity configur
 
 Listen to your favorite radio in one or all of your Google speakers.
 
-<img src="https://i.ibb.co/hHn3x04/Screen-Shot-2020-09-20-at-21-17-50.png"  width="50%" />
+![](https://i.ibb.co/LNSncNP/Screen-Shot-2020-09-20-at-21-17-50.png)
 
 It uses many components, take a look at names that contain "speakers" or "radio" (in *configuration.yaml*, *automations.yaml*, *input_select.yaml* and *scripts.yaml*).
 
@@ -67,7 +67,7 @@ This solution is based on [Chromecast Radio with station and player selection](h
 
 Based on [HACS' pending updates sensor](https://hacs.xyz/docs/basic/sensor) I made a sensor to list upgradeable packages candidates for Raspbian OS.
 
-![](https://i.ibb.co/6FMz26P/1601517839.png")
+![](https://i.ibb.co/p3mm9SX/1601517839.png)
 
 Take a look at "*Raspbian*" sensor (in *sensors.yaml*).
 
