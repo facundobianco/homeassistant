@@ -105,6 +105,13 @@
       device_class: humidity
       unit_of_measurement: '%'
       value_template: "{{ state_attr('switch.sonoff_100085069c', 'humidity') }}"
+    condensate_pump:
+      friendly_name: Condensate pump
+      icon_template: >-
+        {% if is_state('switch.sonoff_1000854c6a', 'on') %} mdi:water
+        {% else %} mdi:water-remove
+        {% endif %}
+      value_template: "{{ states('switch.sonoff_1000854c6a') | capitalize }}"
 
 # PiHole
 # https://github.com/pi-hole/AdminLTE/blob/master/api.php

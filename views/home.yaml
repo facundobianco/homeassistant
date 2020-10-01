@@ -154,14 +154,24 @@ cards:
             states:
               # Living's AC
               Living:
-                type: thermostat
-                entity: climate.living_ac
-                name: ' '
+                type: vertical-stack
+                cards:
+                  - type: entities
+                    entities:
+                      - sensor.condensate_pump
+                  - type: thermostat
+                    entity: climate.living_ac
+                    name: ' '
               # Bedroom's AC
               Dormitorio:
-                type: thermostat
-                entity: climate.dormitorio_ac
-                name: ' '
+                type: vertical-stack
+                cards:
+                  - type: entities
+                    entities:
+                      - sensor.condensate_pump
+                  - type: thermostat
+                    entity: climate.dormitorio_ac
+                    name: ' '
               # Bedroom's fan (with indoor temperature)
               Ventilador:
                 type: entities
