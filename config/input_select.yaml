@@ -41,7 +41,6 @@ media_view:
     - tv
     - tv_favs
     - tv_numeric
-    - bluray
     - radio
     - spotify
   initial: tv
