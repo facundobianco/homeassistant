@@ -44,6 +44,13 @@ climate.living_ac:
     - "Aire acondicionado"
   room: Living
 
+media_player.living_tv:
+  name: "Living"
+  aliases:
+    - "Television living"
+    - "Teve living"
+  room: Living
+
 # Kitchen
 light.sonoff_100094ff53_1:
   name: "Cocina"
@@ -99,6 +106,15 @@ fan.sonoff_1000954850:
   aliases:
     - "Ventilador"
     - "Ventilador pieza"
+  room: Dormitorio
+
+media_player.bedroom_tv:
+  name: "Dormitorio"
+  aliases:
+    - "Television dormitorio"
+    - "Television pieza"
+    - "Teve dormitorio"
+    - "Teve pieza"
   room: Dormitorio
 
 # WC
