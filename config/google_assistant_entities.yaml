@@ -79,6 +79,12 @@ sensor.cocina_temperatura:
     - "Temperatura cocina"
   room: Cocina
 
+sensor.termotanque_temperatura:
+  name: "Termotanque"
+  aliases:
+    - "Temperatura termotanque"
+  room: Cocina
+
 # Bedroom
 light.sonoff_1000954850_1:
   name: "Dormitorio"
@@ -134,6 +140,12 @@ switch.sonoff_100085069c:
   aliases:
     - "Aire depósito"
     - "Aire acondicionado depósito"
+  room: Stockroom
+
+sensor.deposito_temperatura:
+  name: "Depósito"
+  aliases:
+    - "Temperatura depósito"
   room: Stockroom
 
 # Misc
