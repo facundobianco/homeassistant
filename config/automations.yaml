@@ -297,7 +297,7 @@
     - service: media_player.volume_set
       data:
         entity_id: all
-        volume_level: 0.5
+        volume_level: 0.2
     - delay: 5
     - service: tts.google_say
       data_template:
