@@ -76,6 +76,42 @@ status-bar {
 }
 ```
 
+## Updates
+
+### Home Assistant
+
+```
+ha-stop
+source virtualenv/bin/activate
+pip install --upgrade homeassistant
+deactivate
+ha-start
+```
+
+### Pihole
+
+Check the upgrade status
+
+```
+pihole -up --check-only
+```
+
+And upgrade it
+
+```
+pihole -up
+sed -i '/^server.port/s/80/&80/' /etc/lighttpd/lighttpd.conf
+systemctl start lighttpd
+```
+
+### Certbot SSL
+
+```
+systemctl stop nginx.service
+certbot renew
+systemctl start nginx.service
+```
+
 ## Troubleshooting
 
 ### Custom Header exception in iOS
