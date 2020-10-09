@@ -114,3 +114,11 @@ run
 ```
 apt install -y libopenjp2-7
 ```
+
+### Google Assistant: homegraph API error 403
+
+If you get the error message
+
+> [homeassistant.components.google_assistant.http] Request for https://homegraph.googleapis.com/v1/devices:reportStateAndNotification failed: 403
+
+Open your Google Home application and say "sync my devices". Error message is gone. Source: [HA Community](https://community.home-assistant.io/t/148289/16).
