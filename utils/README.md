@@ -153,7 +153,7 @@ apt install -y libopenjp2-7
 
 ### Google Assistant: homegraph API error 403
 
-If you get the error message
+Every time you update [Google entities](https://www.home-assistant.io/integrations/google_assistant/#entity_config) you will get the error message
 
 > [homeassistant.components.google_assistant.http] Request for https://homegraph.googleapis.com/v1/devices:reportStateAndNotification failed: 403
 
