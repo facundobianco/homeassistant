@@ -28,6 +28,33 @@
     service: light.turn_on
     entity_id: group.sunset_lights
 
+# Manage lights with melacha in effect
+- alias: Not enough light
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.lu7and_solar_rad
+    below: 1100
+  condition:
+    condition: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    state: 'on'
+  action:
+    service: light.turn_on
+    entity_id: group.melacha_lights
+
+- alias: Enough light
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.lu7and_solar_rad
+    above: 1100
+  condition:
+    condition: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    state: 'on'
+  action:
+    service: light.turn_off
+    entity_id: group.melacha_lights
+
 # Water boiler
 - alias: Turn on water boiler
   trigger:

@@ -27,6 +27,15 @@ basic_lights:
     - light.sonoff_1000766c93
     - light.sonoff_10008504ad
 
+melacha_lights:
+  entities:
+    - light.sonoff_1000950368_1
+    - light.sonoff_100094ff53_2
+    - light.sonoff_10008504ad
+    - light.sonoff_1000770cc7
+    - light.sonoff_1000951aac
+    - light.sonoff_1000950368_2
+
 everywhere_speakers:
   entities:
     - media_player.living
