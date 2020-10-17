@@ -115,6 +115,9 @@
         {% else %} mdi:water-remove
         {% endif %}
       value_template: "{{ states('switch.sonoff_1000854c6a') | capitalize }}"
+    condensate_pump_watt:
+      unit_of_measurement: W
+      value_template: "{{ state_attr('switch.sonoff_1000854c6a', 'power') | round }}"
 
 # PiHole
 # https://github.com/pi-hole/AdminLTE/blob/master/api.php

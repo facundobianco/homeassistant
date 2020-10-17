@@ -158,7 +158,11 @@ cards:
                 cards:
                   - type: entities
                     entities:
-                      - sensor.condensate_pump
+                      - type: custom:multiple-entity-row
+                        entity: sensor.condensate_pump
+                        entities:
+                          - entity: sensor.condensate_pump_watt
+                            name: false
                   - type: thermostat
                     entity: climate.living_ac
                     name: ' '
@@ -168,7 +172,11 @@ cards:
                 cards:
                   - type: entities
                     entities:
-                      - sensor.condensate_pump
+                      - type: custom:multiple-entity-row
+                        entity: sensor.condensate_pump
+                        entities:
+                          - entity: sensor.condensate_pump_watt
+                            name: false
                   - type: thermostat
                     entity: climate.dormitorio_ac
                     name: ' '
