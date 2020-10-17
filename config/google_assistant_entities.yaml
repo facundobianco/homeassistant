@@ -25,9 +25,12 @@ switch.pihole:
 
 # Living
 light.sonoff_1000950368_1:
-  name: "Living"
+  name: "Luz del techo living"
   aliases:
-    - "Luz living"
+    - "Luz"
+    - "Lámpara de techo"
+    - "Luz del living"
+    - "Luz principal"
   room: Living
 
 light.sonoff_1000766c93:
@@ -35,26 +38,30 @@ light.sonoff_1000766c93:
   aliases:
     - "Lámpara living"
     - "Lámpara pie"
+    - "Luz secundaria"
   room: Living
 
 climate.living_ac:
-  name: "Living"
+  name: "Aire acondicionado Living"
   aliases:
+    - "Living"
     - "Aire"
     - "Aire acondicionado"
   room: Living
 
 media_player.living_tv:
-  name: "Living"
+  name: "Television living"
   aliases:
-    - "Television living"
+    - "Living"
     - "Teve living"
+    - "Tele living"
   room: Living
 
 # Kitchen
 light.sonoff_100094ff53_1:
-  name: "Cocina"
+  name: "Luz principal"
   aliases:
+    - "Cocina"
     - "Luz cocina"
     - "Luz principal"
   room: Cocina
@@ -87,9 +94,11 @@ sensor.termotanque_temperatura:
 
 # Bedroom
 light.sonoff_1000954850_1:
-  name: "Dormitorio"
+  name: "Luz del dormitorio"
   aliases:
-    - "Luz dormitorio"
+    - "Dormitorio"
+    - "Luz del techo"
+    - "Luz principal"
   room: Dormitorio
 
 light.sonoff_1000770cc7:
@@ -99,46 +108,50 @@ light.sonoff_1000770cc7:
   room: Dormitorio
 
 climate.dormitorio_ac:
-  name: "Dormitorio"
+  name: "Aire dormitorio"
   aliases:
-    - "Aire dormitorio"
+    - "Dormitorio"
     - "Aire pieza"
     - "Aire acondicionado"
     - "Aire acondicionado pieza"
   room: Dormitorio
 
 fan.sonoff_1000954850:
-  name: "Dormitorio"
+  name: "Ventilador"
   aliases:
-    - "Ventilador"
+    - "Dormitorio"
     - "Ventilador pieza"
   room: Dormitorio
 
 media_player.bedroom_tv:
-  name: "Dormitorio"
+  name: "Television dormitorio"
   aliases:
-    - "Television dormitorio"
+    - "Dormitorio"
     - "Television pieza"
     - "Teve dormitorio"
     - "Teve pieza"
+    - "Tele dormitorio"
+    - "Tele pieza"
   room: Dormitorio
 
 # WC
 light.sonoff_1000951aac:
-  name: "Baño"
+  name: "Luz del baño"
+  aliases:
+    - "Baño"
   room: WC
 
 # Stockroom
 light.sonoff_1000951b70:
-  name: "Depósito"
+  name: "Luz depósito"
   aliases:
-    - "Luz depósito"
+    - "Depósito"
   room: Stockroom
 
 switch.sonoff_100085069c:
-  name: "Depósito"
+  name: "Aire depósito"
   aliases:
-    - "Aire depósito"
+    - "Depósito"
     - "Aire acondicionado depósito"
   room: Stockroom
 
@@ -156,9 +169,9 @@ light.sonoff_1000950368_2:
   room: Outside
 
 light.sonoff_10008504ad:
-  name: "Pasillo"
+  name: "Luz pasillo"
   aliases:
-    - "Luz pasillo"
+    - "Pasillo"
   room: Hallway
 
 # Others
