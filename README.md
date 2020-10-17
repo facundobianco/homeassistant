@@ -9,7 +9,7 @@ My personal Home Assistant (HA) configuration.
 
 ![](https://media1.tenor.com/images/f2fb267ad09005a703a2347e3521fa70/tenor.gif?itemid=7288512)
 
-Each time I upgrade HA feels like last act of *The Good, the Bad and the Ugly*...
+Each time I upgrade HA feels like last act of *The Good, the Bad and the Ugly*... I mean, HA updates [remove useful core components](https://hasspodcast.io/ha033/) and or [break custom components compatibility](https://community.home-assistant.io/t/custom-header/155399/1100).
 
 ## Custom components this configuration has
 
