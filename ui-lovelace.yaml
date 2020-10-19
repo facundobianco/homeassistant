@@ -1,19 +1,5 @@
 title: Home
 
-# Custom header configuration
-# https://maykar.github.io/custom-header/#configuration/main
-custom_header:
-  compact_mode: true
-  hide_help: true
-  exceptions:
-    - conditions:
-        media_query: "(max-width: 375px)"
-      config:
-        disable_sidebar: true
-        footer_mode: true
-        hide_config: true
-        options_hide: true
-
 # Button Card Templates configuration
 # https://github.com/custom-cards/button-card#configuration
 button_card_templates:

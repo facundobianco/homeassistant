@@ -1,4 +1,4 @@
-dark_teal:  
+dark_teal:
 
   # Fonts
   primary-font-family: 'Raleway,sans-serif'
@@ -12,24 +12,24 @@ dark_teal:
   ha-card-header-font-family: "var(--primary-font-family)"
 
   # Text
-  text-color: '#ffffff' 
+  text-color: '#ffffff'
   primary-text-color: 'var(--text-color)'
   text-primary-color: 'var(--text-color)'
   secondary-text-color: "#BAC0C6"
   text-medium-light-color: '#A0A2A8'
-  text-medium-color: '#80828A' 
+  text-medium-color: '#80828A'
   disabled-text-color: '#626569'
   primary-color: 'var(--accent-color)'
 
   # Main Colors
-  app-header-background-color: '#3b4049' 
+  app-header-background-color: '#3b4049'
   accent-color: '#00b59d'
   accent-medium-color: 'var(--accent-color)'
 
   # Background
-  background-color: '#3b4049' 
+  background-color: '#3b4049'
   primary-background-color: 'var(--background-color)'
-  background-color-2: '#383e47' 
+  background-color-2: '#383e47'
   secondary-background-color: 'var(--background-color-2)'
   markdown-code-background-color: 'var(--background-color)'
 
@@ -38,12 +38,12 @@ dark_teal:
   ha-card-background: 'rgba(67, 73, 82, 1)'
   ha-card-box-shadow: "0px 0px 0px 0px"
   ha-card-border-radius: "3px"
-  border-color: '#333333' 
+  border-color: '#333333'
 
   # Icons
-  paper-item-icon-color: 'var(--text-color)'    
-  paper-item-icon-active-color: 'var(--accent-color)'   
-  
+  paper-item-icon-color: 'var(--text-color)'
+  paper-item-icon-active-color: 'var(--accent-color)'
+
   # Left Menu
   paper-listbox-background-color: 'rgba(69, 74, 83, 1)'
   sidebar-background-color: 'var(--paper-listbox-background-color)'
@@ -51,7 +51,7 @@ dark_teal:
   sidebar-selected-icon-color: 'var(--accent-color)'
   sidebar-selected-text-color: 'var(--text-color)'
   divider-color: 'var(--background-color)'
-  light-primary-color: 'var(--accent-color)' 
+  light-primary-color: 'var(--accent-color)'
 
   # Sliders
   paper-slider-knob-color: 'var(--accent-color)'
@@ -61,7 +61,7 @@ dark_teal:
 
   # Toggle:
   paper-toggle-button-checked-bar-color: 'var(--accent-color)'
-  mdc-theme-primary: 'var(--accent-color)' 
+  mdc-theme-primary: 'var(--accent-color)'
 
   # Switch
   switch-unchecked-color: 'var(--text-medium-color)'
@@ -90,12 +90,127 @@ dark_teal:
 
   paper-input-container-focus-color: 'var(--accent-color)'
 
-  # Custom Header
-  ch-background: 'rgba(69, 74, 83, 0.8)'
-  ch-active-tab-color: 'var(--accent-color)'
-  ch-notification-dot-color: 'var(--accent-color)'
-  ch-all-tabs-color: 'var(--sidebar-icon-color)'
-  ch-tab-indicator-color: 'var(--accent-color)'
+  # Card mod enabler
+  # https://github.com/thomasloven/lovelace-card-mod/wiki/Card-mod-Themes
+  card-mod-theme: dark_teal
+  # Compact header
+  # https://community.home-assistant.io/t/212176/140
+  card-mod-root-yaml: |
+    paper-tabs:
+      $: |
+        .not-visible {
+          display: none;
+        }
+        /*Uncomment this if you want the header on the bottom
+        #selectionBar {
+          bottom: unset !important;
+        }*/
+    "ha-app-layout":
+      $: |
+        #contentContainer {
+          padding-top: 48px !important; /*Change this to 0px if you want the header on the bottom*/
+        }
+    .: |
+      app-toolbar {
+        height: 0;
+      }
+      .edit-mode, app-header, app-toolbar {
+        background-color: transparent !important;
+        background: url('/hacsfiles/themes/ios-themes/homekit-bg-blue-red.jpg') !important;
+      }
+      /*Uncomment this if you want the header on the bottom
+      app-header {
+        top: calc(100vh - 48px) !important;
+      }
+      */
+      app-header.edit-mode {
+        border-bottom: 2px var(--primary-color) solid;
+        padding-bottom: 10px;
+      }
+      app-header[shadow] > ::before {
+        box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.3);
+      }
+      #add-view ha-svg-icon {
+        background-color: var(--primary-color) !important;
+        color: #EEE !important;
+        border-radius: 5px !important;
+      }
+      .edit-icon {
+        color: var(--primary-color) !important;
+      }
+      mwc-icon-button[label="Start conversation"] {
+        top: 0;
+        right: calc(48px * 1);
+        z-index: 2;
+        position: absolute;
+      }
+      mwc-icon-button[title="Help"] {
+        top: 0;
+        right: calc(48px * 2);
+        position: absolute;
+        z-index: 2;
+      }
+      mwc-icon-button[title="Close"] {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 2;
+      }
+      mwc-icon-button#add-view {
+        position: fixed;
+        right: calc(48px * 1);
+      }
+      ha-button-menu {
+        top: 0;
+        right: 0;
+        z-index: 2;
+        margin-left: 5px;
+        position: absolute;
+        /*Uncomment this out to hide the overflow menu
+        display: none;
+        */
+      }
+      app-toolbar > [main-title] {
+        display: none;
+      }
+      menu-button[style="visibility: hidden;"] {
+        display: none;
+      }
+      ha-menu-button {
+        z-index: 2;
+        top: 24px;
+      }
+      paper-tabs {
+        --paper-tabs-selection-bar-color: white !important;
+        margin-left: 65px !important;
+      }
+      paper-tab[aria-selected="true"] > ha-icon {
+        color: white !important;
+      }
+      paper-tab[aria-selected="true"] {
+        color: var(--primary-color) !important;
+      }
+      @media (orientation: portrait) {
+        paper-tabs {
+          margin-left: 64px !important;
+          margin-right: 32px !important;
+        }
+        ch-header > paper-tabs,
+        app-header.edit-mode > * > paper-tabs {
+          margin-left: 10px !important;
+          margin-right: 10px !important;
+        }
+      }
+      ch-header > ha-button-menu {
+        top: unset;
+      }
+      ch-header > paper-tabs,
+      app-header.edit-mode > paper-tabs {
+        margin-left: 0;
+      }
+      app-toolbar a {
+        color: var(--primary-text-color) !important;
+      }
 
   # Mini Mediaplayer
   mini-media-player-base-color: 'var(--text-color)'

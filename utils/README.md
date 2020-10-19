@@ -63,9 +63,12 @@ value_template: "{{ (states('sensor.speed') | float * 1.609) | round(2) }}"
 
 ### Edit remote files
 
-I recommend Atom IDE with package [remote-edit-ini](https://atom.io/packages/remote-edit-ni).
+I recommend Atom IDE with packages
 
-In *status-bar* you will see the long, long temporary file's path and it's annoying because hides the cursor position. To avoid that, add in *styles.less* configuration file
+* [platformio-ide-terminal](https://atom.io/packages/platformio-ide-terminal)
+* [remote-edit-ini](https://atom.io/packages/remote-edit-ni)
+
+Using *remote-edit-ini* in status bar you will see the long, long temporary file's path and it's annoying because hides the cursor position. To avoid that, add in *styles.less* configuration file
 
 ```
 // Hide path in status-bar

@@ -12,8 +12,6 @@ http:
 lovelace:
   mode: yaml
   resources:
-    - type: module
-      url: /hacsfiles/custom-header/custom-header.js
     - type: js
       url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
     - type: module
@@ -30,6 +28,8 @@ lovelace:
       url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
     - type: module
       url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
+    - type: module
+      url: /hacsfiles/lovelace-card-mod/card-mod.js
 
 frontend:
   themes: !include_dir_merge_named themes
