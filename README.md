@@ -107,7 +107,7 @@ Will be added:
 
 ## Addons
 
-* [Custom header](https://github.com/maykar/custom-header)
+* [card-mod](https://github.com/thomasloven/lovelace-card-mod)
 * [Fan control entity row](https://github.com/finity69x2/fan-control-entity-row)
 * [Button Card](https://github.com/custom-cards/button-card)
 * [state-switch](https://github.com/thomasloven/lovelace-state-switch)
