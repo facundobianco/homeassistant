@@ -115,11 +115,11 @@ cards:
             name: Temperature
           # Networking
           - type: custom:multiple-entity-row
-            entity: sensor.network_out_eth0
+            entity: sensor.network_out_enxb827eb6e8e2c
             name: Networking
             state_header: TX
             entities:
-              - entity: sensor.network_in_eth0
+              - entity: sensor.network_in_enxb827eb6e8e2c
                 name: RX
           # Speedtest
           - type: custom:multiple-entity-row
