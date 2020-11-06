@@ -161,4 +161,4 @@ speedtestdotnet:
     minutes: 75
 
 logger:
-  default: info
+  default: critical

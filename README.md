@@ -4,7 +4,7 @@ My personal Home Assistant (HA) configuration.
 
 ## Software
 
-* HA: 0.116 ([details](https://www.home-assistant.io/blog/2020/10/07/release-116/))
+* HA: 0.117 ([details](https://www.home-assistant.io/blog/2020/10/28/release-117/))
 * Companion App (iOS): 2020.6 ([details](https://github.com/home-assistant/iOS/releases/tag/testflight%2F2020.6%2F15))
 
 ![](https://media1.tenor.com/images/f2fb267ad09005a703a2347e3521fa70/tenor.gif?itemid=7288512)
