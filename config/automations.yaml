@@ -55,6 +55,17 @@
     service: light.turn_off
     entity_id: group.melacha_lights
 
+- alias: Turn off lights when melacha is off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    to: 'off'
+  action:
+    service: light.turn_off
+    entity_id:
+      - light.sonoff_1000950368_1
+      - light.sonoff_100094ff53_2
+
 # Water boiler
 - alias: Turn on water boiler
   trigger:
