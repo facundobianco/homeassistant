@@ -116,51 +116,49 @@ cards:
             - sensor.local_upcoming_havdalah
 
         sun-n-moon:
-          type: 'custom:vertical-stack-in-card'
-          cards:
-            - type: entities
+          type: entities
+          entities:
+            - sun.sun
+            - sensor.moon
+            - sensor.day_length
+            - type: custom:multiple-entity-row
+              entity: sensor.sun_status
+              show_state: false
               entities:
-                - sun.sun
-                - sensor.moon
-                - sensor.day_length
-                - type: custom:multiple-entity-row
-                  entity: sensor.sun_status
-                  show_state: false
-                  entities:
-                    - attribute: sunrise
-                      name: Sunrise
-                    - attribute: noon
-                      name: Noon
-                    - attribute: sunset
-                      name: Sunset
-                - type: custom:multiple-entity-row
-                  entity: sensor.moon_status
-                  show_state: false
-                  entities:
-                    - attribute: moonrise
-                      name: Moonrise
-                    - attribute: moonset
-                      name: Moonset
-                - type: custom:multiple-entity-row
-                  entity: sensor.moon_elevation
-                  name: Elevation
-                  icon: mdi:swap-vertical
-                  state_header: Moon
-                  entities:
-                    - entity: sensor.sun_elevation
-                      name: Sun
-                - type: custom:mini-graph-card
-                  line_width: 3
-                  hours_to_show: 48
-                  hour24: true
-                  points_per_hour: 0.5
-                  align_header: left
-                  align_icon: left
-                  entities:
-                    - sensor.sun_elevation_wo_neg
-                    - sensor.moon_elevation_wo_neg
-                  show:
-                    name: false
-                    icon: false
-                    state: false
-                    fill: false
+                - attribute: sunrise
+                  name: Sunrise
+                - attribute: noon
+                  name: Noon
+                - attribute: sunset
+                  name: Sunset
+            - type: custom:multiple-entity-row
+              entity: sensor.moon_status
+              show_state: false
+              entities:
+                - attribute: moonrise
+                  name: Moonrise
+                - attribute: moonset
+                  name: Moonset
+            - type: custom:multiple-entity-row
+              entity: sensor.moon_elevation
+              name: Elevation
+              icon: mdi:swap-vertical
+              state_header: Moon
+              entities:
+                - entity: sensor.sun_elevation
+                  name: Sun
+            - type: custom:mini-graph-card
+              line_width: 3
+              hours_to_show: 48
+              hour24: true
+              points_per_hour: 0.5
+              align_header: left
+              align_icon: left
+              entities:
+                - sensor.sun_elevation_wo_neg
+                - sensor.moon_elevation_wo_neg
+              show:
+                name: false
+                icon: false
+                state: false
+                fill: false

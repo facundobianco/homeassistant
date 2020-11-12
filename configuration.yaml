@@ -12,8 +12,6 @@ http:
 lovelace:
   mode: yaml
   resources:
-    - type: js
-      url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
     - type: module
       url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     - type: js
