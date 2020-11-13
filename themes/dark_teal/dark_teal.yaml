@@ -93,3 +93,7 @@ dark_teal:
   # Mini Mediaplayer
   mini-media-player-base-color: 'var(--text-color)'
   mini-media-player-accent-color: 'var(--accent-color)'
+
+  # Simple thermostat
+  st-spacing: 2px
+  st-font-size-sensors: 16px

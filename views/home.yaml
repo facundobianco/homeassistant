@@ -154,32 +154,42 @@ cards:
             states:
               # Living's AC
               Living:
-                type: vertical-stack
-                cards:
-                  - type: entities
-                    entities:
-                      - type: custom:multiple-entity-row
-                        entity: sensor.condensate_pump
-                        entities:
-                          - entity: sensor.condensate_pump_watt
-                            name: false
-                  - type: thermostat
+                type: entities
+                entities:
+                  - type: custom:simple-thermostat
                     entity: climate.living_ac
-                    name: ' '
+                    name: false
+                    step_size: 1.0
+                    step_layout: row
+                    label:
+                      temperature: Temp
+                    sensors:
+                      - entity: sensor.lu7and_humidity_in
+                        name: RH
+                      - entity: sensor.condensate_pump_watt
+                        name: CP
+                    control:
+                      _names: false
               # Bedroom's AC
               Dormitorio:
-                type: vertical-stack
-                cards:
-                  - type: entities
-                    entities:
-                      - type: custom:multiple-entity-row
-                        entity: sensor.condensate_pump
-                        entities:
-                          - entity: sensor.condensate_pump_watt
-                            name: false
-                  - type: thermostat
+                type: entities
+                entities:
+                  - type: custom:simple-thermostat
                     entity: climate.dormitorio_ac
-                    name: ' '
+                    name: false
+                    step_size: 1.0
+                    step_layout: row
+                    label:
+                      temperature: Temp
+                    sensors:
+                      - entity: sensor.dormitorio_humedad
+                        name: RH
+                      - entity: sensor.condensate_pump_watt
+                        name: CP
+                    control:
+                      _names: false
+                      hvac:
+                        heat_cool: false
               # Bedroom's fan (with indoor temperature)
               Ventilador:
                 type: entities

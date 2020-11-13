@@ -26,6 +26,8 @@ lovelace:
       url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
     - type: module
       url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
+    - type: module
+      url: /hacsfiles/simple-thermostat/simple-thermostat.js
 
 frontend:
   themes: !include_dir_merge_named themes
