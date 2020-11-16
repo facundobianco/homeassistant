@@ -1,0 +1,53 @@
+# Celsius
+- sensor.cpu_temperature
+- sensor.lu7and_temp
+- sensor.lu7and_dew_point
+- sensor.lu7and_inside_temp
+- sensor.dormitorio_temperatura
+- sensor.cocina_temperatura
+- sensor.termotanque_temperatura
+- sensor.deposito_temperatura
+
+# hPa
+- sensor.rel_pressure
+
+# W/m^2
+- sensor.lu7and_solar_rad
+
+# km/h
+- sensor.wind_speed
+- sensor.wind_gust
+
+# mm
+- sensor.hourly_rain
+
+# Watt
+- sensor.condensate_pump_watt
+
+# ms
+- sensor.speedtest_ping
+
+# Mbit/s
+- sensor.speedtest_download
+- sensor.speedtest_upload
+
+# MiB
+- sensor.memory_use
+- sensor.network_in_enxb827eb6e8e2c
+- sensor.network_out_enxb827eb6e8e2c
+
+# Percent
+- sensor.lu7and_humidity
+- sensor.lu7and_humidity_in
+- sensor.dormitorio_humedad
+- sensor.cocina_humedad
+- sensor.deposito_humedad
+- sensor.processor_use
+- sensor.memory_use_percent
+- sensor.disk_use_percent
+- sensor.disk_use_percent_var_log
+
+# Switches
+- switch.sonoff_10008508fb
+- climate.living_ac
+- climate.dormitorio_ac
