@@ -24,7 +24,6 @@ ac_location:
   options:
     - Living
     - Dormitorio
-    - Ventilador
     - Stockroom
   initial: Living
   icon: mdi:air-conditioner

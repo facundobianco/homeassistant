@@ -14,8 +14,6 @@ lovelace:
   resources:
     - type: module
       url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
-    - type: js
-      url: /hacsfiles/fan-control-entity-row/fan-control-entity-row.js
     - type: module
       url: /hacsfiles/lovelace-layout-card/layout-card.js
     - type: module

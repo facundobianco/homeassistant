@@ -192,6 +192,21 @@
     service: input_boolean.turn_off
     entity_id: input_boolean.pending_kiddush_levana
 
+- alias: fan_bedroom
+  trigger:
+    platform: state
+    entity_id: input_number.fan_bedroom
+  action:
+    service: fan.set_speed
+    data_template:
+      entity_id: fan.sonoff_1000954850
+      speed: >
+        {% if is_state('input_number.fan_bedroom', '0.0') %} off
+        {% elif is_state('input_number.fan_bedroom', '1.0') %} low
+        {% elif is_state('input_number.fan_bedroom', '2.0') %} medium
+        {% else %} high
+        {% endif %}
+
 # iOS actions
 - alias: turn_off_but_outside
   trigger:
