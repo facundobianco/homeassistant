@@ -59,6 +59,10 @@
 - sensor.pihole_dns_unique_domains
 - sensor.pihole_domains_blocked
 
+# pending updates(s)
+- sensor.raspbian
+- sensor.hacs
+
 # Switches
 - switch.sonoff_10008508fb # thermotank
 - climate.living_ac

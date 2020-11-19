@@ -49,7 +49,10 @@
   scan_interval: 900
   command: "apt list --upgradeable | sed -e 1d | sed -n 's!^\\([^/]*\\)/[^0-9]*\\([^ ]*\\) [a-z].*: \\([^]]*\\)]!{ \"name\": \"\\1\", \"installed_version\": \"\\3\", \"available_version\": \"\\2\" },!p' | sed -e '1s/^/{ \"packages\": [/' -e '$s/},/}] }/'"
   unit_of_measurement: "pending update(s)"
-  value_template: "{{ value_json.packages | count }}"
+  value_template: >-
+    {% if value_json is defined %} {{ value_json.packages | count }}
+    {% else %} 0
+    {% endif %}
   json_attributes:
     - packages
 
