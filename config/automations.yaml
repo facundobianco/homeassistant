@@ -8,6 +8,15 @@
     data:
       name: dark_teal
 
+# Google Sync
+- alias: Sync Google Assistant
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - delay: '00:00:45'
+    - service: google_assistant.request_sync
+
 # Sunrise
 - alias: Sunrise
   trigger:
