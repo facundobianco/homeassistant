@@ -179,6 +179,21 @@
         {% else %} high
         {% endif %}
 
+- alias: fan_bedroom_sync
+  trigger:
+    platform: state
+    entity_id: fan.sonoff_1000954850
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.fan_bedroom
+      value: >
+        {% if is_state_attr('fan.sonoff_1000954850', 'speed', 'off') %} 0
+        {% elif is_state_attr('fan.sonoff_1000954850', 'speed', 'low') %} 1
+        {% elif is_state_attr('fan.sonoff_1000954850', 'speed', 'medium') %} 2
+        {% else %} 3
+        {% endif %}
+
 # Calendar
 - alias: Turn on lights at Shabbat veIom Tov
   trigger:
