@@ -47,7 +47,19 @@
 - sensor.disk_use_percent
 - sensor.disk_use_percent_var_log
 
+# ads
+- sensor.pihole_ads_blocked_today
+
+# queries
+- sensor.pihole_dns_queries_today
+- sensor.pihole_dns_queries_cached
+- sensor.pihole_dns_queries_forwarded
+
+# domains
+- sensor.pihole_dns_unique_domains
+- sensor.pihole_domains_blocked
+
 # Switches
-- switch.sonoff_10008508fb
+- switch.sonoff_10008508fb # thermotank
 - climate.living_ac
 - climate.dormitorio_ac
