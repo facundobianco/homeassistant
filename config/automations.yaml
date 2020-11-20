@@ -81,10 +81,12 @@
     - platform: time
       at:
         - '06:00:00'
-        - '19:00:00'
+        - '18:00:00'
     - platform: state
       entity_id: input_boolean.wb_auto_trigger
       to: 'off'
+    - platform: template
+      value_template: "{{ (state_attr('sensor.jewish_calendar_upcoming_candle_lighting', 'timestamp') - 7200) | timestamp_custom('%w %R') == as_timestamp(now()) | timestamp_custom('%w %R') }}"
   action:
     service: switch.turn_on
     entity_id: switch.sonoff_10008508fb
