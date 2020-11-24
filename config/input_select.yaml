@@ -3,7 +3,7 @@ home_view:
     - lights
     - ac
     - plugs
-    - wb
+    - vacuum
   initial: lights
 
 weather_view:
@@ -43,11 +43,6 @@ media_view:
     - radio
     - spotify
   initial: tv
-
-vacuum_view:
-  options:
-    - vacuum
-    - map
 
 sys_view:
   options:

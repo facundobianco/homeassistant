@@ -86,26 +86,26 @@ cards:
                 ]]]
       - type: custom:button-card
         template: custom_icon_name
-        name: EWH
-        icon: mdi:water-boiler
+        name: Vacuum
+        icon: mdi:robot-vacuum
         tap_action:
           action: call-service
           service: input_select.set_options
           service_data:
             entity_id: input_select.home_view
-            options: wb
+            options: vacuum
         styles:
           card:
             - color: >
                 [[[
-                  if (states['input_select.home_view'].state == 'wb')
+                  if (states['input_select.home_view'].state == 'vacuum')
                     return '#00b59d';
                   return 'white';
                 ]]]
           icon:
             - color: >
                 [[[
-                  if (states['input_select.home_view'].state == 'wb')
+                  if (states['input_select.home_view'].state == 'vacuum')
                     return '#00b59d';
                   return 'white';
                 ]]]
@@ -211,25 +211,37 @@ cards:
           - entity: switch.160505002cf432c569cb
             name: Misc
             icon: mdi:power-socket-au
-
-      wb:
-        type: entities
-        show_header_toggle: false
-        entities:
+          - type: divider
           - entity: switch.sonoff_10008508fb
             name: Termotanque
             icon: 'mdi:water-boiler'
           - entity: input_boolean.wb_auto_trigger
-          - type: custom:mini-graph-card
-            line_width: 3
-            hours_to_show: 8
-            hour24: true
-            points_per_hour: 3
+          - type: custom:multiple-entity-row
+            entity: sensor.temp_min_max
             name: Temperature
-            align_header: left
-            align_icon: left
+            icon: mdi:thermometer
+            show_state: false
             entities:
-              - sensor.termotanque_temperatura
-            show:
-              fill: false
-              extrema: true
+              - attribute: min_value
+                name: Min
+              - attribute: max_value
+                name: Max
+
+      vacuum:
+        type: custom:vacuum-card
+        entity: vacuum.vacuum
+        compact_view: true
+        stats:
+          default:
+            - attribute: filter_left
+              unit: hours
+              subtitle: Filter
+            - attribute: side_brush_left
+              unit: hours
+              subtitle: Side brush
+            - attribute: main_brush_left
+              unit: hours
+              subtitle: Main brush
+            - attribute: sensor_dirty_left
+              unit: hours
+              subtitle: Sensors

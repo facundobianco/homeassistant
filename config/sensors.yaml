@@ -372,3 +372,10 @@
   json_attributes:
     - bluray
     - television
+
+# Min-max
+- platform: min_max
+  name: temp_min_max
+  round_digits: 1
+  entity_ids:
+    - sensor.termotanque_temperatura

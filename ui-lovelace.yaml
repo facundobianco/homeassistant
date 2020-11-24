@@ -34,5 +34,4 @@ views:
   - !include views/weather.yaml
   - !include views/calendar.yaml
   - !include views/media.yaml
-  - !include views/vacuum.yaml
   - !include views/sys.yaml
