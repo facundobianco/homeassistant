@@ -93,10 +93,10 @@ sed -e '1s/^/{ "packages": [/' -e '$s/},/}] }/'
 * [Ambient Weather WS-2902A](https://www.lifewire.com/ambient-weather-ws-2902a-osprey-review-4766784) (discontinued)
 * [Broadlink RM Pro+](https://www.banggood.com/Broadlink-RM-Pro-Smart-Home-Automation-Phone-Wireless-Remote-Universal-Controller-EU-Plug-p-942667.html) (discontinued)
 * [Tuya smart plug](https://cnshinelite.en.made-in-china.com/product/IdiQrUOYhakB/China-Tuya-APP-Au-Type-Electrical-Smart-Plug-for-Smart-Home.html) (in South America sold by Nex/Cencosud S.A. brand)
+* [Xiaomi MiJia vacuum cleaner](https://xiaomi-mi.com/cleaning-gear/xiaomi-mijia-roborock-robot-vacuum-cleaner-white/)
 
 Will be added:
 
-* [Xiaomi MiJia vacuum cleaner](https://xiaomi-mi.com/cleaning-gear/xiaomi-mijia-roborock-robot-vacuum-cleaner-white/)
 * [ARILUX SL-LC 04 LED controller](https://www.banggood.com/ARILUX-SL-LC-04-Super-Mini-LED-WIFI-APP-Controller-+-Remote-Control-For-RGBW-LED-Strip-DC-9-12V-p-1060231.html)
 
 ## Integrations
@@ -107,8 +107,6 @@ Will be added:
 
 ## Addons
 
-* [card-mod](https://github.com/thomasloven/lovelace-card-mod)
-* [Fan control entity row](https://github.com/finity69x2/fan-control-entity-row)
 * [Button Card](https://github.com/custom-cards/button-card)
 * [state-switch](https://github.com/thomasloven/lovelace-state-switch)
 * [multiple-entity-row](https://github.com/benct/lovelace-multiple-entity-row)

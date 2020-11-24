@@ -1,0 +1,74 @@
+---
+title: Vacuum
+icon: 'mdi:robot-vacuum'
+panel: false
+path: vacuum
+badges: []
+cards:
+
+  # Input
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Vacuum
+        icon: 'mdi:robot-vacuum'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.vacuum_view
+            options: vacuum
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.vacuum_view'].state == 'vacuum')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.vacuum_view'].state == 'vacuum')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+      - type: custom:button-card
+        template: custom_icon_name
+        name: Map
+        icon: 'mdi:home-map-marker'
+        tap_action:
+          action: call-service
+          service: input_select.set_options
+          service_data:
+            entity_id: input_select.vacuum_view
+            options: map
+        styles:
+          card:
+            - color: >
+                [[[
+                  if (states['input_select.vacuum_view'].state == 'map')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+          icon:
+            - color: >
+                [[[
+                  if (states['input_select.vacuum_view'].state == 'map')
+                    return '#00b59d';
+                  return 'white';
+                ]]]
+
+  # Views
+  - type: 'custom:state-switch'
+    entity: input_select.vacuum_view
+    states:
+
+      vacuum:
+        type: custom:vacuum-card
+        entity: vacuum.vacuum
+
+      map:
+        type: custom:xiaomi-vacuum-map-card
+        entity: vacuum.xiaomi_vacuum

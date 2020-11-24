@@ -44,6 +44,11 @@ media_view:
     - spotify
   initial: tv
 
+vacuum_view:
+  options:
+    - vacuum
+    - map
+
 sys_view:
   options:
     - rspi
