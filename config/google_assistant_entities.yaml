@@ -50,11 +50,15 @@ climate.living_ac:
   room: Living
 
 media_player.living_tv:
-  name: "Television living"
+  name: "Televisión living"
   aliases:
     - "Living"
     - "Teve living"
     - "Tele living"
+  room: Living
+
+vacuum.vacuum:
+  name: Aspiradora
   room: Living
 
 # Kitchen
@@ -124,10 +128,10 @@ fan.sonoff_1000954850:
   room: Dormitorio
 
 media_player.bedroom_tv:
-  name: "Television dormitorio"
+  name: "Televisión dormitorio"
   aliases:
     - "Dormitorio"
-    - "Television pieza"
+    - "Televisión pieza"
     - "Teve dormitorio"
     - "Teve pieza"
     - "Tele dormitorio"
