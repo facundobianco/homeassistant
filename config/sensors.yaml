@@ -225,12 +225,6 @@
       unit_of_measurement: "hours"
       icon_template: mdi:weather-sunny
       value_template: "{{ state_attr('sensor.astronomy_api', 'day_length') }}"
-    moonrise:
-      friendly_name: Moonrise
-      value_template: "{{ state_attr('sensor.astronomy_api', 'moonrise') }}"
-    moonset:
-      friendly_name: Moonset
-      value_template: "{{ state_attr('sensor.astronomy_api', 'moonset') }}"
     moon_status:
       friendly_name: Moon status
       icon_template: mdi:moon-waning-crescent
@@ -238,6 +232,11 @@
       attribute_templates:
         moonrise: "{{ state_attr('sensor.astronomy_api', 'moonrise') }}"
         moonset: "{{ state_attr('sensor.astronomy_api', 'moonset') }}"
+        lunarnoon: >
+          {% set moonrise = as_timestamp(now().strftime('%F ' + state_attr('sensor.astronomy_api', 'moonrise') + ':00.000000-03:00')) %}
+          {% set moonset =  as_timestamp((now() + timedelta(hours=24)).strftime('%F ' + state_attr('sensor.astronomy_api', 'moonset') + ':00.000000-03:00')) %}
+          {% set diff = ( moonset - moonrise ) / 2 %}
+          {{ ( moonrise + diff ) | timestamp_custom('%R') }}
     moon_elevation:
       friendly_name: Moon elevation
       unit_of_measurement: "deg"

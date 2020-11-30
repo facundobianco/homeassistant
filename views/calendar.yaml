@@ -137,6 +137,8 @@ cards:
               entities:
                 - attribute: moonrise
                   name: Moonrise
+                - attribute: lunarnoon
+                  name: Lunar noon
                 - attribute: moonset
                   name: Moonset
             - type: custom:multiple-entity-row
