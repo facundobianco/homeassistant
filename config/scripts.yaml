@@ -72,6 +72,16 @@ broadlink_fav_volver:
 
 radio_station:
   sequence:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: >
+          {% if is_state('input_select.speakers', 'Living') %} media_player.living
+          {% elif is_state('input_select.speakers', 'Chromecast') %} media_player.chromecast
+          {% elif is_state('input_select.speakers', 'Kitchen') %} media_player.cocina
+          {% elif is_state('input_select.speakers', 'Bedroom') %} media_player.dormitorio
+          {% elif is_state('input_select.speakers', 'Everywhere') %} group.everywhere_speakers
+          {% endif %}
+        volume_level: "{{ states('input_number.volume_speaker')  }}"
     - service: media_player.play_media
       data_template:
         entity_id: >
