@@ -67,3 +67,7 @@
 - switch.sonoff_10008508fb # thermotank
 - climate.living_ac
 - climate.dormitorio_ac
+
+# deg
+- sensor.sun_elevation_wo_neg
+- sensor.moon_elevation_wo_neg

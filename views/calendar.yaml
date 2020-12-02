@@ -149,18 +149,3 @@ cards:
               entities:
                 - entity: sensor.sun_elevation
                   name: Sun
-            - type: custom:mini-graph-card
-              line_width: 3
-              hours_to_show: 48
-              hour24: true
-              points_per_hour: 0.5
-              align_header: left
-              align_icon: left
-              entities:
-                - sensor.sun_elevation_wo_neg
-                - sensor.moon_elevation_wo_neg
-              show:
-                name: false
-                icon: false
-                state: false
-                fill: false
