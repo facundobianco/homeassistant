@@ -19,6 +19,8 @@ turn_off_but_outside:
     - light.sonoff_10008504ad
     - light.sonoff_1000951aac
     - light.sonoff_1000951b70
+    - light.living
+    - light.bedroom
 
 basic_lights:
   entities:
@@ -37,14 +39,3 @@ everywhere_speakers:
     - media_player.chromecast
     - media_player.cocina
     - media_player.dormitorio
-
-hue_living:
-  entities:
-    - light.hue_color_lamp_1
-    - light.hue_color_lamp_2
-    - light.hue_color_lamp_3
-
-hue_bedroom:
-  entities:
-    - light.hue_white_lamp_1
-    - light.hue_white_lamp_2

@@ -125,8 +125,7 @@ cards:
             service: script.turn_on
             service_data:
               entity_id: script.turn_off_but_outside
-          - entity: group.hue_living
-            name: Living
+          - entity: light.living
             icon: mdi:lightbulb-multiple
           - entity: light.sonoff_1000766c93
             icon: 'mdi:floor-lamp'
@@ -134,8 +133,7 @@ cards:
             name: Cocina 1
           - entity: light.sonoff_100094ff53_2
             name: Cocina 2
-          - entity: group.hue_bedroom
-            name: Bedroom
+          - entity: light.bedroom
             icon: mdi:lightbulb-multiple
           - entity: light.sonoff_1000770cc7
             name: Mesa de luz

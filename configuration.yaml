@@ -176,5 +176,18 @@ vacuum:
     host: !secret vacuum_ip
     token: !secret vacuum_token
 
+light:
+  - platform: group
+    name: Living
+    entities:
+      - light.hue_color_lamp_1
+      - light.hue_color_lamp_2
+      - light.hue_color_lamp_3
+  - platform: group
+    name: Bedroom
+    entities:
+      - light.hue_white_lamp_1
+      - light.hue_white_lamp_2
+
 logger:
   default: critical
