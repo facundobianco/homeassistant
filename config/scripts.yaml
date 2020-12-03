@@ -3,6 +3,10 @@ turn_off_but_outside:
     - service: light.turn_off
       data:
         entity_id: group.turn_off_but_outside
+    - service: hue.hue_activate_scene
+      data:
+        group_name: Living
+        scene_name: "Luz nocturna"
 
 broadlink_send_command:
   sequence:

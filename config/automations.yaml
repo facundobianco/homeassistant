@@ -25,7 +25,9 @@
     offset: '+00:00:00'
   action:
     service: light.turn_off
-    entity_id: light.sonoff_1000950368_2
+    entity_id:
+      - light.sonoff_1000950368_2
+      - light.living
 
 # Sunset
 - alias: Sunset
@@ -407,3 +409,15 @@
   action:
     service: light.turn_on
     entity_id: light.sonoff_1000954850_1
+
+- alias: Turn on night light
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: Living
+        scene_name: "Luz nocturna"
+    - service: light.turn_off
+      entity_id: light.sonoff_1000766c93
