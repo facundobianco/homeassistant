@@ -113,25 +113,6 @@ cards:
             name: RAM
           - entity: sensor.cpu_temperature
             name: Temperature
-          # Networking
-          - type: custom:multiple-entity-row
-            entity: sensor.network_out_enxb827eb6e8e2c
-            name: Networking
-            state_header: TX
-            entities:
-              - entity: sensor.network_in_enxb827eb6e8e2c
-                name: RX
-          # Speedtest
-          - type: custom:multiple-entity-row
-            entity: sensor.speedtest_upload
-            name: Speedtest
-            secondary_info:
-              entity: sensor.speedtest_ping
-              name: false
-            state_header: TX
-            entities:
-              - entity: sensor.speedtest_download
-                name: RX
 
       pihole:
         type: entities

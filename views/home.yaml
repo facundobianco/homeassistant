@@ -213,20 +213,15 @@ cards:
             name: Misc
             icon: mdi:power-socket-au
           - type: divider
-          - entity: switch.sonoff_10008508fb
+          - type: custom:multiple-entity-row
+            entity: switch.sonoff_10008508fb
             name: Termotanque
             icon: 'mdi:water-boiler'
-          - entity: input_boolean.wb_auto_trigger
-          - type: custom:multiple-entity-row
-            entity: sensor.temp_min_max
-            name: Temperature
-            icon: mdi:thermometer
-            show_state: false
+            toggle: true
             entities:
-              - attribute: min_value
-                name: Min
-              - attribute: max_value
-                name: Max
+              - entity: sensor.termotanque_temperatura
+                name: false
+          - entity: input_boolean.wb_auto_trigger
 
       vacuum:
         type: custom:vacuum-card

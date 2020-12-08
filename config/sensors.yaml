@@ -10,18 +10,6 @@
       arg: /
     - type: disk_use_percent
       arg: /var/log
-    - type: network_in
-      arg: !secret ethernet
-    - type: network_out
-      arg: !secret ethernet
-    - type: throughput_network_in
-      arg: !secret ethernet
-    - type: throughput_network_out
-      arg: !secret ethernet
-    - type: packets_in
-      arg: !secret ethernet
-    - type: packets_out
-      arg: !secret ethernet
 
 - platform: template
   sensors:
@@ -371,10 +359,3 @@
   json_attributes:
     - bluray
     - television
-
-# Min-max
-- platform: min_max
-  name: temp_min_max
-  round_digits: 1
-  entity_ids:
-    - sensor.termotanque_temperatura

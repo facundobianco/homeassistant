@@ -164,12 +164,6 @@ media_player:
     controller_data: remote.bedroom_remote
     power_sensor: binary_sensor.tv_power
 
-# Speedtest.net against Movistar
-speedtestdotnet:
-  server_id: 7696
-  scan_interval:
-    minutes: 75
-
 vacuum:
   - platform: xiaomi_miio
     name: Vacuum
