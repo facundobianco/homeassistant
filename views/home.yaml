@@ -142,7 +142,7 @@ cards:
           - entity: light.sonoff_1000951aac
             name: WC
           - light.sonoff_1000951b70
-          - light.sonoff_1000950368_2
+          - light.outdoor
 
       ac:
         type: entities

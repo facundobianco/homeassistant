@@ -166,7 +166,7 @@ sensor.deposito_temperatura:
   room: Stockroom
 
 # Misc
-light.sonoff_1000950368_2:
+light.outdoor:
   name: "Exterior"
   aliases:
     - "Luz exterior"

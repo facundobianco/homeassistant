@@ -10,10 +10,6 @@
   device_class: light
   name: Luz pasillo
 
-1000950368:
-  device_class: [ light, light ]
-  name: Living
-
 100094ff53:
   device_class: [ light, light ]
   name: Cocina
