@@ -3,7 +3,6 @@ home_view:
     - lights
     - ac
     - plugs
-    - vacuum
   initial: lights
 
 weather_view:
