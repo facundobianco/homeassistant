@@ -256,8 +256,8 @@ cards:
           - type: divider
           - type: custom:vacuum-card
             style: |
-              ha-card .preview {
-                background-color: var(--secondary-background-color);
+              ha-card .preview, .toolbar {
+                background: var(--ha-card-background);
               }
             entity: vacuum.vacuum
             compact_view: true
