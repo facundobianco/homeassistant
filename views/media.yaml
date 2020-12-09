@@ -60,32 +60,6 @@ cards:
                     return '#00b59d';
                   return 'white';
                 ]]]
-      - type: custom:button-card
-        template: custom_icon_name
-        name: Spotify
-        icon: mdi:spotify
-        tap_action:
-          action: call-service
-          service: input_select.set_options
-          service_data:
-            entity_id: input_select.media_view
-            options: spotify
-        styles:
-          card:
-            - color: >
-                [[[
-                  if (states['input_select.media_view'].state == 'spotify')
-                    return '#00b59d';
-                  return 'white';
-                ]]]
-          icon:
-            - color: >
-                [[[
-                  if (states['input_select.media_view'].state == 'spotify')
-                    return '#00b59d';
-                  return 'white';
-                ]]]
-
 
   # Views
   - type: 'custom:state-switch'
@@ -626,8 +600,3 @@ cards:
           - type: entities
             entities:
               - input_number.volume_speaker
-
-      spotify:
-        type: entities
-        entities:
-          - media_player.spotify

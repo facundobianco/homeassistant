@@ -40,7 +40,6 @@ media_view:
     - tv_favs
     - tv_numeric
     - radio
-    - spotify
   initial: tv
 
 sys_view:
