@@ -103,8 +103,8 @@ And upgrade it
 
 ```
 pihole -up
-sed -i '/^server.port/s/80/&80/' /etc/lighttpd/lighttpd.conf
-systemctl start lighttpd
+sed -ie '/^server.port/s/80/&80/' -e '/X-Frame-Options/s/DENY/ALLOW/' /etc/lighttpd/lighttpd.conf
+systemctl restart lighttpd
 ```
 
 ### Certbot SSL
