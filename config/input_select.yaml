@@ -35,13 +35,6 @@ media_view:
     - radio
   initial: tv
 
-sys_view:
-  options:
-    - rspi
-    - pihole
-    - pkgs
-  initial: rspi
-
 radio_station:
   name: 'Select Radio Station:'
   options:

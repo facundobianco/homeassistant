@@ -142,18 +142,6 @@
     pihole_ftl_latest:
       value_template: "{{ state_attr('sensor.pihole_versions', 'FTL_latest') | replace('v','') }}"
 
-# Github
-- platform: github
-  access_token: !secret hacs_token
-  repositories:
-    - path: 'RetroPie/RetroPie-Setup'
-
-- platform: template
-  sensors:
-    retropie_setup_latest:
-      friendly_name: RetroPie
-      value_template: "{{ state_attr('sensor.retropie_setup', 'latest_release_tag') }}"
-
 # Date
 - platform: moon
 
