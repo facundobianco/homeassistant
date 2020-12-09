@@ -117,9 +117,9 @@ Will be added:
 * [Button Card](https://github.com/custom-cards/button-card)
 * [state-switch](https://github.com/thomasloven/lovelace-state-switch)
 * [multiple-entity-row](https://github.com/benct/lovelace-multiple-entity-row)
-* [Atomic Calendar Revive](https://github.com/marksie1988/atomic-calendar-revive)
 * [Simple thermostat card](https://github.com/nervetattoo/simple-thermostat)
 * [Vacuum Card](https://github.com/denysdovhan/vacuum-card)
+* [card-mod](https://github.com/thomasloven/lovelace-card-mod) (required to [modify background color](https://community.home-assistant.io/t/193638/25) in Vacuum Card)
 
 ## Themes
 
