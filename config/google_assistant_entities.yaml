@@ -1,9 +1,14 @@
 # https://www.home-assistant.io/integrations/google_assistant/#configuration
 
 # Ignore
+# ------
+
+# iFan03
 fan.bedroom_fan:
   expose: false
 fan.dormitorio:
+  expose: false
+light.sonoff_1000954850_1:
   expose: false
 # POW
 switch.sonoff_1000854c6a:
@@ -17,14 +22,40 @@ switch.sonoff_100091d007_1:
 # Dual 2/2
 switch.sonoff_100091d007_2:
   expose: false
-# Basic R2 (C3)
-switch.sonoff_100076dd3e:
+# Hue lights
+light.hue_color_lamp_1:
   expose: false
+light.hue_color_lamp_2:
+  expose: false
+light.hue_color_lamp_3:
+  expose: false
+light.hue_color_lamp_4:
+  expose: false
+light.hue_white_lamp_1:
+  expose: false
+light.hue_white_lamp_2:
+  expose: false
+light.living_2:
+  expose: false
+light.bedroom_2:
+  expose: false
+# Misc
 switch.pihole:
+  expose: false
+switch.media_player_speaker:
+  expose: false
+# Unavailable
+switch.sonoff_1000950368_1:
+  expose: false
+light.sonoff_1000950368_1:
+  expose: false
+switch.sonoff_1000950368_2:
+  expose: false
+light.sonoff_1000950368_2:
   expose: false
 
 # Living
-light.sonoff_1000950368_1:
+light.living:
   name: "Luz del techo living"
   aliases:
     - "Luz"
@@ -97,7 +128,7 @@ sensor.termotanque_temperatura:
   room: Cocina
 
 # Bedroom
-light.sonoff_1000954850_1:
+light.bedroom:
   name: "Luz del dormitorio"
   aliases:
     - "Dormitorio"
@@ -166,6 +197,8 @@ sensor.deposito_temperatura:
   room: Stockroom
 
 # Misc
+switch.sonoff_100076dd3e:
+  expose: false
 light.outdoor:
   name: "Exterior"
   aliases:
