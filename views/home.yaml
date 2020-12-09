@@ -125,16 +125,78 @@ cards:
             service: script.turn_on
             service_data:
               entity_id: script.turn_off_but_outside
-          - entity: light.living
+          - type: custom:multiple-entity-row
+            entity: light.living
             icon: mdi:lightbulb-multiple
+            toggle: true
+            entities:
+              - icon: mdi:book-open-page-variant
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Living
+                    scene_name: Lectura
+              - icon: mdi:brightness-5
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Living
+                    scene_name: Energía
+              - icon: mdi:palm-tree
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Living
+                    scene_name: "Palm Beach"
+              - icon: mdi:weather-night
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Living
+                    scene_name: "Luz nocturna"
           - entity: light.sonoff_1000766c93
             icon: 'mdi:floor-lamp'
           - entity: light.sonoff_100094ff53_1
             name: Cocina 1
           - entity: light.sonoff_100094ff53_2
             name: Cocina 2
-          - entity: light.bedroom
+          - type: custom:multiple-entity-row
+            entity: light.bedroom
             icon: mdi:lightbulb-multiple
+            toggle: true
+            entities:
+              - icon: mdi:brightness-5
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Bedroom
+                    scene_name: Luminosa
+              - icon: mdi:brightness-6
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Bedroom
+                    scene_name: Atenuada
+              - icon: mdi:weather-night
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Bedroom
+                    scene_name: "Luz nocturna"
           - entity: light.sonoff_1000770cc7
             name: Mesa de luz
             icon: 'mdi:lamp'
