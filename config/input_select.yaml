@@ -5,18 +5,11 @@ home_view:
     - plugs
   initial: lights
 
-weather_view:
-  options:
-    - local
-    - forecast
-  initial: local
-
 cal_view:
   options:
-    - google
+    - weather
     - aleph
-    - sun-n-moon
-  initial: google
+  initial: weather
 
 ac_location:
   name: AC Location
