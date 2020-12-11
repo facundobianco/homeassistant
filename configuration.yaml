@@ -171,6 +171,10 @@ light:
       - light.hue_color_lamp_3
       - light.hue_color_lamp_4
   - platform: group
+    name: Hallway
+    entities:
+      - light.hue_color_lamp_5
+  - platform: group
     name: Bedroom
     entities:
       - light.hue_white_lamp_1

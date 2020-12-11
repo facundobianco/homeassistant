@@ -7,6 +7,10 @@ turn_off_but_outside:
       data:
         group_name: Living
         scene_name: "Luz nocturna"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: Hallway
+        scene_name: "Luz nocturna"
 
 broadlink_send_command:
   sequence:

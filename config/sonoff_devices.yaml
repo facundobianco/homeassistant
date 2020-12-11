@@ -6,10 +6,6 @@
   device_class: light
   name: Mesa de luz
 
-10008504ad:
-  device_class: light
-  name: Luz pasillo
-
 100094ff53:
   device_class: [ light, light ]
   name: Cocina
