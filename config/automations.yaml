@@ -28,6 +28,7 @@
     entity_id:
       - light.outdoor
       - light.living
+      - light.hallway
 
 # Sunset
 - alias: Sunset

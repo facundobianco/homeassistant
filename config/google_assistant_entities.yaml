@@ -205,7 +205,7 @@ light.outdoor:
     - "Luz exterior"
   room: Outside
 
-light.sonoff_10008504ad:
+light.hallway:
   name: "Luz pasillo"
   aliases:
     - "Pasillo"
