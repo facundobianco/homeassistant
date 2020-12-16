@@ -53,5 +53,5 @@ speakers:
     - Kitchen
     - Bedroom
     - Everywhere
-  initial: Living
+  initial: Kitchen
   icon: mdi:speaker-wireless
