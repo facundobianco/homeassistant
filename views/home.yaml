@@ -172,9 +172,35 @@ cards:
                   service_data:
                     group_name: Bedroom
                     scene_name: "Luz nocturna"
-          - entity: light.sonoff_1000770cc7
-            name: Mesa de luz
+          - type: custom:multiple-entity-row
+            entity: light.table_lamp
             icon: 'mdi:lamp'
+            toggle: true
+            entities:
+              - icon: mdi:brightness-5
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: "Table lamp"
+                    scene_name: Luminosa
+              - icon: mdi:brightness-6
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: "Table lamp"
+                    scene_name: Atenuada
+              - icon: mdi:weather-night
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: "Table lamp"
+                    scene_name: "Luz nocturna"
           - type: custom:multiple-entity-row
             entity: light.hallway
             toggle: true

@@ -6,7 +6,6 @@ sunset_lights:
   entities:
     - light.outdoor
     - light.sonoff_1000766c93
-    - light.hallway
     - light.sonoff_1000770cc7
 
 turn_off_but_outside:
@@ -18,12 +17,14 @@ turn_off_but_outside:
     - light.sonoff_100094ff53_2
     - light.sonoff_1000951aac
     - light.sonoff_1000951b70
+    - light.living
     - light.bedroom
 
 basic_lights:
   entities:
     - light.sonoff_1000766c93
     - light.hallway
+    - light.table_lamp
 
 melacha_lights:
   entities:

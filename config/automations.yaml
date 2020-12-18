@@ -29,6 +29,7 @@
       - light.outdoor
       - light.living
       - light.hallway
+      - light.table_lamp
 
 # Sunset
 - alias: Sunset
@@ -37,8 +38,35 @@
     event: sunset
     offset: "-00:45:00"
   action:
-    service: light.turn_on
-    entity_id: group.sunset_lights
+    - service: light.turn_on
+      entity_id: group.sunset_lights
+    - service: hue.hue_activate_scene
+      data:
+        group_name: Hallway
+        scene_name: Atenuada
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Table lamp"
+        scene_name: Atenuada
+
+# Midnight
+- alias: Midnight
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: Hallway
+        scene_name: "Luz nocturna"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Table lamp"
+        scene_name: "Luz nocturna"
+    - service: light.turn_off
+      entity_id:
+        - light.living
+        - light.sonoff_1000766c93
 
 # Manage lights with melacha in effect
 - alias: Not enough light
@@ -387,18 +415,6 @@
           "Son las {{ as_timestamp(now()) |  timestamp_custom("%I") }} en punto"
 
 # Philips Hue
-- alias: Keep Living's light on
-  trigger:
-    platform: time_pattern
-    seconds: "/15"
-  condition:
-    condition: state
-    entity_id: light.sonoff_1000950368_1
-    state: 'off'
-  action:
-    service: light.turn_on
-    entity_id: light.sonoff_1000950368_1
-
 - alias: Keep Bedroom's light on
   trigger:
     platform: time_pattern
@@ -410,15 +426,3 @@
   action:
     service: light.turn_on
     entity_id: light.sonoff_1000954850_1
-
-- alias: Turn on night light
-  trigger:
-    platform: time
-    at: '00:00:00'
-  action:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: Living
-        scene_name: "Luz nocturna"
-    - service: light.turn_off
-      entity_id: light.sonoff_1000766c93
