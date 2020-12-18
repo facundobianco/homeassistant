@@ -106,6 +106,37 @@
       - light.sonoff_100094ff53_2
       - light.sonoff_1000951aac
 
+# AC & Melacha
+- alias: Turn off AC when melacha is on
+  trigger:
+    platform: time
+    at:
+      - '10:00:00'
+      - '20:00:00'
+  condition:
+    condition: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    state: 'on'
+  action:
+    service: climate.turn_off
+    data:
+      entity_id: climate.living_ac
+
+- alias: Turn on AC when melacha is on
+  trigger:
+    platform: time
+    at: '00:00:00'
+  condition:
+    condition: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    state: 'on'
+  action:
+    service: climate.set_temperature
+    data:
+      entity_id: climate.living_ac
+      temperature: 22
+      hvac_mode: cool
+
 # Water boiler
 - alias: Turn on water boiler
   trigger:
