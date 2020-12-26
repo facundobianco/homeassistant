@@ -63,12 +63,12 @@
       friendly_name: Temperatura dormitorio
       device_class: temperature
       unit_of_measurement: '°C'
-      value_template: "{{ state_attr('light.sonoff_10008504ad', 'temperature') | round(1) }}"
+      value_template: "{{ state_attr('switch.sonoff_10008504ad', 'temperature') | round(1) }}"
     dormitorio_humedad:
       friendly_name: Humedad dormitorio
       device_class: humidity
       unit_of_measurement: '%'
-      value_template: "{{ state_attr('light.sonoff_10008504ad', 'humidity') }}"
+      value_template: "{{ state_attr('switch.sonoff_10008504ad', 'humidity') }}"
     termotanque_temperatura:
       friendly_name: Temperatura termotanque
       device_class: temperature
