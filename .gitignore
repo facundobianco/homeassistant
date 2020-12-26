@@ -18,6 +18,7 @@ deps/
 tts/
 www/
 scenes.yaml
+blueprints/
 views/foo/
 views/testing.yaml
 views/thermo.yaml
