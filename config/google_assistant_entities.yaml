@@ -10,18 +10,23 @@ fan.dormitorio:
   expose: false
 light.sonoff_1000954850_1:
   expose: false
-# POW
+
+# Switches
 switch.sonoff_1000854c6a:
   expose: false
-# TH16 kitchen
 switch.sonoff_100085067c:
   expose: false
-# Dual 1/2
 switch.sonoff_100091d007_1:
   expose: false
-# Dual 2/2
 switch.sonoff_100091d007_2:
   expose: false
+switch.sonoff_10008504ad:
+  expose: false
+switch.pihole:
+  expose: false
+switch.media_player_speaker:
+  expose: false
+
 # Hue lights
 light.hue_color_lamp_1:
   expose: false
@@ -31,6 +36,10 @@ light.hue_color_lamp_3:
   expose: false
 light.hue_color_lamp_4:
   expose: false
+light.hue_color_lamp_5:
+  expose: false
+light.hue_color_lamp_5_2:
+  expose: false
 light.hue_white_lamp_1:
   expose: false
 light.hue_white_lamp_2:
@@ -39,11 +48,7 @@ light.living_2:
   expose: false
 light.bedroom_2:
   expose: false
-# Misc
-switch.pihole:
-  expose: false
-switch.media_player_speaker:
-  expose: false
+
 # Unavailable
 switch.sonoff_1000950368_1:
   expose: false
@@ -52,6 +57,10 @@ light.sonoff_1000950368_1:
 switch.sonoff_1000950368_2:
   expose: false
 light.sonoff_1000950368_2:
+  expose: false
+light.sonoff_1000770cc7:
+  expose: false
+light.sonoff_10008504ad:
   expose: false
 
 # Living
@@ -156,9 +165,11 @@ light.bedroom:
     - "Luz principal"
   room: Dormitorio
 
-light.sonoff_1000770cc7:
-  name: "Mesa de luz"
+light.table_lamp:
+  name: "Velador"
   aliases:
+    - "Velador dormitorio"
+    - "Mesa de luz"
     - "Lámpara dormitorio"
   room: Dormitorio
 
