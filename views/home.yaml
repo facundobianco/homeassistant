@@ -308,12 +308,15 @@ cards:
                 name: false
           - entity: input_boolean.wb_auto_trigger
           - type: divider
-          - entity: switch.160505002cf432c53e7b
-            name: Air Fryer
-            icon: mdi:power-socket-au
+          - entity: switch.160505002cf432c55139
+            name: Behind couch (SP03)
+            icon: mdi:sofa-outline
           - entity: switch.160505002cf432c569cb
-            name: Misc
-            icon: mdi:power-socket-au
+            name: Near dresser (SP01)
+            icon: mdi:dresser-outline
+          - entity: switch.160505002cf432c53e7b
+            name: Near microwave (SP02)
+            icon: mdi:microwave
           - type: divider
           - type: custom:vacuum-card
             style: |

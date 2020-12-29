@@ -92,6 +92,16 @@ vacuum.vacuum:
   name: Aspiradora
   room: Living
 
+switch.160505002cf432c55139:
+  name: "Smart Plug 03"
+  aliases:
+    - "Smart Plug 3"
+    - "Toma 03"
+    - "Toma 3"
+    - "Enchufe sofá"
+    - "Enchufe detrás del sofá"
+  room: Living
+
 # Kitchen
 light.sonoff_100094ff53_1:
   name: "Luz principal"
@@ -125,6 +135,16 @@ sensor.termotanque_temperatura:
   name: "Termotanque"
   aliases:
     - "Temperatura termotanque"
+  room: Cocina
+
+switch.160505002cf432c53e7b:
+  name: "Smart Plug 02"
+  aliases:
+    - "Smart Plug 2"
+    - "Toma 02"
+    - "Toma 2"
+    - "Enchufe cocina"
+    - "Enchufe debajo del microondas"
   room: Cocina
 
 # Bedroom
@@ -167,6 +187,15 @@ media_player.bedroom_tv:
     - "Teve pieza"
     - "Tele dormitorio"
     - "Tele pieza"
+  room: Dormitorio
+
+switch.160505002cf432c569cb:
+  name: "Smart Plug 01"
+  aliases:
+    - "Smart Plug 1"
+    - "Toma 01"
+    - "Toma 1"
+    - "Enchufe dormitorio"
   room: Dormitorio
 
 # WC
