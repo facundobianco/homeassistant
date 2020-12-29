@@ -9,23 +9,20 @@ cards:
   - type: entities
     entities:
       - sensor.uptime
-      - type: custom:multiple-entity-row
-        entity: sensor.cert_expiry
-        name: SSL Cert expiry
-        state_header: In
-        entities:
-          - entity: sensor.cert_expiry_timestamp_custom
-            name: When
       - entity: sensor.disk_use_percent
         icon: 'mdi:micro-sd'
         name: /
       - entity: sensor.disk_use_percent_var_log
         icon: 'mdi:micro-sd'
         name: /var/log
-      - entity: sensor.processor_use
-        name: Processor
-      - entity: sensor.memory_use_percent
-        name: RAM
+      - type: custom:multiple-entity-row
+        name: Consumption
+        icon: mdi:desktop-classic
+        state_header: CPU
+        entity: sensor.processor_use
+        entities:
+          - entity: sensor.memory_use_percent
+            name: Memory
       - entity: sensor.cpu_temperature
         name: Temperature
       - type: divider
