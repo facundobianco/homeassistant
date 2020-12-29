@@ -102,11 +102,13 @@ vacuum.vacuum:
   room: Living
 
 switch.160505002cf432c55139:
-  name: "Smart Plug 03"
+  name: "Enchufe living"
   aliases:
+    - "Smart Plug 03"
     - "Smart Plug 3"
     - "Toma 03"
     - "Toma 3"
+    - "Toma living"
     - "Enchufe sofá"
     - "Enchufe detrás del sofá"
   room: Living
@@ -147,12 +149,13 @@ sensor.termotanque_temperatura:
   room: Cocina
 
 switch.160505002cf432c53e7b:
-  name: "Smart Plug 02"
+  name: "Enchufe cocina"
   aliases:
+    - "Smart Plug 02"
     - "Smart Plug 2"
     - "Toma 02"
     - "Toma 2"
-    - "Enchufe cocina"
+    - "Toma cocina"
     - "Enchufe debajo del microondas"
   room: Cocina
 
@@ -201,12 +204,13 @@ media_player.bedroom_tv:
   room: Dormitorio
 
 switch.160505002cf432c569cb:
-  name: "Smart Plug 01"
+  name: "Enchufe dormitorio"
   aliases:
+    - "Smart Plug 01"
     - "Smart Plug 1"
     - "Toma 01"
     - "Toma 1"
-    - "Enchufe dormitorio"
+    - "Toma dormitorio"
   room: Dormitorio
 
 # WC
