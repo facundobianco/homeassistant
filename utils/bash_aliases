@@ -1,0 +1,7 @@
+alias ha-start="sudo systemctl start homeassistant"
+alias ha-stop="sudo systemctl stop homeassistant"
+alias ha-status="sudo systemctl status homeassistant"
+alias ha-restart="curl -so /dev/null -X POST -H \"Authorization: Bearer ${TOKN}\" http://localhost:8123/api/services/homeassistant/restart" 
+alias ha-log="tail -f /var/log/home-assistant.log"
+alias ha-activate="source ~/virtualenv/bin/activate"
+alias ha-upgrade="time pip install --upgrade homeassistant"

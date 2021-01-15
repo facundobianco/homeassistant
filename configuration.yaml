@@ -79,6 +79,10 @@ homeassistant:
   elevation: !secret ha_ele
   auth_mfa_modules:
     - type: totp
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.1.0/24
 
 influxdb:
   exclude:
@@ -187,3 +191,7 @@ rest_command:
 
 logger:
   default: critical
+  logs:
+    homeassistant.components.rest_command.hue: debug
+    homeassistant.components.script.hue: debug
+    homeassistant.components.script.hue_palmbeach: debug
