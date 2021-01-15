@@ -179,5 +179,11 @@ light:
     name: Outdoor
     entity_id: switch.sonoff_100076dd3e
 
+rest_command:
+  hue:
+    url: "{{ states('input_text.hue_url') }}/{{ resource }}/{{ name }}/{{ 'action' if (resource=='groups') else 'state' }}"
+    method: PUT
+    payload: "{{ payload }}"
+
 logger:
   default: critical

@@ -109,34 +109,31 @@ cards:
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: Living
-                    scene_name: Lectura
+                    name: living
+                    mode: reading
               - icon: mdi:brightness-5
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: Living
-                    scene_name: Energía
+                    name: living
+                    mode: white
               - icon: mdi:palm-tree
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
-                  service_data:
-                    group_name: Living
-                    scene_name: "Palm Beach"
+                  service: script.hue_palmbeach
               - icon: mdi:weather-night
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: Living
-                    scene_name: "Luz nocturna"
+                    name: living
+                    mode: night
           - entity: light.sonoff_1000766c93
             icon: 'mdi:floor-lamp'
           - entity: light.sonoff_100094ff53_1
@@ -152,26 +149,26 @@ cards:
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: Bedroom
-                    scene_name: Luminosa
+                    name: bedroom
+                    mode: white
               - icon: mdi:brightness-6
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: Bedroom
-                    scene_name: Atenuada
+                    name: bedroom
+                    mode: calm
               - icon: mdi:weather-night
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: Bedroom
-                    scene_name: "Luz nocturna"
+                    name: bedroom
+                    mode: night
           - type: custom:multiple-entity-row
             entity: light.table_lamp
             icon: 'mdi:lamp'
@@ -181,26 +178,26 @@ cards:
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: "Table lamp"
-                    scene_name: Luminosa
+                    name: tablelamp
+                    mode: white
               - icon: mdi:brightness-6
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: "Table lamp"
-                    scene_name: Atenuada
+                    name: tablelamp
+                    mode: calm
               - icon: mdi:weather-night
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: "Table lamp"
-                    scene_name: "Luz nocturna"
+                    name: tablelamp
+                    mode: night
           - type: custom:multiple-entity-row
             entity: light.hallway
             toggle: true
@@ -209,34 +206,26 @@ cards:
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: Hallway
-                    scene_name: Luminosa
+                    name: hallway
+                    mode: white
               - icon: mdi:brightness-6
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: Hallway
-                    scene_name: Atenuada
-              - icon: mdi:palm-tree
-                state_color: false
-                tap_action:
-                  action: call-service
-                  service: hue.hue_activate_scene
-                  service_data:
-                    group_name: Hallway
-                    scene_name: "Palm Beach"
+                    name: hallway
+                    mode: calm
               - icon: mdi:weather-night
                 state_color: false
                 tap_action:
                   action: call-service
-                  service: hue.hue_activate_scene
+                  service: script.hue
                   service_data:
-                    group_name: Hallway
-                    scene_name: "Luz nocturna"
+                    name: hallway
+                    mode: night
           - entity: light.sonoff_1000951aac
             name: WC
           - light.sonoff_1000951b70

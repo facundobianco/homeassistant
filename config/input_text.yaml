@@ -11,3 +11,6 @@ utc_offset:
 
 ipgeolocation_token:
   initial: !secret ipgeolocation_token
+
+hue_url:
+  initial: !secret hue_url
