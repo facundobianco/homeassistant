@@ -191,7 +191,3 @@ rest_command:
 
 logger:
   default: critical
-  logs:
-    homeassistant.components.rest_command.hue: debug
-    homeassistant.components.script.hue: debug
-    homeassistant.components.script.hue_palmbeach: debug

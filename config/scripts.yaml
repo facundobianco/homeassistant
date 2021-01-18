@@ -22,22 +22,22 @@ hue_palmbeach:
       data:
         resource: lights
         name: 1
-        payload: { "on": true, "bri": 53, "hue": 36970, "sat": 242, "effect": "none", "xy": [ 0.1715, 0.3561 ], "ct": 153 }
+        payload: '{ "on": true, "bri": 53, "hue": 36970, "sat": 242, "xy": [ 0.1715, 0.3561 ], "ct": 153 }'
     - service: rest_command.hue
       data:
         resource: lights
         name: 2
-        payload: { "on": true, "bri": 69, "hue": 10984, "sat": 228, "effect": "none", "xy": [ 0.4588, 0.4662 ], "ct": 366 }
+        payload: '{ "on": true, "bri": 69, "hue": 10984, "sat": 228, "xy": [ 0.4588, 0.4662 ], "ct": 366 }'
     - service: rest_command.hue
       data:
         resource: lights
         name: 3
-        payload: { "on": true, "bri": 53, "hue": 61079, "sat": 119, "effect": "none", "xy": [ 0.4652, 0.3152 ], "ct": 379 }
+        payload: '{ "on": true, "bri": 53, "hue": 61079, "sat": 119, "xy": [ 0.4652, 0.3152 ], "ct": 379 }'
     - service: rest_command.hue
       data:
         resource: lights
         name: 6
-        payload: { "on": true, "bri": 53, "hue": 48749, "sat": 199, "effect": "none", "xy": [ 0.24, 0.1371 ], "ct": 153 }
+        payload: '{ "on": true, "bri": 53, "hue": 48749, "sat": 199, "xy": [ 0.24, 0.1371 ], "ct": 153 }'
 
 turn_off_but_outside:
   sequence:
