@@ -40,14 +40,14 @@
   action:
     - service: light.turn_on
       entity_id: group.sunset_lights
-    - service: hue.hue_activate_scene
+    - service: script.hue
       data:
-        group_name: Hallway
-        scene_name: Atenuada
-    - service: hue.hue_activate_scene
+        name: hallway
+        mode: calm
+    - service: script.hue
       data:
-        group_name: "Table lamp"
-        scene_name: Atenuada
+        name: tablelamp
+        mode: calm
 
 # Midnight
 - alias: Midnight
@@ -55,18 +55,21 @@
     platform: time
     at: '00:00:00'
   action:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: Hallway
-        scene_name: "Luz nocturna"
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Table lamp"
-        scene_name: "Luz nocturna"
     - service: light.turn_off
       entity_id:
-        - light.living
         - light.sonoff_1000766c93
+    - service: script.hue
+      data:
+        name: living
+        mode: night
+    - service: script.hue
+      data:
+        name: hallway
+        mode: night
+    - service: script.hue
+      data:
+        name: tablelamp
+        mode: night
 
 # Manage lights with melacha in effect
 - alias: Turn off lights when melacha is off
