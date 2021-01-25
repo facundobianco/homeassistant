@@ -4,8 +4,8 @@ My personal Home Assistant (HA) configuration.
 
 ## Software
 
-* HA: 2020.12 ([details](https://www.home-assistant.io/blog/2020/12/13/release-202012/))
-* Companion App (iOS): 2020.7 (11) ([details](https://github.com/home-assistant/iOS/releases/tag/release%2F2020.7%2F11))
+* HA: 2021.1.5 ([details](https://www.home-assistant.io/blog/2021/01/23/security-disclosure2/))
+* Companion App (iOS): 2021.1.1 (9) ([details](https://github.com/home-assistant/iOS/releases/tag/release%2F2021.1.1%2F9))
 
 ![](https://media1.tenor.com/images/f2fb267ad09005a703a2347e3521fa70/tenor.gif?itemid=7288512)
 
