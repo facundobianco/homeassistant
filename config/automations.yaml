@@ -55,21 +55,7 @@
     platform: time
     at: '00:00:00'
   action:
-    - service: light.turn_off
-      entity_id:
-        - light.sonoff_1000766c93
-    - service: script.hue
-      data:
-        name: living
-        mode: night
-    - service: script.hue
-      data:
-        name: hallway
-        mode: night
-    - service: script.hue
-      data:
-        name: tablelamp
-        mode: night
+    service: script.turn_off_but_outside
 
 # Manage lights with melacha in effect
 - alias: Turn off lights when melacha is off

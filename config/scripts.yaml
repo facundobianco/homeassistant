@@ -46,6 +46,10 @@ turn_off_but_outside:
         entity_id: group.turn_off_but_outside
     - service: script.hue
       data:
+        name: living
+        mode: night
+    - service: script.hue
+      data:
         name: hallway
         mode: night
     - service: script.hue
