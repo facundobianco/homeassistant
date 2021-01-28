@@ -66,6 +66,20 @@ input_number: !include config/input_number.yaml
 input_boolean: !include config/input_boolean.yaml
 switch: !include config/switch.yaml
 
+binary_sensor:
+  - platform: workday
+    country: AR
+    add_holidays:
+      - '2021-05-24'
+      - '2021-06-21'
+      - '2021-08-16'
+      - '2021-10-11'
+      - '2021-11-22'
+    remove_holidays:
+      - '2021-06-17'
+      - '2021-08-17'
+      - '2021-10-12'
+
 mobile_app:
 ios:
   actions: !include config/ios_actions.yaml

@@ -221,6 +221,19 @@
         {% else %} 3
         {% endif %}
 
+- alias: Turn on office's AC
+  trigger:
+    platform: time
+    at: '00:08:30'
+  condition:
+    condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.sonoff_100085069c
+
 # Calendar
 - alias: Turn on lights at Shabbat veIom Tov
   trigger:
