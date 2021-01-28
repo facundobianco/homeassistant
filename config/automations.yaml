@@ -224,7 +224,7 @@
 - alias: Turn on office's AC
   trigger:
     platform: time
-    at: '00:08:30'
+    at: '08:30:00'
   condition:
     condition: state
     entity_id: binary_sensor.workday_sensor
