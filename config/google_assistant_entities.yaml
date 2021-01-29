@@ -62,6 +62,10 @@ light.sonoff_1000770cc7:
   expose: false
 light.sonoff_10008504ad:
   expose: false
+switch.sonoff_1000951b70:
+  expose: false
+light.sonoff_1000951b70:
+  expose: false
 
 # Living
 light.living:
@@ -221,7 +225,7 @@ light.sonoff_1000951aac:
   room: WC
 
 # Stockroom
-light.sonoff_1000951b70:
+light.sonoff_1000950368_1:
   name: "Luz depósito"
   aliases:
     - "Depósito"

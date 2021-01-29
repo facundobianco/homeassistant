@@ -234,6 +234,58 @@
     data:
       entity_id: switch.sonoff_100085069c
 
+- alias: From wall switch turn on office's AC
+  trigger:
+    platform: state
+    entity_id: switch.sonoff_1000950368_2
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: switch.sonoff_100085069c
+    state: 'off'
+  action:
+    service: switch.turn_on
+    entity_id: switch.sonoff_100085069c
+
+- alias: From wall switch turn off office's AC
+  trigger:
+    platform: state
+    entity_id: switch.sonoff_1000950368_2
+    to: 'off'
+  condition:
+    condition: state
+    entity_id: switch.sonoff_100085069c
+    state: 'on'
+  action:
+    service: switch.turn_off
+    entity_id: switch.sonoff_100085069c
+
+- alias: From office's AC sync to wall switch to on
+  trigger:
+    platform: state
+    entity_id: switch.sonoff_100085069c
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: switch.sonoff_1000950368_2
+    state: 'off'
+  action:
+    service: switch.turn_on
+    entity_id: switch.sonoff_1000950368_2
+
+- alias: From office's AC sync to wall switch to off
+  trigger:
+    platform: state
+    entity_id: switch.sonoff_100085069c
+    to: 'off'
+  condition:
+    condition: state
+    entity_id: switch.sonoff_1000950368_2
+    state: 'on'
+  action:
+    service: switch.turn_off
+    entity_id: switch.sonoff_1000950368_2
+
 # Calendar
 - alias: Turn on lights at Shabbat veIom Tov
   trigger:

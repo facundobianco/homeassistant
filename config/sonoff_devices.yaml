@@ -14,6 +14,6 @@
   device_class: light
   name: Bano
 
-1000951b70:
-  device_class: light
-  name: Deposito
+1000950368:
+  device_class: [ light, switch ]
+  name: Stockroom
