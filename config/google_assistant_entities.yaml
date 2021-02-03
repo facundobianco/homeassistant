@@ -52,8 +52,6 @@ light.bedroom_2:
 # Unavailable
 switch.sonoff_1000950368_1:
   expose: false
-light.sonoff_1000950368_1:
-  expose: false
 switch.sonoff_1000950368_2:
   expose: false
 light.sonoff_1000950368_2:

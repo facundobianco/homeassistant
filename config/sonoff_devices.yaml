@@ -2,17 +2,9 @@
   device_class: light
   name: Lampara pie
 
-1000770cc7:
-  device_class: light
-  name: Mesa de luz
-
 100094ff53:
   device_class: [ light, light ]
   name: Cocina
-
-1000951aac:
-  device_class: light
-  name: Bano
 
 1000950368:
   device_class: [ light, switch ]
