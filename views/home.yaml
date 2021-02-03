@@ -226,7 +226,34 @@ cards:
                   service_data:
                     name: hallway
                     mode: night
-          - entity: light.wc
+          - type: custom:multiple-entity-row
+            entity: light.wc
+            toggle: true
+            entities:
+              - icon: mdi:brightness-5
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: script.hue
+                  service_data:
+                    name: wc
+                    mode: white
+              - icon: mdi:brightness-6
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: script.hue
+                  service_data:
+                    name: wc
+                    mode: calm
+              - icon: mdi:weather-night
+                state_color: false
+                tap_action:
+                  action: call-service
+                  service: script.hue
+                  service_data:
+                    name: wc
+                    mode: night
           - light.sonoff_1000950368_1
           - light.outdoor
 
