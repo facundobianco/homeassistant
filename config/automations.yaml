@@ -209,6 +209,33 @@
         {% else %} 3
         {% endif %}
 
+- alias: fan_bedroom_off_remote
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: fan_off
+  action:
+    service: fan.turn_off
+    entity_id: fan.sonoff_1000954850
+
+- alias: fan_bedroom_speed_remote
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: fan_speed
+  action:
+    service: fan.set_speed
+    data_template:
+      entity_id: fan.sonoff_1000954850
+      speed: >
+        {% set speed = state_attr('fan.sonoff_1000954850', 'speed') %}
+        {% if speed == 'off' or speed == 'high' %} low
+        {% elif speed == 'low' %} medium
+        {% else %} high
+        {% endif %}
+
 - alias: Turn on office's AC
   trigger:
     platform: time
@@ -473,3 +500,14 @@
   action:
     service: light.turn_on
     entity_id: light.sonoff_1000954850_1
+
+# Lights
+- alias: Toggle floor lamp
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: floorlamp
+  action:
+    service: light.toggle
+    entity_id: light.sonoff_1000766c93

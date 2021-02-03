@@ -89,6 +89,7 @@ sed -e '1s/^/{ "packages": [/' -e '$s/},/}] }/'
   * [TH16](https://sonoff.tech/product/wifi-diy-smart-switches/th10-th16)
   * [TX series](https://sonoff.tech/product/wifi-smart-wall-swithes/tx-series)
   * [iFan03](https://sonoff.tech/product/wifi-diy-smart-switches/ifan03)
+  * [RF Bridge433](https://sonoff.tech/product/accessories/433-rf-bridge)
 * Google
   * [Home Mini (1st Gen)](https://store.google.com/us/product/google_home_mini_first_gen?hl=en-US)
   * [Google Chromecast Audio](https://www.pcmag.com/reviews/google-chromecast-audio) (discontinued)
