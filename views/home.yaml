@@ -282,6 +282,8 @@ cards:
                 entities:
                   - entity: sensor.deposito_temperatura
                     name: false
+                  - entity: sensor.deposito_humedad
+                    name: false
 
       plugs:
         type: entities
