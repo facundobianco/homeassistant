@@ -15,7 +15,6 @@ turn_off_but_outside:
     - light.sonoff_1000766c93
     - light.sonoff_100094ff53_1
     - light.sonoff_100094ff53_2
-    - light.sonoff_1000951aac
     - light.sonoff_1000950368_1
     - light.bedroom
 
@@ -29,7 +28,7 @@ melacha_lights:
   entities:
     - light.sonoff_100094ff53_2
     - light.hallway
-    - light.sonoff_1000951aac
+    - light.wc
 
 everywhere_speakers:
   entities:

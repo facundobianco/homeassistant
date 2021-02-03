@@ -8,11 +8,13 @@ hue:
         {% elif name == "bedroom" %} 2
         {% elif name == "hallway" %} 3
         {% elif name == "tablelamp" %} 4
+        {% elif name == "wc" %} 5
         {% endif %}
       payload: >
         {% if mode == "reading" %} { "on": true, "bri": 254, "hue": 41442, "sat": 75, "xy": [ 0.445, 0.4067 ], "ct": 346 }
         {% elif mode == "white" %} { "on": true, "bri": 254, "hue": 41442, "sat": 75, "xy":  [ 0.3146, 0.3303 ], "ct": 156 }
         {% elif mode == "calm" %} { "on": true, "bri": 77, "hue": 8402, "sat": 140, "xy": [ 0.4575, 0.4099 ], "ct": 366 }
+        {% elif mode == "sunset" %} { "on": true, "bri": 144, "hue": 7676, "sat": 199, "xy": [ 0.5016, 0.4151 ], "ct": 443 }
         {% elif mode == "night" %} { "on": true, "bri": 1, "hue": 6290, "sat": 251, "xy": [ 0.5612, 0.4042 ] }
         {% endif %}
 
@@ -51,6 +53,10 @@ turn_off_but_outside:
     - service: script.hue
       data:
         name: hallway
+        mode: night
+    - service: script.hue
+      data:
+        name: wc
         mode: night
     - service: script.hue
       data:

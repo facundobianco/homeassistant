@@ -66,6 +66,8 @@ switch.sonoff_1000951b70:
   expose: false
 light.sonoff_1000951b70:
   expose: false
+light.sonoff_1000951aac:
+  expose: false
 
 # Living
 light.living:
@@ -218,7 +220,7 @@ switch.160505002cf432c569cb:
   room: Dormitorio
 
 # WC
-light.sonoff_1000951aac:
+light.wc:
   name: "Luz del baño"
   aliases:
     - "Baño"

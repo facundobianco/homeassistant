@@ -57,18 +57,6 @@
   action:
     service: script.turn_off_but_outside
 
-# Manage lights with melacha in effect
-- alias: Turn off lights when melacha is off
-  trigger:
-    platform: state
-    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
-    to: 'off'
-  action:
-    service: light.turn_off
-    entity_id:
-      - light.sonoff_100094ff53_2
-      - light.sonoff_1000951aac
-
 # AC & Melacha
 - alias: Turn off AC when melacha is on
   trigger:

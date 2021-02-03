@@ -226,8 +226,7 @@ cards:
                   service_data:
                     name: hallway
                     mode: night
-          - entity: light.sonoff_1000951aac
-            name: WC
+          - entity: light.wc
           - light.sonoff_1000950368_1
           - light.outdoor
 
