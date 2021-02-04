@@ -45,37 +45,7 @@ cards:
       - type: divider
       - entity: sensor.raspbian
         icon: 'mdi:package-variant-closed'
-      - type: custom:multiple-entity-row
-        entity: sensor.current
-        name: Home Assistant
-        icon: 'mdi:home-assistant'
-        state_header: Current
-        entities:
-          - entity: sensor.latest
-            name: Latest
+      - sensor.ha_version
       - entity: sensor.hacs
         name: "HACS"
-      - type: custom:multiple-entity-row
-        entity: sensor.pihole_core_current
-        name: Pi-hole core
-        icon: 'mdi:pi-hole'
-        state_header: Current
-        entities:
-          - entity: sensor.pihole_core_latest
-            name: Latest
-      - type: custom:multiple-entity-row
-        entity: sensor.pihole_web_current
-        name: Pi-hole web
-        icon: 'mdi:pi-hole'
-        state_header: Current
-        entities:
-          - entity: sensor.pihole_web_latest
-            name: Latest
-      - type: custom:multiple-entity-row
-        entity: sensor.pihole_ftl_current
-        name: Pi-hole FTL
-        icon: 'mdi:pi-hole'
-        state_header: Current
-        entities:
-          - entity: sensor.pihole_ftl_latest
-            name: Latest
+      - sensor.pihole_version

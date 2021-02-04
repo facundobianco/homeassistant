@@ -28,6 +28,7 @@
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 
+# Pending updates sensors
 - platform: command_line
   name: Raspbian
   scan_interval: 900
@@ -40,7 +41,6 @@
   json_attributes:
     - packages
 
-# HA
 - platform: version
   name: Current
   source: local
@@ -48,6 +48,52 @@
 - platform: version
   name: Latest
   source: pypi
+
+- platform: rest
+  name: PiHole versions
+  resource: "http://127.0.0.1:8080/admin/api.php?versions"
+  json_attributes:
+    - core_branch
+    - core_current
+    - core_latest
+    - core_update
+    - web_branch
+    - web_current
+    - web_latest
+    - web_update
+    - FTL_branch
+    - FTL_current
+    - FTL_latest
+    - FTL_update
+  value_template: "OK"
+  scan_interval: 3600
+
+- platform: template
+  sensors:
+    ha_version:
+      friendly_name: Home Assistant
+      icon_template: mdi:home-assistant
+      unit_of_measurement: "pending update(s)"
+      value_template: >
+        {% if states('sensor.current') != states('sensor.latest') %} 1
+        {% else %} 0
+        {% endif %}
+      attribute_templates:
+        Details: "Installed version: {{ states('sensor.current') }}{% if states('sensor.current') != states('sensor.latest') %}, Latest: {{ states('sensor.latest') }}{% endif %}"
+    pihole_version:
+      friendly_name: Pihole
+      icon_template: mdi:pi-hole
+      unit_of_measurement: "pending update(s)"
+      value_template: >
+        {% set flag = 0 %}
+        {% if state_attr('sensor.pihole_versions', 'core_current') != state_attr('sensor.pihole_versions', 'core_latest') %}{% set flag = flag + 1 %}{% endif %}
+        {% if state_attr('sensor.pihole_versions', 'web_current') != state_attr('sensor.pihole_versions', 'web_latest') %}{% set flag = flag + 1 %}{% endif %}
+        {% if state_attr('sensor.pihole_versions', 'FTL_current') != state_attr('sensor.pihole_versions', 'FTL_latest') %}{% set flag = flag + 1 %}{% endif %}
+        {{ flag }}
+      attribute_templates:
+        Core: "Installed version: {{ state_attr('sensor.pihole_versions', 'core_current') }}{% if state_attr('sensor.pihole_versions', 'core_current') != state_attr('sensor.pihole_versions', 'core_latest') %}, Latest: {{ state_attr('sensor.pihole_versions', 'core_latest') }}{% endif %}"
+        Web: "Installed version: {{ state_attr('sensor.pihole_versions', 'web_current') }}{% if state_attr('sensor.pihole_versions', 'web_current') != state_attr('sensor.pihole_versions', 'web_latest') %}, Latest: {{ state_attr('sensor.pihole_versions', 'core_latest') }}{% endif %}"
+        FTL: "Installed version: {{ state_attr('sensor.pihole_versions', 'FTL_current') }}{% if state_attr('sensor.pihole_versions', 'FTL_current') != state_attr('sensor.pihole_versions', 'FTL_latest') %}, Latest: {{ state_attr('sensor.pihole_versions', 'core_latest') }}{% endif %}"
 
 # eWeLink Sonoff TH16
 - platform: template
@@ -101,39 +147,6 @@
   scan_interval: 3
   value_template: >
     {{ value_json.status | capitalize }}
-
-- platform: rest
-  name: PiHole versions
-  resource: "http://127.0.0.1:8080/admin/api.php?versions"
-  json_attributes:
-    - core_branch
-    - core_current
-    - core_latest
-    - core_update
-    - web_branch
-    - web_current
-    - web_latest
-    - web_update
-    - FTL_branch
-    - FTL_current
-    - FTL_latest
-    - FTL_update
-  value_template: "OK"
-  scan_interval: 3600
-- platform: template
-  sensors:
-    pihole_core_current:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'core_current') | replace('v','') }}"
-    pihole_core_latest:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'core_latest') | replace('v','') }}"
-    pihole_web_current:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'web_current') | replace('v','') }}"
-    pihole_web_latest:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'web_latest') | replace('v','') }}"
-    pihole_ftl_current:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'FTL_current') | replace('v','') }}"
-    pihole_ftl_latest:
-      value_template: "{{ state_attr('sensor.pihole_versions', 'FTL_latest') | replace('v','') }}"
 
 # Date
 - platform: moon
