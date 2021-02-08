@@ -343,3 +343,50 @@
   json_attributes:
     - bluray
     - television
+
+# Philip Hue
+- platform: rest
+  name: Hue dimmer state
+  resource_template: "{{ states('input_text.hue_url') }}/sensors"
+  value_template: "OK"
+  json_attributes:
+    - "2"
+    - "4"
+    - "16"
+    - "19"
+    - "22"
+    - "25"
+  scan_interval: 1
+
+- platform: template
+  sensors:
+    # 2: Living I
+    hue_dimmer_l1_button:
+      value_template: "{{ states.sensor.hue_dimmer_state.attributes['2']['state']['buttonevent'] }}"
+    hue_dimmer_l1_epoch:
+      value_template: "{{ as_timestamp(states.sensor.hue_dimmer_state.attributes['2']['state']['lastupdated']) | round }}"
+    # 19: Living II
+    hue_dimmer_l2_button:
+      value_template: "{{ states.sensor.hue_dimmer_state.attributes['19']['state']['buttonevent'] }}"
+    hue_dimmer_l2_epoch:
+      value_template: "{{ as_timestamp(states.sensor.hue_dimmer_state.attributes['19']['state']['lastupdated']) | round }}"
+    # 16: Hallway
+    hue_dimmer_h_button:
+      value_template: "{{ states.sensor.hue_dimmer_state.attributes['16']['state']['buttonevent'] }}"
+    hue_dimmer_h_epoch:
+      value_template: "{{ as_timestamp(states.sensor.hue_dimmer_state.attributes['16']['state']['lastupdated']) | round }}"
+    # 4: Bedroom
+    hue_dimmer_b_button:
+      value_template: "{{ states.sensor.hue_dimmer_state.attributes['4']['state']['buttonevent'] }}"
+    hue_dimmer_b_epoch:
+      value_template: "{{ as_timestamp(states.sensor.hue_dimmer_state.attributes['4']['state']['lastupdated']) | round }}"
+    # 22: Table lamp (Bedroom)
+    hue_dimmer_tl_button:
+      value_template: "{{ states.sensor.hue_dimmer_state.attributes['22']['state']['buttonevent'] }}"
+    hue_dimmer_tl_epoch:
+      value_template: "{{ as_timestamp(states.sensor.hue_dimmer_state.attributes['22']['state']['lastupdated']) | round }}"
+    # 25: WC
+    hue_dimmer_wc_button:
+      value_template: "{{ states.sensor.hue_dimmer_state.attributes['25']['state']['buttonevent'] }}"
+    hue_dimmer_wc_epoch:
+      value_template: "{{ as_timestamp(states.sensor.hue_dimmer_state.attributes['25']['state']['lastupdated']) | round }}"
