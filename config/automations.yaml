@@ -30,6 +30,7 @@
       - light.living
       - light.hallway
       - light.table_lamp
+      - light.wc
 
 # Sunset
 - alias: Sunset
