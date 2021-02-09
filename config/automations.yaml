@@ -502,6 +502,66 @@
     service: light.turn_on
     entity_id: light.sonoff_1000954850_1
 
+- alias: Catch up Hue Dimmer at Living 1
+  trigger:
+    platform: state
+    entity_id: sensor.hue_dimmer_l1_date
+  action:
+    service: script.hue_dimmer
+    data_template:
+      name: living
+      button: "{{ states.sensor.hue_dimmer_state.attributes['2']['state']['buttonevent'] }}"
+
+- alias: Catch up Hue Dimmer at Living 2
+  trigger:
+    platform: state
+    entity_id: sensor.hue_dimmer_l2_date
+  action:
+    service: script.hue_dimmer
+    data_template:
+      name: living
+      button: "{{ states.sensor.hue_dimmer_state.attributes['19']['state']['buttonevent'] }}"
+
+- alias: Catch up Hue Dimmer at Hallway
+  trigger:
+    platform: state
+    entity_id: sensor.hue_dimmer_h_date
+  action:
+    service: script.hue_dimmer
+    data_template:
+      name: living
+      button: "{{ states.sensor.hue_dimmer_state.attributes['16']['state']['buttonevent'] }}"
+
+- alias: Catch up Hue Dimmer at Bedroom
+  trigger:
+    platform: state
+    entity_id: sensor.hue_dimmer_b_date
+  action:
+    service: script.hue_dimmer
+    data_template:
+      name: living
+      button: "{{ states.sensor.hue_dimmer_state.attributes['4']['state']['buttonevent'] }}"
+
+- alias: Catch up Hue Dimmer at Table Lamp
+  trigger:
+    platform: state
+    entity_id: sensor.hue_dimmer_tl_date
+  action:
+    service: script.hue_dimmer
+    data_template:
+      name: living
+      button: "{{ states.sensor.hue_dimmer_state.attributes['22']['state']['buttonevent'] }}"
+
+- alias: Catch up Hue Dimmer at WC
+  trigger:
+    platform: state
+    entity_id: sensor.hue_dimmer_wc_date
+  action:
+    service: script.hue_dimmer
+    data_template:
+      name: living
+      button: "{{ states.sensor.hue_dimmer_state.attributes['25']['state']['buttonevent'] }}"
+
 # Lights
 - alias: Toggle floor lamp
   trigger:
@@ -512,3 +572,15 @@
   action:
     service: light.toggle
     entity_id: light.sonoff_1000766c93
+
+# Buzzer
+- alias: Buzzer
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: buzzer
+  action:
+    service: notify.mobile_app_fbs_iphone
+    data:
+      message: "Someone's at front door"
