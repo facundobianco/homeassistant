@@ -203,5 +203,10 @@ rest_command:
     method: PUT
     payload: "{{ payload }}"
 
+notify:
+  - platform: file
+    name: file
+    filename: !secret file_path
+
 logger:
   default: critical

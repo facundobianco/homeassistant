@@ -13,6 +13,7 @@ google_service_account.json
 *.swp
 http.yaml
 secrets.yaml
+output.txt
 custom_components/
 deps/
 tts/
