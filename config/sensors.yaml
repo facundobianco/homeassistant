@@ -362,19 +362,25 @@
   sensors:
     # 2: Living I
     hue_dimmer_l1_date:
+      friendly_name: living
       value_template: "{{ states.sensor.hue_dimmer_state.attributes['2']['state']['lastupdated'] }}"
     # 19: Living II
     hue_dimmer_l2_date:
+      friendly_name: living
       value_template: "{{ states.sensor.hue_dimmer_state.attributes['19']['state']['lastupdated'] }}"
     # 16: Hallway
     hue_dimmer_h_date:
+      friendly_name: hallway
       value_template: "{{ states.sensor.hue_dimmer_state.attributes['16']['state']['lastupdated'] }}"
     # 4: Bedroom
     hue_dimmer_b_date:
+      friendly_name: bedroom
       value_template: "{{ states.sensor.hue_dimmer_state.attributes['4']['state']['lastupdated'] }}"
     # 22: Table lamp (Bedroom)
     hue_dimmer_tl_date:
+      friendly_name: tablelamp
       value_template: "{{ states.sensor.hue_dimmer_state.attributes['22']['state']['lastupdated'] }}"
     # 25: WC
     hue_dimmer_wc_date:
+      friendly_name: wc
       value_template: "{{ states.sensor.hue_dimmer_state.attributes['25']['state']['lastupdated'] }}"

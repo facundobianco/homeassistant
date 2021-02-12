@@ -16,7 +16,16 @@ hue:
         {% elif mode == "calm" %} { "on": true, "bri": 77, "hue": 8402, "sat": 140, "xy": [ 0.4575, 0.4099 ], "ct": 366 }
         {% elif mode == "sunset" %} { "on": true, "bri": 144, "hue": 7676, "sat": 199, "xy": [ 0.5016, 0.4151 ], "ct": 443 }
         {% elif mode == "night" %} { "on": true, "bri": 1, "hue": 6290, "sat": 251, "xy": [ 0.5612, 0.4042 ] }
+        {% elif mode == "bri_inc" %} { "bri_inc": 30 }
+        {% elif mode == "bri_dec" %} { "bri_inc": -30 }
+        {% elif mode == "off" %} { "on": false }
         {% endif %}
+
+hue_dimmer:
+  sequence:
+      service: notify.file
+      data_template:
+        message: "name: {{ name }}, button: {{ button }}"
 
 hue_palmbeach:
   sequence:
