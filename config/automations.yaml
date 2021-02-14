@@ -517,14 +517,17 @@
     - platform: state
       entity_id: sensor.hue_dimmer_wc_date
   variables:
-    button: >
-      {% if trigger.entity_id == 'sensor.hue_dimmer_l1_date' %} {{ states.sensor.hue_dimmer_state.attributes['2']['state']['buttonevent'] }}
-      {% elif trigger.entity_id == 'sensor.hue_dimmer_l2_date' %} {{ states.sensor.hue_dimmer_state.attributes['19']['state']['buttonevent'] }}
-      {% elif trigger.entity_id == 'sensor.hue_dimmer_h_date' %} {{ states.sensor.hue_dimmer_state.attributes['16']['state']['buttonevent'] }}
-      {% elif trigger.entity_id == 'sensor.hue_dimmer_b_date' %} {{ states.sensor.hue_dimmer_state.attributes['4']['state']['buttonevent'] }}
-      {% elif trigger.entity_id == 'sensor.hue_dimmer_tl_date' %} {{ states.sensor.hue_dimmer_state.attributes['22']['state']['buttonevent'] }}
-      {% elif trigger.entity_id == 'sensor.hue_dimmer_wc_date' %} {{ states.sensor.hue_dimmer_state.attributes['25']['state']['buttonevent'] }}
+    id: >
+      {% if trigger.entity_id == 'sensor.hue_dimmer_l1_date' %} 2
+      {% elif trigger.entity_id == 'sensor.hue_dimmer_l2_date' %} 19
+      {% elif trigger.entity_id == 'sensor.hue_dimmer_h_date' %} 16
+      {% elif trigger.entity_id == 'sensor.hue_dimmer_b_date' %} 4
+      {% elif trigger.entity_id == 'sensor.hue_dimmer_tl_date' %} 22
+      {% elif trigger.entity_id == 'sensor.hue_dimmer_wc_date' %} 25
       {% endif %}
+    button: >
+      {% set id2str = id | string %}
+      {{ states.sensor.hue_dimmer_state.attributes[id2str]['state']['buttonevent'] }}
   action:
     service: script.hue_dimmer
     data_template:
