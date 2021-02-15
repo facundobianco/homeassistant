@@ -55,3 +55,36 @@ speakers:
     - Everywhere
   initial: Kitchen
   icon: mdi:speaker-wireless
+
+hue_living:
+  options:
+    - sunset
+    - reading
+    - white
+    - calm
+    - night
+
+hue_hallway:
+  options:
+    - white
+    - sunset
+    - night
+
+hue_bedroom:
+  options:
+    - calm
+    - sunset
+    - white
+
+hue_tablelamp:
+  options:
+    - reading
+    - sunset
+    - calm
+    - night
+
+hue_wc:
+  options:
+    - white
+    - sunset
+    - night

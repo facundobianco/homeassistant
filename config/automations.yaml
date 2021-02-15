@@ -503,6 +503,7 @@
     entity_id: light.sonoff_1000954850_1
 
 - alias: Catch up Hue Dimmer
+  mode: single
   trigger:
     - platform: state
       entity_id: sensor.hue_dimmer_l1_date
@@ -517,41 +518,79 @@
     - platform: state
       entity_id: sensor.hue_dimmer_wc_date
   variables:
+    name: "{{ trigger.to_state.name }}"
     button: "{{ state_attr(trigger.entity_id, 'button') }}"
     light: "{{ state_attr(trigger.entity_id, 'light') }}"
+    input: "input_select.hue_{{ name }}"
   action:
     - choose:
+        # Hue cycle mode
         - conditions:
-            condition: template
-            value_template: "{{ button >= 1000 and button < 2000 }}"
+            - condition: template
+              value_template: "{{ button >= 1000 and button < 2000 }}"
+            - condition: template
+              value_template: "{{ states(light) == 'on' }}"
+          sequence:
+            - service: input_select.select_next
+              data_template:
+                entity_id: "{{ input }}"
+            - service: script.hue
+              data_template:
+                name: "{{ name }}"
+                mode: "{{ states(input) }}"
+        # turn on (not night mode)
+        - conditions:
+            - condition: template
+              value_template: "{{ button >= 1000 and button < 2000 }}"
+            - condition: template
+              value_template: "{{ states(light) == 'off' }}"
+            - condition: time
+              after: "07:00:00"
+              before: "00:00:00"
           sequence:
             service: script.hue
             data_template:
-              name: "{{ trigger.to_state.name }}"
+              name: "{{ name }}"
               mode: "poweron"
+        # turn on (night mode)
+        - conditions:
+            - condition: template
+              value_template: "{{ button >= 1000 and button < 2000 }}"
+            - condition: template
+              value_template: "{{ states(light) == 'off' }}"
+            - condition: time
+              before: "07:00:00"
+          sequence:
+            service: script.hue
+            data_template:
+              name: "{{ name }}"
+              mode: "night"
+        # Increase bright
         - conditions:
             condition: template
             value_template: "{{ button >= 2000 and button < 3000 }}"
           sequence:
             service: script.hue
             data_template:
-              name: "{{ trigger.to_state.name }}"
+              name: "{{ name }}"
               mode: "bri_inc"
+        # Decrease bright
         - conditions:
             condition: template
             value_template: "{{ button >= 3000 and button < 4000 }}"
           sequence:
             service: script.hue
             data_template:
-              name: "{{ trigger.to_state.name }}"
+              name: "{{ name }}"
               mode: "bri_dec"
+        # Turn off
         - conditions:
             condition: template
             value_template: "{{ button >= 4000 }}"
           sequence:
             service: script.hue
             data_template:
-              name: "{{ trigger.to_state.name }}"
+              name: "{{ name }}"
               mode: "poweroff"
 
 # Lights
