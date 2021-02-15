@@ -1,6 +1,6 @@
 hue:
   variables:
-    name: >
+    id: >
       {% if name == "living" %} 1
       {% elif name == "bedroom" %} 2
       {% elif name == "hallway" %} 3
@@ -15,20 +15,15 @@ hue:
       {% elif mode == "night" %} { "on": true, "bri": 1, "hue": 6290, "sat": 251, "xy": [ 0.5612, 0.4042 ] }
       {% elif mode == "bri_inc" %} { "bri_inc": 30 }
       {% elif mode == "bri_dec" %} { "bri_inc": -30 }
-      {% elif mode == "off" %} { "on": false }
+      {% elif mode == "poweron" %} { "on": true }
+      {% elif mode == "poweroff" %} { "on": false }
       {% endif %}
   sequence:
     service: rest_command.hue
     data_template:
       resource: "{{ resource | default('groups', true) }}"
-      name: "{{ name }}"
+      name: "{{ id }}"
       payload: "{{ payload }}"
-
-hue_dimmer:
-  sequence:
-      service: notify.file
-      data_template:
-        message: "name: {{ name }}, button: {{ button }}"
 
 hue_palmbeach:
   sequence:
