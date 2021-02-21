@@ -1,6 +1,8 @@
+---
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
-default_config:
+frontend:
+sun:
+system_health:
 
 http:
   server_host: 0.0.0.0
