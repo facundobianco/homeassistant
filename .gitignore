@@ -17,7 +17,7 @@ output.txt
 custom_components/
 deps/
 tts/
-www/
+www/community/
 scenes.yaml
 blueprints/
 views/foo/

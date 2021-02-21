@@ -40,6 +40,15 @@ panel_iframe:
     icon: mdi:pi-hole
     url: !secret iframe_pihole
 
+panel_custom:
+  - name: panel-redirect
+    url_path: redirect-server-controls
+    sidebar_title: Server Controls
+    sidebar_icon: mdi:server
+    module_url: /local/panel-redirect.js
+    config:
+      target: /config/server_control
+
 google_assistant:
   project_id: !secret google_projectid
   service_account: !include google_service_account.json
