@@ -10,6 +10,10 @@
       arg: /
     - type: disk_use_percent
       arg: /var/log
+    - type: process
+      arg: apt
+    - type: process
+      arg: apt-get
 
 - platform: template
   sensors:

@@ -49,3 +49,8 @@ cards:
       - entity: sensor.hacs
         name: "HACS"
       - sensor.pihole_version
+      - type: divider
+      - type: call-service
+        name: Upgrade OS packages
+        icon: mdi:console
+        service: script.apt_upgrade

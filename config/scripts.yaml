@@ -169,3 +169,25 @@ stop_speaker:
           {% elif is_state('input_select.speakers', 'Bedroom') %} media_player.dormitorio
           {% elif is_state('input_select.speakers', 'Everywhere') %} group.everywhere_speakers
           {% endif %}
+
+apt_upgrade:
+  sequence:
+    - condition: state
+      entity_id: script.apt_upgrade
+      state: 'off'
+    - condition: state
+      entity_id: sensor.process_apt
+      state: 'off'
+    - condition: state
+      entity_id: sensor.process_apt_get
+      state: 'off'
+    - service: shell_command.apt_upgrade
+    - delay: 1
+    - wait_for_trigger:
+        - platform: state
+          entity_id: sensor.process_apt
+          to: 'off'
+          for: 180
+    - service: homeassistant.update_entity
+      data:
+        entity_id: sensor.raspbian

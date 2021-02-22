@@ -214,6 +214,9 @@ rest_command:
     method: PUT
     payload: "{{ payload }}"
 
+shell_command:
+  apt_upgrade: "sudo apt upgrade --yes"
+
 notify:
   - platform: file
     name: file
