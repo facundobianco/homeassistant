@@ -173,9 +173,6 @@ stop_speaker:
 apt_upgrade:
   sequence:
     - condition: state
-      entity_id: script.apt_upgrade
-      state: 'off'
-    - condition: state
       entity_id: sensor.process_apt
       state: 'off'
     - condition: state
@@ -189,5 +186,4 @@ apt_upgrade:
           to: 'off'
           for: 180
     - service: homeassistant.update_entity
-      data:
-        entity_id: sensor.raspbian
+      entity_id: sensor.raspbian
