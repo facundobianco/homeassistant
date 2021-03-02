@@ -68,7 +68,7 @@
     climate_bedroom:
       friendly_name: Bedroom
       icon_template: mdi:air-conditioner
-      value_template: "{{ not is_state('climate.dormitorio_ac, 'off') }}"
+      value_template: "{{ not is_state('climate.dormitorio_ac', 'off') }}"
       turn_on:
         service: climate.turn_on
         entity_id: climate.dormitorio_ac
