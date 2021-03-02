@@ -53,3 +53,25 @@
         {% if states(player) in ['on', 'playing', 'idle'] %} mdi:toggle-switch
         {% else %} mdi:toggle-switch-off-outline
         {% endif %}
+
+    climate_living:
+      friendly_name: Living
+      icon_template: mdi:air-conditioner
+      value_template: "{{ not is_state('climate.living_ac', 'off') }}"
+      turn_on:
+        service: climate.turn_on
+        entity_id: climate.living_ac
+      turn_off:
+        service: climate.turn_off
+        entity_id: climate.living_ac
+
+    climate_bedroom:
+      friendly_name: Bedroom
+      icon_template: mdi:air-conditioner
+      value_template: "{{ not is_state('climate.dormitorio_ac, 'off') }}"
+      turn_on:
+        service: climate.turn_on
+        entity_id: climate.dormitorio_ac
+      turn_off:
+        service: climate.turn_off
+        entity_id: climate.dormitorio_ac

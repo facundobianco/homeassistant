@@ -1,0 +1,43 @@
+---
+title: State On
+icon: mdi:flash
+panel: false
+path: stateon
+badges: []
+cards:
+
+  - type: entity-filter
+    state_filter:
+      - operator: "!="
+        value: "off"
+    show_empty: false
+    entities:
+
+      # lights
+      - light.living
+      - entity: light.sonoff_1000766c93
+        icon: 'mdi:floor-lamp'
+      - entity: light.sonoff_100094ff53_1
+        name: Cocina 1
+      - entity: light.sonoff_100094ff53_2
+        name: Cocina 2
+      - light.hallway
+      - light.bedroom
+      - light.table_lamp
+      - light.wc
+      - light.sonoff_1000950368_1
+      - light.outdoor
+
+      # AC
+      - switch.climate_living
+      - switch.climate_bedroom
+      - entity: fan.sonoff_1000954850
+        name: Bedroom
+      - entity: switch.sonoff_100085069c
+        name: Stockroom
+        icon: mdi:air-conditioner
+
+      # Misc
+      - entity: switch.sonoff_10008508fb
+        name: Termotanque
+        icon: 'mdi:water-boiler'

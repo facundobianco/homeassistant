@@ -34,3 +34,4 @@ views:
   - !include views/calendar.yaml
   - !include views/media.yaml
   - !include views/sys.yaml
+  - !include views/stateon.yaml
