@@ -100,13 +100,11 @@ cards:
             service: script.turn_on
             service_data:
               entity_id: script.turn_off_but_outside
-          - type: custom:multiple-entity-row
-            entity: light.living
+          - entity: light.living
             icon: mdi:lightbulb-multiple
-            toggle: true
-            entities:
+          - type: custom:paper-buttons-row
+            buttons:
               - icon: mdi:book-open-page-variant
-                state_color: false
                 tap_action:
                   action: call-service
                   service: script.hue
@@ -134,41 +132,15 @@ cards:
                   service_data:
                     name: living
                     mode: night
+
           - entity: light.sonoff_1000766c93
             icon: 'mdi:floor-lamp'
           - entity: light.sonoff_100094ff53_1
             name: Cocina 1
           - entity: light.sonoff_100094ff53_2
             name: Cocina 2
-          - type: custom:multiple-entity-row
-            entity: light.bedroom
+          - entity: light.bedroom
             icon: mdi:lightbulb-multiple
-            toggle: true
-            entities:
-              - icon: mdi:brightness-5
-                state_color: false
-                tap_action:
-                  action: call-service
-                  service: script.hue
-                  service_data:
-                    name: bedroom
-                    mode: white
-              - icon: mdi:brightness-6
-                state_color: false
-                tap_action:
-                  action: call-service
-                  service: script.hue
-                  service_data:
-                    name: bedroom
-                    mode: calm
-              - icon: mdi:weather-night
-                state_color: false
-                tap_action:
-                  action: call-service
-                  service: script.hue
-                  service_data:
-                    name: bedroom
-                    mode: night
           - type: custom:multiple-entity-row
             entity: light.table_lamp
             icon: 'mdi:lamp'
