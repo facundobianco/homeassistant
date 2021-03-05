@@ -312,7 +312,7 @@ cards:
               ha-card .preview, .toolbar {
                 background: var(--ha-card-background);
               }
-            entity: vacuum.vacuum
+            entity: vacuum.roborock_vacuum
             compact_view: true
             stats:
               default:

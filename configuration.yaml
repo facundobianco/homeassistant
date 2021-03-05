@@ -186,12 +186,6 @@ media_player:
     controller_data: remote.bedroom_remote
     power_sensor: binary_sensor.tv_power
 
-vacuum:
-  - platform: xiaomi_miio
-    name: Vacuum
-    host: !secret vacuum_ip
-    token: !secret vacuum_token
-
 light:
   - platform: group
     name: Living
@@ -225,3 +219,6 @@ notify:
 
 logger:
   default: critical
+  logs:
+    homeassistant.bootstrap: info
+    homeassistant.util.package: info
