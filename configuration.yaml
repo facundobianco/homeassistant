@@ -1,5 +1,6 @@
 ---
 
+my:
 sun:
 system_health:
 
@@ -221,4 +222,5 @@ logger:
   default: critical
   logs:
     homeassistant.bootstrap: info
+    homeassistant.config: info
     homeassistant.util.package: info
