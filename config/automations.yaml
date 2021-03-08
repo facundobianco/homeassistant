@@ -551,7 +551,7 @@
             service: script.hue
             data_template:
               name: "{{ name }}"
-              mode: "poweron"
+              mode: "{{ states(input) }}"
         # turn on (night mode)
         - conditions:
             - condition: template

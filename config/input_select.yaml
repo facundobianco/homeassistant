@@ -62,13 +62,11 @@ hue_living:
     - reading
     - white
     - calm
-    - night
 
 hue_hallway:
   options:
     - white
     - sunset
-    - night
 
 hue_bedroom:
   options:
@@ -81,10 +79,8 @@ hue_tablelamp:
     - reading
     - sunset
     - calm
-    - night
 
 hue_wc:
   options:
     - white
     - sunset
-    - night
