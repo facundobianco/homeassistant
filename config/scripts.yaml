@@ -4,7 +4,7 @@ hue:
       {% if name == "living" %} 1
       {% elif name == "bedroom" %} 2
       {% elif name == "hallway" %} 3
-      {% elif name == "tablelamp" %} 4
+      {% elif name == "tablelamp" or name == "table_lamp" %} 4
       {% elif name == "wc" %} 5
       {% endif %}
     payload: >
