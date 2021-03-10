@@ -127,6 +127,16 @@
     service: switch.turn_off
     entity_id: switch.sonoff_10008508fb
 
+- alias: Toggle water boiler
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: wb
+  action:
+    service: switch.toggle
+    entity_id: switch.sonoff_10008508fb
+
 # PiHole
 - alias: Enable Pihole again
   trigger:
