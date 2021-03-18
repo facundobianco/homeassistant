@@ -1,6 +1,5 @@
 ---
 
-my:
 sun:
 system_health:
 
@@ -217,6 +216,17 @@ notify:
   - platform: file
     name: file
     filename: !secret file_path
+
+recorder:
+  commit_interval: 60
+  include:
+    entities:
+      - sensor.termotanque_temperatura
+
+history:
+  include:
+    entities:
+      - sensor.termotanque_temperatura
 
 logger:
   default: critical
