@@ -100,7 +100,7 @@
       entity_id: input_boolean.wb_auto_trigger
       to: 'off'
     - platform: template
-      value_template: "{{ (state_attr('sensor.jewish_calendar_upcoming_candle_lighting', 'timestamp') - 7200) | timestamp_custom('%w %R') == as_timestamp(now()) | timestamp_custom('%w %R') }}"
+      value_template: {{ as_timestamp(now()) >= (as_timestamp(states('sensor.jewish_calendar_upcoming_candle_lighting')) - 170 * 60) }}
   action:
     service: switch.turn_on
     entity_id: switch.sonoff_10008508fb
@@ -109,7 +109,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.termotanque_temperatura
-      above: 65
+      above: 64
     - platform: state
       entity_id: switch.sonoff_10008508fb
       to: 'on'
@@ -119,7 +119,7 @@
   condition:
     - condition: numeric_state
       entity_id: sensor.termotanque_temperatura
-      above: 65
+      above: 64
     - condition: state
       entity_id: input_boolean.wb_auto_trigger
       state: 'on'
