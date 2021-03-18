@@ -100,7 +100,7 @@
       entity_id: input_boolean.wb_auto_trigger
       to: 'off'
     - platform: template
-      value_template: {{ as_timestamp(now()) >= (as_timestamp(states('sensor.jewish_calendar_upcoming_candle_lighting')) - 170 * 60) }}
+      value_template: "{{ as_timestamp(now()) >= (as_timestamp(states('sensor.jewish_calendar_upcoming_candle_lighting')) - 170 * 60) }}"
   action:
     service: switch.turn_on
     entity_id: switch.sonoff_10008508fb
