@@ -11,3 +11,11 @@ wb_auto_trigger:
 pending_kiddush_levanah:
   name: Pending Kiddush Levanah
   icon: mdi:moon-waning-gibbous
+
+ac_office_auto_trigger:
+  name: Auto trigger
+  initial: on
+
+ac_melacha_auto_trigger:
+  name: Auto trigger (melacha on)
+  initial: on

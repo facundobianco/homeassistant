@@ -234,6 +234,7 @@ cards:
         cards:
           - type: entities
             title: Living
+            show_header_toggle: false
             entities:
               - type: custom:simple-thermostat
                 entity: climate.living_ac
@@ -249,6 +250,7 @@ cards:
                     name: CP
                 control:
                   _names: false
+              - input_boolean.ac_melacha_auto_trigger
           - type: entities
             title: Bedroom
             entities:
@@ -271,6 +273,7 @@ cards:
               - input_number.fan_bedroom
           - type: entities
             title: Stockroom
+            show_header_toggle: false
             entities:
               - type: custom:multiple-entity-row
                 entity: switch.sonoff_100085069c
@@ -282,6 +285,7 @@ cards:
                     name: false
                   - entity: sensor.deposito_humedad
                     name: false
+              - input_boolean.ac_office_auto_trigger
 
       plugs:
         type: entities
