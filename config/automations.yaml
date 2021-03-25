@@ -98,7 +98,7 @@
     - platform: time
       at:
         - '06:00:00'
-        - '18:00:00'
+        - '17:00:00'
     - platform: state
       entity_id: input_boolean.wb_auto_trigger
       to: 'off'
