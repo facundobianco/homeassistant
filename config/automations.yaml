@@ -781,3 +781,27 @@
     service: notify.mobile_app_fbs_iphone
     data:
       message: "Someone's at front door"
+
+# Partition free space
+- alias: Partition free space
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.disk_use_percent_var_log
+      value_template: "{{ float(states('sensor.disk_use_percent_var_log')) }}"
+      above: 70
+    - platform: numeric_state
+      entity_id: sensor.disk_use_percent_var_log
+      value_template: "{{ float(states('sensor.disk_use_percent_var_log')) }}"
+      above: 80
+  variables:
+    state: "{{ states('sensor.disk_use_percent_var_log') }}"
+    level: "{% if float(state) >= 80 %}CRITICAL{% else %}WARNING{% endif %}"
+  action:
+    - service: notify.mobile_app_fbs_iphone
+      data:
+        title: "{{ level }}"
+        message: "Partition /var/log raised {{ state }}%"
+    - service: notify.mobile_app_facundos_macbook_air
+      data:
+        title: "{{ level }}"
+        message: "Partition /var/log raised {{ state }}%"
