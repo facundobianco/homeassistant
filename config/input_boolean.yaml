@@ -19,3 +19,7 @@ ac_office_auto_trigger:
 ac_melacha_auto_trigger:
   name: Auto trigger (melacha on)
   initial: on
+
+turn_off_but_outside:
+  name: Auto trigger turn off all
+  initial: on

@@ -55,6 +55,10 @@
   trigger:
     platform: time
     at: '00:00:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.turn_off_but_outside
+    state: 'on'
   action:
     service: script.turn_off_but_outside
 

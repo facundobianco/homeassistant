@@ -94,12 +94,6 @@ cards:
         type: entities
         show_header_toggle: false
         entities:
-          - type: call-service
-            name: Turn off all but outside light
-            icon: mdi:lightbulb-multiple-off
-            service: script.turn_on
-            service_data:
-              entity_id: script.turn_off_but_outside
           - entity: light.living
             icon: mdi:lightbulb-multiple
           - type: custom:paper-buttons-row
@@ -132,7 +126,6 @@ cards:
                   service_data:
                     name: living
                     mode: night
-
           - entity: light.sonoff_1000766c93
             icon: 'mdi:floor-lamp'
           - entity: light.sonoff_100094ff53_1
@@ -228,6 +221,14 @@ cards:
                     mode: night
           - light.sonoff_1000950368_1
           - light.outdoor
+          - type: divider
+          - type: call-service
+            name: Turn off all but outside light
+            icon: mdi:lightbulb-multiple-off
+            service: script.turn_on
+            service_data:
+              entity_id: script.turn_off_but_outside
+          - input_boolean.turn_off_but_outside
 
       ac:
         type: vertical-stack
