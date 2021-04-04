@@ -509,6 +509,18 @@
         message: >
           "Son las {{ as_timestamp(now()) |  timestamp_custom("%I") }} en punto"
 
+- alias: Set volume of speakers based of time of day
+  use_blueprint:
+    path: set_speakers_vol_based_time.yaml
+    input:
+      volume_night: 0.1
+      daytime_ends: '23:15:00'
+      filter:
+        entity_id:
+          - media_player.living
+          - media_player.cocina
+          - media_player.dormitorio
+
 # Philips Hue
 - alias: Keep Bedroom's light on
   trigger:

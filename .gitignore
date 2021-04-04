@@ -11,6 +11,7 @@ google_service_account.json
 *.log
 *.2020*
 *.swp
+automations.yaml
 http.yaml
 secrets.yaml
 output.txt
@@ -19,7 +20,7 @@ deps/
 tts/
 www/community/
 scenes.yaml
-blueprints/
+blueprints/automation/homeassistant/
 views/foo/
 views/testing.yaml
 views/thermo.yaml
