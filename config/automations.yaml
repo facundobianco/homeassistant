@@ -786,6 +786,26 @@
     service: light.toggle
     entity_id: light.sonoff_1000766c93
 
+- alias: Toggle kitchen light01
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: Kitchen_Button1
+  action:
+    service: light.toggle
+    entity_id: light.sonoff_100094ff53_1
+
+- alias: Toggle kitchen light02
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: Kitchen_Button2
+  action:
+    service: light.toggle
+    entity_id: light.sonoff_100094ff53_2
+
 # Buzzer
 - alias: Buzzer
   trigger:
