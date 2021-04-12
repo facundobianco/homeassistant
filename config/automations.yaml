@@ -816,7 +816,7 @@
   action:
     service: notify.mobile_app_fbs_iphone
     data:
-      message: "Someone's at front door"
+      message: "\uD83D\uDD14 Someone's at front door"
 
 # Flood
 - alias: Flood
@@ -843,7 +843,7 @@
       above: 80
   variables:
     state: "{{ states('sensor.disk_use_percent_var_log') }}"
-    level: "{% if float(state) >= 80 %}CRITICAL{% else %}WARNING{% endif %}"
+    level: "{% if float(state) >= 80 %}\uD83D\uDD34 CRITICAL{% else %}\uD83D\uDFE1 WARNING{% endif %}"
   action:
     - service: notify.mobile_app_fbs_iphone
       data:
