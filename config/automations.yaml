@@ -818,6 +818,18 @@
     data:
       message: "Someone's at front door"
 
+# Flood
+- alias: Flood
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: flood_alert
+  action:
+    service: notify.mobile_app_fbs_iphone
+    data:
+      message: "\uD83D\uDCA7 Washing machine is leaking"
+
 # Partition free space
 - alias: Partition free space
   trigger:
