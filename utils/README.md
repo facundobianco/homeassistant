@@ -103,7 +103,7 @@ And upgrade it
 
 ```
 pihole -up
-sed -ie '/^server.port/s/80/&80/' -e '/X-Frame-Options/s/DENY/ALLOW/' /etc/lighttpd/lighttpd.conf
+sed -e '/^server.port/s/80/&80/' -e '/X-Frame-Options/s/DENY/ALLOW/' -i /etc/lighttpd/lighttpd.conf
 systemctl restart lighttpd
 ```
 
