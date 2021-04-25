@@ -187,25 +187,6 @@ media_player:
     controller_data: remote.bedroom_remote
     power_sensor: binary_sensor.tv_power
 
-
-  - platform: group
-    name: Living
-    entities:
-      - light.hue_color_lamp_1
-      - light.hue_color_lamp_2
-      - light.hue_color_lamp_3
-      - light.hue_color_lamp_4
-      - light.hue_color_lamp_5_3
-      - light.hue_color_lamp_6
-  - platform: group
-    name: Bedroom
-    entities:
-      - light.hue_color_lamp_7
-      - light.hue_color_lamp_8
-  - platform: switch
-    name: Outdoor
-    entity_id: switch.sonoff_100076dd3e
-
 rest_command:
   hue:
     url: "{{ states('input_text.hue_url') }}/{{ resource }}/{{ name }}/{{ 'action' if (resource=='groups') else 'state' }}"
