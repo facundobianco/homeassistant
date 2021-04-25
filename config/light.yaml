@@ -1,0 +1,25 @@
+- platform: group
+  name: Living
+  entities:
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_2
+    - light.hue_color_lamp_3
+    - light.hue_color_lamp_4
+    - light.hue_color_lamp_5_3
+    - light.hue_color_lamp_6
+
+- platform: group
+  name: Bedroom
+  entities:
+    - light.hue_color_lamp_7
+    - light.hue_color_lamp_8
+
+- platform: group
+  name: WC
+  entities:
+    - light.hue_color_spot_1
+    - light.hue_color_spot_3
+
+- platform: switch
+  name: Outdoor
+  entity_id: switch.sonoff_100076dd3e

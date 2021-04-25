@@ -193,6 +193,7 @@ cards:
                     mode: night
           - type: custom:multiple-entity-row
             entity: light.wc
+            icon: mdi:lightbulb-multiple
             toggle: true
             entities:
               - icon: mdi:brightness-5
