@@ -14,12 +14,12 @@ pending_kiddush_levanah:
 
 ac_office_auto_trigger:
   name: Auto trigger
-  initial: on
+  initial: off
 
 ac_melacha_auto_trigger:
   name: Auto trigger (melacha on)
-  initial: on
+  initial: off
 
 turn_off_but_outside:
   name: Auto trigger turn off all
-  initial: on
+  initial: off
