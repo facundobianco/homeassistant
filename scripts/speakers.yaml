@@ -1,0 +1,60 @@
+---
+
+radio_station:
+  variables:
+    entity: >
+      {% if is_state('input_select.speakers', 'Living') %} media_player.living
+      {% elif is_state('input_select.speakers', 'Chromecast') %} media_player.chromecast
+      {% elif is_state('input_select.speakers', 'Kitchen') %} media_player.cocina
+      {% elif is_state('input_select.speakers', 'Bedroom') %} media_player.dormitorio
+      {% elif is_state('input_select.speakers', 'Everywhere') %} group.everywhere_speakers
+      {% endif %}
+    radio: >
+      {% if is_state('input_select.radio_station', 'Rivadavia') %} https://playerservices.streamtheworld.com/api/livestream-redirect/RIVADAVIAAAC.aac
+      {% elif is_state('input_select.radio_station', 'Mitre') %} http://buecrplb01.cienradios.com.ar/Mitre790.aac
+      {% elif is_state('input_select.radio_station', 'CNN Argentina') %} http://estudio.cnnradioargentina.com.ar:8000/stream
+      {% elif is_state('input_select.radio_station', 'Radio 10') %} https://s6.stweb.tv/radio10/live/playlist.m3u8
+      {% elif is_state('input_select.radio_station', 'BBC World News') %} http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws
+      {% endif %}
+  sequence:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: "{{ entity }}"
+        volume_level: "{{ states('input_number.volume_speaker')  }}"
+    - service: media_player.play_media
+      data_template:
+        entity_id: "{{ entity }}"
+        media_content_id: "{{ radio }}"
+        media_content_type: 'audio/mp4'
+
+stop_speaker:
+  variables:
+    entity: >
+      {% if is_state('input_select.speakers', 'Living') %} media_player.living
+      {% elif is_state('input_select.speakers', 'Chromecast') %} media_player.chromecast
+      {% elif is_state('input_select.speakers', 'Kitchen') %} media_player.cocina
+      {% elif is_state('input_select.speakers', 'Bedroom') %} media_player.dormitorio
+      {% elif is_state('input_select.speakers', 'Everywhere') %} group.everywhere_speakers
+      {% endif %}
+  sequence:
+    - service: media_player.media_stop
+      data_template:
+        entity_id: "{{ entity }}"
+
+apt_upgrade:
+  sequence:
+    - condition: state
+      entity_id: sensor.process_apt
+      state: 'off'
+    - condition: state
+      entity_id: sensor.process_apt_get
+      state: 'off'
+    - service: shell_command.apt_upgrade
+    - delay: 1
+    - wait_for_trigger:
+        - platform: state
+          entity_id: sensor.process_apt
+          to: 'off'
+          for: 180
+    - service: homeassistant.update_entity
+      entity_id: sensor.raspbian

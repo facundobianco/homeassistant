@@ -1,0 +1,66 @@
+---
+
+hue:
+  variables:
+    id: >
+      {% if name == "living" %} 1
+      {% elif name == "bedroom" %} 2
+      {% elif name == "hallway" %} 3
+      {% elif name == "tablelamp" or name == "table_lamp" %} 4
+      {% elif name == "wc" %} 5
+      {% endif %}
+    payload: >
+      {% if mode == "reading" %} { "on": true, "bri": 254, "hue": 41442, "sat": 75, "xy": [ 0.445, 0.4067 ], "ct": 346 }
+      {% elif mode == "white" %} { "on": true, "bri": 254, "hue": 41442, "sat": 75, "xy":  [ 0.3146, 0.3303 ], "ct": 156 }
+      {% elif mode == "calm" %} { "on": true, "bri": 77, "hue": 8402, "sat": 140, "xy": [ 0.4575, 0.4099 ], "ct": 366 }
+      {% elif mode == "sunset" %} { "on": true, "bri": 144, "hue": 7676, "sat": 199, "xy": [ 0.5016, 0.4151 ], "ct": 443 }
+      {% elif mode == "night" %} { "on": true, "bri": 1, "hue": 6290, "sat": 251, "xy": [ 0.5612, 0.4042 ] }
+      {% elif mode == "bri_inc" %} { "bri_inc": 30 }
+      {% elif mode == "bri_dec" %} { "bri_inc": -30 }
+      {% elif mode == "poweron" %} { "on": true }
+      {% elif mode == "poweroff" %} { "on": false }
+      {% endif %}
+  sequence:
+    service: rest_command.hue
+    data_template:
+      resource: "{{ resource | default('groups', true) }}"
+      name: "{{ id }}"
+      payload: "{{ payload }}"
+
+hue_palmbeach:
+  sequence:
+    - service: rest_command.hue
+      data:
+        resource: lights
+        name: 1
+        payload: '{ "on": true, "bri": 53, "hue": 36970, "sat": 242, "xy": [ 0.1715, 0.3561 ], "ct": 153 }'
+    - service: rest_command.hue
+      data:
+        resource: lights
+        name: 2
+        payload: '{ "on": true, "bri": 69, "hue": 10984, "sat": 228, "xy": [ 0.4588, 0.4662 ], "ct": 366 }'
+    - service: rest_command.hue
+      data:
+        resource: lights
+        name: 3
+        payload: '{ "on": true, "bri": 53, "hue": 61079, "sat": 119, "xy": [ 0.4652, 0.3152 ], "ct": 379 }'
+    - service: rest_command.hue
+      data:
+        resource: lights
+        name: 6
+        payload: '{ "on": true, "bri": 53, "hue": 48749, "sat": 199, "xy": [ 0.24, 0.1371 ], "ct": 153 }'
+
+turn_off_but_outside:
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.turn_off_but_outside
+    - service: script.hue
+      data:
+        name: hallway
+        mode: night
+    - service: script.hue
+      data:
+        name: tablelamp
+        mode: night
+

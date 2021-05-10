@@ -71,7 +71,7 @@ tts:
 group: !include config/groups.yaml
 automation: !include config/automations.yaml
 sensor: !include config/sensors.yaml
-script: !include config/scripts.yaml
+script: !include_dir_merge_named scripts/
 input_select: !include config/input_select.yaml
 input_text: !include config/input_text.yaml
 input_number: !include config/input_number.yaml

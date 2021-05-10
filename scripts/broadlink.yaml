@@ -1,0 +1,68 @@
+---
+
+broadlink_send_command:
+  sequence:
+    - service: remote.send_command
+      data_template:
+        entity_id: >
+          {% if is_state('input_select.tv_location', 'Living') %} remote.living_remote
+          {% else %} remote.bedroom_remote
+          {% endif %}
+        command: >
+          b64:{{ state_attr('sensor.broadlink_codes', device)[command] }}
+        num_repeats: >
+          {% if num_repeats %} {{ num_repeats }} {% else %} 1 {% endif %}
+
+broadlink_fav_america:
+  sequence:
+    - service: remote.send_command
+      data_template:
+        entity_id: >
+          {% if is_state('input_select.tv_location', 'Living') %} remote.living_remote
+          {% else %} remote.bedroom_remote
+          {% endif %}
+        command:
+          - b64:{{ state_attr('sensor.broadlink_codes', 'television')['9'] }}
+          - b64:{{ state_attr('sensor.broadlink_codes', 'television')['ok'] }}
+        delay_secs: 0.5
+
+broadlink_fav_canal9:
+  sequence:
+    - service: remote.send_command
+      data_template:
+        entity_id: >
+          {% if is_state('input_select.tv_location', 'Living') %} remote.living_remote
+          {% else %} remote.bedroom_remote
+          {% endif %}
+        command:
+          - b64:{{ state_attr('sensor.broadlink_codes', 'television')['1'] }}
+          - b64:{{ state_attr('sensor.broadlink_codes', 'television')['3'] }}
+          - b64:{{ state_attr('sensor.broadlink_codes', 'television')['ok'] }}
+        delay_secs: 0.5
+
+broadlink_fav_a24:
+  sequence:
+    - service: remote.send_command
+      data_template:
+        entity_id: >
+          {% if is_state('input_select.tv_location', 'Living') %} remote.living_remote
+          {% else %} remote.bedroom_remote
+          {% endif %}
+        command:
+          - b64:{{ state_attr('sensor.broadlink_codes', 'television')['1'] }}
+          - b64:{{ state_attr('sensor.broadlink_codes', 'television')['5'] }}
+        delay_secs: 0.5
+
+broadlink_fav_volver:
+  sequence:
+    - service: remote.send_command
+      data_template:
+        entity_id: >
+          {% if is_state('input_select.tv_location', 'Living') %} remote.living_remote
+          {% else %} remote.bedroom_remote
+          {% endif %}
+        command:
+          - b64:{{ state_attr('sensor.broadlink_codes', 'television')['4'] }}
+          - b64:{{ state_attr('sensor.broadlink_codes', 'television')['3'] }}
+        delay_secs: 0.5
+
