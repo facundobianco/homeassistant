@@ -1,0 +1,12 @@
+---
+
+climate_toggle:
+  variables:
+    service: >
+      {% if is_state(entity_id, 'off') %} climate.turn_on
+      {% else %} climate.turn_off
+      {% endif %}
+  sequence:
+    service: "{{ service }}"
+    target:
+      entity_id: "{{ entity_id }}"

@@ -1,0 +1,45 @@
+---
+
+# Browser extension (305992)
+path: main
+views:
+
+  - cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+
+          - type: call-service
+            name: Turn off all but outside light
+            icon: mdi:lightbulb-multiple-off
+            service: script.turn_on
+            service_data:
+              entity_id: script.turn_off_but_outside
+
+          - type: call-service
+            name: Toggle basic lights
+            icon: mdi:lightbulb-multiple
+            service: light.toggle
+            service_data:
+              entity_id: group.basic_lights
+
+          - type: call-service
+            name: Toggle Living AC
+            icon: mdi:air-conditioner
+            service: script.climate_toggle
+            service_data:
+              entity_id: climate.living_ac
+
+          - type: call-service
+            name: Toggle Bedroom AC
+            icon: mdi:air-conditioner
+            service: script.climate_toggle
+            service_data:
+              entity_id: climate.dormitorio_ac
+
+          - type: call-service
+            name: Toggle Office AC
+            icon: mdi:air-conditioner
+            service: switch.toggle
+            service_data:
+              entity_id: switch.sonoff_1000950368_2

@@ -12,6 +12,12 @@ http:
 
 lovelace:
   mode: yaml
+  dashboards:
+    lovelace-extension:
+      mode: yaml
+      filename: views/extension.yaml
+      title: false
+      show_in_sidebar: false
   resources:
     - type: module
       url: /hacsfiles/button-card/button-card.js
