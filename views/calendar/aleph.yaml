@@ -1,0 +1,17 @@
+---
+
+type: entities
+entities:
+  - sensor.jewish_calendar_date
+  - entity: sensor.jewish_calendar_parshat_hashavua
+    name: Parshat Hashavua
+  - sensor.local_alot_hashachar
+  - sensor.local_latest_shema
+  - sensor.local_latest_shacharit
+  - sensor.local_mincha_gedola
+  - sensor.local_mincha_ketana
+  - sensor.local_plag_hamincha
+  - sensor.local_tzeit_hakochavim
+  - sensor.kiddush_levanah
+  - sensor.local_upcoming_candle_lighting
+  - sensor.local_upcoming_havdalah

@@ -1,0 +1,53 @@
+---
+
+- type: custom:button-card
+  template: custom_icon_name
+  name: Weather
+  icon: mdi:thermometer
+  tap_action:
+    action: call-service
+    service: input_select.set_options
+    service_data:
+      entity_id: input_select.cal_view
+      options: weather
+  styles:
+    card:
+      - color: >
+          [[[
+            if (states['input_select.cal_view'].state == 'weather')
+              return '#00b59d';
+            return 'white';
+          ]]]
+    icon:
+      - color: >
+          [[[
+            if (states['input_select.cal_view'].state == 'weather')
+              return '#00b59d';
+            return 'white';
+          ]]]
+
+- type: custom:button-card
+  template: custom_icon_name
+  name: Aleph
+  icon: mdi:abjad-hebrew
+  tap_action:
+    action: call-service
+    service: input_select.set_options
+    service_data:
+      entity_id: input_select.cal_view
+      options: aleph
+  styles:
+    card:
+      - color: >
+          [[[
+            if (states['input_select.cal_view'].state == 'aleph')
+              return '#00b59d';
+            return 'white';
+          ]]]
+    icon:
+      - color: >
+          [[[
+            if (states['input_select.cal_view'].state == 'aleph')
+              return '#00b59d';
+            return 'white';
+          ]]]

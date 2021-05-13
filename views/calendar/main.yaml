@@ -1,0 +1,18 @@
+---
+
+title: Calendar
+icon: 'mdi:calendar'
+panel: false
+path: calendar
+badges: []
+cards:
+
+    - type: horizontal-stack
+      cards: !include input.yaml
+
+    - type: 'custom:state-switch'
+      entity: input_select.cal_view
+      states:
+        weather: !include weather.yaml
+        aleph: !include aleph.yaml
+        
