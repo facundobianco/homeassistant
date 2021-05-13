@@ -23,23 +23,10 @@ views:
             service_data:
               entity_id: group.basic_lights
 
-          - type: call-service
-            name: Toggle Living AC
-            icon: mdi:air-conditioner
-            service: script.climate_toggle
-            service_data:
-              entity_id: climate.living_ac
+          - switch.climate_living
 
-          - type: call-service
-            name: Toggle Bedroom AC
-            icon: mdi:air-conditioner
-            service: script.climate_toggle
-            service_data:
-              entity_id: climate.dormitorio_ac
+          - switch.climate_bedroom
 
-          - type: call-service
-            name: Toggle Office AC
+          - entity: switch.sonoff_1000950368_2
+            name: Office
             icon: mdi:air-conditioner
-            service: switch.toggle
-            service_data:
-              entity_id: switch.sonoff_1000950368_2
