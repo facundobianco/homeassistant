@@ -20,7 +20,6 @@ deps/
 tts/
 www/community/
 scenes.yaml
-blueprints/automation/homeassistant/
 views/foo/
 views/testing.yaml
 views/thermo.yaml
