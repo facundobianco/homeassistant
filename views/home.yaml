@@ -240,37 +240,44 @@ cards:
             entities:
               - type: custom:simple-thermostat
                 entity: climate.living_ac
-                name: false
+                header: false
                 step_size: 1.0
                 step_layout: row
                 label:
                   temperature: Temp
+                hide:
+                  state: true
                 sensors:
                   - entity: sensor.lu7and_humidity_in
                     name: RH
                   - entity: sensor.condensate_pump_watt
                     name: CP
                 control:
-                  _names: false
+                  hvac:
+                    dry: false
+                    fan_only: false
               - input_boolean.ac_melacha_auto_trigger
           - type: entities
             title: Bedroom
             entities:
               - type: custom:simple-thermostat
                 entity: climate.dormitorio_ac
-                name: false
+                header: false
                 step_size: 1.0
                 step_layout: row
                 label:
                   temperature: Temp
+                hide:
+                  state: true
                 sensors:
                   - entity: sensor.dormitorio_humedad
                     name: RH
                   - entity: sensor.condensate_pump_watt
                     name: CP
                 control:
-                  _names: false
                   hvac:
+                    dry: false
+                    fan_only: false
                     heat_cool: false
               - input_number.fan_bedroom
           - type: entities
