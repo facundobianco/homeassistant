@@ -256,6 +256,18 @@ cards:
                   hvac:
                     dry: false
                     fan_only: false
+                  fan:
+                    _hide_when_off: true
+                    auto: false
+                    level1:
+                      name: false
+                      icon: mdi:fan-speed-1
+                    level2:
+                      name: false
+                      icon: mdi:fan-speed-2
+                    level3:
+                      name: false
+                      icon: mdi:fan-speed-3
               - input_boolean.ac_melacha_auto_trigger
           - type: entities
             title: Bedroom
@@ -279,6 +291,20 @@ cards:
                     dry: false
                     fan_only: false
                     heat_cool: false
+                  fan:
+                    _hide_when_off: true
+                    auto: false
+                    quiet: false
+                    turbo: false
+                    low:
+                      name: false
+                      icon: mdi:fan-speed-1
+                    med:
+                      name: false
+                      icon: mdi:fan-speed-2
+                    high:
+                      name: false
+                      icon: mdi:fan-speed-3
               - input_number.fan_bedroom
           - type: entities
             title: Stockroom
