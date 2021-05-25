@@ -1,0 +1,18 @@
+---
+
+title: Home
+icon: 'mdi:home'
+panel: false
+path: home
+badges: []
+cards:
+
+  - type: horizontal-stack
+    cards: !include input.yaml
+
+  - type: 'custom:state-switch'
+    entity: input_select.home_view
+    states:
+      lights: !include lights.yaml
+      ac: !include ac.yaml
+      plugs: !include plugs.yaml

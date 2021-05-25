@@ -1,0 +1,79 @@
+---
+
+- type: custom:button-card
+  template: custom_icon_name
+  name: Lights
+  icon: mdi:lightbulb-multiple
+  tap_action:
+    action: call-service
+    service: input_select.set_options
+    service_data:
+      entity_id: input_select.home_view
+      options: lights
+  styles:
+    card:
+      - color: >
+          [[[
+            if (states['input_select.home_view'].state == 'lights')
+              return '#00b59d';
+            return 'white';
+          ]]]
+    icon:
+      - color: >
+          [[[
+            if (states['input_select.home_view'].state == 'lights')
+              return '#00b59d';
+            return 'white';
+          ]]]
+
+- type: custom:button-card
+  template: custom_icon_name
+  name: AC
+  icon: mdi:air-conditioner
+  tap_action:
+    action: call-service
+    service: input_select.set_options
+    service_data:
+      entity_id: input_select.home_view
+      options: ac
+  styles:
+    card:
+      - color: >
+          [[[
+            if (states['input_select.home_view'].state == 'ac')
+              return '#00b59d';
+            return 'white';
+          ]]]
+    icon:
+      - color: >
+          [[[
+            if (states['input_select.home_view'].state == 'ac')
+              return '#00b59d';
+            return 'white';
+          ]]]
+
+- type: custom:button-card
+  template: custom_icon_name
+  name: Plugs
+  icon: mdi:power-socket-au
+  tap_action:
+    action: call-service
+    service: input_select.set_options
+    service_data:
+      entity_id: input_select.home_view
+      options: plugs
+  styles:
+    card:
+      - color: >
+          [[[
+            if (states['input_select.home_view'].state == 'plugs')
+              return '#00b59d';
+            return 'white';
+          ]]]
+    icon:
+      - color: >
+          [[[
+            if (states['input_select.home_view'].state == 'plugs')
+              return '#00b59d';
+            return 'white';
+          ]]]

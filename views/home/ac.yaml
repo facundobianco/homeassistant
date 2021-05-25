@@ -1,0 +1,94 @@
+---
+
+type: vertical-stack
+cards:
+
+  - type: entities
+    title: Living
+    show_header_toggle: false
+    entities:
+      - type: custom:simple-thermostat
+        entity: climate.living_ac
+        header: false
+        step_size: 1.0
+        step_layout: row
+        label:
+          temperature: Temp
+        hide:
+          state: true
+        sensors:
+          - entity: sensor.lu7and_humidity_in
+            name: RH
+          - entity: sensor.condensate_pump_watt
+            name: CP
+        control:
+          hvac:
+            dry: false
+            fan_only: false
+          fan:
+            _hide_when_off: true
+            auto: false
+            level1:
+              name: false
+              icon: mdi:fan-speed-1
+            level2:
+              name: false
+              icon: mdi:fan-speed-2
+            level3:
+              name: false
+              icon: mdi:fan-speed-3
+      - input_boolean.ac_melacha_auto_trigger
+
+  - type: entities
+    title: Bedroom
+    entities:
+      - type: custom:simple-thermostat
+        entity: climate.dormitorio_ac
+        header: false
+        step_size: 1.0
+        step_layout: row
+        label:
+          temperature: Temp
+        hide:
+          state: true
+        sensors:
+          - entity: sensor.dormitorio_humedad
+            name: RH
+          - entity: sensor.condensate_pump_watt
+            name: CP
+        control:
+          hvac:
+            dry: false
+            fan_only: false
+            heat_cool: false
+          fan:
+            _hide_when_off: true
+            auto: false
+            quiet: false
+            turbo: false
+            low:
+              name: false
+              icon: mdi:fan-speed-1
+            med:
+              name: false
+              icon: mdi:fan-speed-2
+            high:
+              name: false
+              icon: mdi:fan-speed-3
+      - input_number.fan_bedroom
+
+  - type: entities
+    title: Stockroom
+    show_header_toggle: false
+    entities:
+      - type: custom:multiple-entity-row
+        entity: switch.sonoff_100085069c
+        name: Stockroom's AC
+        icon: mdi:air-conditioner
+        toggle: true
+        entities:
+          - entity: sensor.deposito_temperatura
+            name: false
+          - entity: sensor.deposito_humedad
+            name: false
+      - input_boolean.ac_office_auto_trigger

@@ -1,0 +1,148 @@
+---
+
+type: entities
+show_header_toggle: false
+entities:
+
+  - entity: light.living
+    icon: mdi:lightbulb-multiple
+  - type: custom:paper-buttons-row
+    buttons:
+      - icon: mdi:book-open-page-variant
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: living
+            mode: reading
+      - icon: mdi:brightness-5
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: living
+            mode: white
+      - icon: mdi:palm-tree
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue_palmbeach
+      - icon: mdi:weather-night
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: living
+            mode: night
+  - entity: light.sonoff_1000766c93
+    icon: 'mdi:floor-lamp'
+
+  - entity: light.sonoff_100094ff53_1
+    name: Cocina 1
+  - entity: light.sonoff_100094ff53_2
+    name: Cocina 2
+
+  - entity: light.bedroom
+    icon: mdi:lightbulb-multiple
+  - type: custom:multiple-entity-row
+    entity: light.table_lamp
+    icon: 'mdi:lamp'
+    toggle: true
+    entities:
+      - icon: mdi:brightness-5
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: tablelamp
+            mode: white
+      - icon: mdi:brightness-6
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: tablelamp
+            mode: calm
+      - icon: mdi:weather-night
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: tablelamp
+            mode: night
+
+  - type: custom:multiple-entity-row
+    entity: light.hallway
+    toggle: true
+    entities:
+      - icon: mdi:brightness-5
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: hallway
+            mode: white
+      - icon: mdi:brightness-6
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: hallway
+            mode: calm
+      - icon: mdi:weather-night
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: hallway
+            mode: night
+
+  - type: custom:multiple-entity-row
+    entity: light.wc
+    icon: mdi:lightbulb-multiple
+    toggle: true
+    entities:
+      - icon: mdi:brightness-5
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: wc
+            mode: white
+      - icon: mdi:brightness-6
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: wc
+            mode: calm
+      - icon: mdi:weather-night
+        state_color: false
+        tap_action:
+          action: call-service
+          service: script.hue
+          service_data:
+            name: wc
+            mode: night
+
+  - light.sonoff_1000950368_1
+  - light.outdoor
+
+  - type: divider
+  - type: call-service
+    name: Turn off all but outside light
+    icon: mdi:lightbulb-multiple-off
+    service: script.turn_on
+    service_data:
+      entity_id: script.turn_off_but_outside
+  - input_boolean.turn_off_but_outside
