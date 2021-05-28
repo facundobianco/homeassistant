@@ -1,0 +1,30 @@
+---
+
+type: vertical-stack
+cards:
+  - type: entities
+    entities:
+      - input_select.speakers
+      - input_select.radio_station
+  - type: glance
+    state_color: false
+    entities:
+      - entity: script.radio_station
+        name: Play
+        icon: 'mdi:play'
+        show_state: false
+        tap_action:
+          action: toggle
+      - entity: script.stop_speaker
+        name: Stop
+        icon: 'mdi:stop'
+        show_state: false
+        tap_action:
+          action: toggle
+      - entity: switch.media_player_speaker
+        show_state: false
+        tap_action:
+          action: toggle
+  - type: entities
+    entities:
+      - input_number.volume_speaker

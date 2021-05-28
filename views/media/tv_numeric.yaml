@@ -1,0 +1,245 @@
+---
+
+type: vertical-stack
+show_name: false
+cards:
+  # Line 1
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:numeric-1-circle-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: "1"
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:numeric-2-circle-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: "2"
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:numeric-3-circle-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: "3"
+  # Line 2
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:numeric-4-circle-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: "4"
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:numeric-5-circle-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: "5"
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:numeric-6-circle-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: "6"
+  # Line 3
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:numeric-7-circle-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: "7"
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:numeric-8-circle-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: "8"
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:numeric-9-circle-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: "9"
+  # Line 4
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_tv_button
+        color_type: blank-card
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:numeric-0-circle-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: "0"
+      - type: custom:button-card
+        template: custom_tv_button
+        color_type: blank-card
+  # Line 5
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_tv_button
+        color_type: blank-card
+  # Line 6
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:rewind
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: rewind
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:play
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: play
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:fast-forward
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: forward
+  # Line 7
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:skip-backward
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: prev
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:pause
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: pause
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:skip-forward
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: next
+  # Line 8
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:headphones
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: bluray
+            command: audio
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:stop
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: television
+            command: stop
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:subtitles-outline
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: bluray
+            command: subtitle
+  # Line 9
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_tv_button
+        color_type: blank-card
+  # Line 10
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:dots-horizontal
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: bluray
+            command: popup_menu
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:eject
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: bluray
+            command: eject
+      - type: custom:button-card
+        template: custom_tv_button
+        icon: mdi:disc-player
+        tap_action:
+          action: call-service
+          service: script.broadlink_send_command
+          service_data:
+            device: bluray
+            command: power

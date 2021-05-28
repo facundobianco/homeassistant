@@ -1,0 +1,52 @@
+---
+
+- type: custom:button-card
+  template: custom_icon_name
+  name: TV
+  icon: mdi:television-classic
+  tap_action:
+    action: call-service
+    service: input_select.set_options
+    service_data:
+      entity_id: input_select.media_view
+      options: tv
+  styles:
+    card:
+      - color: >
+          [[[
+            if (states['input_select.media_view'].state == 'tv')
+              return '#00b59d';
+            return 'white';
+          ]]]
+    icon:
+      - color: >
+          [[[
+            if (states['input_select.media_view'].state == 'tv')
+              return '#00b59d';
+            return 'white';
+          ]]]
+- type: custom:button-card
+  template: custom_icon_name
+  name: Radio
+  icon: mdi:radio
+  tap_action:
+    action: call-service
+    service: input_select.set_options
+    service_data:
+      entity_id: input_select.media_view
+      options: radio
+  styles:
+    card:
+      - color: >
+          [[[
+            if (states['input_select.media_view'].state == 'radio')
+              return '#00b59d';
+            return 'white';
+          ]]]
+    icon:
+      - color: >
+          [[[
+            if (states['input_select.media_view'].state == 'radio')
+              return '#00b59d';
+            return 'white';
+          ]]]

@@ -1,0 +1,19 @@
+---
+
+title: Media
+icon: mdi:remote
+panel: false
+path: media
+badges: []
+cards:
+
+  - type: horizontal-stack
+    cards: !include input.yaml
+
+  - type: 'custom:state-switch'
+    entity: input_select.media_view
+    states:
+      tv: !include tv.yaml
+      tv_favs: !include tv_favs.yaml
+      tv_numeric: !include tv_numeric.yaml
+      radio: !include radio.yaml

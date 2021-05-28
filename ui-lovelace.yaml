@@ -32,6 +32,6 @@ button_card_templates:
 views:
   - !include views/home/main.yaml
   - !include views/calendar/main.yaml
-  - !include views/media.yaml
+  - !include views/media/main.yaml
   - !include views/sys.yaml
   - !include views/stateon.yaml

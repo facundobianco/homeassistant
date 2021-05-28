@@ -1,0 +1,42 @@
+---
+
+type: entities
+show_header_toggle: false
+entities:
+  - type: call-service
+    name: Jump
+    icon: mdi:undo
+    service: script.broadlink_send_command
+    service_data:
+      device: television
+      command: jump
+  - type: call-service
+    name: Netflix
+    icon: mdi:netflix
+    service: script.broadlink_send_command
+    service_data:
+      device: television
+      command: netflix
+  - type: call-service
+    name: YouTube
+    icon: mdi:youtube
+    service: script.broadlink_send_command
+    service_data:
+      device: television
+      command: youtube
+  - type: call-service
+    name: America
+    icon: mdi:heart
+    service: script.broadlink_fav_america
+  - type: call-service
+    name: Canal 9
+    icon: mdi:heart
+    service: script.broadlink_fav_canal9
+  - type: call-service
+    name: A24
+    icon: mdi:heart
+    service: script.broadlink_fav_a24
+  - type: call-service
+    name: Volver
+    icon: mdi:heart
+    service: script.broadlink_fav_volver
