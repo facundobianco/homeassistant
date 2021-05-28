@@ -6,51 +6,64 @@ path: sys
 badges: []
 cards:
 
-  - type: entities
-    entities:
-      - sensor.uptime
-      - entity: sensor.disk_use_percent
-        icon: 'mdi:micro-sd'
-        name: /
-      - entity: sensor.disk_use_percent_var_log
-        icon: 'mdi:micro-sd'
-        name: /var/log
-      - type: custom:multiple-entity-row
-        name: Consumption
-        icon: mdi:desktop-classic
-        state_header: CPU
-        entity: sensor.processor_use
+  - type: vertical-stack
+    cards:
+
+      - type: entities
         entities:
-          - entity: sensor.memory_use_percent
-            name: Memory
-      - entity: sensor.cpu_temperature
-        name: Temperature
-      - type: divider
-      - entity: switch.pihole
-        name: Pi-hole
-      - type: call-service
-        name: Disable 30 sec
-        icon: 'mdi:clock-outline'
-        service: pi_hole.disable
-        service_data:
-          entity_id: switch.pihole
-          duration: '00:00:30'
-      - type: call-service
-        name: Disable 5 min
-        icon: 'mdi:clock-outline'
-        service: pi_hole.disable
-        service_data:
-          entity_id: switch.pihole
-          duration: '00:05:00'
-      - type: divider
-      - entity: sensor.raspbian
-        icon: 'mdi:package-variant-closed'
-      - sensor.ha_version
-      - entity: sensor.hacs
-        name: "HACS"
-      - sensor.pihole_version
-      - type: divider
-      - type: call-service
-        name: Upgrade OS packages
-        icon: mdi:console
-        service: script.apt_upgrade
+          - sensor.uptime
+          - entity: sensor.disk_use_percent
+            icon: 'mdi:micro-sd'
+            name: /
+          - entity: sensor.disk_use_percent_var_log
+            icon: 'mdi:micro-sd'
+            name: /var/log
+          - type: custom:multiple-entity-row
+            name: Consumption
+            icon: mdi:desktop-classic
+            state_header: CPU
+            entity: sensor.processor_use
+            entities:
+              - entity: sensor.memory_use_percent
+                name: Memory
+          - entity: sensor.cpu_temperature
+            name: Temperature
+
+      - type: entities
+        entities:
+          - entity: switch.pihole
+            name: Pi-hole
+          - type: call-service
+            name: Disable 30 sec
+            icon: 'mdi:clock-outline'
+            service: pi_hole.disable
+            service_data:
+              entity_id: switch.pihole
+              duration: '00:00:30'
+          - type: call-service
+            name: Disable 5 min
+            icon: 'mdi:clock-outline'
+            service: pi_hole.disable
+            service_data:
+              entity_id: switch.pihole
+              duration: '00:05:00'
+
+      - type: entities
+        entities:
+          - type: call-service
+            name: Upgrade OS packages
+            icon: mdi:console
+            service: script.apt_upgrade
+
+      - type: entity-filter
+        state_filter:
+          - operator: "!="
+            value: "0"
+        show_empty: false
+        entities:
+          - entity: sensor.raspbian
+            icon: 'mdi:package-variant-closed'
+          - sensor.ha_version
+          - entity: sensor.hacs
+            name: "HACS"
+          - sensor.pihole_version
