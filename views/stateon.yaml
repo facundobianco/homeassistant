@@ -41,3 +41,6 @@ cards:
       - entity: switch.sonoff_10008508fb
         name: Termotanque
         icon: 'mdi:water-boiler'
+      - entity: switch.ebd3e3a329b4054394h4ah
+        name: Kitchen
+        icon: mdi:stove
