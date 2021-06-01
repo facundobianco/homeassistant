@@ -23,3 +23,9 @@ ac_melacha_auto_trigger:
 turn_off_but_outside:
   name: Auto trigger turn off all
   initial: off
+
+dark_mode:
+  name: Dark mode
+  icon: mdi:theme-light-dark
+theme_alternative:
+  name: Theme alternative (disable active state color)

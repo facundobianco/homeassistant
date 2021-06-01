@@ -75,7 +75,7 @@ tts:
     service_name: google_say
 
 group: !include config/groups.yaml
-automation: !include config/automations.yaml
+automation: !include_dir_merge_list automations/
 sensor: !include config/sensors.yaml
 script: !include_dir_merge_named scripts/
 input_select: !include config/input_select.yaml

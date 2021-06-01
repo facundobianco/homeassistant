@@ -84,3 +84,14 @@ hue_wc:
   options:
     - white
     - sunset
+
+theme:
+  options:
+    - blue-red
+    - dark-blue
+    - dark-green
+    - light-blue
+    - light-green
+    - orange
+    - red
+  icon: mdi:format-color-fill

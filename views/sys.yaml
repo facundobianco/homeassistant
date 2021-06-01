@@ -67,3 +67,9 @@ cards:
           - entity: sensor.hacs
             name: "HACS"
           - sensor.pihole_version
+
+      - type: entities
+        entities:
+          - input_select.theme
+          - input_boolean.dark_mode
+          - input_boolean.theme_alternative
