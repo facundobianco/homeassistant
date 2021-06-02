@@ -24,9 +24,12 @@ entities:
   - type: divider
   - type: custom:vacuum-card
     style: |
+      ha-card {
+        --ha-card-background: none;
+        }
       ha-card .preview, .toolbar {
-        background: var(--ha-card-background);
-      }
+        background: none;
+        }
     entity: vacuum.roborock_vacuum
     compact_view: true
     stats:

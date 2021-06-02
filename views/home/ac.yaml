@@ -8,6 +8,11 @@ cards:
     show_header_toggle: false
     entities:
       - type: custom:simple-thermostat
+        style: |
+          ha-card {
+            --ha-card-background: none;
+            box-shadow: none;
+            }
         entity: climate.living_ac
         header: false
         step_size: 1.0
@@ -43,6 +48,11 @@ cards:
     title: Bedroom
     entities:
       - type: custom:simple-thermostat
+        style: |
+          ha-card {
+            --ha-card-background: none;
+            box-shadow: none;
+            }
         entity: climate.dormitorio_ac
         header: false
         step_size: 1.0
