@@ -73,3 +73,4 @@ cards:
           - input_select.theme
           - input_boolean.dark_mode
           - input_boolean.theme_alternative
+          - input_boolean.avoid_theme_toggle

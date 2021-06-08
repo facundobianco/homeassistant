@@ -27,5 +27,9 @@ turn_off_but_outside:
 dark_mode:
   name: Dark mode
   icon: mdi:theme-light-dark
+
+avoid_theme_toggle:
+  name: Avoid theme toggle
+
 theme_alternative:
   name: Theme alternative (disable active state color)
