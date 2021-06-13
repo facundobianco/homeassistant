@@ -16,6 +16,18 @@ cards:
         - sensor.local_alot_hashachar
         - sensor.local_mincha_gedola
         - sensor.local_tzeit_hakochavim
+        - type: divider
+        - type: custom:multiple-entity-row
+          entity: sensor.sun_status
+          show_state: false
+          entities:
+            - attribute: sunrise
+              name: Sunrise
+            - attribute: noon
+              name: Noon
+            - attribute: sunset
+              name: Sunset
+        - sensor.sun_elevation
 
     - type: entity-filter
       state_filter:
