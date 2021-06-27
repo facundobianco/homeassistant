@@ -23,3 +23,7 @@
 - platform: switch
   name: Outdoor
   entity_id: switch.sonoff_100076dd3e
+
+- platform: switch
+  name: Table lamp
+  entity_id: switch.sonoff_1000770cc7

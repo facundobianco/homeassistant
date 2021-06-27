@@ -44,11 +44,9 @@ entities:
   - entity: light.sonoff_100094ff53_2
     name: Cocina 2
 
-  - entity: light.bedroom
-    icon: mdi:lightbulb-multiple
   - type: custom:multiple-entity-row
-    entity: light.table_lamp
-    icon: 'mdi:lamp'
+    entity: light.bedroom
+    icon: mdi:lightbulb-multiple
     toggle: true
     entities:
       - icon: mdi:brightness-5
@@ -57,7 +55,7 @@ entities:
           action: call-service
           service: script.hue
           service_data:
-            name: tablelamp
+            name: bedroom
             mode: white
       - icon: mdi:brightness-6
         state_color: false
@@ -65,7 +63,7 @@ entities:
           action: call-service
           service: script.hue
           service_data:
-            name: tablelamp
+            name: bedroom
             mode: calm
       - icon: mdi:weather-night
         state_color: false
@@ -73,8 +71,10 @@ entities:
           action: call-service
           service: script.hue
           service_data:
-            name: tablelamp
+            name: bedroom
             mode: night
+  - entity: light.table_lamp
+    icon: mdi:lamp
 
   - type: custom:multiple-entity-row
     entity: light.hallway

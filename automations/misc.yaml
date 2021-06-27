@@ -21,8 +21,20 @@
       - light.outdoor
       - light.living
       - light.hallway
-      - light.table_lamp
       - light.wc
+
+- alias: Avoid Sunrise when Melacha is on
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '+00:00:00'
+  condition:
+    condition: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    state: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.table_lamp
 
 # Sunset
 - alias: Sunset
@@ -37,10 +49,8 @@
       data:
         name: hallway
         mode: calm
-    - service: script.hue
-      data:
-        name: tablelamp
-        mode: calm
+    - service: light.turn_on
+      entity_id: light.table_lamp
 
 # Midnight
 - alias: Midnight
@@ -520,17 +530,30 @@
           - media_player.dormitorio
 
 # Philips Hue
-- alias: Keep Bedroom's light on
+- alias: Reuse Hue switch turn on
   trigger:
-    platform: time_pattern
-    seconds: "/15"
-  condition:
-    condition: state
-    entity_id: light.sonoff_1000954850_1
-    state: 'off'
+    # table lamp
+    - device_id: b41fd3adfe6c7602f8cc40abaeceff9f
+      domain: hue
+      platform: device
+      type: remote_button_short_release
+      subtype: turn_on
+    - device_id: b41fd3adfe6c7602f8cc40abaeceff9f
+      domain: hue
+      platform: device
+      type: remote_button_short_release
+      subtype: turn_off
   action:
-    service: light.turn_on
-    entity_id: light.sonoff_1000954850_1
+    choose:
+      conditions:
+        condition: template
+        value_template: "{{ trigger.event.data.event == 1002 }}"
+      sequence:
+        service: light.turn_on
+        entity_id: light.table_lamp
+    default:
+      service: light.turn_off
+      entity_id: light.table_lamp
 
 - alias: Hue switch turn on
   trigger:
@@ -554,12 +577,6 @@
       subtype: turn_on
     # bedroom
     - device_id: bb1eb6df52fae0c57dbe24b1a059424a
-      domain: hue
-      platform: device
-      type: remote_button_short_release
-      subtype: turn_on
-    # table lamp
-    - device_id: b41fd3adfe6c7602f8cc40abaeceff9f
       domain: hue
       platform: device
       type: remote_button_short_release
@@ -640,12 +657,6 @@
       platform: device
       type: remote_button_short_release
       subtype: dim_up
-    # table lamp
-    - device_id: b41fd3adfe6c7602f8cc40abaeceff9f
-      domain: hue
-      platform: device
-      type: remote_button_short_release
-      subtype: dim_up
     # wc
     - device_id: 2c8a5c9f115de1f0f9749bee80919f11
       domain: hue
@@ -696,12 +707,6 @@
       platform: device
       type: remote_button_short_release
       subtype: dim_down
-    # table lamp
-    - device_id: b41fd3adfe6c7602f8cc40abaeceff9f
-      domain: hue
-      platform: device
-      type: remote_button_short_release
-      subtype: dim_down
     # wc
     - device_id: 2c8a5c9f115de1f0f9749bee80919f11
       domain: hue
@@ -748,12 +753,6 @@
       subtype: turn_off
     # bedroom
     - device_id: bb1eb6df52fae0c57dbe24b1a059424a
-      domain: hue
-      platform: device
-      type: remote_button_short_release
-      subtype: turn_off
-    # table lamp
-    - device_id: b41fd3adfe6c7602f8cc40abaeceff9f
       domain: hue
       platform: device
       type: remote_button_short_release
