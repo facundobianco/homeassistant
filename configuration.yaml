@@ -59,7 +59,7 @@ panel_custom:
 google_assistant:
   project_id: !secret google_projectid
   service_account: !include google_service_account.json
-  report_state: true
+  report_state: false
   exposed_domains:
     - switch
     - light
@@ -149,10 +149,6 @@ sonoff:
   scan_interval: '00:01:00'
   devices: !include config/sonoff_devices.yaml
 
-pi_hole:
-  - host: '127.0.0.1:8080'
-    api_key: !secret pihole_token
-
 smartir:
 
 climate:
@@ -218,3 +214,5 @@ logger:
     homeassistant.bootstrap: info
     homeassistant.config: info
     homeassistant.util.package: info
+    homeassistant.setup: error
+    homeassistant.components: warning

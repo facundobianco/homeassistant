@@ -14,12 +14,21 @@ entities:
         name: false
   - entity: input_boolean.wb_auto_trigger
   - type: divider
+  # SP03
   - entity: switch.160505002cf432c55139
-    name: Behind couch (SP03)
+    name: Behind couch
     icon: mdi:sofa-outline
+  # SP01
+  - entity: switch.160505002cf432c569cb
+    name: Water Warmer
+    icon: mdi:coffee-outline
   - entity: switch.ebd3e3a329b4054394h4ah
-    name: Kitchen
-    icon: mdi:stove
+    name: Plug at left
+    icon: mdi:power-socket-au
+  # SP02
+  - entity: switch.160505002cf432c53e7b
+    name: Plug at right
+    icon: mdi:power-socket-au
 
   - type: divider
   - type: custom:vacuum-card
