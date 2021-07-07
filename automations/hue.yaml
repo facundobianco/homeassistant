@@ -1,0 +1,120 @@
+---
+
+- alias: Reuse Hue switch turn on
+  trigger:
+    # table lamp
+    - device_id: b41fd3adfe6c7602f8cc40abaeceff9f
+      domain: hue
+      platform: device
+      type: remote_button_short_release
+      subtype: turn_on
+    - device_id: b41fd3adfe6c7602f8cc40abaeceff9f
+      domain: hue
+      platform: device
+      type: remote_button_short_release
+      subtype: turn_off
+  action:
+    choose:
+      conditions:
+        condition: template
+        value_template: "{{ trigger.event.data.event == 1002 }}"
+      sequence:
+        service: light.turn_on
+        entity_id: light.table_lamp
+    default:
+      service: light.turn_off
+      entity_id: light.table_lamp
+
+- alias: Hue switch
+  trigger:
+    - platform: event
+      event_type: hue_event
+      event_data:
+        id: living_1
+    - platform: event
+      event_type: hue_event
+      event_data:
+        id: living_2
+    - platform: event
+      event_type: hue_event
+      event_data:
+        id: hallway
+    - platform: event
+      event_type: hue_event
+      event_data:
+        id: bedroom
+    - platform: event
+      event_type: hue_event
+      event_data:
+        id: wc
+  variables:
+    zone: "{{ trigger.event.data.id | regex_replace('_.*', '') }}"
+    button: "{{ trigger.event.data.event }}"
+    light: "light.{{ zone }}"
+    bri: "{{ state_attr(light, 'brightness') }}"
+  condition:
+    condition: template
+    value_template: >
+      {{ button in [ 1002, 1003, 2002, 3002, 4002 ] }}
+  action:
+    choose:
+      - alias: Turn on night mode
+        conditions:
+          - condition: template
+            value_template: "{{ button == 1002 }}"
+          - condition: template
+            value_template: "{{ states(light) == 'off' }}"
+          - condition: time
+            before: "07:00:00"
+        sequence:
+          service: hue.hue_activate_scene
+          data:
+            group_name: "{{ zone }}"
+            scene_name: "Luz nocturna"
+      - alias: Turn on
+        conditions:
+          - "{{ button == 1002 }}"
+        sequence:
+          service: hue.hue_activate_scene
+          data:
+            group_name: "{{ zone }}"
+            scene_name: >
+              {% if bri == None or bri <= 75 or bri == 255 %} Atenuada
+              {% elif bri >= 76 and bri <= 143 %} Relax
+              {% else %} Luminosa
+              {% endif %}
+      - alias: Turn on night mode on press
+        conditions:
+          - "{{ button == 1003 }}"
+        sequence:
+          service: hue.hue_activate_scene
+          data:
+            group_name: "{{ zone }}"
+            scene_name: "Luz nocturna"
+      - alias: Increase brightness
+        conditions:
+          - "{{ button == 2002 }}"
+          - "{{ states(light) == 'on' }}"
+        sequence:
+          service: light.turn_on
+          data_template:
+            entity_id: "{{ light }}"
+            brightness_step: 85
+      - alias: Decrease brightness
+        conditions:
+          - "{{ button == 3002 }}"
+          - "{{ states(light) == 'on' }}"
+        sequence:
+          service: light.turn_on
+          data_template:
+            entity_id: "{{ light }}"
+            brightness: >
+              {% if bri >= 86 %} {{ bri - 85 }}
+              {% else %} 1
+              {% endif %}
+      - alias: Turn off
+        conditions: "{{ button == 4002 }}"
+        sequence:
+          service: light.turn_off
+          data_template:
+            entity_id: "{{ light }}"
