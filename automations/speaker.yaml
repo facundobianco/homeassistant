@@ -1,0 +1,54 @@
+---
+
+- alias: volume_speaker
+  trigger:
+    platform: state
+    entity_id: input_number.volume_speaker
+  action:
+    service: media_player.volume_set
+    data_template:
+      entity_id: >
+        {% if is_state('input_select.speakers', 'Living') %} media_player.living
+        {% elif is_state('input_select.speakers', 'Chromecast') %} media_player.chromecast
+        {% elif is_state('input_select.speakers', 'Kitchen') %} media_player.cocina
+        {% elif is_state('input_select.speakers', 'Bedroom') %} media_player.dormitorio
+        {% elif is_state('input_select.speakers', 'Everywhere') %} group.everywhere_speakers
+        {% endif %}
+      volume_level: "{{ states('input_number.volume_speaker')  }}"
+
+- alias: night_notification
+  trigger:
+    - platform: time
+      at:
+        - '22:00:00'
+        - '23:00:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.cocina
+          - media_player.living
+          - media_player.dormitorio
+        volume_level: 0.2
+    - delay: 5
+    - service: tts.google_say
+      data_template:
+        entity_id:
+          - media_player.cocina
+          - media_player.living
+          - media_player.dormitorio
+        language: es
+        message: >
+          "Son las {{ as_timestamp(now()) |  timestamp_custom("%I") }} en punto"
+
+- alias: Set volume of speakers based of time of day
+  use_blueprint:
+    path: set_speakers_vol_based_time.yaml
+    input:
+      volume_night: 0.1
+      daytime_ends: '23:15:00'
+      filter:
+        entity_id:
+          - media_player.living
+          - media_player.cocina
+          - media_player.dormitorio

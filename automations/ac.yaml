@@ -1,0 +1,107 @@
+---
+
+- alias: Turn on condensate pump
+  trigger:
+    - platform: state
+      entity_id: climate.living_ac
+      to:
+        - 'cool'
+        - 'heat'
+        - 'dry'
+    - platform: state
+      entity_id: climate.dormitorio_ac
+      to:
+        - 'cool'
+        - 'heat'
+        - 'heat_cool'
+        - 'dry'
+  action:
+    service: switch.turn_on
+    entity_id: switch.sonoff_1000854c6a
+
+- alias: Turn off condensate pump living
+  trigger:
+    - platform: state
+      entity_id: climate.living_ac
+      to: 'off'
+    - platform: state
+      entity_id: climate.dormitorio_ac
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: climate.dormitorio_ac
+      state: 'off'
+    - condition: state
+      entity_id: climate.living_ac
+      state: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.sonoff_1000854c6a
+
+- alias: Turn on office's AC
+  trigger:
+    platform: time
+    at: '08:30:00'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.ac_office_auto_trigger
+      state: 'on'
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.sonoff_100085069c
+
+- alias: From wall switch turn on office's AC
+  trigger:
+    platform: state
+    entity_id: switch.sonoff_1000950368_2
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: switch.sonoff_100085069c
+    state: 'off'
+  action:
+    service: switch.turn_on
+    entity_id: switch.sonoff_100085069c
+
+- alias: From wall switch turn off office's AC
+  trigger:
+    platform: state
+    entity_id: switch.sonoff_1000950368_2
+    to: 'off'
+  condition:
+    condition: state
+    entity_id: switch.sonoff_100085069c
+    state: 'on'
+  action:
+    service: switch.turn_off
+    entity_id: switch.sonoff_100085069c
+
+- alias: From office's AC sync to wall switch to on
+  trigger:
+    platform: state
+    entity_id: switch.sonoff_100085069c
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: switch.sonoff_1000950368_2
+    state: 'off'
+  action:
+    service: switch.turn_on
+    entity_id: switch.sonoff_1000950368_2
+
+- alias: From office's AC sync to wall switch to off
+  trigger:
+    platform: state
+    entity_id: switch.sonoff_100085069c
+    to: 'off'
+  condition:
+    condition: state
+    entity_id: switch.sonoff_1000950368_2
+    state: 'on'
+  action:
+    service: switch.turn_off
+    entity_id: switch.sonoff_1000950368_2

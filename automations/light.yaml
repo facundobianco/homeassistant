@@ -1,0 +1,109 @@
+---
+
+- alias: Sunrise
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '+00:00:00'
+  action:
+    service: light.turn_off
+    entity_id:
+      - light.outdoor
+      - light.living
+      - light.hallway
+      - light.wc
+
+- alias: Avoid Sunrise when Melacha is on
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '+00:00:00'
+  condition:
+    condition: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    state: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.table_lamp
+
+- alias: Sunset
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:45:00"
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.outdoor
+        - light.sonoff_1000766c93
+        - light.table_lamp
+    - service: hue.hue_activate_scene
+      data:
+        group_name: light.hallway
+        scene_name: Relax
+
+- alias: Midnight
+  trigger:
+    platform: time
+    at: '00:00:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.turn_off_but_outside
+    state: 'on'
+  action:
+    service: script.turn_off_but_outside
+
+- alias: Toggle floor lamp
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: floorlamp
+  action:
+    service: light.toggle
+    entity_id: light.sonoff_1000766c93
+
+- alias: Toggle kitchen light01
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: Kitchen_Button1
+  action:
+    service: light.toggle
+    entity_id: light.sonoff_100094ff53_1
+
+- alias: Toggle kitchen light02
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: Kitchen_Button2
+  action:
+    service: light.toggle
+    entity_id: light.sonoff_100094ff53_2
+
+- alias: Turn on lights at Shabbat veYom Tov
+  trigger:
+    platform: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    to: 'on'
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: light.living
+        scene_name: Relax
+    - service: light.turn_on
+      entity_id: light.sonoff_100094ff53_2
+    - service: hue.hue_activate_scene
+      data:
+        group_name: light.hallway
+        scene_name: Luminosa
+    - service: hue.hue_activate_scene
+      data:
+        group_name: light.bedroom
+        scene_name: Luminosa
+    - service: hue.hue_activate_scene
+      data:
+        group_name: light.wc
+        scene_name: Luminosa

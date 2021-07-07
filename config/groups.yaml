@@ -1,13 +1,5 @@
 ---
 
-sunset_lights:
-  name: Lights to turn on when sunset
-  icon: 'mdi:lightbulb-multiple'
-  entities:
-    - light.outdoor
-    - light.sonoff_1000766c93
-    - light.sonoff_1000770cc7
-
 turn_off_but_outside:
   name: Turn off all but outside light
   icon: mdi:lightbulb-multiple-off
@@ -24,12 +16,6 @@ basic_lights:
     - light.sonoff_1000766c93
     - light.hallway
     - light.table_lamp
-
-melacha_lights:
-  entities:
-    - light.sonoff_100094ff53_2
-    - light.hallway
-    - light.wc
 
 everywhere_speakers:
   entities:

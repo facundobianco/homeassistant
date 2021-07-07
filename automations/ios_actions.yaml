@@ -1,0 +1,116 @@
+---
+
+- alias: turn_off_but_outside
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: turn_off_but_outside
+  action:
+    service: script.turn_on
+    entity_id: script.turn_off_but_outside
+
+- alias: toggle_basic_lights
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: toggle_basic_lights
+  action:
+    service: light.toggle
+    entity_id: group.basic_lights
+
+- alias: toggle_living_ac
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: toggle_living_ac
+  action:
+    service_template: >
+      {% if is_state('climate.living_ac', 'off') %}
+        climate.turn_on
+      {% else %}
+        climate.turn_off
+      {% endif %}
+    entity_id: climate.living_ac
+
+- alias: toggle_bedroom_ac
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: toggle_bedroom_ac
+  action:
+    service_template: >
+      {% if is_state('climate.dormitorio_ac', 'off') %}
+        climate.turn_on
+      {% else %}
+        climate.turn_off
+      {% endif %}
+    entity_id: climate.dormitorio_ac
+
+- alias: toggle_stockroom_ac
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: toggle_stockroom_ac
+  action:
+    service: switch.toggle
+    entity_id: switch.sonoff_100085069c
+
+- alias: toggle_living_tv
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: toggle_living_tv
+  action:
+    - service: input_select.set_options
+      data:
+        entity_id: input_select.tv_location
+        options: 'Living'
+    - service: script.broadlink_send_command
+      data:
+        device: 'television'
+        command: 'power'
+
+- alias: toggle_bedroom_tv
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: toggle_bedroom_tv
+  action:
+    - service: input_select.set_options
+      data:
+        entity_id: input_select.tv_location
+        options: 'Bedroom'
+    - service: script.broadlink_send_command
+      data:
+        device: 'television'
+        command: 'power'
+
+- alias: wb_auto_trigger
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: wb_auto_trigger
+  action:
+    - service: input_boolean.toggle
+      data:
+        entity_id: input_boolean.wb_auto_trigger
+
+- alias: pihole_disable_30s
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: pihole_disable_30s
+  action:
+    - service: pi_hole.disable
+      data:
+        entity_id: switch.pihole
+        duration: '00:00:30'

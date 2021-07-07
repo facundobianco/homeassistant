@@ -1,0 +1,58 @@
+---
+
+- alias: fan_bedroom
+  trigger:
+    platform: state
+    entity_id: input_number.fan_bedroom
+  action:
+    service: fan.set_speed
+    data_template:
+      entity_id: fan.sonoff_1000954850
+      speed: >
+        {% if is_state('input_number.fan_bedroom', '0.0') %} off
+        {% elif is_state('input_number.fan_bedroom', '1.0') %} low
+        {% elif is_state('input_number.fan_bedroom', '2.0') %} medium
+        {% else %} high
+        {% endif %}
+
+- alias: fan_bedroom_sync
+  trigger:
+    platform: state
+    entity_id: fan.sonoff_1000954850
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.fan_bedroom
+      value: >
+        {% if is_state_attr('fan.sonoff_1000954850', 'speed', 'off') %} 0
+        {% elif is_state_attr('fan.sonoff_1000954850', 'speed', 'low') %} 1
+        {% elif is_state_attr('fan.sonoff_1000954850', 'speed', 'medium') %} 2
+        {% else %} 3
+        {% endif %}
+
+- alias: fan_bedroom_off_remote
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: fan_off
+  action:
+    service: fan.turn_off
+    entity_id: fan.sonoff_1000954850
+
+- alias: fan_bedroom_speed_remote
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: fan_speed
+  action:
+    service: fan.set_speed
+    data_template:
+      entity_id: fan.sonoff_1000954850
+      speed: >
+        {% set speed = state_attr('fan.sonoff_1000954850', 'speed') %}
+        {% if speed == 'off' or speed == 'high' %} low
+        {% elif speed == 'low' %} medium
+        {% else %} high
+        {% endif %}
