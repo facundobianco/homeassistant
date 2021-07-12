@@ -6,36 +6,66 @@ entities:
 
   - entity: light.living
     icon: mdi:lightbulb-multiple
-  - type: custom:paper-buttons-row
-    buttons:
-      - icon: mdi:book-open-page-variant
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: living
-            mode: reading
-      - icon: mdi:brightness-5
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: living
-            mode: white
-      - icon: mdi:palm-tree
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue_palmbeach
-      - icon: mdi:weather-night
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: living
-            mode: night
+  - type: 'custom:rgb-light-card'
+    justify: center
+    colors:
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: living
+          scene_name: Atenuada
+        icon_color: '#A4854D'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: living
+          scene_name: Relax
+        icon_color: '#C79342'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: living
+          scene_name: Luminosa
+        icon_color: '#FFCF78'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: living
+          scene_name: "Luz nocturna"
+        icon_color: '#7D4F13'
+  - type: 'custom:rgb-light-card'
+    justify: center
+    colors:
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: living
+          scene_name: 'Concentración'
+        icon_color: '#E0DED2'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: living
+          scene_name: "Palm Beach low"
+        icon_color: 'linear-gradient(15deg, #35B056, #7B59C7)'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: living
+          scene_name: "Blue Planet"
+        icon_color: 'linear-gradient(15deg, #70B866, #43ADE7)'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: living
+          scene_name: Tyrell
+        icon_color: 'linear-gradient(15deg, #43739B, #E046BF)'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: living
+          scene_name: "Vapor Wave"
+        icon_color: 'linear-gradient(15deg, #6D47AC, #ED9880)'
   - entity: light.sonoff_1000766c93
     icon: 'mdi:floor-lamp'
 
@@ -44,96 +74,96 @@ entities:
   - entity: light.sonoff_100094ff53_2
     name: Cocina 2
 
-  - type: custom:multiple-entity-row
-    entity: light.bedroom
+  - entity: light.bedroom
     icon: mdi:lightbulb-multiple
-    toggle: true
-    entities:
-      - icon: mdi:brightness-5
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: bedroom
-            mode: white
-      - icon: mdi:brightness-6
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: bedroom
-            mode: calm
-      - icon: mdi:weather-night
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: bedroom
-            mode: night
+  - type: 'custom:rgb-light-card'
+    justify: center
+    colors:
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: bedroom
+          scene_name: Atenuada
+        icon_color: '#A4854D'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: bedroom
+          scene_name: Relax
+        icon_color: '#C79342'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: bedroom
+          scene_name: Luminosa
+        icon_color: '#FFCF78'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: bedroom
+          scene_name: "Luz nocturna"
+        icon_color: '#7D4F13'
   - entity: light.table_lamp
     icon: mdi:lamp
 
-  - type: custom:multiple-entity-row
-    entity: light.hallway
-    toggle: true
-    entities:
-      - icon: mdi:brightness-5
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: hallway
-            mode: white
-      - icon: mdi:brightness-6
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: hallway
-            mode: calm
-      - icon: mdi:weather-night
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: hallway
-            mode: night
+  - entity: light.hallway
+  - type: 'custom:rgb-light-card'
+    justify: center
+    colors:
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: hallway
+          scene_name: Atenuada
+        icon_color: '#A4854D'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: hallway
+          scene_name: Relax
+        icon_color: '#C79342'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: hallway
+          scene_name: Luminosa
+        icon_color: '#FFCF78'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: hallway
+          scene_name: "Luz nocturna"
+        icon_color: '#7D4F13'
 
-  - type: custom:multiple-entity-row
-    entity: light.wc
+  - entity: light.wc
     icon: mdi:lightbulb-multiple
-    toggle: true
-    entities:
-      - icon: mdi:brightness-5
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: wc
-            mode: white
-      - icon: mdi:brightness-6
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: wc
-            mode: calm
-      - icon: mdi:weather-night
-        state_color: false
-        tap_action:
-          action: call-service
-          service: script.hue
-          service_data:
-            name: wc
-            mode: night
+  - type: 'custom:rgb-light-card'
+    justify: center
+    colors:
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: wc
+          scene_name: Atenuada
+        icon_color: '#A4854D'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: wc
+          scene_name: Relax
+        icon_color: '#C79342'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: wc
+          scene_name: Luminosa
+        icon_color: '#FFCF78'
+      - type: call-service
+        service: hue.hue_activate_scene
+        service_data:
+          group_name: wc
+          scene_name: "Luz nocturna"
+        icon_color: '#7D4F13'
 
   - light.sonoff_1000950368_1
   - light.outdoor
