@@ -48,6 +48,14 @@ panel_iframe:
     title: Pi-hole
     icon: mdi:pi-hole
     url: !secret iframe_pihole
+  grocy:
+    title: Grocy
+    icon: mdi:cart
+    url: !secret iframe_grocy
+  gantt:
+    title: Team Gantt
+    icon: mdi:chart-gantt
+    url: !secret iframe_teamgantt
 
 panel_custom:
   - name: panel-redirect
