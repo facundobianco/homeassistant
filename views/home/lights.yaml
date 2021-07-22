@@ -46,7 +46,7 @@ entities:
         service: hue.hue_activate_scene
         service_data:
           group_name: living
-          scene_name: "Palm Beach low"
+          scene_name: "Palm Beach Low"
         icon_color: 'linear-gradient(15deg, #35B056, #7B59C7)'
       - type: call-service
         service: hue.hue_activate_scene
