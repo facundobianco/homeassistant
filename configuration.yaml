@@ -84,17 +84,19 @@ tts:
     base_url: !secret http_base_url
     service_name: google_say
 
-group: !include config/groups.yaml
 automation: !include_dir_merge_list automations/
-sensor: !include config/sensors.yaml
 script: !include_dir_merge_named scripts/
-input_select: !include config/input_select.yaml
-input_text: !include config/input_text.yaml
-input_number: !include config/input_number.yaml
-input_boolean: !include config/input_boolean.yaml
+
+group: !include config/groups.yaml
+sensor: !include config/sensors.yaml
 switch: !include config/switch.yaml
 light: !include config/light.yaml
 climate: !include config/climate.yaml
+
+input_text: !include input/text.yaml
+input_number: !include input/number.yaml
+input_select: !include input/select.yaml
+input_boolean: !include input/boolean.yaml
 
 binary_sensor:
   - platform: workday
