@@ -27,3 +27,19 @@
 - platform: switch
   name: Table lamp
   entity_id: switch.sonoff_1000770cc7
+
+- platform: switch
+  name: Floor lamp
+  entity_id: switch.sonoff_1000766c93
+
+- platform: switch
+  name: Kitchen 1st
+  entity_id: switch.sonoff_100094ff53_1
+
+- platform: switch
+  name: Kitchen 2nd
+  entity_id: switch.sonoff_100094ff53_2
+
+- platform: switch
+  name: Office
+  entity_id: switch.sonoff_1000950368_1
