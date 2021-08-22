@@ -35,11 +35,10 @@
     - service: light.turn_on
       entity_id:
         - light.outdoor
-        - light.sonoff_1000766c93
         - light.table_lamp
     - service: hue.hue_activate_scene
       data:
-        group_name: light.hallway
+        group_name: hallway
         scene_name: Relax
 
 - alias: Midnight
@@ -61,7 +60,7 @@
       name: floorlamp
   action:
     service: light.toggle
-    entity_id: light.sonoff_1000766c93
+    entity_id: light.floor_lamp
 
 - alias: Toggle kitchen light01
   trigger:
@@ -71,7 +70,7 @@
       name: Kitchen_Button1
   action:
     service: light.toggle
-    entity_id: light.sonoff_100094ff53_1
+    entity_id: light.kitchen_1st
 
 - alias: Toggle kitchen light02
   trigger:
@@ -81,9 +80,9 @@
       name: Kitchen_Button2
   action:
     service: light.toggle
-    entity_id: light.sonoff_100094ff53_2
+    entity_id: light.kitchen_2nd
 
-- alias: Turn on lights at Shabbat veYom Tov
+- alias: Turn on lights at Shabbatot
   trigger:
     platform: state
     entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
@@ -91,19 +90,71 @@
   action:
     - service: hue.hue_activate_scene
       data:
-        group_name: light.living
-        scene_name: Relax
+        group_name: living
+        scene_name: Luminosa
+    - service: hue.hue_activate_scene
+      data:
+        group_name: hallway
+        scene_name: Luminosa
+    - service: hue.hue_activate_scene
+      data:
+        group_name: bedroom
+        scene_name: Luminosa
+    - service: hue.hue_activate_scene
+      data:
+        group_name: wc
+        scene_name: Luminosa
     - service: light.turn_on
-      entity_id: light.sonoff_100094ff53_2
+      entity_id: light.kitchen_2nd
+    - service: light.turn_off
+      entity_id: light.floor_lamp
+
+- alias: Turn off lights on Shabbatot at night
+  trigger:
+    platform: time
+    at: '00:30:00'
+  condition:
+    condition: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.bedroom
+        - light.kitchen_2nd
     - service: hue.hue_activate_scene
       data:
-        group_name: light.hallway
+        group_name: living
+        scene_name: "Luz nocturna"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: hallway
+        scene_name: "Luz nocturna"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: wc
+        scene_name: "Luz nocturna"
+
+- alias: Turn on lights on Shabbatot at morning
+  trigger:
+    platform: time
+    at: '09:00:00'
+  condition:
+    condition: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    state: 'on'
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: living
         scene_name: Luminosa
     - service: hue.hue_activate_scene
       data:
-        group_name: light.bedroom
+        group_name: hallway
         scene_name: Luminosa
     - service: hue.hue_activate_scene
       data:
-        group_name: light.wc
+        group_name: wc
         scene_name: Luminosa
+    - service: light.turn_on
+      entity_id: light.kitchen_2nd
