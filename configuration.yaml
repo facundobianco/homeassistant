@@ -75,7 +75,7 @@ google_assistant:
     - light
     - climate
     - fan
-  entity_config: !include config/google_assistant_entities.yaml
+  entity_config: !include extra_config/google_assistant_entities.yaml
 
 tts:
   - platform: google_translate
@@ -87,11 +87,11 @@ tts:
 automation: !include_dir_merge_list automations/
 script: !include_dir_merge_named scripts/
 
-group: !include config/groups.yaml
-sensor: !include config/sensors.yaml
-switch: !include config/switch.yaml
-light: !include config/light.yaml
-climate: !include config/climate.yaml
+group: !include extra_config/groups.yaml
+sensor: !include extra_config/sensors.yaml
+switch: !include extra_config/switch.yaml
+light: !include extra_config/light.yaml
+climate: !include extra_config/climate.yaml
 
 input_text: !include input/text.yaml
 input_number: !include input/number.yaml
@@ -114,7 +114,7 @@ binary_sensor:
 
 mobile_app:
 ios:
-  actions: !include config/ios_actions.yaml
+  actions: !include extra_config/ios_actions.yaml
 
 homeassistant:
   external_url: !secret http_base_url
@@ -134,7 +134,7 @@ influxdb:
   exclude:
     entity_globs: "*"
   include:
-    entities: !include config/influxdb_entities.yaml
+    entities: !include extra_config/influxdb_entities.yaml
 
 jewish_calendar:
   language: english
