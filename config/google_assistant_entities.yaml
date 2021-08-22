@@ -49,8 +49,12 @@ light.living_2:
 light.bedroom_2:
   expose: false
 
+# sensors
+switch.sonoff_100085069c:
+  expose: false
+
 # Unavailable
-switch.sonoff_1000950368_1:
+switch.office:
   expose: false
 switch.sonoff_1000950368_2:
   expose: false
@@ -66,6 +70,8 @@ light.sonoff_1000951b70:
   expose: false
 light.sonoff_1000951aac:
   expose: false
+light.sonoff_1000950368_1:
+  expose: false
 
 # Living
 light.living:
@@ -77,7 +83,7 @@ light.living:
     - "Luz principal"
   room: Living
 
-light.sonoff_1000766c93:
+light.floor_lamp:
   name: "Lámpara de pie"
   aliases:
     - "Lámpara living"
@@ -118,7 +124,7 @@ switch.160505002cf432c55139:
   room: Living
 
 # Kitchen
-light.sonoff_100094ff53_1:
+light.kitchen_1st:
   name: "Luz principal"
   aliases:
     - "Cocina"
@@ -126,7 +132,7 @@ light.sonoff_100094ff53_1:
     - "Luz principal"
   room: Cocina
 
-light.sonoff_100094ff53_2:
+light.kitchen_2nd:
   name: "Luz secundaria"
   room: Cocina
 
@@ -225,24 +231,18 @@ light.wc:
   room: WC
 
 # Stockroom
-light.sonoff_1000950368_1:
-  name: "Luz depósito"
+light.office:
+  name: "Luz oficina"
   aliases:
-    - "Depósito"
-  room: Stockroom
+    - "Oficina"
+  room: Office
 
-switch.sonoff_100085069c:
-  name: "Aire depósito"
+climate.office:
+  name: "Aire oficina"
   aliases:
-    - "Depósito"
-    - "Aire acondicionado depósito"
-  room: Stockroom
-
-sensor.deposito_temperatura:
-  name: "Depósito"
-  aliases:
-    - "Temperatura depósito"
-  room: Stockroom
+    - "Oficina"
+    - "Aire acondicionado Oficina"
+  room: Office
 
 # Misc
 switch.sonoff_100076dd3e:

@@ -15,17 +15,17 @@ cards:
 
       # lights
       - light.living
-      - entity: light.sonoff_1000766c93
+      - entity: light.floor_lamp
         icon: 'mdi:floor-lamp'
-      - entity: light.sonoff_100094ff53_1
+      - entity: light.kitchen_1st
         name: Cocina 1
-      - entity: light.sonoff_100094ff53_2
+      - entity: light.kitchen_2nd
         name: Cocina 2
       - light.hallway
       - light.bedroom
       - light.table_lamp
       - light.wc
-      - light.sonoff_1000950368_1
+      - light.office
       - light.outdoor
 
       # AC

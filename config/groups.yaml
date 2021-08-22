@@ -4,16 +4,16 @@ turn_off_but_outside:
   name: Turn off all but outside light
   icon: mdi:lightbulb-multiple-off
   entities:
-    - light.sonoff_1000766c93
-    - light.sonoff_100094ff53_1
-    - light.sonoff_100094ff53_2
-    - light.sonoff_1000950368_1
+    - light.floor_lamp
+    - light.kitchen_1st
+    - light.kitchen_2nd
+    - light.office
     - light.living
     - light.bedroom
 
 basic_lights:
   entities:
-    - light.sonoff_1000766c93
+    - light.floor_lamp
     - light.hallway
     - light.table_lamp
 

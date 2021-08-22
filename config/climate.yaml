@@ -1,0 +1,25 @@
+---
+
+- platform: smartir
+  name: Living
+  unique_id: living_ac
+  device_code: 2000
+  controller_data: remote.living_remote
+  temperature_sensor: sensor.lu7and_inside_temp
+  humidity_sensor: sensor.lu7and_humidity_in
+  power_sensor: binary_sensor.ac_power
+
+- platform: smartir
+  name: Dormitorio
+  unique_id: dormitorio_ac
+  device_code: 1400
+  controller_data: remote.bedroom_remote
+  temperature_sensor: sensor.dormitorio_temperatura
+  humidity_sensor: sensor.dormitorio_humidity
+  power_sensor: binary_sensor.ac_power
+
+- platform: generic_thermostat
+  name: Office
+  ac_mode: true
+  heater: switch.sonoff_100085069c
+  target_sensor: sensor.deposito_temperatura

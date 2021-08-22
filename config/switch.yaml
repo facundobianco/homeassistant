@@ -5,7 +5,7 @@
       value_template: "{{ is_state('sensor.pihole_status', 'Enabled') }}"
       turn_on:
         service: switch.turn_on
-        data:
+        target:
           entity_id: switch.pihole_google_entity
       turn_off:
         service: pi_hole.disable
@@ -75,3 +75,16 @@
       turn_off:
         service: climate.turn_off
         entity_id: climate.dormitorio_ac
+
+    climate_office:
+      friendly_name: Office
+      icon_template: mdi:air-conditioner
+      value_template: "{{ states('switch.sonoff_100085069c') }}"
+      turn_on:
+        service: switch.turn_on
+        target:
+          entity_id: switch.sonoff_100085069c
+      turn_off:
+        service: switch.turn_off
+        target:
+          entity_id: switch.sonoff_100085069c

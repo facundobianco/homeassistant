@@ -66,12 +66,12 @@ entities:
           group_name: living
           scene_name: "Vapor Wave"
         icon_color: 'linear-gradient(15deg, #6D47AC, #ED9880)'
-  - entity: light.sonoff_1000766c93
+  - entity: light.floor_lamp
     icon: 'mdi:floor-lamp'
 
-  - entity: light.sonoff_100094ff53_1
+  - entity: light.kitchen_1st
     name: Cocina 1
-  - entity: light.sonoff_100094ff53_2
+  - entity: light.kitchen_2nd
     name: Cocina 2
 
   - entity: light.bedroom
@@ -165,7 +165,7 @@ entities:
           scene_name: "Luz nocturna"
         icon_color: '#7D4F13'
 
-  - light.sonoff_1000950368_1
+  - light.office
   - light.outdoor
 
   - type: divider
