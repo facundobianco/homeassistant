@@ -1,0 +1,100 @@
+---
+
+# eWeLink Sonoff TH16
+- platform: template
+  sensors:
+    dormitorio_temperatura:
+      friendly_name: Temperatura dormitorio
+      device_class: temperature
+      unit_of_measurement: '°C'
+      value_template: "{{ state_attr('switch.sonoff_10008504ad', 'temperature') | round(1) }}"
+    dormitorio_humedad:
+      friendly_name: Humedad dormitorio
+      device_class: humidity
+      unit_of_measurement: '%'
+      value_template: "{{ state_attr('switch.sonoff_10008504ad', 'humidity') }}"
+    termotanque_temperatura:
+      friendly_name: Temperatura termotanque
+      device_class: temperature
+      unit_of_measurement: '°C'
+      value_template: "{{ state_attr('switch.sonoff_10008508fb', 'temperature') | round(1) }}"
+    termotanque_humedad:
+      friendly_name: Humedad termotanque
+      device_class: humidity
+      unit_of_measurement: '%'
+      value_template: "{{ state_attr('switch.sonoff_10008508fb', 'humidity') }}"
+    deposito_temperatura:
+      friendly_name: Temperatura deposito
+      device_class: temperature
+      unit_of_measurement: '°C'
+      value_template: "{{ state_attr('switch.sonoff_100085069c', 'temperature') | round(1) }}"
+    deposito_humedad:
+      friendly_name: Humedad deposito
+      device_class: humidity
+      unit_of_measurement: '%'
+      value_template: "{{ state_attr('switch.sonoff_100085069c', 'humidity') }}"
+    condensate_pump:
+      friendly_name: Condensate pump
+      icon_template: >-
+        {% if is_state('switch.sonoff_1000854c6a', 'on') %} mdi:water
+        {% else %} mdi:water-remove
+        {% endif %}
+      value_template: "{{ states('switch.sonoff_1000854c6a') | capitalize }}"
+    condensate_pump_watt:
+      unit_of_measurement: W
+      value_template: "{{ state_attr('switch.sonoff_1000854c6a', 'power') | round }}"
+
+# Weather Station (metric system)
+- platform: template
+  sensors:
+    rel_pressure:
+      friendly_name: Relative pressure
+      unit_of_measurement: hPa
+      device_class: pressure
+      value_template: >-
+        {% set val = float(states('sensor.lu7and_rel_pressure')) %}
+        {{ (val / 0.029529983071445) | round(2) }}
+    daily_rain:
+      friendly_name: Daily rain
+      icon_template: mdi:weather-rainy
+      unit_of_measurement: mm
+      value_template: >-
+        {% set val = float(states('sensor.lu7and_daily_rain')) %}
+        {{ (val * 25.4)  | round(2) }}
+    hourly_rain:
+      friendly_name: Hourly rain
+      icon_template: mdi:weather-rainy
+      unit_of_measurement: mm
+      value_template: >-
+        {% set val = float(states('sensor.lu7and_hourly_rain_rate')) %}
+        {{ (val * 25.4)  | round(2) }}
+    wind_speed:
+      friendly_name: Wind speed
+      icon_template: mdi:weather-windy
+      unit_of_measurement: "km/h"
+      value_template: "{{ (states('sensor.lu7and_wind_speed') | float * 1.609) | round(2) }}"
+    wind_gust:
+      friendly_name: Wind gust
+      icon_template: mdi:weather-windy
+      unit_of_measurement: "km/h"
+      value_template: "{{ (states('sensor.lu7and_wind_gust') | float * 1.609) | round(2) }}"
+    wind_dir:
+      friendly_name: Wind direction
+      icon_template: >-
+        {% set direction = ['up', 'top-right', 'right', 'bottom-right', 'down', 'bottom-left', 'left', 'top-left' ] %}
+        {% set deg = float(states('sensor.lu7and_wind_dir')) %}
+        {% set div = 45 %}
+        {% for i in range(0, 8) %}
+          {% if deg >= (div * i) and deg <= (div * ( i + 1 ) - 0.1) %}
+            mdi:arrow-{{ direction[i] }}
+          {% endif %}
+        {% endfor %}
+      value_template: >-
+        {% set cardinal = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'] %}
+        {% set deg = float(states('sensor.lu7and_wind_dir')) %}
+        {% set div = 22.5 %}
+        {% for i in range(0, 16) %}
+          {% if deg >= (div * i) and deg <= (div * ( i + 1 ) - 0.1) %}
+            {{ cardinal[i] }}
+          {% endif %}
+        {% endfor %}

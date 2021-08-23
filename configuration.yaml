@@ -86,9 +86,9 @@ tts:
 
 automation: !include_dir_merge_list automations/
 script: !include_dir_merge_named scripts/
+sensor: !include_dir_merge_list sensors/
 
 group: !include extra_config/groups.yaml
-sensor: !include extra_config/sensors.yaml
 switch: !include extra_config/switch.yaml
 light: !include extra_config/light.yaml
 climate: !include extra_config/climate.yaml

@@ -1,0 +1,131 @@
+---
+
+- platform: moon
+
+- platform: template
+  sensors:
+    sun_elevation:
+      friendly_name: Sun elevation
+      unit_of_measurement: "deg"
+      icon_template: mdi:white-balance-sunny
+      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    sun_elevation_wo_neg:
+      friendly_name: Sun
+      unit_of_measurement: "deg"
+      value_template: >-
+        {% set sun_elevation = state_attr('sun.sun', 'elevation') %}
+        {% if sun_elevation >= 1 %}
+          {{ sun_elevation }}
+        {% else %}
+          0
+        {% endif %}
+
+- platform: rest
+  name: Astronomy API
+  resource_template: "https://api.ipgeolocation.io/astronomy?apiKey={{ states('input_text.ipgeolocation_token') }}&lat={{ states('input_text.latitude') }}&long={{ states('input_text.longitude') }}"
+  json_attributes:
+    - sunrise
+    - sunset
+    - solar_noon
+    - day_length
+    - moonrise
+    - moonset
+    - moon_altitude
+  value_template: "OK"
+  scan_interval: 180
+- platform: template
+  sensors:
+    sun_status:
+      friendly_name: Sun status
+      icon_template: mdi:weather-sunny
+      value_template: "OK"
+      attribute_templates:
+        sunrise: "{{ state_attr('sensor.astronomy_api', 'sunrise') }}"
+        noon: "{{ state_attr('sensor.astronomy_api', 'solar_noon') }}"
+        sunset: "{{ state_attr('sensor.astronomy_api', 'sunset') }}"
+    day_length:
+      friendly_name: Day length
+      unit_of_measurement: "hours"
+      icon_template: mdi:weather-sunny
+      value_template: "{{ state_attr('sensor.astronomy_api', 'day_length') }}"
+    moon_status:
+      friendly_name: Moon status
+      icon_template: mdi:moon-waning-crescent
+      value_template: "OK"
+      attribute_templates:
+        moonrise: "{{ state_attr('sensor.astronomy_api', 'moonrise') }}"
+        moonset: "{{ state_attr('sensor.astronomy_api', 'moonset') }}"
+        lunarnoon: >
+          {% set moonrise = as_timestamp(now().strftime('%F ' + state_attr('sensor.astronomy_api', 'moonrise') + ':00.000000-03:00')) %}
+          {% set moonset =  as_timestamp((now() + timedelta(hours=24)).strftime('%F ' + state_attr('sensor.astronomy_api', 'moonset') + ':00.000000-03:00')) %}
+          {% set diff = ( moonset - moonrise ) / 2 %}
+          {{ ( moonrise + diff ) | timestamp_custom('%R') }}
+    moon_elevation:
+      friendly_name: Moon elevation
+      unit_of_measurement: "deg"
+      icon_template: mdi:moon-waning-crescent
+      value_template: "{{ state_attr('sensor.astronomy_api', 'moon_altitude') | round(2) }}"
+    moon_elevation_wo_neg:
+      friendly_name: Moon
+      unit_of_measurement: "deg"
+      value_template: >-
+        {% set moon_elevation = state_attr('sensor.astronomy_api', 'moon_altitude') | round(2) %}
+        {% if moon_elevation >= 1 %}
+          {{ moon_elevation }}
+        {% else %}
+          0
+        {% endif %}
+
+# UTC to localtime
+- platform: template
+  sensors:
+    local_alot_hashachar:
+      friendly_name: Alot Hashachar
+      icon_template: mdi:weather-sunset-up
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_alot_hashachar')) | timestamp_custom('%H:%M') }}"
+    local_latest_shema:
+      friendly_name: Latest time for Shema (MG"A)
+      icon_template: mdi:calendar-clock
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_latest_time_for_shma_mg_a')) | timestamp_custom('%H:%M') }}"
+    local_latest_shacharit:
+      friendly_name: Latest time for Shacharit (MG"A)
+      icon_template: mdi:calendar-clock
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_latest_time_for_tefilla_mg_a')) | timestamp_custom('%H:%M') }}"
+    local_mincha_gedola:
+      friendly_name: Mincha Gedola
+      icon_template: mdi:calendar-clock
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_mincha_gedola')) | timestamp_custom('%H:%M') }}"
+    local_mincha_ketana:
+      friendly_name: Mincha Ketana
+      icon_template: mdi:calendar-clock
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_mincha_ketana')) | timestamp_custom('%H:%M') }}"
+    local_plag_hamincha:
+      friendly_name: Plag Hamincha
+      icon_template: mdi:weather-sunset-down
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_plag_hamincha')) | timestamp_custom('%H:%M') }}"
+    local_upcoming_candle_lighting:
+      friendly_name: Upcoming Candle Lighting
+      icon_template: mdi:candle
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_upcoming_candle_lighting')) | timestamp_custom('%a %d, %H:%M') }}"
+    local_tzeit_hakochavim:
+      friendly_name: Tzeit Hakochavim (Three stars)
+      icon_template: mdi:weather-night
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_t_set_hakochavim')) | timestamp_custom('%H:%M') }}"
+    local_upcoming_havdalah:
+      friendly_name: Upcoming Havdalah
+      icon_template: mdi:weather-night
+      value_template: "{{ as_timestamp(states('sensor.jewish_calendar_upcoming_havdalah')) | timestamp_custom('%a %d, %H:%M') }}"
+    kiddush_levanah:
+      friendly_name: Kiddush Levanah
+      icon_template: >-
+        {% if is_state('sensor.moon', 'waxing_gibbous') or  is_state('sensor.moon', 'full_moon') %}
+          mdi:eye-outline
+        {% else %}
+          mdi:eye-off-outline
+        {% endif %}
+      value_template: >-
+        {% if is_state('sensor.moon', 'waxing_gibbous') or  is_state('sensor.moon', 'full_moon') %}
+          Yes
+        {% else %}
+          Not yet
+        {% endif %}

@@ -1,0 +1,107 @@
+---
+
+- platform: systemmonitor
+  resources:
+    - type: last_boot
+    - type: processor_use
+    - type: memory_use_percent
+    - type: memory_use
+    - type: disk_use_percent
+      arg: /
+    - type: disk_use_percent
+      arg: /var/log
+    - type: process
+      arg: apt
+    - type: process
+      arg: apt-get
+
+- platform: template
+  sensors:
+    uptime:
+      friendly_name: Uptime
+      icon_template: mdi:clock-outline
+      unit_of_measurement: days
+      value_template: >-
+        {% set last_boot = as_timestamp(states('sensor.last_boot')) %}
+        {% set now = as_timestamp(now()) %}
+        {{ ((now - last_boot) / 86400) | round(0) }}
+
+- platform: command_line
+  name: CPU Temperature
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) | round(1) }}'
+
+- platform: command_line
+  name: Raspbian
+  scan_interval: 900
+  command: "apt list --upgradeable | sed -e 1d | sed -n 's!^\\([^/]*\\)/[^0-9]*\\([^ ]*\\) [a-z].*: \\([^]]*\\)]!{ \"name\": \"\\1\", \"installed_version\": \"\\3\", \"available_version\": \"\\2\" },!p' | sed -e '1s/^/{ \"packages\": [/' -e '$s/},/}] }/'"
+  unit_of_measurement: "pending update(s)"
+  value_template: >-
+    {% if value_json is defined %} {{ value_json.packages | count }}
+    {% else %} 0
+    {% endif %}
+  json_attributes:
+    - packages
+
+- platform: version
+  name: Current
+  source: local
+
+- platform: version
+  name: Latest
+  source: pypi
+
+# https://github.com/pi-hole/AdminLTE/blob/master/api.php
+- platform: rest
+  name: PiHole status
+  resource: "http://127.0.0.1:8080/admin/api.php?status"
+  scan_interval: 3
+  value_template: >
+    {{ value_json.status | capitalize }}
+
+- platform: rest
+  name: PiHole versions
+  resource: "http://127.0.0.1:8080/admin/api.php?versions"
+  json_attributes:
+    - core_branch
+    - core_current
+    - core_latest
+    - core_update
+    - web_branch
+    - web_current
+    - web_latest
+    - web_update
+    - FTL_branch
+    - FTL_current
+    - FTL_latest
+    - FTL_update
+  value_template: "OK"
+  scan_interval: 3600
+
+- platform: template
+  sensors:
+    ha_version:
+      friendly_name: Home Assistant
+      icon_template: mdi:home-assistant
+      unit_of_measurement: "pending update(s)"
+      value_template: >
+        {% if states('sensor.current') != states('sensor.latest') %} 1
+        {% else %} 0
+        {% endif %}
+      attribute_templates:
+        Details: "Installed version: {{ states('sensor.current') }}{% if states('sensor.current') != states('sensor.latest') %}, Latest: {{ states('sensor.latest') }}{% endif %}"
+    pihole_version:
+      friendly_name: Pihole
+      icon_template: mdi:pi-hole
+      unit_of_measurement: "pending update(s)"
+      value_template: >
+        {% set flag = 0 %}
+        {% if state_attr('sensor.pihole_versions', 'core_current') != state_attr('sensor.pihole_versions', 'core_latest') %}{% set flag = flag + 1 %}{% endif %}
+        {% if state_attr('sensor.pihole_versions', 'web_current') != state_attr('sensor.pihole_versions', 'web_latest') %}{% set flag = flag + 1 %}{% endif %}
+        {% if state_attr('sensor.pihole_versions', 'FTL_current') != state_attr('sensor.pihole_versions', 'FTL_latest') %}{% set flag = flag + 1 %}{% endif %}
+        {{ flag }}
+      attribute_templates:
+        Core: "Installed version: {{ state_attr('sensor.pihole_versions', 'core_current') }}{% if state_attr('sensor.pihole_versions', 'core_current') != state_attr('sensor.pihole_versions', 'core_latest') %}, Latest: {{ state_attr('sensor.pihole_versions', 'core_latest') }}{% endif %}"
+        Web: "Installed version: {{ state_attr('sensor.pihole_versions', 'web_current') }}{% if state_attr('sensor.pihole_versions', 'web_current') != state_attr('sensor.pihole_versions', 'web_latest') %}, Latest: {{ state_attr('sensor.pihole_versions', 'core_latest') }}{% endif %}"
+        FTL: "Installed version: {{ state_attr('sensor.pihole_versions', 'FTL_current') }}{% if state_attr('sensor.pihole_versions', 'FTL_current') != state_attr('sensor.pihole_versions', 'FTL_latest') %}, Latest: {{ state_attr('sensor.pihole_versions', 'core_latest') }}{% endif %}"
