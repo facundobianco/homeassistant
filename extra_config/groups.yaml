@@ -8,7 +8,6 @@ turn_off_but_outside:
     - light.kitchen_1st
     - light.kitchen_2nd
     - light.office
-    - light.living
     - light.bedroom
 
 basic_lights:
