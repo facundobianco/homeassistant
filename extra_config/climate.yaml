@@ -23,3 +23,11 @@
   ac_mode: true
   heater: switch.sonoff_100085069c
   target_sensor: sensor.deposito_temperatura
+
+- platform: generic_thermostat
+  name: Water Heater
+  ac_mode: false
+  heater: switch.sonoff_10008508fb
+  target_sensor: sensor.termotanque_temperatura
+  #target_temp: 64
+  #hot_tolerance: 0.1

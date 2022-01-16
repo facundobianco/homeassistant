@@ -88,3 +88,29 @@
         service: switch.turn_off
         target:
           entity_id: switch.sonoff_100085069c
+
+    plug_left:
+      friendly_name: Plug at left
+      icon_template: mdi:power-socket-au
+      value_template: "{{ states('switch.ebd3e3a329b4054394h4ah') }}"
+      turn_on:
+        service: switch.turn_on
+        target:
+          entity_id: switch.ebd3e3a329b4054394h4ah
+      turn_off:
+        service: switch.turn_off
+        target:
+          entity_id: switch.ebd3e3a329b4054394h4ah
+
+    plug_right:
+      friendly_name: Plug at right
+      icon_template: mdi:power-socket-au
+      value_template: "{{ states('switch.160505002cf432c53e7b') }}"
+      turn_on:
+        service: switch.turn_on
+        target:
+          entity_id: switch.160505002cf432c53e7b
+      turn_off:
+        service: switch.turn_off
+        target:
+          entity_id: switch.160505002cf432c53e7b
