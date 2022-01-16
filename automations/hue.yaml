@@ -1,23 +1,24 @@
 ---
 
-- alias: Reuse Hue switch turn on
+- alias: Reuse Hue switch to turn on table lamp
   trigger:
-    # table lamp
-    - device_id: b41fd3adfe6c7602f8cc40abaeceff9f
-      domain: hue
-      platform: device
-      type: remote_button_short_release
-      subtype: turn_on
-    - device_id: b41fd3adfe6c7602f8cc40abaeceff9f
-      domain: hue
-      platform: device
-      type: remote_button_short_release
-      subtype: turn_off
+    - platform: event
+      event_type: hue_event
+      event_data:
+        id: table_lamp_button
+        type: initial_press
+        subtype: 1
+    - platform: event
+      event_type: hue_event
+      event_data:
+        id: table_lamp_button
+        type: initial_press
+        subtype: 4
   action:
     choose:
       conditions:
         condition: template
-        value_template: "{{ trigger.event.data.event == 1002 }}"
+        value_template: "{{ trigger.event.data.subtype == 1 }}"
       sequence:
         service: light.turn_on
         entity_id: light.table_lamp
@@ -30,38 +31,37 @@
     - platform: event
       event_type: hue_event
       event_data:
-        id: living_1
+        id: living_1_button
     - platform: event
       event_type: hue_event
       event_data:
-        id: living_2
+        id: living_2_button
     - platform: event
       event_type: hue_event
       event_data:
-        id: hallway
+        id: hallway_button
     - platform: event
       event_type: hue_event
       event_data:
-        id: bedroom
+        id: bedroom_button
     - platform: event
       event_type: hue_event
       event_data:
-        id: wc
+        id: wc_button
   variables:
     zone: "{{ trigger.event.data.id | regex_replace('_.*', '') }}"
-    button: "{{ trigger.event.data.event }}"
+    type: "{{ trigger.event.data.type }}"
+    button: "{{ trigger.event.data.subtype }}"
     light: "light.{{ zone }}"
     bri: "{{ state_attr(light, 'brightness') }}"
   condition:
     condition: template
-    value_template: >
-      {{ button in [ 1002, 1003, 2002, 3002, 4002 ] }}
+    value_template: "{{ not type | regex_match('.*_release') }}"
   action:
     choose:
       - alias: Turn on night mode
         conditions:
-          - condition: template
-            value_template: "{{ button == 1002 }}"
+          - "{{ button == 1 }}"
           - condition: template
             value_template: "{{ states(light) == 'off' }}"
           - condition: time
@@ -73,19 +73,20 @@
             scene_name: "Luz nocturna"
       - alias: Turn on
         conditions:
-          - "{{ button == 1002 }}"
+          - "{{ button == 1 }}"
+          - "{{ type != 'repeat' }}"
         sequence:
           service: hue.hue_activate_scene
           data:
             group_name: "{{ zone }}"
             scene_name: >
               {% if bri == None or bri <= 75 or bri == 255 %} Atenuada
-              {% elif bri >= 76 and bri <= 143 %} Relax
               {% else %} Luminosa
               {% endif %}
       - alias: Turn on night mode on press
         conditions:
-          - "{{ button == 1003 }}"
+          - "{{ button == 1 }}"
+          - "{{ type == 'repeat' }}"
         sequence:
           service: hue.hue_activate_scene
           data:
@@ -93,7 +94,7 @@
             scene_name: "Luz nocturna"
       - alias: Increase brightness
         conditions:
-          - "{{ button == 2002 }}"
+          - "{{ button == 2 }}"
           - "{{ states(light) == 'on' }}"
         sequence:
           service: light.turn_on
@@ -102,7 +103,7 @@
             brightness_step: 85
       - alias: Decrease brightness
         conditions:
-          - "{{ button == 3002 }}"
+          - "{{ button == 3 }}"
           - "{{ states(light) == 'on' }}"
         sequence:
           service: light.turn_on
@@ -113,7 +114,7 @@
               {% else %} 1
               {% endif %}
       - alias: Turn off
-        conditions: "{{ button == 4002 }}"
+        conditions: "{{ button == 4 }}"
         sequence:
           service: light.turn_off
           data_template:
