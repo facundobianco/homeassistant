@@ -9,11 +9,13 @@ google_service_account.json
 *.db-wal
 *.py
 *.log
-*.2020*
+*.fault
+*.[1-9]*
 *.swp
 automations.yaml
 http.yaml
 secrets.yaml
+ip_bans.yaml
 output.txt
 custom_components/
 deps/
