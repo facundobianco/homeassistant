@@ -46,9 +46,12 @@
     platform: time
     at: '00:00:00'
   condition:
-    condition: state
-    entity_id: input_boolean.turn_off_but_outside
-    state: 'on'
+    - condition: state
+      entity_id: input_boolean.turn_off_but_outside
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+      state: 'off'
   action:
     service: script.turn_off_but_outside
 
@@ -121,6 +124,7 @@
     - service: light.turn_off
       entity_id:
         - light.bedroom
+        - light.kitchen_1st
         - light.kitchen_2nd
     - service: hue.hue_activate_scene
       data:
@@ -154,7 +158,37 @@
         scene_name: Luminosa
     - service: hue.hue_activate_scene
       data:
+        group_name: bedroom
+        scene_name: Luminosa
+    - service: hue.hue_activate_scene
+      data:
         group_name: wc
         scene_name: Luminosa
     - service: light.turn_on
       entity_id: light.kitchen_2nd
+
+- alias: Turn off bedroom lights on Shabbatot at noon
+  trigger:
+    platform: time
+    at: '11:30:00'
+  condition:
+    condition: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.bedroom
+
+- alias: Update lights after Shabbatot
+  trigger:
+    platform: state
+    entity_id: binary_sensor.jewish_calendar_issur_melacha_in_effect
+    to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.living
+        - light.kitchen_2nd
+        - light.wc
+    - service: light.turn_on
+      entity_id: light.floor_lamp
