@@ -101,16 +101,8 @@ input_boolean: !include input/boolean.yaml
 binary_sensor:
   - platform: workday
     country: AR
-    add_holidays:
-      - '2021-05-24'
-      - '2021-06-21'
-      - '2021-08-16'
-      - '2021-10-11'
-      - '2021-11-22'
-    remove_holidays:
-      - '2021-06-17'
-      - '2021-08-17'
-      - '2021-10-12'
+    add_holidays: !include holidays_add.yaml
+    remove_holidays: !include holidays_del.yaml
 
 mobile_app:
 ios:
@@ -130,11 +122,11 @@ homeassistant:
       trusted_networks:
         - 192.168.1.0/24
 
-influxdb:
-  exclude:
-    entity_globs: "*"
-  include:
-    entities: !include extra_config/influxdb_entities.yaml
+#influxdb:
+# exclude:
+#   entity_globs: "*"
+# include:
+#   entities: !include extra_config/influxdb_entities.yaml
 
 jewish_calendar:
   language: english

@@ -16,6 +16,7 @@ automations.yaml
 http.yaml
 secrets.yaml
 ip_bans.yaml
+holidays_*yaml
 output.txt
 custom_components/
 deps/
