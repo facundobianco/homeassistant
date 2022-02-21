@@ -8,8 +8,8 @@ cards:
 
   - type: entity-filter
     state_filter:
-      - operator: "!="
-        value: "off"
+      - operator: "=="
+        value: "on"
     show_empty: false
     entities:
 
